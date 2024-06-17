@@ -150,11 +150,6 @@
 			<eqn>kW</eqn>
 			<alias>kilowatt</alias>
 		</unit>
-		<unit name="Dollar">
-			<eqn>$</eqn>
-			<alias>Dollars</alias>
-			<alias>$s</alias>
-		</unit>
 		<unit name="Hour">
 			<eqn/>
 			<alias>Hours</alias>
@@ -231,6 +226,11 @@
 		</unit>
 		<unit name="GtN2O">
 			<eqn>Giga*tN2O</eqn>
+		</unit>
+		<unit name="Dollar">
+			<eqn>$</eqn>
+			<alias>Dollars</alias>
+			<alias>$s</alias>
 		</unit>
 	</model_units>
 	<model name="Sea_Level">
@@ -1065,12 +1065,12 @@ Include_MICI_behaviour * AntIS_MICI_disintegration_rate * AntIS_initial_volume /
 				<units>W*year/metre^2/K</units>
 			</aux>
 			<aux name="Expected global SLR\nin 50 years">
-				<eqn>global_SLR[1] + Surface_Temperature_Anomaly_1[1]*Sensitivity_of_expected_SLR_to_T_anomaly + Total_CO2_Emissions[1] * Sensitivity_of_expected_SLR_to_CO2_emissions</eqn>
+				<eqn>Surface_Temperature_Anomaly_1[1]*Sensitivity_of_expected_SLR_to_T_anomaly + Total_CO2_Emissions[1] * Sensitivity_of_expected_SLR_to_CO2_emissions</eqn>
 				<units>metre</units>
 			</aux>
 			<aux name="Willingness to invest\nin flood protection">
 				<doc>Between 0 and 1</doc>
-				<eqn>0.0 {0, 1}</eqn>
+				<eqn>1.0 {0, 1}</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="Sensitivity of expected\nSLR to CO2 emissions">
@@ -1081,41 +1081,32 @@ Include_MICI_behaviour * AntIS_MICI_disintegration_rate * AntIS_initial_volume /
 				<eqn>0.086</eqn>
 				<units>metre/(deg C)</units>
 			</aux>
-			<aux name="Surface Temperature Anomaly 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>deg C</units>
-			</aux>
-			<aux name="Total CO2 Emissions" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>MtCO2/Year</units>
-			</aux>
-			<aux name="Effective flood\nheight in 1980">
-				<eqn>0.0</eqn>
+			<aux name="Average flood\nheight in 1980">
+				<doc>Set to a small value to allow for minimal damages already in 1980 (global SLR is negative in 1980).</doc>
+				<eqn>2.45</eqn>
 				<units>metre</units>
 			</aux>
-			<aux name="Effective flood height">
-				<doc>For simplicity it is assumed that the effective flood height is 0 in 1980, leading to no flood damages in that year. The effective flood height is then simply the global SLR.</doc>
-				<eqn>Effective_flood_height_in_1980+global_SLR[1]</eqn>
+			<aux name="Effective\nflood height">
+				<doc>The effective flood height simply increases linearly with global SLR</doc>
+				<eqn>Average_flood_height_in_1980 + global_SLR[1] - Average_flood_protection_height</eqn>
 				<units>metre</units>
 			</aux>
 			<aux name="Retreat switch">
 				<eqn>0.0 {0, 1}</eqn>
-				<units>1/year</units>
+				<units>dmnl</units>
 			</aux>
 			<module name="Coastal Assets" isee:label="">
 				<format scale_by="auto"/>
+				<connect to="Coastal_population.Flood_damage_resilience_in_unprotected_areas" from="Coastal_Assets.Flood_damage_resilience_in_unprotected_areas"/>
+				<connect2 to="Coastal_population.Flood_damage_resilience_in_unprotected_areas" from="Coastal_Assets.Flood_damage_resilience_in_unprotected_areas"/>
+				<connect to="Sea_level_rise_adaptation.Total_coastal_assets" from="Coastal_Assets.Total_coastal_assets"/>
+				<connect2 to="Sea_level_rise_adaptation.Total_coastal_assets" from="Coastal_Assets.Total_coastal_assets"/>
+				<connect to="Coastal_Assets.Annual_change_in_protection_level" from="Sea_level_rise_adaptation.Annual_change_in_protection_level"/>
+				<connect2 to="Coastal_Assets.Annual_change_in_protection_level" from="Sea_level_rise_adaptation.Annual_change_in_protection_level"/>
 				<connect to="Coastal_Assets.Annual_loss_of_capital_for_flood_protection" from="Sea_level_rise_adaptation.Annual_loss_of_capital_for_flood_protection"/>
 				<connect2 to="Coastal_Assets.Annual_loss_of_capital_for_flood_protection" from="Sea_level_rise_adaptation.Annual_loss_of_capital_for_flood_protection"/>
 				<connect to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
 				<connect2 to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
-				<connect to="Coastal_Assets.change_in_protection_level" from="Sea_Level.change_in_protection_level"/>
-				<connect2 to="Coastal_Assets.change_in_protection_level" from="change_in_protection_level"/>
 				<connect to="Coastal_Assets.Effective_flood_height_1" from="Sea_Level.Effective_flood_height"/>
 				<connect2 to="Coastal_Assets.Effective_flood_height_1" from="Effective_flood_height"/>
 				<connect to="Coastal_Assets.Expected_global_SLR_in_50_years_1" from="Sea_Level.Expected_global_SLR_in_50_years"/>
@@ -1124,8 +1115,10 @@ Include_MICI_behaviour * AntIS_MICI_disintegration_rate * AntIS_initial_volume /
 				<connect2 to="Coastal_Assets.Fraction_of_protected_people_in_coastal_zones" from="Coastal_population.Fraction_of_protected_people_in_coastal_zones"/>
 				<connect to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
 				<connect2 to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
-				<connect to="Coastal_Assets.GDP_per_person" from="Population.GDP_per_person"/>
-				<connect2 to="Coastal_Assets.GDP_per_person" from="Population.GDP_per_person"/>
+				<connect to="Coastal_Assets.GDP_per_Capita_in_coastal_zones" from="Sea_level_rise_adaptation.GDP_per_Capita_in_coastal_zones"/>
+				<connect2 to="Coastal_Assets.GDP_per_Capita_in_coastal_zones" from="Sea_level_rise_adaptation.GDP_per_Capita_in_coastal_zones"/>
+				<connect to="Coastal_Assets.Overall_change_in_protection_level" from="Sea_level_rise_adaptation.Overall_change_in_protection_level"/>
+				<connect2 to="Coastal_Assets.Overall_change_in_protection_level" from="Sea_level_rise_adaptation.Overall_change_in_protection_level"/>
 				<connect to="Coastal_Assets.People_retreating_from_the_coast_1" from="Coastal_population.People_retreating_from_the_coast"/>
 				<connect2 to="Coastal_Assets.People_retreating_from_the_coast_1" from="Coastal_population.People_retreating_from_the_coast"/>
 				<connect to="Coastal_Assets.Unprotected_coastal_population_1" from="Coastal_population.Unprotected_coastal_population"/>
@@ -1137,14 +1130,22 @@ Include_MICI_behaviour * AntIS_MICI_disintegration_rate * AntIS_initial_volume /
 				<connect2 to="Coastal_Assets.Fraction_of_protected_people_in_coastal_zones" from="Coastal_population.Fraction_of_protected_people_in_coastal_zones"/>
 				<connect to="Coastal_Assets.People_retreating_from_the_coast_1" from="Coastal_population.People_retreating_from_the_coast"/>
 				<connect2 to="Coastal_Assets.People_retreating_from_the_coast_1" from="Coastal_population.People_retreating_from_the_coast"/>
+				<connect to="Sea_level_rise_adaptation.Total_coastal_population" from="Coastal_population.Total_coastal_population"/>
+				<connect2 to="Sea_level_rise_adaptation.Total_coastal_population" from="Coastal_population.Total_coastal_population"/>
 				<connect to="Coastal_Assets.Unprotected_coastal_population_1" from="Coastal_population.Unprotected_coastal_population"/>
 				<connect2 to="Coastal_Assets.Unprotected_coastal_population_1" from="Coastal_population.Unprotected_coastal_population"/>
-				<connect to="Coastal_population.change_in_protection_level_1" from="Sea_Level.change_in_protection_level"/>
-				<connect2 to="Coastal_population.change_in_protection_level_1" from="change_in_protection_level"/>
+				<connect to="Coastal_population.Annual_change_in_protection_level" from="Sea_level_rise_adaptation.Annual_change_in_protection_level"/>
+				<connect2 to="Coastal_population.Annual_change_in_protection_level" from="Sea_level_rise_adaptation.Annual_change_in_protection_level"/>
+				<connect to="Coastal_population.Effective_flood_height_1" from="Sea_Level.Effective_flood_height"/>
+				<connect2 to="Coastal_population.Effective_flood_height_1" from="Effective_flood_height"/>
+				<connect to="Coastal_population.Effective_flood_height" from="Sea_Level.Effective_flood_height"/>
+				<connect2 to="Coastal_population.Effective_flood_height" from="Effective_flood_height"/>
 				<connect to="Coastal_population.Expected_global_SLR_in_50_years_1" from="Sea_Level.Expected_global_SLR_in_50_years"/>
 				<connect2 to="Coastal_population.Expected_global_SLR_in_50_years_1" from="Expected_global_SLR_in_50_years"/>
-				<connect to="Coastal_population.global_SLR_1" from="Sea_Level.global_SLR"/>
-				<connect2 to="Coastal_population.global_SLR_1" from="global_SLR"/>
+				<connect to="Coastal_population.Flood_damage_resilience_in_unprotected_areas" from="Coastal_Assets.Flood_damage_resilience_in_unprotected_areas"/>
+				<connect2 to="Coastal_population.Flood_damage_resilience_in_unprotected_areas" from="Coastal_Assets.Flood_damage_resilience_in_unprotected_areas"/>
+				<connect to="Coastal_population.Overall_change_in_protection_level" from="Sea_level_rise_adaptation.Overall_change_in_protection_level"/>
+				<connect2 to="Coastal_population.Overall_change_in_protection_level" from="Sea_level_rise_adaptation.Overall_change_in_protection_level"/>
 				<connect to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
 				<connect2 to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
 				<connect to="Coastal_population.Retreat_switch" from="Sea_Level.Retreat_switch"/>
@@ -1152,24 +1153,52 @@ Include_MICI_behaviour * AntIS_MICI_disintegration_rate * AntIS_initial_volume /
 			</module>
 			<module name="Sea level rise\nadaptation" isee:label="">
 				<format scale_by="auto"/>
+				<connect to="Coastal_population.Annual_change_in_protection_level" from="Sea_level_rise_adaptation.Annual_change_in_protection_level"/>
+				<connect2 to="Coastal_population.Annual_change_in_protection_level" from="Sea_level_rise_adaptation.Annual_change_in_protection_level"/>
+				<connect to="Coastal_Assets.Annual_change_in_protection_level" from="Sea_level_rise_adaptation.Annual_change_in_protection_level"/>
+				<connect2 to="Coastal_Assets.Annual_change_in_protection_level" from="Sea_level_rise_adaptation.Annual_change_in_protection_level"/>
 				<connect to="Coastal_Assets.Annual_loss_of_capital_for_flood_protection" from="Sea_level_rise_adaptation.Annual_loss_of_capital_for_flood_protection"/>
 				<connect2 to="Coastal_Assets.Annual_loss_of_capital_for_flood_protection" from="Sea_level_rise_adaptation.Annual_loss_of_capital_for_flood_protection"/>
-				<connect to="Sea_Level.Increase_of_average_flood_protection_height_through_investment" from="Sea_level_rise_adaptation.Increase_of_average_flood_protection_height_through_investment"/>
-				<connect2 to="Increase_of_average_flood_protection_height_through_investment" from="Sea_level_rise_adaptation.Increase_of_average_flood_protection_height_through_investment"/>
+				<connect to="Sea_Level.Average_flood_protection_height" from="Sea_level_rise_adaptation.Average_flood_protection_height"/>
+				<connect2 to="Average_flood_protection_height" from="Sea_level_rise_adaptation.Average_flood_protection_height"/>
+				<connect to="Coastal_Assets.GDP_per_Capita_in_coastal_zones" from="Sea_level_rise_adaptation.GDP_per_Capita_in_coastal_zones"/>
+				<connect2 to="Coastal_Assets.GDP_per_Capita_in_coastal_zones" from="Sea_level_rise_adaptation.GDP_per_Capita_in_coastal_zones"/>
+				<connect to="Coastal_population.Overall_change_in_protection_level" from="Sea_level_rise_adaptation.Overall_change_in_protection_level"/>
+				<connect2 to="Coastal_population.Overall_change_in_protection_level" from="Sea_level_rise_adaptation.Overall_change_in_protection_level"/>
+				<connect to="Coastal_Assets.Overall_change_in_protection_level" from="Sea_level_rise_adaptation.Overall_change_in_protection_level"/>
+				<connect2 to="Coastal_Assets.Overall_change_in_protection_level" from="Sea_level_rise_adaptation.Overall_change_in_protection_level"/>
 				<connect to="Sea_level_rise_adaptation.Effective_flood_height" from="Sea_Level.Effective_flood_height"/>
 				<connect2 to="Sea_level_rise_adaptation.Effective_flood_height" from="Effective_flood_height"/>
 				<connect to="Sea_level_rise_adaptation.Expected_global_SLR_in_50_years" from="Sea_Level.Expected_global_SLR_in_50_years"/>
 				<connect2 to="Sea_level_rise_adaptation.Expected_global_SLR_in_50_years" from="Expected_global_SLR_in_50_years"/>
+				<connect to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
+				<connect2 to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
+				<connect to="Sea_level_rise_adaptation.global_SLR" from="Sea_Level.global_SLR"/>
+				<connect2 to="Sea_level_rise_adaptation.global_SLR" from="global_SLR"/>
+				<connect to="Sea_level_rise_adaptation.Total_coastal_assets" from="Coastal_Assets.Total_coastal_assets"/>
+				<connect2 to="Sea_level_rise_adaptation.Total_coastal_assets" from="Coastal_Assets.Total_coastal_assets"/>
+				<connect to="Sea_level_rise_adaptation.Total_coastal_population" from="Coastal_population.Total_coastal_population"/>
+				<connect2 to="Sea_level_rise_adaptation.Total_coastal_population" from="Coastal_population.Total_coastal_population"/>
 				<connect to="Sea_level_rise_adaptation.Willingness_to_invest_in_flood_protection_1" from="Sea_Level.Willingness_to_invest_in_flood_protection"/>
 				<connect2 to="Sea_level_rise_adaptation.Willingness_to_invest_in_flood_protection_1" from="Willingness_to_invest_in_flood_protection"/>
 			</module>
-			<aux name="change in\nprotection level">
-				<eqn>(Increase_of_average_flood_protection_height_through_investment - global_SLR_rate_of_increase[1])</eqn>
-				<units>metre/year</units>
-			</aux>
-			<aux name="Increase of average\nflood protection height\nthrough investment" access="input">
+			<stock name="Average flood\nprotection height" access="input">
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>metre/year</units>
+				<units>metre</units>
+			</stock>
+			<aux name="Total CO2 Emissions" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>MtCO2/Year</units>
+			</aux>
+			<aux name="Surface Temperature Anomaly 1" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>deg C</units>
 			</aux>
 		</variables>
 		<views>
@@ -1218,7 +1247,7 @@ Include_MICI_behaviour * AntIS_MICI_disintegration_rate * AntIS_initial_volume /
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="6" isee:page_rows="6" isee:scroll_x="1402.5" zoom="40" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1024" page_height="784" isee:page_cols="6" isee:page_rows="6" isee:scroll_x="2382.78" isee:scroll_y="233.333" zoom="180" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1795,7 +1824,7 @@ Include_MICI_behaviour * AntIS_MICI_disintegration_rate * AntIS_initial_volume /
 					</from>
 					<to>AntIS_Btot</to>
 				</connector>
-				<text_box uid="247" x="1753.23" y="711.271" width="367.5" height="17.875">Widely used calibration parameters and constants for AntIS SLR</text_box>
+				<text_box uid="247" x="1743.23" y="703.271" width="367.5" height="17.875">Widely used calibration parameters and constants for AntIS SLR</text_box>
 				<connector uid="248" angle="41.7128">
 					<from>
 						<alias uid="249"/>
@@ -2221,48 +2250,32 @@ Include_MICI_behaviour * AntIS_MICI_disintegration_rate * AntIS_initial_volume /
 					<from>Change_in_Deep_Ocean_Temperature</from>
 					<to>net_downward_radiative_flux</to>
 				</connector>
-				<text_box font_weight="bold" text_decoration="underline" text_align="center" font_size="24pt" uid="408" x="2483.69" y="73.1567" width="641" height="35.0833">Sea-level rise impacts and adaptation</text_box>
-				<aux color="blue" label_side="right" x="2721.63" y="324.12" width="28" height="28" name="Expected global SLR\nin 50 years"/>
-				<connector uid="409" color="#FF007F" angle="156.379">
-					<from>
-						<alias uid="410"/>
-					</from>
-					<to>Expected_global_SLR_in_50_years</to>
-				</connector>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="2582.57" y="893.003" name="Willingness to invest\nin flood protection"/>
-				<aux color="blue" label_side="left" label_angle="135" x="2692.53" y="254.703" name="Sensitivity of expected\nSLR to CO2 emissions"/>
-				<aux color="blue" label_side="left" x="2674.53" y="384.083" name="Sensitivity of expected\nSLR to T anomaly"/>
-				<connector uid="430" color="#FF007F" angle="331.612">
+				<text_box font_weight="bold" text_decoration="underline" text_align="center" font_size="24pt" uid="408" x="2465.47" y="81.49" width="641" height="35.0833">Sea-level rise impacts and adaptation</text_box>
+				<aux color="blue" label_side="top" x="2418.93" y="334.549" width="28" height="28" name="Expected global SLR\nin 50 years"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="2864.86" y="310.965" name="Willingness to invest\nin flood protection"/>
+				<aux color="blue" label_side="left" label_angle="135" x="2327.21" y="310.965" name="Sensitivity of expected\nSLR to CO2 emissions"/>
+				<aux color="blue" label_side="left" x="2362.69" y="267.667" name="Sensitivity of expected\nSLR to T anomaly"/>
+				<connector uid="430" color="#FF007F" angle="321.623">
 					<from>Sensitivity_of_expected_SLR_to_CO2_emissions</from>
 					<to>Expected_global_SLR_in_50_years</to>
 				</connector>
-				<connector uid="431" color="#FF007F" angle="36.9528">
+				<connector uid="431" color="#FF007F" angle="280.173">
 					<from>Sensitivity_of_expected_SLR_to_T_anomaly</from>
 					<to>Expected_global_SLR_in_50_years</to>
 				</connector>
-				<aux color="blue" font_style="italic" font_weight="bold" x="2611.19" y="278.253" name="Surface Temperature Anomaly 1"/>
-				<aux color="blue" font_style="italic" font_weight="bold" x="2600.57" y="333.953" name="Total CO2 Emissions"/>
-				<connector uid="441" color="#FF007F" angle="358.877">
-					<from>Surface_Temperature_Anomaly_1</from>
-					<to>Expected_global_SLR_in_50_years</to>
-				</connector>
-				<connector uid="442" color="#FF007F" angle="23.8524">
-					<from>Total_CO2_Emissions</from>
-					<to>Expected_global_SLR_in_50_years</to>
-				</connector>
-				<aux color="blue" label_side="top" x="2674.53" y="594.617" name="Effective flood\nheight in 1980"/>
-				<aux color="blue" label_side="bottom" x="2697.3" y="632.22" name="Effective flood height"/>
-				<connector uid="570" color="#FF007F" angle="301.193">
-					<from>Effective_flood_height_in_1980</from>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" label_angle="45" x="2653.52" y="240.038" name="Average flood\nheight in 1980"/>
+				<aux color="blue" label_side="center" x="2567.13" y="266.021" width="49" height="49" name="Effective\nflood height"/>
+				<connector uid="570" color="#FF007F" angle="219.204">
+					<from>Average_flood_height_in_1980</from>
 					<to>Effective_flood_height</to>
 				</connector>
-				<connector uid="571" color="#FF007F" angle="200.028">
+				<connector uid="571" color="#FF007F" angle="329.785">
 					<from>
 						<alias uid="410"/>
 					</from>
 					<to>Effective_flood_height</to>
 				</connector>
-				<text_box font_color="#55AAFF" font_size="20pt" border_color="red" uid="578" x="3074.25" y="339.09" width="451" height="60.88">Light blue: parameter that should be calibrated or
+				<text_box font_color="#55AAFF" font_size="20pt" border_color="red" uid="578" x="2932.58" y="152.423" width="451" height="60.88">Light blue: parameter that should be calibrated or
 can be used as policy/user input</text_box>
 				<connector uid="300" angle="158.629">
 					<from>
@@ -2270,154 +2283,163 @@ can be used as policy/user input</text_box>
 					</from>
 					<to>global_SLR_rate_of_increase</to>
 				</connector>
-				<text_box uid="842" x="3204.93" y="530.5" width="366" height="196">Missing features / To-Dos: 
+				<text_box uid="842" x="2941.87" y="251.75" width="366" height="196">Missing features / To-Dos: 
 - Urbanisation/coastal migration
 - Might be good to have different investment options (investing in already existing dikes, or building new ones)
-- There could be the option that dikes are not even maintained and then break down? Best to use this only when we actually account for well protected and badly protected areas.
-- Currently the length of dikes stays constant, which is inconsistent, as the effective flood protection height, determines the length of how much is considered protected
-- The people that retreat from the coast are more likely the ones that would be flooded, this should reduce the &quot;being flooded&quot; fraction, as people retreat, right?</text_box>
-				<stacked_container uid="908" x="2439" y="1439" width="350" height="327.071">
+- There could be the option that dikes are not even maintained and then break down? Best to use this only when we actually account for well protected and badly protected areas.</text_box>
+				<stacked_container uid="908" x="2317.33" y="1152.33" width="350" height="327.071">
 					<graph width="350" height="327.071" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="People flooded annually" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Coastal_population.Number_of_people_flooded_annually"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="909" x="2824" y="1441.43" width="350" height="324.643">
+				<stacked_container uid="909" x="2702.33" y="1154.76" width="350" height="324.643">
 					<graph width="350" height="324.643" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="Flood damage" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Coastal_Assets.Annual_Damage_to_assets_due_to_flood_events"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="910" x="3250" y="1113.53" width="350" height="327.899">
+				<stacked_container uid="910" x="3128.33" y="826.863" width="350" height="327.899">
 					<graph width="350" height="327.899" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="Investment in flood protection" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Sea_level_rise_adaptation.Effective_annual_investment_in_flood_protection_height"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="911" x="2439" y="1766.07" width="350" height="321.803">
+				<stacked_container uid="911" x="2317.33" y="1479.4" width="350" height="321.803">
 					<graph width="350" height="321.803" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="People retreating from the coast annually" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Coastal_population.People_retreating_from_the_coast"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="912" x="3250" y="1441.43" width="350" height="324.643">
+				<stacked_container uid="912" x="3128.33" y="1154.76" width="350" height="324.643">
 					<graph width="350" height="324.643" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="Flood protection maintenance costs" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Sea_level_rise_adaptation.Annual_costs_of_flood_protection_maintenance"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="914" x="2439" y="2087.87" width="350" height="334.543">
+				<stacked_container uid="914" x="2317.33" y="1801.2" width="350" height="334.543">
 					<graph width="350" height="334.543" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="Annual flood fatalities" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Coastal_population.Annual_fatalities_due_to_floods_in_unprotected_areas"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="915" x="3250" y="1766.07" width="350" height="321.803">
+				<stacked_container uid="915" x="3128.33" y="1479.4" width="350" height="321.803">
 					<graph width="350" height="321.803" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="Assets lost by building flood protection" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Coastal_Assets.Loss_of_assets_through_increasing_flood_protection_height"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="916" x="2824" y="1766.07" width="350" height="321.803">
+				<stacked_container uid="916" x="2702.33" y="1479.4" width="350" height="321.803">
 					<graph width="350" height="321.803" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="Assets lost during retreat" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Coastal_Assets.Immobile_assets_lost_during_retreat"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<text_box font_weight="bold" text_decoration="underline" font_size="20pt" uid="917" x="2575.33" y="1069.17" width="96.6667" height="23.8333">People</text_box>
-				<text_box font_weight="bold" text_decoration="underline" font_size="20pt" uid="918" x="2980.83" y="1069.17" width="96.6667" height="23.8333">Assets</text_box>
-				<text_box font_weight="bold" text_decoration="underline" font_size="20pt" uid="919" x="3392" y="1063.17" width="96.6667" height="23.8333">Protection</text_box>
-				<stacked_container uid="922" x="2824" y="1112.7" width="350" height="329.565">
+				<text_box font_weight="bold" text_decoration="underline" font_size="20pt" uid="917" x="2453.66" y="782.503" width="96.6667" height="23.8333">People</text_box>
+				<text_box font_weight="bold" text_decoration="underline" font_size="20pt" uid="918" x="2859.16" y="782.503" width="96.6667" height="23.8333">Assets</text_box>
+				<text_box font_weight="bold" text_decoration="underline" font_size="20pt" uid="919" x="3270.33" y="776.503" width="96.6667" height="23.8333">Protection</text_box>
+				<stacked_container uid="922" x="2702.33" y="826.033" width="350" height="329.565">
 					<graph width="350" height="329.565" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="All coastal assets" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Coastal_Assets.Total_coastal_assets"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="923" x="2439" y="1116.53" width="350" height="321.899">
+				<stacked_container uid="923" x="2317.33" y="829.863" width="350" height="321.899">
 					<graph width="350" height="321.899" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" title="All coastal population" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Coastal_population.Total_coastal_population"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="3057" y="684.333" name="Retreat switch"/>
-				<module label_side="center" x="2546.5" y="662.333" width="60.5" height="50" name="Coastal Assets"/>
-				<connector uid="937" angle="245.536" isee:autocreated="true">
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="2859.19" y="628.61" name="Retreat switch"/>
+				<module label_side="center" x="2395.08" y="599.944" width="60.5" height="50" name="Coastal Assets"/>
+				<connector uid="937" angle="268.425" isee:autocreated="true">
 					<from>Expected_global_SLR_in_50_years</from>
 					<to>Coastal_Assets</to>
 				</connector>
-				<connector uid="938" angle="181.972" isee:autocreated="true">
+				<connector uid="938" angle="218.552" isee:autocreated="true">
 					<from>Effective_flood_height</from>
 					<to>Coastal_Assets</to>
 				</connector>
-				<module label_side="center" x="2928.33" y="687.333" name="Coastal\npopulation"/>
-				<module label_side="center" x="2738.15" y="843.503" name="Sea level rise\nadaptation"/>
-				<connector uid="942" angle="303.116" isee:autocreated="true">
-					<from>
-						<alias uid="410"/>
-					</from>
-					<to>Coastal_population</to>
-				</connector>
-				<connector uid="943" angle="298.89" isee:autocreated="true">
+				<module label_side="center" x="2774.91" y="624.944" name="Coastal\npopulation"/>
+				<module label_side="center" x="2774.91" y="349.75" name="Sea level rise\nadaptation"/>
+				<connector uid="943" angle="321.054" isee:autocreated="true">
 					<from>Expected_global_SLR_in_50_years</from>
 					<to>Coastal_population</to>
 				</connector>
-				<aux color="blue" label_side="right" x="2929.36" y="821.673" name="change in\nprotection level"/>
-				<connector uid="946" angle="169.039" isee:autocreated="true">
-					<from>change_in_protection_level</from>
-					<to>Coastal_Assets</to>
-				</connector>
-				<connector uid="949" angle="131.004">
-					<from>
-						<alias uid="950"/>
-					</from>
-					<to>change_in_protection_level</to>
-				</connector>
-				<connector uid="951" isee:thickness="2" angle="195.796" isee:autocreated="true">
+				<connector uid="951" isee:thickness="2" angle="194.451" isee:autocreated="true">
 					<from>Coastal_population</from>
 					<to>Coastal_Assets</to>
 				</connector>
-				<connector uid="952" angle="292.136" isee:autocreated="true">
+				<connector uid="952" angle="359.799" isee:autocreated="true">
 					<from>Expected_global_SLR_in_50_years</from>
 					<to>Sea_level_rise_adaptation</to>
 				</connector>
-				<connector uid="955" isee:thickness="2" angle="136.264" isee:autocreated="true">
+				<connector uid="955" isee:thickness="2" angle="218.21" isee:autocreated="true">
 					<from>Sea_level_rise_adaptation</from>
 					<to>Coastal_Assets</to>
 				</connector>
-				<connector uid="956" angle="57.8577">
-					<from>change_in_protection_level</from>
-					<to>Coastal_population</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="bottom" x="2845.17" y="875.003" name="Increase of average\nflood protection height\nthrough investment"/>
-				<connector uid="953" angle="343.598" isee:autocreated="true">
-					<from>Sea_level_rise_adaptation</from>
-					<to>Increase_of_average_flood_protection_height_through_investment</to>
-				</connector>
-				<connector uid="954" angle="32.3501">
-					<from>Increase_of_average_flood_protection_height_through_investment</from>
-					<to>change_in_protection_level</to>
-				</connector>
-				<connector uid="957" angle="0.193952" isee:autocreated="true">
+				<connector uid="957" angle="205.366" isee:autocreated="true">
 					<from>Willingness_to_invest_in_flood_protection</from>
 					<to>Sea_level_rise_adaptation</to>
 				</connector>
-				<connector uid="958" angle="181.336" isee:autocreated="true">
+				<connector uid="958" angle="177.509" isee:autocreated="true">
 					<from>Retreat_switch</from>
 					<to>Coastal_population</to>
 				</connector>
-				<connector uid="959" angle="305.944" isee:autocreated="true">
+				<connector uid="959" isee:thickness="2" angle="11.6781" isee:autocreated="true">
+					<from>Coastal_Assets</from>
+					<to>Coastal_population</to>
+				</connector>
+				<connector uid="960" angle="319.49" isee:autocreated="true">
+					<from>Effective_flood_height</from>
+					<to>Coastal_population</to>
+				</connector>
+				<connector uid="963" isee:thickness="2" angle="28.7229" isee:autocreated="true">
+					<from>Coastal_Assets</from>
+					<to>Sea_level_rise_adaptation</to>
+				</connector>
+				<connector uid="964" isee:thickness="2" angle="87.3032" isee:autocreated="true">
+					<from>Coastal_population</from>
+					<to>Sea_level_rise_adaptation</to>
+				</connector>
+				<stock font_style="italic" font_weight="bold" label_side="top" x="2597.8" y="187.735" width="31" height="27" name="Average flood\nprotection height"/>
+				<connector uid="965" angle="256.359">
+					<from>Average_flood_protection_height</from>
+					<to>Effective_flood_height</to>
+				</connector>
+				<connector uid="966" angle="342.091" isee:autocreated="true">
 					<from>Effective_flood_height</from>
 					<to>Sea_level_rise_adaptation</to>
+				</connector>
+				<connector uid="972" angle="3.56492" isee:autocreated="true">
+					<from>
+						<alias uid="410"/>
+					</from>
+					<to>Sea_level_rise_adaptation</to>
+				</connector>
+				<connector uid="973" isee:thickness="2" angle="295" isee:autocreated="true">
+					<from>Sea_level_rise_adaptation</from>
+					<to>Coastal_population</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" label_side="left" x="2327.21" y="352.778" name="Total CO2 Emissions"/>
+				<aux font_style="italic" font_weight="bold" label_side="left" x="2340.56" y="403.333" name="Surface Temperature Anomaly 1"/>
+				<connector uid="974" angle="354.384">
+					<from>Total_CO2_Emissions</from>
+					<to>Expected_global_SLR_in_50_years</to>
+				</connector>
+				<connector uid="975" angle="33.6901">
+					<from>Surface_Temperature_Anomaly_1</from>
+					<to>Expected_global_SLR_in_50_years</to>
 				</connector>
 				<alias font_style="italic" label_side="top" uid="151" x="209.786" y="547.611" width="18" height="18">
 					<of>T_anomaly_for_SLR</of>
@@ -2527,11 +2549,8 @@ can be used as policy/user input</text_box>
 				<alias font_style="italic" label_side="left" label_angle="225" uid="398" x="89.361" y="638.875" width="18" height="18">
 					<of>dmnl_to_Kelvin</of>
 				</alias>
-				<alias color="blue" font_style="italic" label_side="top" uid="410" x="2918.05" y="412.113" width="20.5596" height="20.5596">
+				<alias color="blue" font_style="italic" label_side="top" uid="410" x="2514.3" y="241.19" width="20.5596" height="20.5596">
 					<of>global_SLR</of>
-				</alias>
-				<alias font_style="italic" uid="950" x="2974.17" y="874.559" width="18" height="18">
-					<of>global_SLR_rate_of_increase</of>
 				</alias>
 			</view>
 		</views>
@@ -2547,23 +2566,24 @@ can be used as policy/user input</text_box>
 				<units>b$</units>
 			</stock>
 			<aux name="Fraction of protected\ncoastal assets in 1980">
-				<eqn>0.515</eqn>
+				<doc>From the DIVA spreadsheet. Protected are all segments with a flood protection height higher than the s1000 flood.</doc>
+				<eqn>0.7531</eqn>
 				<units>dmnl</units>
 			</aux>
 			<flow name="Increase of unprotected\nasset values\nthrough GDP growth">
-				<eqn>Unprotected_coastal_assets * Asset_growth_rate_in_unprotected_coastal_zones</eqn>
+				<eqn>Total_annual_growth_of_coastal_asset_values*(1.0 - Fraction_of_protected_coastal_assets) * Likelihood_that_people_still_invest_in_unprotected_coastal_zones</eqn>
 				<units>b$/year</units>
 			</flow>
 			<flow name="Annual\nDamage to\nassets due to\nflood events">
-				<eqn>(1.0 - Flood_damage_resilience_in_unprotected_areas) * Unprotected_coastal_assets * Flood_depth_damage_function_for_capital_in_unprotected_areas</eqn>
+				<eqn>(1.0 - Flood_damage_resilience_in_unprotected_areas) * Unprotected_coastal_assets * Flood_damage_function_for_capital_in_unprotected_areas</eqn>
 				<units>b$/year</units>
 			</flow>
 			<flow name="Assets being retreated from the coast">
 				<eqn>People_retreating_from_the_coast_1*Assets_per_person_in_unprotected_coastal_zones</eqn>
 				<units>b$/year</units>
 			</flow>
-			<aux name="Flood depth damage function\nfor capital in\nunprotected areas">
-				<eqn> Effective_flood_height_1*flood_damage_linear_param+Effective_flood_height_1^2*flood_damage_quadratic_param</eqn>
+			<aux name="Flood damage function\nfor capital in\nunprotected areas">
+				<eqn>MIN(1, MAX(0, Effective_flood_height_1)*flood_damage_linear_param+MAX(0, Effective_flood_height_1)^2*flood_damage_quadratic_param)</eqn>
 				<units>1/Year</units>
 			</aux>
 			<aux name="US GDP per capita in 2010">
@@ -2574,12 +2594,12 @@ https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD?locations=US</doc>
 				<eqn>54.51</eqn>
 				<units>b$/Mp/year</units>
 			</aux>
-			<aux name="Flood damage resilience in unprotected areas">
+			<aux name="Flood damage resilience in unprotected areas" access="output" isee:autocreated="true">
 				<eqn>Per_capita_GDP_in_unprotected_coastal_zones / (Per_capita_GDP_in_unprotected_coastal_zones + US_GDP_per_capita_in_2010)</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="Per capita GDP in\nunprotected coastal zones">
-				<eqn>GDP_per_person[1]*
+				<eqn>GDP_per_Capita_in_coastal_zones*
 (1 - Fraction_of_protected_coastal_assets) /
 (1 - Fraction_of_protected_people_in_coastal_zones)</eqn>
 				<units>b$/Mp/year</units>
@@ -2596,10 +2616,10 @@ https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD?locations=US</doc>
 				<units>b$/year</units>
 			</flow>
 			<flow name="Increase of protected\nasset values\nthrough GDP growth">
-				<eqn>Protected_coastal_assets*GDP_growth_rate_1[1]</eqn>
+				<eqn>Total_annual_growth_of_coastal_asset_values - Increase_of_unprotected_asset_values_through_GDP_growth</eqn>
 				<units>b$/year</units>
 			</flow>
-			<aux name="Fraction of protected coastal assets">
+			<aux name="Fraction of protected\ncoastal assets">
 				<eqn>Protected_coastal_assets / (Unprotected_coastal_assets + Protected_coastal_assets)</eqn>
 				<units>dmnl</units>
 			</aux>
@@ -2616,18 +2636,18 @@ https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD?locations=US</doc>
 				<units>b$</units>
 			</aux>
 			<aux name="Asset protection loss sensitvity">
-				<eqn>0.864</eqn>
-				<units>1/metre</units>
+				<eqn>1.2</eqn>
+				<units>1/metre^2</units>
 			</aux>
-			<aux name="Asset protection gain sensitivity">
-				<eqn>1.211</eqn>
-				<units>1/metre</units>
+			<aux name="Asset protection\ngain sensitivity">
+				<eqn>0.217</eqn>
+				<units>1/metre^2</units>
 			</aux>
-			<flow name="Assets changing protection status">
-				<eqn>IF change_in_protection_level &gt; 0 THEN
-- MIN(Asset_protection_gain_sensitivity * change_in_protection_level* UNIT_year * Unprotected_coastal_assets,  Unprotected_coastal_assets) / UNIT_year
+			<flow name="Assets\nchanging\nprotection\nstatus">
+				<eqn>IF Annual_change_in_protection_level &gt; 0 THEN
+- MIN((initial_asset_protection_gain_rate + Asset_protection_gain_sensitivity * Overall_change_in_protection_level) * Annual_change_in_protection_level * UNIT_year * Unprotected_coastal_assets,  Unprotected_coastal_assets) / UNIT_year
 ELSE
-MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_year * Protected_coastal_assets,  Protected_coastal_assets) / UNIT_year</eqn>
+MIN(MAX(0.1,  initial_asset_protection_loss_rate + Asset_protection_loss_sensitvity * Overall_change_in_protection_level) *  ABS(Annual_change_in_protection_level) * UNIT_year * Protected_coastal_assets,  Protected_coastal_assets) / UNIT_year</eqn>
 				<units>b$/year</units>
 			</flow>
 			<aux name="Assets per person in\nunprotected coastal zones">
@@ -2651,20 +2671,9 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 				<eqn>2.0</eqn>
 				<units>metre</units>
 			</aux>
-			<aux name="Asset growth rate in unprotected coastal zones">
-				<eqn>GDP_growth_rate_1[1] *Likelihood_that_people_still_invest_in_unprotected_coastal_zones</eqn>
-				<units>1/year</units>
-			</aux>
 			<aux name="UNIT year" access="output" isee:autocreated="true">
 				<eqn>1</eqn>
 				<units>year</units>
-			</aux>
-			<aux name="GDP per person" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>b$/Mp/year</units>
 			</aux>
 			<aux name="GDP\ngrowth rate 1" access="input">
 				<dimensions>
@@ -2680,10 +2689,6 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 			<aux name="Effective flood height 1" access="input">
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>metre</units>
-			</aux>
-			<aux name="change in\nprotection level" access="output" throughput="true" isee:autocreated="true">
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>metre/year</units>
 			</aux>
 			<aux name="Fraction of protected\npeople in coastal zones" access="input">
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
@@ -2701,7 +2706,7 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
-			<aux name="Total coastal assets">
+			<aux name="Total coastal assets" access="output" isee:autocreated="true">
 				<eqn>Protected_coastal_assets + Unprotected_coastal_assets</eqn>
 				<isee:summing/>
 				<units>b$</units>
@@ -2716,6 +2721,30 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 			<aux name="Fraction of global assets located in the coastal zone">
 				<eqn>0.1</eqn>
 				<units>dmnl</units>
+			</aux>
+			<aux name="GDP per Capita\nin coastal zones" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/Mp/year</units>
+			</aux>
+			<aux name="Total annual growth of\ncoastal asset values">
+				<eqn>Total_coastal_assets*GDP_growth_rate_1[1]</eqn>
+				<units>b$/year</units>
+			</aux>
+			<aux name="initial asset protection gain rate">
+				<eqn>0.997</eqn>
+				<units>1/metre</units>
+			</aux>
+			<aux name="initial asset\nprotection loss rate">
+				<eqn>0.25</eqn>
+				<units>1/metre</units>
+			</aux>
+			<aux name="Overall change in protection level" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="Annual change in protection level" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>metre/year</units>
 			</aux>
 		</variables>
 		<views>
@@ -2766,7 +2795,7 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="119" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1024" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2805,80 +2834,72 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<stock color="blue" label_side="center" x="738.7" y="455.807" width="102.857" height="60.7143" name="Unprotected\ncoastal assets"/>
-				<aux color="blue" label_side="left" x="1082.28" y="873" name="Fraction of protected\ncoastal assets in 1980"/>
-				<flow color="blue" x="654.1" y="485.967" name="Increase of unprotected\nasset values\nthrough GDP growth">
+				<stock color="blue" label_side="center" x="745.702" y="371.61" width="102.857" height="60.7143" name="Unprotected\ncoastal assets"/>
+				<aux color="blue" label_side="left" x="1197.8" y="745.667" name="Fraction of protected\ncoastal assets in 1980"/>
+				<flow color="blue" label_side="top" x="661.101" y="401.967" name="Increase of unprotected\nasset values\nthrough GDP growth">
 					<pts>
-						<pt x="557.5" y="485.967"/>
-						<pt x="738.7" y="485.967"/>
+						<pt x="564.5" y="401.967"/>
+						<pt x="745.702" y="401.967"/>
 					</pts>
 				</flow>
-				<flow color="blue" label_side="center" x="755.76" y="357.267" width="68.74" height="68.74" name="Annual\nDamage to\nassets due to\nflood events">
+				<flow color="blue" label_side="center" x="761.463" y="238.435" width="68.74" height="68.74" name="Annual\nDamage to\nassets due to\nflood events">
 					<pts>
-						<pt x="790.13" y="455.807"/>
-						<pt x="790.13" y="318.467"/>
+						<pt x="795.833" y="371.61"/>
+						<pt x="795.833" y="165"/>
 					</pts>
 				</flow>
-				<flow color="blue" label_side="top" x="776.903" y="612.859" name="Assets being retreated from the coast">
+				<flow color="blue" label_side="right" x="783.903" y="528.761" name="Assets being retreated from the coast">
 					<pts>
-						<pt x="776.903" y="516.521"/>
-						<pt x="776.903" y="718.197"/>
+						<pt x="783.903" y="432.324"/>
+						<pt x="783.903" y="634.197"/>
 					</pts>
 				</flow>
-				<connector uid="2" color="#FF007F" angle="162.981">
-					<from>Unprotected_coastal_assets</from>
-					<to>Increase_of_unprotected_asset_values_through_GDP_growth</to>
-				</connector>
-				<connector uid="3" color="#FF007F" angle="50.8385">
+				<connector uid="3" color="#FF007F" angle="72.4562">
 					<from>Unprotected_coastal_assets</from>
 					<to>Annual_Damage_to_assets_due_to_flood_events</to>
 				</connector>
-				<aux color="blue" label_side="top" x="1031.99" y="299.527" name="Flood depth damage function\nfor capital in\nunprotected areas"/>
-				<aux color="blue" label_side="top" x="640.32" y="249.937" name="US GDP per capita in 2010"/>
-				<aux color="blue" label_side="right" label_angle="45" x="680.12" y="289.247" width="25.8571" height="25.8571" name="Flood damage resilience in unprotected areas"/>
+				<aux color="blue" label_side="top" x="1000.66" y="148.86" name="Flood damage function\nfor capital in\nunprotected areas"/>
+				<aux color="blue" label_side="top" x="647.32" y="165.937" name="US GDP per capita in 2010"/>
+				<aux color="blue" label_side="right" label_angle="45" x="687.12" y="192.247" width="25.8571" height="25.8571" name="Flood damage resilience in unprotected areas"/>
 				<connector uid="4" color="#FF007F" angle="273.144">
 					<from>US_GDP_per_capita_in_2010</from>
 					<to>Flood_damage_resilience_in_unprotected_areas</to>
 				</connector>
-				<aux color="blue" x="592.07" y="302.177" name="Per capita GDP in\nunprotected coastal zones"/>
-				<connector uid="5" color="#FF007F" angle="0">
+				<aux color="blue" x="599.07" y="218.177" name="Per capita GDP in\nunprotected coastal zones"/>
+				<connector uid="5" color="#FF007F" angle="7.33673">
 					<from>Per_capita_GDP_in_unprotected_coastal_zones</from>
 					<to>Flood_damage_resilience_in_unprotected_areas</to>
 				</connector>
-				<text_box uid="6" x="190.011" y="153.283" width="231.799" height="78.7143">Assumptions:
-- GDP per person in FRIDA is scaled with ration of assets to people in coastal zones, to get &quot;coastal GDP&quot;</text_box>
-				<stock color="blue" label_side="center" x="1016.71" y="454.597" width="102.857" height="60.7143" name="Protected\ncoastal assets"/>
-				<flow color="blue" label_side="right" label_angle="45" x="1078.33" y="580.655" name="Loss of assets through increasing\nflood protection height">
+				<stock color="blue" label_side="center" x="1098.71" y="366.847" width="102.857" height="60.7143" name="Protected\ncoastal assets"/>
+				<flow color="blue" label_side="right" label_angle="45" x="1179.52" y="492.906" name="Loss of assets through increasing\nflood protection height">
 					<pts>
-						<pt x="1078.33" y="515.311"/>
-						<pt x="1078.33" y="655"/>
+						<pt x="1179.52" y="427.561"/>
+						<pt x="1179.52" y="567.25"/>
 					</pts>
 				</flow>
-				<flow color="blue" label_side="bottom" x="1193.28" y="482.667" name="Increase of protected\nasset values\nthrough GDP growth">
+				<flow color="blue" label_side="bottom" x="1275.28" y="394.917" name="Increase of protected\nasset values\nthrough GDP growth">
 					<pts>
-						<pt x="1279" y="482.667"/>
-						<pt x="1119.57" y="482.667"/>
+						<pt x="1361" y="394.917"/>
+						<pt x="1201.57" y="394.917"/>
 					</pts>
 				</flow>
-				<connector uid="10" color="#FF007F" angle="347.026">
-					<from>Protected_coastal_assets</from>
-					<to>Increase_of_protected_asset_values_through_GDP_growth</to>
-				</connector>
-				<connector uid="11" color="#FF007F" angle="200.849">
-					<from>Flood_depth_damage_function_for_capital_in_unprotected_areas</from>
+				<connector uid="11" color="#FF007F" angle="211.179">
+					<from>Flood_damage_function_for_capital_in_unprotected_areas</from>
 					<to>Annual_Damage_to_assets_due_to_flood_events</to>
 				</connector>
-				<connector uid="12" color="#FF007F" angle="351.785">
+				<connector uid="12" color="#FF007F" angle="324.776">
 					<from>Flood_damage_resilience_in_unprotected_areas</from>
 					<to>Annual_Damage_to_assets_due_to_flood_events</to>
 				</connector>
-				<aux color="blue" label_side="top" x="929.13" y="408.447" name="Fraction of protected coastal assets"/>
-				<connector uid="13" color="#FF007F" angle="29.2094">
+				<aux color="blue" label_side="bottom" x="647.32" y="447.697" name="Fraction of protected\ncoastal assets"/>
+				<connector uid="13" color="#FF007F" angle="196.975">
 					<from>Unprotected_coastal_assets</from>
 					<to>Fraction_of_protected_coastal_assets</to>
 				</connector>
-				<connector uid="14" color="#FF007F" angle="151.172">
-					<from>Protected_coastal_assets</from>
+				<connector uid="14" color="#FF007F" angle="37.2099">
+					<from>
+						<alias uid="71"/>
+					</from>
 					<to>Fraction_of_protected_coastal_assets</to>
 				</connector>
 				<connector uid="15" color="#FF007F" angle="357.033">
@@ -2887,42 +2908,42 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 					</from>
 					<to>Per_capita_GDP_in_unprotected_coastal_zones</to>
 				</connector>
-				<aux color="blue" x="1117.85" y="299.527" name="flood damage linear param"/>
-				<aux color="blue" x="1064.28" y="350.337" name="flood damage quadratic param"/>
-				<connector uid="18" color="#FF007F" angle="167.624">
+				<aux color="blue" x="1086.52" y="148.86" name="flood damage linear param"/>
+				<aux color="blue" x="1032.95" y="199.67" name="flood damage quadratic param"/>
+				<connector uid="18" color="#FF007F" angle="176.655">
 					<from>flood_damage_linear_param</from>
-					<to>Flood_depth_damage_function_for_capital_in_unprotected_areas</to>
+					<to>Flood_damage_function_for_capital_in_unprotected_areas</to>
 				</connector>
 				<connector uid="19" color="#FF007F" angle="104.574">
 					<from>flood_damage_quadratic_param</from>
-					<to>Flood_depth_damage_function_for_capital_in_unprotected_areas</to>
+					<to>Flood_damage_function_for_capital_in_unprotected_areas</to>
 				</connector>
-				<aux color="blue" label_side="left" x="1078.3" y="831.267" name="Total coastal assets in 1980"/>
-				<aux color="blue" label_side="left" x="911.133" y="570.717" name="Asset protection loss sensitvity"/>
-				<aux color="blue" label_side="left" x="888.033" y="541.587" name="Asset protection gain sensitivity"/>
-				<flow color="blue" label_side="top" x="929.134" y="486.107" name="Assets changing protection status">
+				<aux color="blue" label_side="left" x="1197.8" y="703.934" name="Total coastal assets in 1980"/>
+				<aux color="blue" label_side="left" x="932.063" y="304.75" name="Asset protection loss sensitvity"/>
+				<aux color="blue" label_side="left" x="932.063" y="346.773" name="Asset protection\ngain sensitivity"/>
+				<flow color="blue" label_side="center" x="941.063" y="369.536" width="65.1429" height="65.1429" name="Assets\nchanging\nprotection\nstatus">
 					<pts>
-						<pt x="1016.71" y="486.107"/>
-						<pt x="841.557" y="486.107"/>
+						<pt x="1098.71" y="402.107"/>
+						<pt x="848.559" y="402.107"/>
 					</pts>
 				</flow>
-				<connector uid="21" color="#FF007F" angle="80.6411">
+				<connector uid="21" color="#FF007F" angle="306.917">
 					<from>Asset_protection_gain_sensitivity</from>
 					<to>Assets_changing_protection_status</to>
 				</connector>
-				<connector uid="22" color="#FF007F" angle="77.9899">
+				<connector uid="22" color="#FF007F" angle="293.122">
 					<from>Asset_protection_loss_sensitvity</from>
 					<to>Assets_changing_protection_status</to>
 				</connector>
-				<connector uid="23" color="#FF007F" angle="168.394">
+				<connector uid="23" color="#FF007F" angle="195.294">
 					<from>Protected_coastal_assets</from>
 					<to>Assets_changing_protection_status</to>
 				</connector>
-				<connector uid="27" color="#FF007F" angle="16.6941">
+				<connector uid="27" color="#FF007F" angle="17.2404">
 					<from>Unprotected_coastal_assets</from>
 					<to>Assets_changing_protection_status</to>
 				</connector>
-				<aux color="blue" label_side="left" label_angle="225" x="654.22" y="701.077" name="Assets per person in\nunprotected coastal zones"/>
+				<aux color="blue" label_side="left" label_angle="225" x="661.22" y="617.077" name="Assets per person in\nunprotected coastal zones"/>
 				<connector uid="28" color="#FF007F" angle="215.444">
 					<from>Unprotected_coastal_assets</from>
 					<to>Assets_per_person_in_unprotected_coastal_zones</to>
@@ -2931,90 +2952,61 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 					<from>Assets_per_person_in_unprotected_coastal_zones</from>
 					<to>Assets_being_retreated_from_the_coast</to>
 				</connector>
-				<aux color="blue" label_side="center" x="808.68" y="723.217" width="61.6904" height="61.6904" name="Immobile\nassets lost\nduring\nretreat"/>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" label_angle="45" x="855.867" y="693.513" name="Immobile assets fraction"/>
-				<connector uid="32" color="#FF007F" angle="293.917">
+				<aux color="blue" label_side="center" x="824.343" y="620.05" width="61.6904" height="61.6904" name="Immobile\nassets lost\nduring\nretreat"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="bottom" x="835.367" y="703.934" name="Immobile assets fraction"/>
+				<connector uid="32" color="#FF007F" angle="300.27">
 					<from>Assets_being_retreated_from_the_coast</from>
 					<to>Immobile_assets_lost_during_retreat</to>
 				</connector>
-				<connector uid="33" color="#FF007F" angle="254.896">
+				<connector uid="33" color="#FF007F" angle="69.5089">
 					<from>Immobile_assets_fraction</from>
 					<to>Immobile_assets_lost_during_retreat</to>
 				</connector>
-				<aux color="blue" x="482.1" y="534.717" name="Likelihood that people still\ninvest in unprotected\ncoastal zones"/>
-				<connector uid="34" color="#FF007F" angle="41.8346">
-					<from>Likelihood_that_people_still_invest_in_unprotected_coastal_zones</from>
-					<to>Asset_growth_rate_in_unprotected_coastal_zones</to>
-				</connector>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="left" label_angle="225" x="391.25" y="552.717" name="Expected SLR at which only half the investment would be made"/>
+				<aux color="blue" label_side="right" label_angle="45" x="293.933" y="338.5" name="Likelihood that people still\ninvest in unprotected\ncoastal zones"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="left" label_angle="225" x="213.917" y="363.55" name="Expected SLR at which only half the investment would be made"/>
 				<connector uid="36" color="#FF007F" angle="38.1572">
 					<from>Expected_SLR_at_which_only_half_the_investment_would_be_made</from>
 					<to>Likelihood_that_people_still_invest_in_unprotected_coastal_zones</to>
 				</connector>
-				<aux color="blue" label_side="top" x="550.5" y="446.807" name="Asset growth rate in unprotected coastal zones"/>
-				<connector uid="37" color="#FF007F" angle="4.00209">
-					<from>Asset_growth_rate_in_unprotected_coastal_zones</from>
-					<to>Increase_of_unprotected_asset_values_through_GDP_growth</to>
-				</connector>
-				<aux x="1025.71" y="537.833" name="UNIT year"/>
-				<connector uid="38" angle="151.826">
+				<aux label_side="top" x="970.192" y="286.75" name="UNIT year"/>
+				<connector uid="38" angle="271.709">
 					<from>UNIT_year</from>
 					<to>Assets_changing_protection_status</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="529" y="209.724" name="GDP per person"/>
-				<connector uid="40" angle="329.606">
-					<from>GDP_per_person</from>
-					<to>Per_capita_GDP_in_unprotected_coastal_zones</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="391.25" y="431.447" name="GDP\ngrowth rate 1"/>
-				<connector uid="41" angle="354.491">
-					<from>GDP_growth_rate_1</from>
-					<to>Asset_growth_rate_in_unprotected_coastal_zones</to>
-				</connector>
-				<connector uid="42" angle="197.928">
-					<from>
-						<alias uid="43"/>
-					</from>
-					<to>Increase_of_protected_asset_values_through_GDP_growth</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="324" y="509.667" name="Expected global SLR\nin 50 years 1"/>
+				<aux font_style="italic" font_weight="bold" label_side="top" x="392.87" y="428.834" name="GDP\ngrowth rate 1"/>
+				<aux font_style="italic" font_weight="bold" label_side="top" x="146.667" y="320.5" name="Expected global SLR\nin 50 years 1"/>
 				<connector uid="45" angle="10.6197">
 					<from>Expected_global_SLR_in_50_years_1</from>
 					<to>Likelihood_that_people_still_invest_in_unprotected_coastal_zones</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="1185" y="248.667" name="Effective flood height 1"/>
-				<connector uid="46" angle="185.711">
+				<aux font_style="italic" font_weight="bold" label_side="top" x="1153.57" y="104.31" name="Effective flood height 1"/>
+				<connector uid="46" angle="196.243">
 					<from>Effective_flood_height_1</from>
-					<to>Flood_depth_damage_function_for_capital_in_unprotected_areas</to>
+					<to>Flood_damage_function_for_capital_in_unprotected_areas</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="982.71" y="570.717" name="change in\nprotection level"/>
-				<connector uid="50" angle="110.171">
-					<from>change_in_protection_level</from>
-					<to>Assets_changing_protection_status</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="left" label_angle="225" x="460.714" y="320.177" name="Fraction of protected\npeople in coastal zones"/>
+				<aux font_style="italic" font_weight="bold" label_side="left" label_angle="225" x="467.714" y="236.177" name="Fraction of protected\npeople in coastal zones"/>
 				<connector uid="51" angle="12.6977">
 					<from>Fraction_of_protected_people_in_coastal_zones</from>
 					<to>Per_capita_GDP_in_unprotected_coastal_zones</to>
 				</connector>
-				<stock font_style="italic" font_weight="bold" label_side="left" x="597.833" y="648.904" name="Unprotected coastal\npopulation 1"/>
+				<stock font_style="italic" font_weight="bold" label_side="left" x="604.833" y="564.904" name="Unprotected coastal\npopulation 1"/>
 				<connector uid="53" angle="317.223">
 					<from>Unprotected_coastal_population_1</from>
 					<to>Assets_per_person_in_unprotected_coastal_zones</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="671.12" y="760.953" name="People retreating from the coast 1"/>
-				<connector uid="54" angle="54.4618">
+				<aux font_style="italic" font_weight="bold" x="679.22" y="650.896" name="People retreating from the coast 1"/>
+				<connector uid="54" angle="49.3998">
 					<from>People_retreating_from_the_coast_1</from>
 					<to>Assets_being_retreated_from_the_coast</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="right" x="1128.57" y="622.404" name="Annual loss of\ncapital for flood protection"/>
-				<connector uid="55" angle="140.27">
+				<aux font_style="italic" font_weight="bold" label_side="right" x="1210.57" y="534.654" name="Annual loss of\ncapital for flood protection"/>
+				<connector uid="55" angle="126.64">
 					<from>Annual_loss_of_capital_for_flood_protection</from>
 					<to>Loss_of_assets_through_increasing_flood_protection_height</to>
 				</connector>
-				<aux x="790.13" y="104.67" name="Total coastal assets"/>
-				<aux font_style="italic" font_weight="bold" label_side="right" x="1146.57" y="805" name="Bank\nAssets"/>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1160" y="873" name="Fraction of global assets located in the coastal zone"/>
+				<aux x="175.263" y="532.928" name="Total coastal assets"/>
+				<aux font_style="italic" font_weight="bold" label_side="right" x="1266.07" y="677.667" name="Bank\nAssets"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1279.5" y="745.667" name="Fraction of global assets located in the coastal zone"/>
 				<connector uid="56" angle="146.689">
 					<from>Fraction_of_global_assets_located_in_the_coastal_zone</from>
 					<to>Total_coastal_assets_in_1980</to>
@@ -3023,11 +3015,77 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 					<from>Bank_Assets</from>
 					<to>Total_coastal_assets_in_1980</to>
 				</connector>
-				<alias color="blue" font_style="italic" label_side="left" uid="16" x="483.04" y="266.437" width="18" height="18">
+				<aux font_style="italic" font_weight="bold" label_side="top" x="542.714" y="128.143" name="GDP per Capita\nin coastal zones"/>
+				<connector uid="58" angle="303.408">
+					<from>GDP_per_Capita_in_coastal_zones</from>
+					<to>Per_capita_GDP_in_unprotected_coastal_zones</to>
+				</connector>
+				<aux x="442.744" y="462.528" name="Total annual growth of\ncoastal asset values"/>
+				<connector uid="59" angle="14.7457">
+					<from>Total_coastal_assets</from>
+					<to>Total_annual_growth_of_coastal_asset_values</to>
+				</connector>
+				<connector uid="60" angle="4.04832">
+					<from>GDP_growth_rate_1</from>
+					<to>Total_annual_growth_of_coastal_asset_values</to>
+				</connector>
+				<text_box text_decoration="underline" font_size="16pt" uid="61" x="1137.9" y="626.077" width="267.5" height="23">Initial assets in coastal zones</text_box>
+				<connector uid="62" angle="79.8395">
+					<from>Fraction_of_protected_coastal_assets</from>
+					<to>Increase_of_unprotected_asset_values_through_GDP_growth</to>
+				</connector>
+				<connector uid="64" angle="353.692">
+					<from>Likelihood_that_people_still_invest_in_unprotected_coastal_zones</from>
+					<to>Increase_of_unprotected_asset_values_through_GDP_growth</to>
+				</connector>
+				<connector uid="65" angle="15.5012">
+					<from>Total_annual_growth_of_coastal_asset_values</from>
+					<to>Increase_of_unprotected_asset_values_through_GDP_growth</to>
+				</connector>
+				<connector uid="66" angle="212.524">
+					<from>
+						<alias uid="67"/>
+					</from>
+					<to>Increase_of_protected_asset_values_through_GDP_growth</to>
+				</connector>
+				<connector uid="68" angle="273.681">
+					<from>
+						<alias uid="69"/>
+					</from>
+					<to>Increase_of_protected_asset_values_through_GDP_growth</to>
+				</connector>
+				<aux label_side="right" x="1023.94" y="304.75" name="initial asset protection gain rate"/>
+				<aux label_side="right" x="1027.96" y="346.773" name="initial asset\nprotection loss rate"/>
+				<connector uid="72" angle="251.179">
+					<from>initial_asset_protection_gain_rate</from>
+					<to>Assets_changing_protection_status</to>
+				</connector>
+				<connector uid="73" angle="239.153">
+					<from>initial_asset_protection_loss_rate</from>
+					<to>Assets_changing_protection_status</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="895.033" y="431.679" name="Overall change in protection level"/>
+				<aux font_style="italic" font_weight="bold" x="1045.96" y="449.679" name="Annual change in protection level"/>
+				<connector uid="74" angle="20.6175">
+					<from>Overall_change_in_protection_level</from>
+					<to>Assets_changing_protection_status</to>
+				</connector>
+				<connector uid="75" angle="146.665">
+					<from>Annual_change_in_protection_level</from>
+					<to>Assets_changing_protection_status</to>
+				</connector>
+				<alias color="blue" font_style="italic" label_side="left" uid="16" x="490.04" y="182.437" width="18" height="18">
 					<of>Fraction_of_protected_coastal_assets</of>
 				</alias>
-				<alias font_style="italic" font_weight="bold" label_side="top" uid="43" x="1234" y="426.007" width="18" height="18">
-					<of>GDP_growth_rate_1</of>
+				<alias color="blue" background="white" font_style="italic" label_side="right" label_angle="45" uid="69" x="1260" y="288.25" width="18" height="18">
+					<shape type="circle" radius="18"/>
+					<of>Total_annual_growth_of_coastal_asset_values</of>
+				</alias>
+				<alias color="blue" font_style="italic" label_side="right" uid="67" x="1314.07" y="332.8" width="18" height="18">
+					<of>Increase_of_unprotected_asset_values_through_GDP_growth</of>
+				</alias>
+				<alias color="blue" font_style="italic" uid="71" x="541.619" y="501.071" width="40.7141" height="22.8572">
+					<of>Protected_coastal_assets</of>
 				</alias>
 			</view>
 		</views>
@@ -3051,7 +3109,7 @@ MIN(Asset_protection_loss_sensitvity * ABS(change_in_protection_level)* UNIT_yea
 				<units>Mp/year</units>
 			</flow>
 			<flow name="People retreating from the coast" access="output" isee:autocreated="true">
-				<eqn>Fraction_of_people_flooded_annually_under_expected_SLR * Likelihood_that_expectedly_flooded_people_in_50_years_retreat_now * Unprotected_coastal_population
+				<eqn>Number_of_people_expectedly_flooded_in_50_years * Likelihood_that_expectedly_flooded_people_in_50_years_retreat_now
 +
 Number_of_people_flooded_annually * Retreat_rate_of_people_flooded_annually</eqn>
 				<units>Mp/year</units>
@@ -3070,45 +3128,35 @@ Number_of_people_flooded_annually * Retreat_rate_of_people_flooded_annually</eqn
 				<eqn>Protected_coastal_population / (Unprotected_coastal_population + Protected_coastal_population)</eqn>
 				<units>dmnl</units>
 			</aux>
-			<flow name="People changing protection status">
-				<eqn>IF change_in_protection_level_1 &gt; 0 THEN
-- MIN(People_protection_gain_sensitivity * change_in_protection_level_1 * UNIT_year * Unprotected_coastal_population,  Unprotected_coastal_population) / UNIT_year
+			<flow name="People\nchanging\nprotection\nstatus">
+				<eqn>IF Annual_change_in_protection_level &gt; 0 THEN
+- MIN((inital_people_protection_gain_rate + People_protection_gain_rate_sensitivity * Overall_change_in_protection_level) * Annual_change_in_protection_level * UNIT_year * Unprotected_coastal_population,  Unprotected_coastal_population) / UNIT_year
 ELSE
-MIN(People_protection_loss_sensitvity * ABS(change_in_protection_level_1)* UNIT_year * Protected_coastal_population,  Protected_coastal_population) / UNIT_year</eqn>
+MIN((initial_people_protection_loss_rate + People_protection_loss_rate_sensitvity * Overall_change_in_protection_level) * ABS(Annual_change_in_protection_level)* UNIT_year * Protected_coastal_population,  Protected_coastal_population) / UNIT_year</eqn>
 				<units>Mp/year</units>
 			</flow>
-			<aux name="People protection\nloss sensitvity">
-				<eqn>1.018</eqn>
-				<units>1/metre</units>
+			<aux name="People protection\nloss rate sensitvity">
+				<eqn>-0.666</eqn>
+				<units>1/metre^2</units>
 			</aux>
-			<aux name="People protection\ngain sensitivity">
-				<eqn>1.204</eqn>
-				<units>1/metre</units>
+			<aux name="People protection\ngain rate sensitivity">
+				<eqn>-0.466</eqn>
+				<units>1/metre^2</units>
 			</aux>
 			<aux name="Fraction of protected\ncoastal population in 1980">
-				<eqn>0.485</eqn>
+				<eqn>0.4048</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="Total coastal\npopulation in 1980">
 				<doc>575.6106582 Mp is the total population within the DIVA database</doc>
-				<eqn>575.6106582</eqn>
+				<eqn>379.9</eqn>
 				<units>Mp</units>
 			</aux>
 			<aux name="Number of\npeople flooded\nannually">
-				<doc>Initial equation, but this dependency on flood height, was redundant, as flood height already impacts number of people in unprotected coastal zones
+				<doc>If there is an improved distinction between protected/unprotected coastline, this should probably also be reworked.
 
-(Unprotected_coastal_population - (Unprotected_coastal_population - People_flooded_annually_in_1980)*EXP(-Sensitivity_of_people_flooded_to_effective_flood_height*Effective_flood_height))/UNIT_year
 
-If there is an improved distinction between protected/unprotected coastline, this should probably also be reworked.</doc>
-				<eqn>Unprotected_coastal_population*Fraction_of_unprotected_people_that_is_flooded_annually</eqn>
-				<units>Mp</units>
-			</aux>
-			<aux name="Fraction of unprotected people that is flooded annually">
-				<eqn>People_flooded_annually_in_1980/(Total_coastal_population_in_1980*(1-Fraction_of_protected_coastal_population_in_1980) )</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="People flooded\nannually in 1980">
-				<doc>Numbers from McMichael et al. (2020)
+Numbers from McMichael et al. (2020)
 ! WATCH OUT: Some number are for 1/100-year flood plains, other for 1/1000-year flood plains!
 
 Hoozemans et al, 1993 (Book):
@@ -3136,6 +3184,7 @@ Vafeides et al. (2011):
 Jongman et al (2012):
 - in 2010: 271 Mio people live in 1/100-year flood plain
 - in 2050: 345 Mio people live in 1/100-year flood plain
+--&gt; This might not consider climate change, i.e. SLR ?!
 
 Hinkel et al. (2014);
 - in 2100: 0.2-4.6% of world population will be flooded annually under 25-123 cm of GMSLR
@@ -3156,8 +3205,8 @@ Reimann et al. (2023):
 - In 2000: 634 Mio people (10.3% of total population) live in LECZ, 360 Mio of this are urban areas (56.7%)
 - In 2015: 815 Mio people (11.0%), 487 Mio urban (59.7%)
 - In 2020: 898 Mio people (11.4%)</doc>
-				<eqn>10.0</eqn>
-				<units>Mp</units>
+				<eqn>(1-Flood_damage_resilience_in_unprotected_areas) * Flood_damage_function_for_people_in_unprotected_areas * Unprotected_coastal_population</eqn>
+				<units>Mp/year</units>
 			</aux>
 			<aux name="Fatality rate\nin flood events">
 				<doc>As in CIAM (Diaz, 2016, SI), based on Jonkman and Vrijling (2008)
@@ -3168,30 +3217,15 @@ Diaz, D. B. (2016). Estimating global damages from sea level rise with the Coast
 Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk Management 1(1):43–
 56</doc>
 				<eqn>0.01</eqn>
-				<units>1/year</units>
-			</aux>
-			<aux name="Fraction of people flooded\nannually under expected SLR">
-				<eqn>MIN(1,  Fraction_of_unprotected_people_that_is_flooded_annually + (Expected_global_SLR_in_50_years_1-global_SLR_1[1])/Maximum_height_in_coastal_zones)</eqn>
-				<units>dmnl</units>
+				<units>1</units>
 			</aux>
 			<aux name="Likelihood that expectedly flooded people in 50 years retreat now">
 				<eqn>0.01 * Retreat_switch</eqn>
-				<units>1/year</units>
+				<units>1</units>
 			</aux>
 			<aux name="Retreat rate of people flooded annually">
 				<eqn>0.05*Retreat_switch</eqn>
-				<units>1/year</units>
-			</aux>
-			<aux name="Maximum height in coastal zones">
-				<eqn>10.0</eqn>
-				<units>metre</units>
-			</aux>
-			<aux name="global SLR 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>metre</units>
+				<units>1</units>
 			</aux>
 			<aux name="Expected global SLR\nin 50 years 1" access="input">
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
@@ -3208,18 +3242,61 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 				<eqn>1</eqn>
 				<units>year</units>
 			</aux>
-			<aux name="Total coastal population">
+			<aux name="Total coastal population" access="output" isee:autocreated="true">
 				<eqn>Protected_coastal_population + Unprotected_coastal_population</eqn>
 				<isee:summing/>
 				<units>Mp</units>
 			</aux>
-			<aux name="change in\nprotection level 1" access="input">
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>metre/year</units>
-			</aux>
 			<aux name="Retreat switch" access="input">
 				<eqn>0.25 {0, 1}</eqn>
-				<units>1/year</units>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Flood damage resilience in unprotected areas" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Flood damage function\nfor people in\nunprotected areas">
+				<eqn>MIN(1, MAX(0,   Effective_flood_height) * people_flood_damage_linear_param + MAX(0,  Effective_flood_height)^2*people_flood_damage_quadratic_param)</eqn>
+				<units>1/Year</units>
+			</aux>
+			<aux name="people flood damage\nlinear param">
+				<eqn>0.3</eqn>
+				<units>1/metre/year</units>
+			</aux>
+			<aux name="people flood damage\nquadratic param">
+				<eqn>0.2</eqn>
+				<units>1/metre^2/year</units>
+			</aux>
+			<aux name="Effective flood height" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="Number of people expectedly flooded in 50 years">
+				<eqn>MIN(1,  MAX(0,  (Expected_global_SLR_in_50_years_1+Effective_flood_height_1)*people_flood_damage_linear_param+ 
+(Expected_global_SLR_in_50_years_1+Effective_flood_height_1)^2*people_flood_damage_quadratic_param))
+* Unprotected_coastal_population 
+* (1 - Flood_damage_resilience_in_unprotected_areas)</eqn>
+				<units>Mp/year</units>
+			</aux>
+			<aux name="Effective\nflood height 1" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="inital people protection gain rate">
+				<eqn>0.704</eqn>
+				<units>1/metre</units>
+			</aux>
+			<aux name="initial people protection loss rate">
+				<eqn>0.949</eqn>
+				<units>1/metre</units>
+			</aux>
+			<aux name="Overall change in protection level" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="Annual change in protection level" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>metre/year</units>
 			</aux>
 		</variables>
 		<views>
@@ -3270,7 +3347,7 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:scroll_x="130" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="150" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3309,23 +3386,23 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<stock color="blue" label_side="center" x="436.16" y="340.83" width="102.857" height="60.7143" name="Unprotected coastal\npopulation"/>
-				<flow color="blue" x="369.995" y="373.67" name="Population growth in unprotected LECZs">
+				<stock color="blue" label_side="center" x="362.41" y="340.83" width="102.857" height="60.7143" name="Unprotected coastal\npopulation"/>
+				<flow color="blue" x="296.245" y="373.67" name="Population growth in unprotected LECZs">
 					<pts>
-						<pt x="291.83" y="373.67"/>
-						<pt x="436.16" y="373.67"/>
+						<pt x="218.08" y="373.67"/>
+						<pt x="362.41" y="373.67"/>
 					</pts>
 				</flow>
-				<flow color="blue" label_side="left" x="472.5" y="505.022" name="Annual fatalities due to\nfloods in unprotected areas">
+				<flow color="blue" label_side="left" x="398.75" y="505.022" name="Annual fatalities due to\nfloods in unprotected areas">
 					<pts>
-						<pt x="472.5" y="401.544"/>
-						<pt x="472.5" y="617.5"/>
+						<pt x="398.75" y="401.544"/>
+						<pt x="398.75" y="617.5"/>
 					</pts>
 				</flow>
-				<flow color="blue" label_side="left" x="490.38" y="278.73" name="People retreating from the coast">
+				<flow color="blue" label_side="left" x="416.63" y="278.73" name="People retreating from the coast">
 					<pts>
-						<pt x="490.38" y="340.83"/>
-						<pt x="490.38" y="207.63"/>
+						<pt x="416.63" y="340.83"/>
+						<pt x="416.63" y="207.63"/>
 					</pts>
 				</flow>
 				<connector uid="2" color="#FF007F" angle="162.981">
@@ -3343,91 +3420,62 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					<from>Protected_coastal_population</from>
 					<to>Population_growth_in_protected_LECZs</to>
 				</connector>
-				<aux color="blue" label_side="top" x="664.09" y="300.87" name="Fraction of protected\npeople in coastal zones"/>
-				<connector uid="6" color="#FF007F" angle="21.7207">
+				<aux color="blue" label_side="top" x="627.218" y="309.917" name="Fraction of protected\npeople in coastal zones"/>
+				<connector uid="6" color="#FF007F" angle="16.0209">
 					<from>Unprotected_coastal_population</from>
 					<to>Fraction_of_protected_people_in_coastal_zones</to>
 				</connector>
-				<connector uid="7" color="#FF007F" angle="157.816">
+				<connector uid="7" color="#FF007F" angle="163.568">
 					<from>Protected_coastal_population</from>
 					<to>Fraction_of_protected_people_in_coastal_zones</to>
 				</connector>
-				<flow color="blue" label_side="top" x="664.093" y="372.02" name="People changing protection status">
+				<flow color="blue" label_side="center" x="595.361" y="340.163" width="63.7143" height="63.7143" name="People\nchanging\nprotection\nstatus">
 					<pts>
 						<pt x="789.17" y="372.02"/>
-						<pt x="539.017" y="372.02"/>
+						<pt x="465.267" y="372.02"/>
 					</pts>
 				</flow>
 				<connector uid="8" color="#FF007F" angle="165.138">
 					<from>Protected_coastal_population</from>
 					<to>People_changing_protection_status</to>
 				</connector>
-				<aux color="blue" label_side="right" x="731.83" y="450.83" name="People protection\nloss sensitvity"/>
-				<aux color="blue" label_side="right" x="731.83" y="420" name="People protection\ngain sensitivity"/>
-				<connector uid="9" color="#FF007F" angle="144.689">
-					<from>People_protection_gain_sensitivity</from>
+				<aux color="blue" label_side="left" x="552.937" y="460.929" name="People protection\nloss rate sensitvity"/>
+				<aux color="blue" label_side="left" x="552.937" y="434.928" name="People protection\ngain rate sensitivity"/>
+				<connector uid="9" color="#FF007F" angle="40.2608">
+					<from>People_protection_gain_rate_sensitivity</from>
 					<to>People_changing_protection_status</to>
 				</connector>
-				<connector uid="10" color="#FF007F" angle="130.679">
-					<from>People_protection_loss_sensitvity</from>
+				<connector uid="10" color="#FF007F" angle="50.1217">
+					<from>People_protection_loss_rate_sensitvity</from>
 					<to>People_changing_protection_status</to>
 				</connector>
-				<aux color="blue" label_side="right" x="722.555" y="679.385" name="Fraction of protected\ncoastal population in 1980"/>
-				<aux color="blue" label_side="right" x="722.555" y="647.955" name="Total coastal\npopulation in 1980"/>
-				<aux color="blue" label_side="center" x="559.625" y="575.955" width="63" height="63" name="Number of\npeople flooded\nannually"/>
-				<connector uid="11" color="#FF007F" angle="331.361">
+				<aux color="blue" label_side="right" x="871.722" y="706.885" name="Fraction of protected\ncoastal population in 1980"/>
+				<aux color="blue" label_side="right" x="875.055" y="660.455" name="Total coastal\npopulation in 1980"/>
+				<aux color="blue" label_side="center" x="478.375" y="573.455" width="72.1667" height="72.1667" name="Number of\npeople flooded\nannually"/>
+				<connector uid="11" color="#FF007F" angle="272.34">
 					<from>Unprotected_coastal_population</from>
 					<to>Number_of_people_flooded_annually</to>
 				</connector>
-				<aux color="blue" label_side="left" label_angle="225" x="624.875" y="679.385" name="Fraction of unprotected people that is flooded annually"/>
-				<connector uid="12" color="#FF007F" angle="115.139">
-					<from>Fraction_of_unprotected_people_that_is_flooded_annually</from>
-					<to>Number_of_people_flooded_annually</to>
-				</connector>
-				<aux color="blue" label_side="right" x="678.175" y="717.925" name="People flooded\nannually in 1980"/>
-				<connector uid="13" color="#FF007F" angle="144.13">
-					<from>People_flooded_annually_in_1980</from>
-					<to>Fraction_of_unprotected_people_that_is_flooded_annually</to>
-				</connector>
-				<connector uid="14" color="#FF007F" angle="139.189">
+				<connector uid="14" color="#FF007F" angle="137.909">
 					<from>Number_of_people_flooded_annually</from>
 					<to>Annual_fatalities_due_to_floods_in_unprotected_areas</to>
 				</connector>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="527.25" y="487.022" name="Fatality rate\nin flood events"/>
-				<connector uid="15" color="#FF007F" angle="198.199">
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="left" x="353.41" y="547.736" name="Fatality rate\nin flood events"/>
+				<connector uid="15" color="#FF007F" angle="43.2917">
 					<from>Fatality_rate_in_flood_events</from>
 					<to>Annual_fatalities_due_to_floods_in_unprotected_areas</to>
-				</connector>
-				<connector uid="16" color="#FF007F" angle="200.247">
-					<from>Total_coastal_population_in_1980</from>
-					<to>Fraction_of_unprotected_people_that_is_flooded_annually</to>
-				</connector>
-				<connector uid="17" color="#FF007F" angle="183.293">
-					<from>Fraction_of_protected_coastal_population_in_1980</from>
-					<to>Fraction_of_unprotected_people_that_is_flooded_annually</to>
-				</connector>
-				<aux color="blue" label_side="right" x="709.89" y="203.58" name="Fraction of people flooded\nannually under expected SLR"/>
-				<connector uid="19" color="#FF007F" angle="198.897">
-					<from>Fraction_of_people_flooded_annually_under_expected_SLR</from>
-					<to>People_retreating_from_the_coast</to>
 				</connector>
 				<connector uid="20" color="#FF007F" angle="14.7435">
 					<from>Unprotected_coastal_population</from>
 					<to>People_changing_protection_status</to>
 				</connector>
-				<connector uid="21" color="#FF007F" angle="236.272">
-					<from>
-						<alias uid="22"/>
-					</from>
-					<to>Fraction_of_people_flooded_annually_under_expected_SLR</to>
-				</connector>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="518.5" y="190.13" name="Likelihood that expectedly flooded people in 50 years retreat now"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="444.75" y="190.13" name="Likelihood that expectedly flooded people in 50 years retreat now"/>
 				<connector uid="23" color="#FF007F" angle="270.392">
 					<from>Likelihood_that_expectedly_flooded_people_in_50_years_retreat_now</from>
 					<to>People_retreating_from_the_coast</to>
 				</connector>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="left" label_angle="135" x="427.16" y="236.37" name="Retreat rate of people flooded annually"/>
-				<connector uid="24" color="#FF007F" angle="64.1133">
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="left" label_angle="135" x="353.41" y="236.37" name="Retreat rate of people flooded annually"/>
+				<connector uid="24" color="#FF007F" angle="72.0975">
 					<from>Number_of_people_flooded_annually</from>
 					<to>People_retreating_from_the_coast</to>
 				</connector>
@@ -3435,26 +3483,8 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					<from>Retreat_rate_of_people_flooded_annually</from>
 					<to>People_retreating_from_the_coast</to>
 				</connector>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="740.83" y="230.5" width="18.625" height="18.625" name="Maximum height in coastal zones"/>
-				<connector uid="26" color="#FF007F" angle="138.009">
-					<from>Maximum_height_in_coastal_zones</from>
-					<to>Fraction_of_people_flooded_annually_under_expected_SLR</to>
-				</connector>
-				<connector uid="27" color="#FF007F" angle="107.468">
-					<from>Unprotected_coastal_population</from>
-					<to>People_retreating_from_the_coast</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="left" label_angle="135" x="605" y="72" name="global SLR 1"/>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="719.43" y="60" name="Expected global SLR\nin 50 years 1"/>
-				<connector uid="31" angle="315">
-					<from>global_SLR_1</from>
-					<to>Fraction_of_people_flooded_annually_under_expected_SLR</to>
-				</connector>
-				<connector uid="32" angle="227.249">
-					<from>Expected_global_SLR_in_50_years_1</from>
-					<to>Fraction_of_people_flooded_annually_under_expected_SLR</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="left" label_angle="135" x="314.375" y="323.75" name="population growth rate"/>
+				<aux font_style="italic" font_weight="bold" label_side="top" x="722.555" y="114.194" name="Expected global SLR\nin 50 years 1"/>
+				<aux font_style="italic" font_weight="bold" label_side="left" label_angle="135" x="240.625" y="323.75" name="population growth rate"/>
 				<connector uid="33" angle="318.366">
 					<from>population_growth_rate</from>
 					<to>Population_growth_in_unprotected_LECZs</to>
@@ -3465,31 +3495,108 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					</from>
 					<to>Population_growth_in_protected_LECZs</to>
 				</connector>
-				<aux label_side="right" x="731.83" y="487.022" name="UNIT year"/>
-				<connector uid="37" angle="120.498">
+				<aux label_side="bottom" x="602.343" y="505.5" name="UNIT year"/>
+				<connector uid="37" angle="79.4434">
 					<from>UNIT_year</from>
 					<to>People_changing_protection_status</to>
 				</connector>
-				<aux x="239.11" y="73.86" name="Total coastal population"/>
-				<aux font_style="italic" font_weight="bold" label_side="right" x="722.555" y="536.955" name="change in\nprotection level 1"/>
-				<connector uid="38" angle="140.453">
-					<from>change_in_protection_level_1</from>
-					<to>People_changing_protection_status</to>
-				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="left" label_angle="135" x="411.667" y="162.5" name="Retreat switch"/>
-				<connector uid="39" angle="284.421">
+				<aux x="380.75" y="65.6933" name="Total coastal population"/>
+				<aux font_style="italic" font_weight="bold" label_side="left" label_angle="135" x="327.917" y="169.333" name="Retreat switch"/>
+				<connector uid="39" angle="290.821">
 					<from>Retreat_switch</from>
 					<to>Retreat_rate_of_people_flooded_annually</to>
 				</connector>
-				<connector uid="40" angle="350.272">
+				<connector uid="40" angle="349.907">
 					<from>Retreat_switch</from>
 					<to>Likelihood_that_expectedly_flooded_people_in_50_years_retreat_now</to>
 				</connector>
-				<alias color="blue" font_style="italic" label_side="right" label_angle="45" uid="22" x="739.5" y="136.75" width="18" height="18">
-					<of>Fraction_of_unprotected_people_that_is_flooded_annually</of>
-				</alias>
+				<aux font_style="italic" font_weight="bold" label_side="right" x="722.555" y="586.667" name="Flood damage resilience in unprotected areas"/>
+				<connector uid="41" angle="186.272">
+					<from>Flood_damage_resilience_in_unprotected_areas</from>
+					<to>Number_of_people_flooded_annually</to>
+				</connector>
+				<aux color="blue" label_side="left" label_angle="135" x="492.208" y="718.86" name="Flood damage function\nfor people in\nunprotected areas"/>
+				<aux color="#55AAFF" font_color="#55AAFF" x="572.343" y="773.86" name="people flood damage\nlinear param"/>
+				<aux color="#55AAFF" font_color="#55AAFF" x="510.208" y="849.67" name="people flood damage\nquadratic param"/>
+				<connector uid="43" color="#FF007F" angle="145.536">
+					<from>people_flood_damage_linear_param</from>
+					<to>Flood_damage_function_for_people_in_unprotected_areas</to>
+				</connector>
+				<connector uid="44" color="#FF007F" angle="104.574">
+					<from>people_flood_damage_quadratic_param</from>
+					<to>Flood_damage_function_for_people_in_unprotected_areas</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="413.839" y="785.837" name="Effective flood height"/>
+				<connector uid="45" angle="78.4959">
+					<from>Flood_damage_function_for_people_in_unprotected_areas</from>
+					<to>Number_of_people_flooded_annually</to>
+				</connector>
+				<connector uid="46" angle="40.518">
+					<from>Effective_flood_height</from>
+					<to>Flood_damage_function_for_people_in_unprotected_areas</to>
+				</connector>
+				<aux label_side="top" x="580.805" y="225.037" name="Number of people expectedly flooded in 50 years"/>
+				<connector uid="49" angle="218.024">
+					<from>Expected_global_SLR_in_50_years_1</from>
+					<to>Number_of_people_expectedly_flooded_in_50_years</to>
+				</connector>
+				<connector uid="50" angle="208.559">
+					<from>
+						<alias uid="48"/>
+					</from>
+					<to>Number_of_people_expectedly_flooded_in_50_years</to>
+				</connector>
+				<connector uid="51" angle="195.167">
+					<from>
+						<alias uid="47"/>
+					</from>
+					<to>Number_of_people_expectedly_flooded_in_50_years</to>
+				</connector>
+				<connector uid="52" angle="55.3209">
+					<from>Unprotected_coastal_population</from>
+					<to>Number_of_people_expectedly_flooded_in_50_years</to>
+				</connector>
+				<connector uid="54" angle="171.073">
+					<from>Number_of_people_expectedly_flooded_in_50_years</from>
+					<to>People_retreating_from_the_coast</to>
+				</connector>
+				<connector uid="55" angle="70.8789">
+					<from>Flood_damage_resilience_in_unprotected_areas</from>
+					<to>Number_of_people_expectedly_flooded_in_50_years</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" label_side="right" x="701.833" y="232.167" name="Effective\nflood height 1"/>
+				<connector uid="56" angle="176.628">
+					<from>Effective_flood_height_1</from>
+					<to>Number_of_people_expectedly_flooded_in_50_years</to>
+				</connector>
+				<aux label_side="left" x="552.937" y="487.5" name="inital people protection gain rate"/>
+				<aux label_side="left" x="552.937" y="513.214" name="initial people protection loss rate"/>
+				<connector uid="58" angle="57.2491">
+					<from>inital_people_protection_gain_rate</from>
+					<to>People_changing_protection_status</to>
+				</connector>
+				<connector uid="59" angle="62.2513">
+					<from>initial_people_protection_loss_rate</from>
+					<to>People_changing_protection_status</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" label_side="right" x="696.548" y="445.929" name="Overall change in protection level"/>
+				<aux font_style="italic" font_weight="bold" label_side="right" x="696.548" y="484.522" name="Annual change in protection level"/>
+				<connector uid="60" angle="133.169">
+					<from>Overall_change_in_protection_level</from>
+					<to>People_changing_protection_status</to>
+				</connector>
+				<connector uid="61" angle="121.643">
+					<from>Annual_change_in_protection_level</from>
+					<to>People_changing_protection_status</to>
+				</connector>
 				<alias font_style="italic" font_weight="bold" label_side="right" label_angle="45" uid="35" x="976" y="312.25" width="18" height="18">
 					<of>population_growth_rate</of>
+				</alias>
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="right" label_angle="315" uid="47" x="729.333" y="173.334" width="18" height="18">
+					<of>people_flood_damage_linear_param</of>
+				</alias>
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="right" uid="48" x="722.222" y="134.166" width="18" height="18">
+					<of>people_flood_damage_quadratic_param</of>
 				</alias>
 			</view>
 		</views>
@@ -3497,36 +3604,34 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 	<model name="Sea_level_rise_adaptation">
 		<variables>
 			<aux name="Annual\ncosts of\nflood protection\nmaintenance">
-				<eqn>Average_flood_protection_construction_cost*Fraction_of_dike_construction_cost_for_maintenance_annually*Length_of_coastline_that_is_protected*Average_flood_protection_height*UNIT_metre</eqn>
+				<eqn>Average_flood_protection_construction_cost*Fraction_of_dike_construction_cost_for_maintenance_annually*Length_of_coastline_in_DIVA_with_some_protection*Average_flood_protection_height*UNIT_metre</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="Total investment to\nincrease flood\nprotection height">
-				<eqn>Ability_to_invest_in_flood_protection
-* Willingness_to_invest_in_flood_protection_1 
-*Cost_of_raising_dikes_by_mismatch_of_SLR_and_flood_protection_height_in_protected_areas</eqn>
+				<eqn>Willingness_to_invest_in_flood_protection_1 
+*Cost_of_reaching_perfect_protection</eqn>
 				<units>b$</units>
 			</aux>
-			<stock name="Average flood\nprotection height">
+			<stock name="Average flood\nprotection height" access="output" isee:autocreated="true">
 				<doc>First implementation: set this to 0 for the 1980 level of protection. If sea level increases, the current flood protection level gets negative, i.e. the protection is worse</doc>
 				<eqn>Average_flood_protection_height_in_1980</eqn>
 				<inflow>Increase_of_average_flood_protection_height_through_investment</inflow>
 				<units>metre</units>
 			</stock>
 			<flow name="Increase of average\nflood protection height\nthrough investment" access="output" isee:autocreated="true">
-				<eqn>(SQRT(Average_flood_protection_height^2 + Effective_annual_investment_in_flood_protection_height*UNIT_year/(Length_of_coastline_that_is_protected*Average_flood_protection_construction_cost)) - Average_flood_protection_height)/UNIT_year</eqn>
+				<eqn>(SQRT(Average_flood_protection_height^2 + Effective_annual_investment_in_flood_protection_height*UNIT_year/(Length_of_coastline_in_DIVA_with_some_protection*Average_flood_protection_construction_cost)) - Average_flood_protection_height)/UNIT_year</eqn>
 				<units>metre/year</units>
 			</flow>
 			<aux name="Fraction of dike construction cost for maintenance annually">
 				<eqn>0.02</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="Ability to invest\nin flood protection">
-				<doc>Between 0 and 1</doc>
-				<eqn>0.5</eqn>
-				<units>1</units>
+			<aux name="Maximum amount of money spent\non flood protection annually">
+				<eqn>GDP_in_coastal_zones * Maximum_fraction_of_coastal_GDP_spent_for_flood_protection_annually</eqn>
+				<units>b$/year</units>
 			</aux>
 			<aux name="Annual loss of\ncapital for flood protection" access="output" isee:autocreated="true">
-				<eqn>Length_of_coastline_that_is_protected*Average_value_of_land_used_up_by_flood_protection*Increase_of_average_flood_protection_height_through_investment*1.7*UNIT_metre_to_kilometre</eqn>
+				<eqn>Length_of_coastline_in_DIVA_with_some_protection*Average_value_of_land_used_up_by_flood_protection*Increase_of_average_flood_protection_height_through_investment*1.7*UNIT_metre_to_kilometre</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="Average flood protection\nconstruction cost">
@@ -3541,37 +3646,35 @@ and Geotechnical Engineering 1
 				<units>b$/metre/metre/km</units>
 			</aux>
 			<aux name="Average value of land used\nup by flood protection">
-				<eqn>0.005367</eqn>
+				<eqn>Average_value_of_land_in_coastal_zones_in_1980*Total_coastal_assets/INIT(Total_coastal_assets)</eqn>
 				<units>b$/km^2</units>
 			</aux>
-			<aux name="Average flood protection\nheight in 1980">
-				<eqn>2.66</eqn>
+			<aux name="Average flood protection\nheight in 1980" access="output" isee:autocreated="true">
+				<doc>Average flood protection height in DIVA for all segments with fp &gt; 0</doc>
+				<eqn>2.35</eqn>
 				<units>metre</units>
 			</aux>
-			<aux name="Cost of raising dikes by mismatch of\nSLR and flood protection height\nin protected areas">
-				<eqn>Average_flood_protection_construction_cost * Length_of_coastline_that_is_protected * 
-((Expected_global_SLR_in_50_years+Average_flood_protection_height)^2 - Average_flood_protection_height^2)</eqn>
+			<aux name="Cost of reaching perfect protection">
+				<eqn>Average_flood_protection_construction_cost * Length_of_coastline_in_DIVA_with_some_protection * 
+((Missing_protection_to_reach_perfect_protection_under_expected_SLR+Average_flood_protection_height)^2 - Average_flood_protection_height^2)</eqn>
 				<units>b$</units>
 			</aux>
 			<aux name="Time to increase flood protection height">
 				<eqn>10</eqn>
 				<units>year</units>
 			</aux>
-			<aux name="Length of\ncoastline\nthat is\nprotected">
-				<eqn>Total_length_of_coastline_in_DIVA / (Total_length_of_coastline_in_DIVA/Length_of_protected_coastlines_in_DIVA - 1 + EXP(Exponential_rate_of_fp_length_increase * (Average_flood_protection_height-Average_flood_protection_height_in_1980 - Effective_flood_height)) )</eqn>
+			<aux name="Length of coastline in DIVA with\nsome protection">
+				<doc>From DIVA data: Sum of coastline lengths for all segments, where flood protection height &gt; 0</doc>
+				<eqn>942567.5</eqn>
 				<units>km</units>
 			</aux>
-			<aux name="Effective annual investment\nin flood protection height">
-				<eqn>Total_investment_to_increase_flood_protection_height/Time_to_increase_flood_protection_height</eqn>
+			<aux name="Effective annual\ninvestment in flood protection height">
+				<eqn>MIN(Total_investment_to_increase_flood_protection_height/Time_to_increase_flood_protection_height,  Maximum_amount_of_money_spent_on_flood_protection_annually)</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="UNIT metre to kilometre">
 				<eqn>0.001</eqn>
 				<units>km/metre</units>
-			</aux>
-			<aux name="Length of protected coastlines in DIVA">
-				<eqn>460143.2</eqn>
-				<units>km</units>
 			</aux>
 			<aux name="UNIT metre">
 				<eqn>1</eqn>
@@ -3594,17 +3697,59 @@ and Geotechnical Engineering 1
 				<eqn>0.25 {0, 1}</eqn>
 				<units>1</units>
 			</aux>
-			<aux name="Total length of coastline in DIVA">
-				<eqn>1038233.9</eqn>
-				<units>km</units>
+			<aux name="Maximum fraction\nof coastal GDP spent for flood\nprotection annually">
+				<eqn>0.02</eqn>
+				<units>1</units>
 			</aux>
-			<aux name="Exponential rate of fp length increase">
-				<eqn>-3</eqn>
-				<units>1/metre</units>
+			<aux name="GDP in\ncoastal zones">
+				<eqn>INIT(GDP_per_person[1]) * INIT(Total_coastal_population) * Total_coastal_assets / INIT(Total_coastal_assets)</eqn>
+				<units>b$/year</units>
 			</aux>
-			<aux name="Effective flood height" access="input">
+			<aux name="Total coastal assets" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$</units>
+			</aux>
+			<aux name="Total coastal population" access="input">
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>Mp</units>
+			</aux>
+			<aux name="Missing protection to\nreach perfect protection\nunder expected SLR">
+				<eqn>Effective_flood_height+Expected_global_SLR_in_50_years</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="Effective\nflood height" access="input">
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>metre</units>
+			</aux>
+			<aux name="GDP per Capita\nin coastal zones" access="output" isee:autocreated="true">
+				<eqn>GDP_in_coastal_zones/Total_coastal_population</eqn>
+				<units>b$/Mp/year</units>
+			</aux>
+			<aux name="Average value of land in coastal zones in 1980">
+				<eqn>0.005367</eqn>
+				<units>b$/km^2</units>
+			</aux>
+			<aux name="global SLR" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="Overall change in protection level" access="output" isee:autocreated="true">
+				<eqn>global_SLR[1] - INIT(global_SLR[1]) - (Average_flood_protection_height - INIT(Average_flood_protection_height))</eqn>
+				<units>metre</units>
+			</aux>
+			<aux name="Annual change in protection level" access="output" isee:autocreated="true">
+				<eqn>-DERIVN(global_SLR[1]-Average_flood_protection_height, 1)</eqn>
+				<units>metre/year</units>
+			</aux>
+			<aux name="GDP per person" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/Mp/year</units>
 			</aux>
 		</variables>
 		<views>
@@ -3655,7 +3800,7 @@ and Geotechnical Engineering 1
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:scroll_x="461.667" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1024" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3694,16 +3839,16 @@ and Geotechnical Engineering 1
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<aux color="blue" label_side="center" x="1140.24" y="151.053" width="78.5953" height="78.5953" name="Annual\ncosts of\nflood protection\nmaintenance"/>
-				<aux color="blue" label_side="bottom" x="416.91" y="336.22" width="36.125" height="36.125" name="Total investment to\nincrease flood\nprotection height"/>
-				<stock color="blue" label_side="center" x="924.813" y="400.541" width="103.095" height="57.8571" name="Average flood\nprotection height"/>
-				<flow color="blue" label_side="top" x="801.067" y="417.256" width="24.4286" height="24.4286" name="Increase of average\nflood protection height\nthrough investment">
+				<aux color="blue" label_side="center" x="1212.74" y="279.803" width="78.5953" height="78.5953" name="Annual\ncosts of\nflood protection\nmaintenance"/>
+				<aux color="blue" label_side="left" label_angle="225" x="489.41" y="464.97" width="36.125" height="36.125" name="Total investment to\nincrease flood\nprotection height"/>
+				<stock color="blue" label_side="center" x="997.313" y="529.291" width="103.095" height="57.8571" name="Average flood\nprotection height"/>
+				<flow color="blue" label_side="top" x="873.567" y="546.006" width="24.4286" height="24.4286" name="Increase of average\nflood protection height\nthrough investment">
 					<pts>
-						<pt x="689.75" y="429.47"/>
-						<pt x="924.813" y="429.47"/>
+						<pt x="762.25" y="558.22"/>
+						<pt x="997.313" y="558.22"/>
 					</pts>
 				</flow>
-				<connector uid="1" color="#FF007F" angle="350.228">
+				<connector uid="1" color="#FF007F" angle="11.1899">
 					<from>Total_investment_to_increase_flood_protection_height</from>
 					<to>Effective_annual_investment_in_flood_protection_height</to>
 				</connector>
@@ -3711,18 +3856,18 @@ and Geotechnical Engineering 1
 					<from>Average_flood_protection_height</from>
 					<to>Annual_costs_of_flood_protection_maintenance</to>
 				</connector>
-				<aux color="blue" label_side="top" x="1144.84" y="123.167" name="Fraction of dike construction cost for maintenance annually"/>
+				<aux color="blue" label_side="top" x="1217.34" y="251.917" name="Fraction of dike construction cost for maintenance annually"/>
 				<connector uid="3" color="#FF007F" angle="297.314">
 					<from>Fraction_of_dike_construction_cost_for_maintenance_annually</from>
 					<to>Annual_costs_of_flood_protection_maintenance</to>
 				</connector>
-				<aux color="blue" label_side="left" x="321.15" y="389.63" name="Ability to invest\nin flood protection"/>
-				<connector uid="5" color="#FF007F" angle="17.2515">
-					<from>Ability_to_invest_in_flood_protection</from>
-					<to>Total_investment_to_increase_flood_protection_height</to>
+				<aux color="blue" label_side="right" x="570.38" y="608.648" name="Maximum amount of money spent\non flood protection annually"/>
+				<connector uid="5" color="#FF007F" angle="110.564">
+					<from>Maximum_amount_of_money_spent_on_flood_protection_annually</from>
+					<to>Effective_annual_investment_in_flood_protection_height</to>
 				</connector>
-				<aux color="blue" label_side="left" x="951.34" y="582.9" width="24.25" height="24.25" name="Annual loss of\ncapital for flood protection"/>
-				<aux color="blue" label_side="top" x="976.36" y="271.22" name="Average flood protection\nconstruction cost"/>
+				<aux color="blue" label_side="left" x="1023.84" y="711.65" width="24.25" height="24.25" name="Annual loss of\ncapital for flood protection"/>
+				<aux color="blue" label_side="top" x="1048.86" y="399.97" name="Average flood protection\nconstruction cost"/>
 				<connector uid="6" color="#FF007F" angle="21.7036">
 					<from>Average_flood_protection_construction_cost</from>
 					<to>Annual_costs_of_flood_protection_maintenance</to>
@@ -3735,27 +3880,27 @@ and Geotechnical Engineering 1
 					<from>Increase_of_average_flood_protection_height_through_investment</from>
 					<to>Annual_loss_of_capital_for_flood_protection</to>
 				</connector>
-				<aux color="blue" label_side="right" x="1019.84" y="627.67" name="Average value of land used\nup by flood protection"/>
-				<connector uid="9" color="#FF007F" angle="149.925">
+				<aux color="blue" label_side="bottom" x="1069.86" y="777.253" name="Average value of land used\nup by flood protection"/>
+				<connector uid="9" color="#FF007F" angle="122.367">
 					<from>Average_value_of_land_used_up_by_flood_protection</from>
 					<to>Annual_loss_of_capital_for_flood_protection</to>
 				</connector>
-				<aux color="blue" label_side="top" x="988.29" y="401.85" name="Average flood protection\nheight in 1980"/>
-				<aux color="blue" label_side="top" x="712.06" y="281.78" name="Cost of raising dikes by mismatch of\nSLR and flood protection height\nin protected areas"/>
+				<aux color="blue" label_side="top" x="1060.79" y="530.6" name="Average flood protection\nheight in 1980"/>
+				<aux color="blue" label_side="top" x="784.56" y="410.53" name="Cost of reaching perfect protection"/>
 				<connector uid="10" color="#FF007F" angle="168.04">
 					<from>Average_flood_protection_construction_cost</from>
-					<to>Cost_of_raising_dikes_by_mismatch_of_SLR_and_flood_protection_height_in_protected_areas</to>
+					<to>Cost_of_reaching_perfect_protection</to>
 				</connector>
 				<connector uid="11" color="#FF007F" angle="150.804">
 					<from>Average_flood_protection_height</from>
-					<to>Cost_of_raising_dikes_by_mismatch_of_SLR_and_flood_protection_height_in_protected_areas</to>
+					<to>Cost_of_reaching_perfect_protection</to>
 				</connector>
 				<connector uid="12" color="#FF007F" angle="180.268">
-					<from>Cost_of_raising_dikes_by_mismatch_of_SLR_and_flood_protection_height_in_protected_areas</from>
+					<from>Cost_of_reaching_perfect_protection</from>
 					<to>Total_investment_to_increase_flood_protection_height</to>
 				</connector>
-				<aux color="blue" label_side="top" x="641.17" y="354.28" name="Time to increase flood protection height"/>
-				<connector uid="13" color="#FF007F" angle="220.565">
+				<aux color="blue" label_side="top" x="723.67" y="477.1" name="Time to increase flood protection height"/>
+				<connector uid="13" color="#FF007F" angle="206.655">
 					<from>Time_to_increase_flood_protection_height</from>
 					<to>Effective_annual_investment_in_flood_protection_height</to>
 				</connector>
@@ -3763,82 +3908,133 @@ and Geotechnical Engineering 1
 					<from>Average_flood_protection_height</from>
 					<to>Increase_of_average_flood_protection_height_through_investment</to>
 				</connector>
-				<aux color="blue" label_side="center" x="1169.84" y="392.97" width="78.3846" height="78.3846" name="Length of\ncoastline\nthat is\nprotected"/>
-				<aux color="blue" x="606.63" y="383.85" name="Effective annual investment\nin flood protection height"/>
-				<connector uid="15" color="#FF007F" angle="347.551">
+				<aux color="blue" label_side="right" x="1242.34" y="528.387" width="27.5513" height="27.5513" name="Length of coastline in DIVA with\nsome protection"/>
+				<aux color="blue" label_side="bottom" x="652.63" y="486.1" width="35.5" height="35.5" name="Effective annual\ninvestment in flood protection height"/>
+				<connector uid="15" color="#FF007F" angle="345.834">
 					<from>Effective_annual_investment_in_flood_protection_height</from>
 					<to>Increase_of_average_flood_protection_height_through_investment</to>
 				</connector>
-				<connector uid="16" color="#FF007F" angle="96.9542">
-					<from>Length_of_coastline_that_is_protected</from>
+				<connector uid="16" color="#FF007F" angle="91.0474">
+					<from>Length_of_coastline_in_DIVA_with_some_protection</from>
 					<to>Annual_costs_of_flood_protection_maintenance</to>
 				</connector>
-				<connector uid="17" color="#FF007F" angle="228.35">
-					<from>Length_of_coastline_that_is_protected</from>
+				<connector uid="17" color="#FF007F" angle="212.12">
+					<from>Length_of_coastline_in_DIVA_with_some_protection</from>
 					<to>Increase_of_average_flood_protection_height_through_investment</to>
 				</connector>
 				<connector uid="18" color="#FF007F" angle="274.949">
-					<from>Length_of_coastline_that_is_protected</from>
+					<from>Length_of_coastline_in_DIVA_with_some_protection</from>
 					<to>Annual_loss_of_capital_for_flood_protection</to>
 				</connector>
 				<connector uid="19" color="#FF007F" angle="145.979">
-					<from>Length_of_coastline_that_is_protected</from>
-					<to>Cost_of_raising_dikes_by_mismatch_of_SLR_and_flood_protection_height_in_protected_areas</to>
+					<from>Length_of_coastline_in_DIVA_with_some_protection</from>
+					<to>Cost_of_reaching_perfect_protection</to>
 				</connector>
-				<aux label_side="top" x="994.36" y="559" name="UNIT metre to kilometre"/>
-				<connector uid="20" color="#FF007F" angle="228.429">
+				<aux label_side="top" x="1066.86" y="687.75" name="UNIT metre to kilometre"/>
+				<connector uid="20" color="#FF007F" angle="229.384">
 					<from>UNIT_metre_to_kilometre</from>
 					<to>Annual_loss_of_capital_for_flood_protection</to>
 				</connector>
-				<aux color="blue" label_side="right" x="1244.63" y="368.542" name="Length of protected coastlines in DIVA"/>
-				<connector uid="21" color="#FF007F" angle="202.801">
-					<from>Length_of_protected_coastlines_in_DIVA</from>
-					<to>Length_of_coastline_that_is_protected</to>
-				</connector>
-				<aux color="blue" label_side="top" x="1085.29" y="180.59" name="UNIT metre"/>
+				<aux color="blue" label_side="top" x="1157.79" y="309.34" name="UNIT metre"/>
 				<connector uid="22" color="#FF007F" angle="354.087">
 					<from>UNIT_metre</from>
 					<to>Annual_costs_of_flood_protection_maintenance</to>
 				</connector>
-				<aux x="792.066" y="476.667" name="UNIT year"/>
-				<connector uid="23" angle="65.7959">
+				<aux x="864.566" y="605.417" name="UNIT year"/>
+				<connector uid="23" angle="65.7956">
 					<from>UNIT_year</from>
 					<to>Increase_of_average_flood_protection_height_through_investment</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="565" y="230.649" name="Expected global SLR\nin 50 years"/>
-				<connector uid="24" angle="340.828">
+				<aux font_style="italic" font_weight="bold" label_side="left" x="581.667" y="330.232" name="Expected global SLR\nin 50 years"/>
+				<connector uid="24" angle="0">
 					<from>Expected_global_SLR_in_50_years</from>
-					<to>Cost_of_raising_dikes_by_mismatch_of_SLR_and_flood_protection_height_in_protected_areas</to>
+					<to>Missing_protection_to_reach_perfect_protection_under_expected_SLR</to>
 				</connector>
-				<aux x="813.28" y="88.5267" name="Total flood protection costs"/>
-				<aux font_style="italic" font_weight="bold" label_side="top" x="342.333" y="327.22" name="Willingness to invest\nin flood protection 1"/>
-				<connector uid="25" angle="335.472">
+				<aux x="430.5" y="168.527" name="Total flood protection costs"/>
+				<aux font_style="italic" font_weight="bold" label_side="top" x="426.833" y="443.6" name="Willingness to invest\nin flood protection 1"/>
+				<connector uid="25" angle="333.941">
 					<from>Willingness_to_invest_in_flood_protection_1</from>
 					<to>Total_investment_to_increase_flood_protection_height</to>
 				</connector>
-				<aux label_side="right" x="1244.63" y="331.846" name="Total length of coastline in DIVA"/>
-				<connector uid="27" angle="359.337">
-					<from>Average_flood_protection_height</from>
-					<to>Length_of_coastline_that_is_protected</to>
+				<aux color="#55AAFF" font_color="#55AAFF" x="631.667" y="684.583" name="Maximum fraction\nof coastal GDP spent for flood\nprotection annually"/>
+				<connector uid="28" angle="128.907">
+					<from>Maximum_fraction_of_coastal_GDP_spent_for_flood_protection_annually</from>
+					<to>Maximum_amount_of_money_spent_on_flood_protection_annually</to>
 				</connector>
-				<connector uid="28" angle="5.39965">
-					<from>Average_flood_protection_height_in_1980</from>
-					<to>Length_of_coastline_that_is_protected</to>
+				<aux label_side="top" x="501.833" y="687.75" name="GDP in\ncoastal zones"/>
+				<aux font_style="italic" font_weight="bold" x="520.833" y="780.417" name="Total coastal assets"/>
+				<connector uid="29" angle="82.875">
+					<from>Total_coastal_assets</from>
+					<to>GDP_in_coastal_zones</to>
 				</connector>
-				<aux label_side="right" x="1282.76" y="494.952" name="Exponential rate of fp length increase"/>
-				<aux font_style="italic" font_weight="bold" label_side="right" x="1307.01" y="442.433" name="Effective flood height"/>
-				<connector uid="29" angle="222.451">
-					<from>Total_length_of_coastline_in_DIVA</from>
-					<to>Length_of_coastline_that_is_protected</to>
+				<aux font_style="italic" font_weight="bold" label_side="left" x="410.833" y="649.583" name="Total coastal population"/>
+				<connector uid="30" angle="315">
+					<from>Total_coastal_population</from>
+					<to>GDP_in_coastal_zones</to>
 				</connector>
-				<connector uid="30" angle="174.016">
+				<connector uid="31" angle="22.1348">
+					<from>GDP_in_coastal_zones</from>
+					<to>Maximum_amount_of_money_spent_on_flood_protection_annually</to>
+				</connector>
+				<aux label_side="top" x="684.566" y="330.232" name="Missing protection to\nreach perfect protection\nunder expected SLR"/>
+				<aux font_style="italic" font_weight="bold" label_side="left" label_angle="135" x="581.667" y="289.934" name="Effective\nflood height"/>
+				<connector uid="33" angle="326.658">
 					<from>Effective_flood_height</from>
-					<to>Length_of_coastline_that_is_protected</to>
+					<to>Missing_protection_to_reach_perfect_protection_under_expected_SLR</to>
 				</connector>
-				<connector uid="31" angle="139.58">
-					<from>Exponential_rate_of_fp_length_increase</from>
-					<to>Length_of_coastline_that_is_protected</to>
+				<connector uid="34" angle="290.3">
+					<from>Missing_protection_to_reach_perfect_protection_under_expected_SLR</from>
+					<to>Cost_of_reaching_perfect_protection</to>
 				</connector>
+				<aux label_side="top" x="463.5" y="601.934" name="GDP per Capita\nin coastal zones"/>
+				<connector uid="35" angle="154.195">
+					<from>GDP_in_coastal_zones</from>
+					<to>GDP_per_Capita_in_coastal_zones</to>
+				</connector>
+				<connector uid="36" angle="47.1747">
+					<from>Total_coastal_population</from>
+					<to>GDP_per_Capita_in_coastal_zones</to>
+				</connector>
+				<connector uid="37" angle="0.330187">
+					<from>Total_coastal_assets</from>
+					<to>Average_value_of_land_used_up_by_flood_protection</to>
+				</connector>
+				<aux label_side="right" x="1157.79" y="762.417" name="Average value of land in coastal zones in 1980"/>
+				<connector uid="38" angle="196.57">
+					<from>Average_value_of_land_in_coastal_zones_in_1980</from>
+					<to>Average_value_of_land_used_up_by_flood_protection</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" label_side="top" x="138.333" y="126.25" name="global SLR"/>
+				<aux x="138.333" y="218.125" name="Overall change in protection level"/>
+				<aux x="270.625" y="218.125" name="Annual change in protection level"/>
+				<connector uid="40" angle="271.948">
+					<from>global_SLR</from>
+					<to>Overall_change_in_protection_level</to>
+				</connector>
+				<connector uid="41" angle="215.424">
+					<from>
+						<alias uid="39"/>
+					</from>
+					<to>Overall_change_in_protection_level</to>
+				</connector>
+				<connector uid="42" angle="321.049">
+					<from>global_SLR</from>
+					<to>Annual_change_in_protection_level</to>
+				</connector>
+				<connector uid="43" angle="271.818">
+					<from>
+						<alias uid="39"/>
+					</from>
+					<to>Annual_change_in_protection_level</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="369.375" y="733.125" name="GDP per person"/>
+				<connector uid="45" angle="25.2777">
+					<from>GDP_per_person</from>
+					<to>GDP_in_coastal_zones</to>
+				</connector>
+				<alias color="blue" font_style="italic" uid="39" x="248.453" y="111.071" width="44.345" height="30.3571">
+					<of>Average_flood_protection_height</of>
+				</alias>
 			</view>
 		</views>
 	</model>
