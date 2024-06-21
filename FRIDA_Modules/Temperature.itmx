@@ -5,7 +5,7 @@
 		<name>Temperature</name>
 		<uuid>02b3c660-904a-4807-a5db-6ee1992e9f0e</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.7" isee:build_number="3322" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.7" isee:build_number="3335" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -202,11 +202,6 @@
 		<unit name="GtN2O">
 			<eqn>Giga*tN2O</eqn>
 		</unit>
-		<unit name="Dollar">
-			<eqn>$</eqn>
-			<alias>Dollars</alias>
-			<alias>$s</alias>
-		</unit>
 	</model_units>
 	<model name="Temperature">
 		<variables>
@@ -315,6 +310,8 @@
 				<connect2 to="Emissions.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Sea_Level.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Sea_Level.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Temperature.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Energy_Balance_Model.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -415,6 +412,8 @@
 				<connect2 to="Total_CH4_Emissions" from="Emissions.Total_CH4_Emissions"/>
 				<connect to="CO2_Forcing.Total_CO2_Emissions_1" from="Emissions.Total_CO2_Emissions"/>
 				<connect2 to="CO2_Forcing.Total_CO2_Emissions_1" from="Emissions.Total_CO2_Emissions"/>
+				<connect to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
+				<connect2 to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
 				<connect to="Temperature.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
 				<connect2 to="Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
 				<connect to='"CFCs_&amp;_F-Gases_Forcing".Total_N2O_Emissions_1' from="Emissions.Total_N2O_Emissions"/>

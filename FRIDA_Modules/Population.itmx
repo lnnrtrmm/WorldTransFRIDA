@@ -348,7 +348,7 @@ Proto E, Rustichini A. 2013. A reassessment of the relationship between GDP and 
 				<non_negative/>
 				<units>Mp/Year</units>
 			</flow>
-			<aux name="population growth rate">
+			<aux name="population growth rate" access="output">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
