@@ -963,8 +963,6 @@
 				<connect2 to="Employment.working_age_population_1" from="Population.working_age_population"/>
 				<connect to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
 				<connect2 to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
-				<connect to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
-				<connect2 to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
 				<connect to="energy_demand.Surface_Temperature_Anomaly_1" from="Finance.Surface_Temperature_Anomaly_1"/>
 				<connect2 to="energy_demand.Surface_Temperature_Anomaly_1" from="Finance.Surface_Temperature_Anomaly_1"/>
 				<connect to="energy_demand.switch_for_all_climate_damage" from="Finance.switch_for_all_climate_damage"/>
@@ -989,8 +987,6 @@
 				<connect2 to="energy_investments.GDP" from="GDP.GDP"/>
 				<connect to="Population.GDP" from="GDP.GDP"/>
 				<connect2 to="Population.GDP" from="GDP.GDP"/>
-				<connect to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
-				<connect2 to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
 				<connect to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
 				<connect2 to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
 			</module>
@@ -1091,8 +1087,6 @@
 				<connect2 to="Freshwater.GDP_per_person_1" from="Population.GDP_per_person"/>
 				<connect to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
 				<connect2 to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
-				<connect to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
-				<connect2 to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
 				<connect to="Emissions.Population" from="Population.Population"/>
 				<connect2 to="Emissions.Population" from="Population.Population"/>
 				<connect to="Employment.Population" from="Population.Population"/>
@@ -1105,8 +1099,6 @@
 				<connect2 to="Freshwater.Population_1" from="Population.Population"/>
 				<connect to="Sea_Level.Population_Mp" from="Population.Population"/>
 				<connect2 to="Sea_Level.Population_Mp" from="Population.Population"/>
-				<connect to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
-				<connect2 to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
 				<connect to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
 				<connect2 to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
 				<connect to="Employment.working_age_population_1" from="Population.working_age_population"/>
@@ -1651,8 +1643,6 @@ Lorem ipsum dolor sit amet</text_box>
 				<connect2 to="Freshwater.GDP_per_person_1" from="Population.GDP_per_person"/>
 				<connect to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
 				<connect2 to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
-				<connect to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
-				<connect2 to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
 				<connect to="Emissions.Population" from="Population.Population"/>
 				<connect2 to="Emissions.Population" from="Population.Population"/>
 				<connect to="Employment.Population" from="Population.Population"/>
@@ -1665,8 +1655,6 @@ Lorem ipsum dolor sit amet</text_box>
 				<connect2 to="Freshwater.Population_1" from="Population.Population"/>
 				<connect to="Sea_Level.Population_Mp" from="Population.Population"/>
 				<connect2 to="Sea_Level.Population_Mp" from="Population.Population"/>
-				<connect to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
-				<connect2 to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
 				<connect to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
 				<connect2 to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
 				<connect to="Employment.working_age_population_1" from="Population.working_age_population"/>
