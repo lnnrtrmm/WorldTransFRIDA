@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xmile version="1.0" xmlns="http://docs.oasis-open.org/xmile/ns/XMILE/v1.0" xmlns:isee="http://iseesystems.com/XMILE">
 	<header>
-		<smile version="1.0" namespace="std, isee" uses_arrays="1" uses_submodels=""/>
+		<smile version="1.0" namespace="std, isee" uses_arrays="2" uses_submodels=""/>
 		<name>Climate</name>
 		<uuid>0af75029-e1b7-4e26-a497-6b303ac46a78</uuid>
 		<vendor>isee systems, inc.</vendor>
@@ -14,6 +14,10 @@
 	</sim_specs>
 	<dimensions>
 		<dim name="ClimateCase" size="11"/>
+		<dim name="Coastal_Protection_level">
+			<elem name="well_protected"/>
+			<elem name="insufficient"/>
+		</dim>
 		<dim name="PCTILE">
 			<elem name="Low"/>
 			<elem name="P25"/>
@@ -205,7 +209,7 @@
 	</model_units>
 	<model name="Climate">
 		<variables>
-			<module name="Temperature" isee:label="" url="/Users/bschoenberg/code/WorldTrans/Frida/FRIDA_Modules/Temperature.itmx">
+			<module name="Temperature" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_ref/FRIDA_Modules/Temperature.itmx">
 				<format scale_by="auto"/>
 				<connect to="energy_supply.Surface_Temperature_Anomaly" from="Temperature.Surface_Temperature_Anomaly"/>
 				<connect2 to="energy_supply.Surface_Temperature_Anomaly" from="Temperature.Surface_Temperature_Anomaly"/>
@@ -215,6 +219,8 @@
 				<connect2 to="Population.Surface_Temperature_Anomaly" from="Temperature.Surface_Temperature_Anomaly"/>
 				<connect to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
+				<connect2 to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
 				<connect to="Emissions.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect2 to="Emissions.clearing_forest_for_grassland" from="Land_Use.clearing_forest_for_grassland"/>
 				<connect to="Emissions.clearing_forests_for_crops" from="Land_Use.clearing_forests_for_crops"/>
@@ -253,6 +259,8 @@
 				<connect2 to="Crop.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Sea_Level.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Sea_Level.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Crop.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Crop.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Land_Use_Forcing.agricultural_water_withdrawal" from="Freshwater.agricultural_water_withdrawal"/>
@@ -260,7 +268,7 @@
 				<connect to="Land_Use_Forcing.Albedo" from="Food_and_land_use.Albedo"/>
 				<connect2 to="Land_Use_Forcing.Albedo" from="Food_and_land_use.Albedo"/>
 			</module>
-			<module name="Sea Level" isee:label="" url="/Users/bschoenberg/code/WorldTrans/Frida/FRIDA_Modules/Sea Level.itmx">
+			<module name="Sea Level" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_ref/FRIDA_Modules/Sea Level.itmx">
 				<format scale_by="auto"/>
 				<connect to="Freshwater.Surface_Temperature_Anomaly" from="Sea_Level.Surface_Temperature_Anomaly"/>
 				<connect2 to="Freshwater.Surface_Temperature_Anomaly" from="Sea_Level.Surface_Temperature_Anomaly"/>
@@ -284,6 +292,26 @@
 				<connect2 to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Sea_Level.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Sea_Level.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
+				<connect2 to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
+				<connect to="Population.global_death_rate_from_coastal_flooding" from="Coastal_population.global_death_rate_from_coastal_flooding"/>
+				<connect2 to="Population.global_death_rate_from_coastal_flooding" from="Coastal_population.global_death_rate_from_coastal_flooding"/>
+				<connect to="Coastal_population.Population" from="Population.Population"/>
+				<connect2 to="Coastal_population.Population" from="Population.Population"/>
+				<connect to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
+				<connect2 to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
+				<connect to="Finance.Proportion_of_all_assets_damaged_due_to_SLR" from="Coastal_Assets.Proportion_of_all_assets_damaged_due_to_SLR"/>
+				<connect2 to="Finance.Proportion_of_all_assets_damaged_due_to_SLR" from="Coastal_Assets.Proportion_of_all_assets_damaged_due_to_SLR"/>
+				<connect to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
+				<connect2 to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
+				<connect to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
+				<connect2 to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
+				<connect to="Government.Total_SLR_adaptation_costs" from="Sea_level_rise_adaptation.Total_SLR_adaptation_costs"/>
+				<connect2 to="Government.Total_SLR_adaptation_costs" from="Sea_level_rise_adaptation.Total_SLR_adaptation_costs"/>
+				<connect to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
+				<connect2 to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
 			</module>
 		</variables>
 		<views>

@@ -310,6 +310,8 @@
 				<connect2 to="Emissions.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Sea_Level.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Sea_Level.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Temperature.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Energy_Balance_Model.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -454,6 +456,8 @@
 				<connect2 to="Total_CH4_Emissions" from="Emissions.Total_CH4_Emissions"/>
 				<connect to="CO2_Forcing.Total_CO2_Emissions_1" from="Emissions.Total_CO2_Emissions"/>
 				<connect2 to="CO2_Forcing.Total_CO2_Emissions_1" from="Emissions.Total_CO2_Emissions"/>
+				<connect to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
+				<connect2 to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
 				<connect to="Temperature.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
 				<connect2 to="Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
 				<connect to="N2O_Forcing.Total_N2O_Emissions" from="Emissions.Total_N2O_Emissions"/>

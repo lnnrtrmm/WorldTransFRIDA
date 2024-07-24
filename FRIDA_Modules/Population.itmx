@@ -348,7 +348,7 @@ Proto E, Rustichini A. 2013. A reassessment of the relationship between GDP and 
 				<non_negative/>
 				<units>Mp/Year</units>
 			</flow>
-			<aux name="population growth rate">
+			<aux name="population growth rate" access="output">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -472,28 +472,28 @@ Calibration Parameter: All death rates &amp; population</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;1_to_20_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_1_to_20_mortality</eqn>
+				<eqn>&quot;1_to_20_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_1_to_20_mortality+global_death_rate_from_coastal_flooding</eqn>
 				<units>Per Year</units>
 			</aux>
 			<aux name="20 to 40 death\nrate">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;20_to_40_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_20_to_40_mortality</eqn>
+				<eqn>&quot;20_to_40_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_20_to_40_mortality+global_death_rate_from_coastal_flooding</eqn>
 				<units>Per Year</units>
 			</aux>
 			<aux name="40 to 60 death\nrate">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;40_to_60_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_40_to_60_mortality</eqn>
+				<eqn>&quot;40_to_60_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_40_to_60_mortality+global_death_rate_from_coastal_flooding</eqn>
 				<units>Per Year</units>
 			</aux>
 			<aux name="60 to 80 death\nrate">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;60_to_80_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_60_to_80_mortality</eqn>
+				<eqn>&quot;60_to_80_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_60_to_80_mortality+global_death_rate_from_coastal_flooding</eqn>
 				<units>Per Year</units>
 			</aux>
 			<aux name="1 to 20 normal death\nrate">
@@ -963,7 +963,7 @@ Eberlein RL, Thompson JP. 2013. Precise modeling of aging populations. System Dy
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;0_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_infant_mortality</eqn>
+				<eqn>&quot;0_normal_death_rate&quot;*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_infant_mortality+global_death_rate_from_coastal_flooding</eqn>
 				<units>Per Year</units>
 			</aux>
 			<aux name="0 normal death\nrate">
@@ -1143,7 +1143,7 @@ Miladinov, G. 2020. Socioeconomic development and life expectancy relationship: 
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Over_80_normal_death_rate*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_Over_80_mortality</eqn>
+				<eqn>Over_80_normal_death_rate*effect_of_surface_temperature_anomaly_on_mortality*effect_of_GDP_per_person_on_Over_80_mortality+global_death_rate_from_coastal_flooding</eqn>
 				<units>Per Year</units>
 			</aux>
 			<aux name="Over 80 normal death\nrate">
@@ -1330,7 +1330,7 @@ initial_fertility+effect_of_GDP_on_change_in_fertility+effect_of_literacy_on_cha
 				<eqn>2</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="GDP per capita">
+			<aux name="GDP per capita" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1400,6 +1400,13 @@ Calibration Parameter: fertility</doc>
 				<eqn>7</eqn>
 				<units>years</units>
 			</aux>
+			<aux name="global death rate from coastal flooding" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>1/year</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -1447,7 +1454,7 @@ Calibration Parameter: fertility</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="4" isee:page_rows="5" isee:scroll_x="68" isee:scroll_y="1505" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="5" isee:scroll_x="816" isee:scroll_y="33" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="12.51pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1832,7 +1839,7 @@ Calibration Parameter: fertility</doc>
 					</from>
 					<to>effect_of_GDP_per_person_on_Over_80_mortality</to>
 				</connector>
-				<connector uid="339" angle="117.073">
+				<connector uid="339" angle="105.983">
 					<from>
 						<alias uid="340"/>
 					</from>
@@ -1844,7 +1851,7 @@ Calibration Parameter: fertility</doc>
 					</from>
 					<to>&quot;40_to_60_death_rate&quot;</to>
 				</connector>
-				<connector uid="343" angle="145.427">
+				<connector uid="343" angle="137.714">
 					<from>
 						<alias uid="344"/>
 					</from>
@@ -2154,6 +2161,39 @@ Calibration Parameter: fertility</doc>
 					<from>relative_GDP_per_person</from>
 					<to>female_population_literacy_percentage</to>
 				</connector>
+				<aux font_style="italic" font_weight="bold" x="922.999" y="1439.17" name="global death rate from coastal flooding"/>
+				<connector uid="469" angle="171.189">
+					<from>global_death_rate_from_coastal_flooding</from>
+					<to>&quot;0_death_rate&quot;</to>
+				</connector>
+				<connector uid="470" angle="14.3224">
+					<from>global_death_rate_from_coastal_flooding</from>
+					<to>&quot;1_to_20_death_rate&quot;</to>
+				</connector>
+				<connector uid="471" angle="195.945">
+					<from>
+						<alias uid="475"/>
+					</from>
+					<to>&quot;20_to_40_death_rate&quot;</to>
+				</connector>
+				<connector uid="472" angle="5.04245">
+					<from>
+						<alias uid="475"/>
+					</from>
+					<to>&quot;40_to_60_death_rate&quot;</to>
+				</connector>
+				<connector uid="473" angle="170.108">
+					<from>
+						<alias uid="476"/>
+					</from>
+					<to>&quot;60_to_80_death_rate&quot;</to>
+				</connector>
+				<connector uid="474" angle="34.9476">
+					<from>
+						<alias uid="476"/>
+					</from>
+					<to>Over_80_death_rate</to>
+				</connector>
 				<alias font_style="italic" uid="330" x="1114.67" y="1688.83" width="18" height="18">
 					<of>average_relative_GDP_per_person</of>
 				</alias>
@@ -2169,13 +2209,13 @@ Calibration Parameter: fertility</doc>
 				<alias font_style="italic" uid="338" x="2592.17" y="1619.67" width="18" height="18">
 					<of>average_relative_GDP_per_person</of>
 				</alias>
-				<alias background="white" font_style="italic" label_side="right" uid="340" x="1424.67" y="1455.84" width="18" height="18">
+				<alias background="white" font_style="italic" label_side="right" uid="340" x="1409.67" y="1473.84" width="18" height="18">
 					<of>effect_of_surface_temperature_anomaly_on_mortality</of>
 				</alias>
 				<alias background="white" font_style="italic" label_side="right" label_angle="315" uid="342" x="1793.83" y="1403.84" width="18" height="18">
 					<of>effect_of_surface_temperature_anomaly_on_mortality</of>
 				</alias>
-				<alias background="white" font_style="italic" label_side="right" uid="344" x="2148.17" y="1499.67" width="18" height="18">
+				<alias background="white" font_style="italic" label_side="right" uid="344" x="2134.17" y="1520.67" width="18" height="18">
 					<of>effect_of_surface_temperature_anomaly_on_mortality</of>
 				</alias>
 				<alias background="white" font_style="italic" label_side="right" label_angle="45" uid="346" x="2603.17" y="1366.17" width="18" height="18">
@@ -2246,6 +2286,12 @@ Calibration Parameter: fertility</doc>
 				</alias>
 				<alias font_style="italic" uid="407" x="2080" y="302" width="18" height="18">
 					<of>total_deaths</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="475" x="1551" y="1392" width="18" height="18">
+					<of>global_death_rate_from_coastal_flooding</of>
+				</alias>
+				<alias font_style="italic" font_weight="bold" uid="476" x="2213" y="1432.17" width="18" height="18">
+					<of>global_death_rate_from_coastal_flooding</of>
 				</alias>
 			</view>
 		</views>

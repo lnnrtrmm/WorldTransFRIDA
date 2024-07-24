@@ -242,6 +242,8 @@
 				<connect2 to="Government.GDP" from="GDP.GDP"/>
 				<connect to="Population.GDP" from="GDP.GDP"/>
 				<connect2 to="Population.GDP" from="GDP.GDP"/>
+				<connect to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
+				<connect2 to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
 				<connect to="Finance.GDP_growth_rate" from="GDP.GDP_growth_rate"/>
 				<connect2 to="Finance.GDP_growth_rate" from="GDP.GDP_growth_rate"/>
 				<connect to="GDP.government_spending" from="Government.government_consumption"/>
@@ -273,6 +275,8 @@
 				<connect2 to="Government.profit_tax" from="Circular_Flow.profit_tax"/>
 				<connect to="Government.rent_tax" from="Circular_Flow.rent_tax"/>
 				<connect2 to="Government.rent_tax" from="Circular_Flow.rent_tax"/>
+				<connect to="Government.Total_SLR_adaptation_costs" from="Sea_level_rise_adaptation.Total_SLR_adaptation_costs"/>
+				<connect2 to="Government.Total_SLR_adaptation_costs" from="Sea_level_rise_adaptation.Total_SLR_adaptation_costs"/>
 				<connect to="Government.wage_tax" from="Circular_Flow.wage_tax"/>
 				<connect2 to="Government.wage_tax" from="Circular_Flow.wage_tax"/>
 			</module>
@@ -329,6 +333,8 @@
 			</module>
 			<module name="Finance" isee:label="">
 				<format scale_by="auto"/>
+				<connect to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
+				<connect2 to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
 				<connect to="Circular_Flow.Bank_Investment" from="Finance.Bank_Investment"/>
 				<connect2 to="Circular_Flow.Bank_Investment" from="Finance.Bank_Investment"/>
 				<connect to="Employment.defaults" from="Finance.defaults"/>
@@ -381,6 +387,8 @@
 				<connect2 to="Finance.owner_savings" from="Circular_Flow.owner_savings"/>
 				<connect to="Finance.private_investment" from="Circular_Flow.private_investment"/>
 				<connect2 to="Finance.private_investment" from="Circular_Flow.private_investment"/>
+				<connect to="Finance.Proportion_of_all_assets_damaged_due_to_SLR" from="Coastal_Assets.Proportion_of_all_assets_damaged_due_to_SLR"/>
+				<connect2 to="Finance.Proportion_of_all_assets_damaged_due_to_SLR" from="Coastal_Assets.Proportion_of_all_assets_damaged_due_to_SLR"/>
 				<connect to="Finance.public_investment" from="Government.public_investment"/>
 				<connect2 to="Finance.public_investment" from="Government.public_investment"/>
 				<connect to="Finance.share_of_GDP_invested_in_Energy_1" from="Energy.share_of_GDP_invested_in_Energy"/>
@@ -1165,7 +1173,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="818" page_height="571" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="769.167" isee:scroll_y="79.1667" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="152.5" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3552,7 +3560,7 @@ ELSE (labour_force_participation_percentage+9)</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>MAX(0, climate_adjusted_failure_rate+(max_change_in_failure_rate*effect_of_lending_standards_on_failure_rate*effect_of_investment_to_gdp_ratio_on_failure_rate))</eqn>
+				<eqn>MAX(0, climate_adjusted_failure_rate+(max_change_in_failure_rate*effect_of_lending_standards_on_failure_rate*effect_of_investment_to_gdp_ratio_on_failure_rate)+Proportion_of_all_assets_damaged_due_to_SLR)</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="normal failure rate">
@@ -3764,7 +3772,7 @@ share_of_gdp_invested_in_energy_expectation_formation_time)</eqn>
 				<eqn>0.01</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="Bank\nAssets" isee:derived_units="true">
+			<aux name="Bank\nAssets" isee:derived_units="true" access="output">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -3965,6 +3973,13 @@ share_of_gdp_invested_in_energy_expectation_formation_time)</eqn>
 				<range min="-1" max="0"/>
 				<units>dmnl</units>
 			</aux>
+			<aux name="Proportion of all assets\ndamaged due to SLR" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -4014,7 +4029,7 @@ share_of_gdp_invested_in_energy_expectation_formation_time)</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="818" page_height="571" isee:page_cols="3" isee:page_rows="3" isee:scroll_y="594" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="3" isee:page_rows="3" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4587,6 +4602,11 @@ share_of_gdp_invested_in_energy_expectation_formation_time)</eqn>
 					<from>Government_Debt</from>
 					<to>Bank_Assets</to>
 				</connector>
+				<aux font_style="italic" font_weight="bold" x="967" y="517" name="Proportion of all assets\ndamaged due to SLR"/>
+				<connector uid="168" angle="164.932">
+					<from>Proportion_of_all_assets_damaged_due_to_SLR</from>
+					<to>failure_rate</to>
+				</connector>
 				<alias uid="32" x="933.417" y="586.88" width="18" height="18">
 					<of>loan_maturation_time</of>
 				</alias>
@@ -4894,7 +4914,7 @@ share_of_gdp_invested_in_energy_expectation_formation_time)</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>public_expenditure-total_public_tax_income</eqn>
+				<eqn>public_expenditure-total_public_tax_income+Total_SLR_adaptation_costs</eqn>
 				<units>b$/year</units>
 			</flow>
 			<stock name="Government\nDebt" access="output" isee:autocreated="true">
@@ -5030,6 +5050,13 @@ https://www.oecd-ilibrary.org/sites/e2ee1eb1-en/index.html?itemId=/content/compo
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>b$/year</units>
 			</aux>
+			<aux name="Total SLR adaptation costs" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>b$/year</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -5079,7 +5106,7 @@ https://www.oecd-ilibrary.org/sites/e2ee1eb1-en/index.html?itemId=/content/compo
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="818" page_height="571" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -5249,6 +5276,11 @@ https://www.oecd-ilibrary.org/sites/e2ee1eb1-en/index.html?itemId=/content/compo
 				<connector uid="31" angle="4.62663">
 					<from>rent_tax</from>
 					<to>total_public_tax_income</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="858.333" y="115" name="Total SLR adaptation costs"/>
+				<connector uid="33" angle="198.147">
+					<from>Total_SLR_adaptation_costs</from>
+					<to>government_taking_up_debt</to>
 				</connector>
 			</view>
 		</views>
