@@ -1454,7 +1454,7 @@ Calibration Parameter: fertility</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="5" isee:scroll_x="816" isee:scroll_y="33" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="5" isee:scroll_x="881.667" isee:scroll_y="753.333" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="12.51pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2161,36 +2161,36 @@ Calibration Parameter: fertility</doc>
 					<from>relative_GDP_per_person</from>
 					<to>female_population_literacy_percentage</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="922.999" y="1439.17" name="global death rate from coastal flooding"/>
-				<connector uid="469" angle="171.189">
+				<aux font_style="italic" font_weight="bold" x="945" y="1455" name="global death rate from coastal flooding"/>
+				<connector uid="477" angle="136.042">
 					<from>global_death_rate_from_coastal_flooding</from>
 					<to>&quot;0_death_rate&quot;</to>
 				</connector>
-				<connector uid="470" angle="14.3224">
+				<connector uid="478" angle="44.1186">
 					<from>global_death_rate_from_coastal_flooding</from>
 					<to>&quot;1_to_20_death_rate&quot;</to>
 				</connector>
-				<connector uid="471" angle="195.945">
+				<connector uid="479" angle="170.611">
 					<from>
-						<alias uid="475"/>
+						<alias uid="480"/>
 					</from>
 					<to>&quot;20_to_40_death_rate&quot;</to>
 				</connector>
-				<connector uid="472" angle="5.04245">
+				<connector uid="481" angle="0">
 					<from>
-						<alias uid="475"/>
+						<alias uid="480"/>
 					</from>
 					<to>&quot;40_to_60_death_rate&quot;</to>
 				</connector>
-				<connector uid="473" angle="170.108">
+				<connector uid="482" angle="145.561">
 					<from>
-						<alias uid="476"/>
+						<alias uid="483"/>
 					</from>
 					<to>&quot;60_to_80_death_rate&quot;</to>
 				</connector>
-				<connector uid="474" angle="34.9476">
+				<connector uid="484" angle="45.9392">
 					<from>
-						<alias uid="476"/>
+						<alias uid="483"/>
 					</from>
 					<to>Over_80_death_rate</to>
 				</connector>
@@ -2287,10 +2287,10 @@ Calibration Parameter: fertility</doc>
 				<alias font_style="italic" uid="407" x="2080" y="302" width="18" height="18">
 					<of>total_deaths</of>
 				</alias>
-				<alias font_style="italic" font_weight="bold" uid="475" x="1551" y="1392" width="18" height="18">
+				<alias font_style="italic" font_weight="bold" uid="480" x="1529" y="1391" width="18" height="18">
 					<of>global_death_rate_from_coastal_flooding</of>
 				</alias>
-				<alias font_style="italic" font_weight="bold" uid="476" x="2213" y="1432.17" width="18" height="18">
+				<alias font_style="italic" font_weight="bold" uid="483" x="2169" y="1410.84" width="18" height="18">
 					<of>global_death_rate_from_coastal_flooding</of>
 				</alias>
 			</view>

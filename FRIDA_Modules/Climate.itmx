@@ -15,8 +15,8 @@
 	<dimensions>
 		<dim name="ClimateCase" size="11"/>
 		<dim name="Coastal_Protection_level">
-			<elem name="well_protected"/>
 			<elem name="insufficient"/>
+			<elem name="well_protected"/>
 		</dim>
 		<dim name="PCTILE">
 			<elem name="Low"/>
@@ -296,22 +296,22 @@
 				<connect2 to="Sea_Level.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
 				<connect2 to="Sea_Level.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
-				<connect to="Population.global_death_rate_from_coastal_flooding" from="Coastal_population.global_death_rate_from_coastal_flooding"/>
-				<connect2 to="Population.global_death_rate_from_coastal_flooding" from="Coastal_population.global_death_rate_from_coastal_flooding"/>
-				<connect to="Coastal_population.Population" from="Population.Population"/>
-				<connect2 to="Coastal_population.Population" from="Population.Population"/>
 				<connect to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
 				<connect2 to="Coastal_population.population_growth_rate" from="Population.population_growth_rate"/>
-				<connect to="Finance.Proportion_of_all_assets_damaged_due_to_SLR" from="Coastal_Assets.Proportion_of_all_assets_damaged_due_to_SLR"/>
-				<connect2 to="Finance.Proportion_of_all_assets_damaged_due_to_SLR" from="Coastal_Assets.Proportion_of_all_assets_damaged_due_to_SLR"/>
-				<connect to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
-				<connect2 to="Coastal_Assets.Bank_Assets" from="Finance.Bank_Assets"/>
 				<connect to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
 				<connect2 to="Coastal_Assets.GDP_growth_rate_1" from="GDP.GDP_growth_rate"/>
-				<connect to="Government.Total_SLR_adaptation_costs" from="Sea_level_rise_adaptation.Total_SLR_adaptation_costs"/>
-				<connect2 to="Government.Total_SLR_adaptation_costs" from="Sea_level_rise_adaptation.Total_SLR_adaptation_costs"/>
 				<connect to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
 				<connect2 to="Sea_level_rise_adaptation.GDP_per_person" from="Population.GDP_per_person"/>
+				<connect to="Population.global_death_rate_from_coastal_flooding" from="Sea_level_rise_costs_and_impacts.global_death_rate_from_coastal_flooding"/>
+				<connect2 to="Population.global_death_rate_from_coastal_flooding" from="Sea_level_rise_costs_and_impacts.global_death_rate_from_coastal_flooding"/>
+				<connect to="Finance.Proportion_of_all_assets_damaged_due_to_SLR_1" from="Sea_level_rise_costs_and_impacts.Proportion_of_all_assets_damaged_due_to_SLR"/>
+				<connect2 to="Finance.Proportion_of_all_assets_damaged_due_to_SLR_1" from="Sea_level_rise_costs_and_impacts.Proportion_of_all_assets_damaged_due_to_SLR"/>
+				<connect to="Government.Total_SLR_adaptation_costs_1" from="Sea_level_rise_costs_and_impacts.Total_SLR_protection_costs"/>
+				<connect2 to="Government.Total_SLR_adaptation_costs_1" from="Sea_level_rise_costs_and_impacts.Total_SLR_protection_costs"/>
+				<connect to="Sea_level_rise_costs_and_impacts.Bank_Assets" from="Finance.Bank_Assets"/>
+				<connect2 to="Sea_level_rise_costs_and_impacts.Bank_Assets" from="Finance.Bank_Assets"/>
+				<connect to="Sea_level_rise_costs_and_impacts.Population" from="Population.Population"/>
+				<connect2 to="Sea_level_rise_costs_and_impacts.Population" from="Population.Population"/>
 			</module>
 		</variables>
 		<views>
