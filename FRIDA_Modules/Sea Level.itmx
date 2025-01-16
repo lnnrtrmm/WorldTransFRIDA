@@ -34,7 +34,7 @@
 		<isee:time_format name="Builtin" type="adaptive"/>
 	</isee:time_formats>
 	<isee:number_format_extenders/>
-	<default_format scale_by="1"/>
+	<default_format precision="full" scale_by="1"/>
 	<model_units>
 		<unit name="Gh">
 			<eqn>Giga*h</eqn>
@@ -228,7 +228,7 @@
 	<model name="Sea_Level">
 		<variables>
 			<aux name="Total global SLR" access="output">
-				<doc>${Calibrated Output,Explanatory Variable}
+				<doc>${Calibrated Output,Explanatory Variable,For SLR paper}
 Total global sea-level rise with reference to 1993.
 
 For a python version of the code and all references see: https://github.com/lnnrtrmm/sea-level-rise
@@ -360,6 +360,7 @@ Meyssignac et al. (2019): Measuring Global Ocean Heat Content to Estimate the Ea
 				<element subscript="1">
 					<eqn>0.1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.09" max="0.12"/>
 				<units>metre / YJ</units>
 			</aux>
@@ -854,6 +855,7 @@ ELSE
 				<element subscript="1">
 					<eqn>-0.0028</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-0.01" max="0"/>
 				<units>metre</units>
 			</aux>
@@ -866,6 +868,7 @@ ELSE
 				<element subscript="1">
 					<eqn>-0.00182</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-0.005" max="0.01"/>
 				<units>metre</units>
 			</aux>
@@ -878,6 +881,7 @@ ELSE
 				<element subscript="1">
 					<eqn>-0.0035</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-0.005" max="-0.001"/>
 				<units>metre</units>
 			</aux>
@@ -890,6 +894,7 @@ ELSE
 				<element subscript="1">
 					<eqn>-0.008</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-0.015" max="-0.005"/>
 				<units>metre</units>
 			</aux>
@@ -901,6 +906,7 @@ ELSE
 			</aux>
 			<aux name="Include MICI behaviour">
 				<eqn>0</eqn>
+				<format precision="auto"/>
 				<range min="0" max="1"/>
 				<units>dmnl</units>
 			</aux>
@@ -989,6 +995,7 @@ Include_MICI_behaviour * MICI_AntIS_disintegration * AntIS_initial_volume / AntI
 				<element subscript="1">
 					<eqn>0.5 {0, 1}</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="1"/>
 				<units>1</units>
 			</aux>
@@ -1001,6 +1008,7 @@ Include_MICI_behaviour * MICI_AntIS_disintegration * AntIS_initial_volume / AntI
 				<element subscript="1">
 					<eqn>0.5 {0, 1}</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="1"/>
 				<units>1</units>
 			</aux>
@@ -1013,6 +1021,7 @@ Include_MICI_behaviour * MICI_AntIS_disintegration * AntIS_initial_volume / AntI
 				<element subscript="1">
 					<eqn>0.5 {0, 1}</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="1"/>
 				<units>1</units>
 			</aux>
@@ -1025,6 +1034,7 @@ Include_MICI_behaviour * MICI_AntIS_disintegration * AntIS_initial_volume / AntI
 				<element subscript="1">
 					<eqn>0.5 {0, 1}</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="1"/>
 				<units>1</units>
 			</aux>
@@ -1039,6 +1049,7 @@ Meyssignac et al. (2019): Measuring Global Ocean Heat Content to Estimate the Ea
 				<element subscript="1">
 					<eqn>0.12</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.09" max="0.12"/>
 				<units>metre / YJ</units>
 			</aux>
@@ -1226,6 +1237,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>3950000000000</eqn>
+				<format precision="auto"/>
 				<range min="2500000000000" max="5500000000000"/>
 				<units>m^3</units>
 			</aux>
@@ -1238,6 +1250,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<element subscript="1">
 					<eqn>-0.00538179</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-0.1" max="0.1"/>
 				<units>metre</units>
 			</aux>
@@ -1257,6 +1270,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<element subscript="1">
 					<eqn>3001923201</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="2000000000" max="5000000000"/>
 				<units>m^3/GW</units>
 			</aux>

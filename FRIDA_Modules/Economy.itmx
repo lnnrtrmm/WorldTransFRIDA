@@ -42,7 +42,7 @@
 		<isee:time_format name="Builtin" type="adaptive"/>
 	</isee:time_formats>
 	<isee:number_format_extenders/>
-	<default_format scale_by="1"/>
+	<default_format precision="full" scale_by="1"/>
 	<model_units>
 		<unit name="Gh">
 			<eqn>Giga*h</eqn>
@@ -236,7 +236,7 @@
 	<model name="Economy">
 		<variables>
 			<module name="GDP" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Demographics.Nominal_GDP" from="GDP.Nominal_GDP"/>
 				<connect2 to="Demographics.Nominal_GDP" from="GDP.Nominal_GDP"/>
 				<connect to="Employment.GDP" from="GDP.Nominal_GDP"/>
@@ -283,7 +283,7 @@
 				<connect2 to="GDP.worker_consumption" from="Circular_Flow.worker_consumption"/>
 			</module>
 			<module name="Government" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Inflation.bailouts" from="Government.bailouts"/>
 				<connect2 to="Inflation.bailouts" from="Government.bailouts"/>
 				<connect to="energy_investments.expenditure_on_subsidies_for_investments_in_bio_fuel_energy_capacity" from="Government.expenditure_on_subsidies_for_investments_in_bio_fuel_energy_capacity"/>
@@ -458,7 +458,7 @@
 				<connect2 to="Government.wealth_tax" from="Circular_Flow.wealth_tax"/>
 			</module>
 			<module name="Circular Flow" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Inflation.bank_profits" from="Circular_Flow.bank_profits"/>
 				<connect2 to="Inflation.bank_profits" from="Circular_Flow.bank_profits"/>
 				<connect to="Finance.Firms_Checking_Accounts" from="Circular_Flow.Firms_Checking_Accounts"/>
@@ -557,7 +557,7 @@
 				<connect2 to="Circular_Flow.wealth_taxation_rate" from="Government_Regulations.wealth_tax_policy"/>
 			</module>
 			<module name="Finance" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Employment.actual_safe_investment_failure" from="Finance.actual_safe_investment_failure"/>
 				<connect2 to="Employment.actual_safe_investment_failure" from="Finance.actual_safe_investment_failure"/>
 				<connect to="Circular_Flow.bank_profit_payment_1" from="Finance.annual_bank_profit_payment"/>
@@ -654,7 +654,7 @@
 				<connect2 to="Finance.Worker_Savings_1" from="Circular_Flow.Worker_Savings"/>
 			</module>
 			<module name="Employment" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Circular_Flow.annual_aggregate_wages" from="Employment.annual_aggregate_wages"/>
 				<connect2 to="Circular_Flow.annual_aggregate_wages" from="Employment.annual_aggregate_wages"/>
 				<connect to="Government.Employed" from="Employment.Employed"/>
@@ -735,7 +735,7 @@
 				<connect2 to="Employment.working_age_population_2" from="Demographics.working_age_population"/>
 			</module>
 			<module name="Inflation" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to='Finance."inflation_adjustment_$_per_c$"' from='Inflation."inflation_adjustment_$_per_c$"'/>
 				<connect2 to='Finance."inflation_adjustment_$_per_c$"' from='Inflation."inflation_adjustment_$_per_c$"'/>
 				<connect to='Circular_Flow."inflation_adjustment_b$_per_bc$"' from='Inflation."inflation_adjustment_b$_per_bc$"'/>
@@ -816,7 +816,7 @@
 				<connect2 to="Inflation.wages_1" from="Circular_Flow.wages"/>
 			</module>
 			<module name="Innovation" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Finance.Firms_Innovation_Orientation" from="Innovation.Firms_Innovation_Orientation"/>
 				<connect2 to="Finance.Firms_Innovation_Orientation" from="Innovation.Firms_Innovation_Orientation"/>
 				<connect to="Innovation.Firms_Checking_Accounts_1" from="Circular_Flow.Firms_Checking_Accounts"/>
@@ -827,8 +827,8 @@
 			<isee:placeholder name="Economy 2 Outputs">
 				<eqn>GDP.Nominal_GDP[1] + GDP.&quot;Real_GDP_in_2021c$&quot;[1] + Circular_Flow.private_consumption[1] + Government.government_consumption[1] + Finance.total_investment[1] + Employment.Employed[1] + Employment.Unemployed[1] + Employment.Wage_Rate[1] + Employment.unemployment_rate[1] + Government.debt_to_GDP_ratio[1] + GDP.nominal_gdp_growth_rate_deviation_from_average_in_calibration_period_summed[1] + GDP.real_gdp_growth_rate_deviation_from_average_in_calibration_period_summed[1] + Inflation.gdp_difference[1]</eqn>
 			</isee:placeholder>
-			<module name="Sea level rise Impacts\nand Adaptation" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_ref/FRIDA_Modules/Sea level rise Impacts and Adaptation.itmx">
-				<format scale_by="auto"/>
+			<module name="Sea level rise Impacts\nand Adaptation" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Sea level rise Impacts and Adaptation.itmx">
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Sea_level_rise_Impacts_and_Adaptation.No_SLR_adaptation_strategy" from="Government_Regulations.No_SLR_adaptation_strategy"/>
 				<connect2 to="Sea_level_rise_Impacts_and_Adaptation.No_SLR_adaptation_strategy" from="Government_Regulations.No_SLR_adaptation_strategy"/>
 				<connect to="Sea_level_rise_Impacts_and_Adaptation.Protection_as_SLR_adaptation_strategy" from="Government_Regulations.Protection_as_SLR_adaptation_strategy"/>
@@ -1104,7 +1104,7 @@
 						</plot>
 					</graph>
 				</stacked_container>
-				<isee:selector x="849" y="736" width="300" height="30" select_placeholder="true" placeholder="Economy_2_Outputs"/>
+				<isee:selector x="851" y="736" width="300" height="30" select_placeholder="true" placeholder="Economy_2_Outputs"/>
 				<connector uid="38" isee:thickness="2" angle="197.295" isee:autocreated="true">
 					<from>GDP</from>
 					<to>Finance</to>
@@ -1218,6 +1218,7 @@
 				<element subscript="1">
 					<eqn>10.40066996</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="2" max="20"/>
 				<units>Years</units>
 			</aux>
@@ -1247,6 +1248,7 @@ SMTH1(net_owner_income*desired_savings_as_multiple_of_profits, time_to_consider_
 				<element subscript="1">
 					<eqn>1.123421292</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="10"/>
 				<units>Years</units>
 			</aux>
@@ -1259,6 +1261,7 @@ SMTH1(net_owner_income*desired_savings_as_multiple_of_profits, time_to_consider_
 				<element subscript="1">
 					<eqn>4.934126987</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="5"/>
 				<units>year</units>
 			</aux>
@@ -1278,6 +1281,7 @@ SMTH1(net_owner_income*desired_savings_as_multiple_of_profits, time_to_consider_
 				<element subscript="1">
 					<eqn>0.35</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.25" max="0.45"/>
 				<units>dmnl</units>
 			</aux>
@@ -1342,6 +1346,7 @@ SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider
 				<element subscript="1">
 					<eqn>2.372760445</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="5"/>
 				<units>Years</units>
 			</aux>
@@ -1396,6 +1401,7 @@ SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider
 				<element subscript="1">
 					<eqn>0.180383703</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.1" max="0.3"/>
 				<units>dmnl</units>
 			</aux>
@@ -1411,6 +1417,7 @@ SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>49956.25925</eqn>
+				<format precision="auto"/>
 				<range min="30000" max="60000"/>
 				<units>b$</units>
 			</aux>
@@ -1418,6 +1425,7 @@ SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>5250.071887</eqn>
+				<format precision="auto"/>
 				<range min="4000" max="6000"/>
 				<units>b$</units>
 			</aux>
@@ -1425,6 +1433,7 @@ SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>23714.3444</eqn>
+				<format precision="auto"/>
 				<range min="20000" max="30000"/>
 				<units>b$</units>
 			</aux>
@@ -1462,6 +1471,7 @@ SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider
 				<element subscript="1">
 					<eqn>2.874018272</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="5"/>
 				<units>year</units>
 			</aux>
@@ -1569,6 +1579,7 @@ SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider
 				<element subscript="1">
 					<eqn>0.75</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.65" max="0.85"/>
 				<units>dmnl</units>
 			</aux>
@@ -1581,6 +1592,7 @@ SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider
 				<element subscript="1">
 					<eqn>0.75</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.65" max="0.85"/>
 				<units>dmnl</units>
 			</aux>
@@ -1593,6 +1605,7 @@ SMTH1((net_worker_income*desired_savings_as_multiple_of_wages), time_to_consider
 				<element subscript="1">
 					<eqn>1.464111314</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.5" max="2.5"/>
 				<units>years</units>
 			</aux>
@@ -1834,6 +1847,7 @@ net_worker_income*fraction_of_income_to_consumption-annual_worker_savings_to_rea
 				<element subscript="1">
 					<eqn>0.331874184</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="0.4"/>
 				<units>dmnl</units>
 			</aux>
@@ -2129,7 +2143,7 @@ net_worker_income*fraction_of_income_to_consumption-annual_worker_savings_to_rea
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="818" page_height="571" isee:page_cols="3" isee:page_rows="4" isee:scroll_x="490" isee:scroll_y="977" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="4" isee:scroll_x="1155" isee:scroll_y="594" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3385,6 +3399,7 @@ net_worker_income*fraction_of_income_to_consumption-annual_worker_savings_to_rea
 				<element subscript="1">
 					<eqn>0.070770794</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.03" max="0.1"/>
 				<units>dmnl</units>
 			</aux>
@@ -3404,6 +3419,7 @@ net_worker_income*fraction_of_income_to_consumption-annual_worker_savings_to_rea
 				<element subscript="1">
 					<eqn>6978.457615</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="2000" max="10000"/>
 				<units>$/p</units>
 			</aux>
@@ -3766,6 +3782,7 @@ https://rshiny.ilo.org/dataexplorer32/?id=UNE_2EAP_SEX_AGE_RT_A&amp;ref_area=X01
 				<element subscript="1">
 					<eqn>0.25</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.15" max="0.35"/>
 				<units>dmnl</units>
 			</aux>
@@ -3792,6 +3809,7 @@ https://rshiny.ilo.org/dataexplorer32/?id=UNE_2EAP_SEX_AGE_RT_A&amp;ref_area=X01
 				<element subscript="1">
 					<eqn>1.416696416</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="3"/>
 				<units>year</units>
 			</aux>
@@ -3804,6 +3822,7 @@ https://rshiny.ilo.org/dataexplorer32/?id=UNE_2EAP_SEX_AGE_RT_A&amp;ref_area=X01
 				<element subscript="1">
 					<eqn>0.131298522</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="0.9"/>
 				<units>1/year</units>
 			</aux>
@@ -3816,6 +3835,7 @@ https://rshiny.ilo.org/dataexplorer20/?id=EAP_2WAP_SEX_AGE_RT_A&amp;ref_area=X01
 				<element subscript="1">
 					<eqn>63.99866387</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="61.8" max="66"/>
 				<units>dmnl</units>
 			</aux>
@@ -3835,6 +3855,7 @@ https://rshiny.ilo.org/dataexplorer20/?id=EAP_2WAP_SEX_AGE_RT_A&amp;ref_area=X01
 				<element subscript="1">
 					<eqn>0.1887661</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.1" max="0.75"/>
 				<units>dmnl</units>
 			</aux>
@@ -3916,6 +3937,7 @@ https://rshiny.ilo.org/dataexplorer20/?id=EAP_2WAP_SEX_AGE_RT_A&amp;ref_area=X01
 				<element subscript="1">
 					<eqn>2</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="3"/>
 				<units>year</units>
 			</aux>
@@ -4073,6 +4095,7 @@ https://rshiny.ilo.org/dataexplorer20/?id=EAP_2WAP_SEX_AGE_RT_A&amp;ref_area=X01
 				<element subscript="1">
 					<eqn>1.999714633</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="3"/>
 				<units>year</units>
 			</aux>
@@ -4085,6 +4108,7 @@ https://rshiny.ilo.org/dataexplorer20/?id=EAP_2WAP_SEX_AGE_RT_A&amp;ref_area=X01
 				<element subscript="1">
 					<eqn>1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.5" max="1.5"/>
 				<units>dmnl</units>
 			</aux>
@@ -4110,6 +4134,7 @@ Fitted slope for the direct temperature effect on high exposure productivity, ba
 				<element subscript="1">
 					<eqn>-6.12997762</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-25" max="4"/>
 				<units>1/(deg C)</units>
 			</aux>
@@ -4122,6 +4147,7 @@ Fitted slope for the temperature squared effect on high exposure productivity, b
 				<element subscript="1">
 					<eqn>-1.06326622</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-1.5" max="1"/>
 				<units>1/(deg C^2)</units>
 			</aux>
@@ -4145,6 +4171,7 @@ Fitted slope for the direct temperature effect on low exposure productivity, bas
 				<element subscript="1">
 					<eqn>-2.08597315</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-16" max="5"/>
 				<units>1/(deg C)</units>
 			</aux>
@@ -4157,6 +4184,7 @@ Fitted slope for the temperature squared effect on low exposure productivity, ba
 				<element subscript="1">
 					<eqn>-1.56791946</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-2" max="0.1"/>
 				<units>1/(deg C^2)</units>
 			</aux>
@@ -4208,6 +4236,7 @@ share_of_employment_in_services_intercept+share_of_employment_in_services_slope*
 				<element subscript="1">
 					<eqn>66.85052561</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-100" max="100"/>
 				<units>dmnl</units>
 			</aux>
@@ -4215,6 +4244,7 @@ share_of_employment_in_services_intercept+share_of_employment_in_services_slope*
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>-15.81539752</eqn>
+				<format precision="auto"/>
 				<range min="-50" max="1"/>
 				<units>Million*Person*Years/bc$</units>
 			</aux>
@@ -4227,6 +4257,7 @@ share_of_employment_in_services_intercept+share_of_employment_in_services_slope*
 				<element subscript="1">
 					<eqn>0.248414733</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-100" max="100"/>
 				<units>dmnl</units>
 			</aux>
@@ -4239,6 +4270,7 @@ share_of_employment_in_services_intercept+share_of_employment_in_services_slope*
 				<element subscript="1">
 					<eqn>2.841699947</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="10"/>
 				<units>Million*Person*Years/bc$</units>
 			</aux>
@@ -4251,6 +4283,7 @@ share_of_employment_in_services_intercept+share_of_employment_in_services_slope*
 				<element subscript="1">
 					<eqn>-25.32653149</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-100" max="100"/>
 				<units>dmnl</units>
 			</aux>
@@ -4263,6 +4296,7 @@ share_of_employment_in_services_intercept+share_of_employment_in_services_slope*
 				<element subscript="1">
 					<eqn>7.299551247</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="10"/>
 				<units>Million*Person*Years/bc$</units>
 			</aux>
@@ -4480,6 +4514,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<element subscript="1">
 					<eqn>0.5</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.25" max="0.75"/>
 				<units>dmnl</units>
 			</aux>
@@ -4547,6 +4582,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<element subscript="1">
 					<eqn>5</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="4" max="6"/>
 				<units>years</units>
 			</aux>
@@ -4559,6 +4595,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<element subscript="1">
 					<eqn>0.090404023</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.04" max="0.15"/>
 				<units>dmnl</units>
 			</aux>
@@ -4578,6 +4615,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<element subscript="1">
 					<eqn>1.464295409</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.1" max="2"/>
 				<units>dmnl</units>
 			</aux>
@@ -4618,6 +4656,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<element subscript="1">
 					<eqn>0.132668695</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.05" max="0.25"/>
 				<units>1/year</units>
 			</aux>
@@ -4651,6 +4690,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<element subscript="1">
 					<eqn>1.947328313</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.9473283132336" max="2.9473283132336"/>
 				<units>1/year</units>
 			</aux>
@@ -4663,6 +4703,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<element subscript="1">
 					<eqn>5</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="3" max="7"/>
 				<units>years</units>
 			</aux>
@@ -4675,6 +4716,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<element subscript="1">
 					<eqn>1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.5" max="1.5"/>
 				<units>year</units>
 			</aux>
@@ -4697,6 +4739,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<doc>${Assumption,Internal Calibration Parameter}
 </doc>
 				<eqn>1</eqn>
+				<format precision="auto"/>
 				<range min="0.5" max="1.5"/>
 				<units>years</units>
 			</aux>
@@ -4711,6 +4754,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<doc>${Assumption,Internal Calibration Parameter}
 </doc>
 				<eqn>0.5</eqn>
+				<format precision="auto"/>
 				<range min="0.25" max="1"/>
 				<units>dmnl</units>
 			</aux>
@@ -4739,6 +4783,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>0.044315026</eqn>
+				<format precision="auto"/>
 				<range min="0.03" max="0.1"/>
 				<units>1/year</units>
 			</aux>
@@ -4888,7 +4933,7 @@ Fractional exposure levels to temperature for service related labour. Assumption
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="6" isee:page_rows="6" isee:scroll_x="2069.17" isee:scroll_y="586.667" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="6" isee:page_rows="6" isee:scroll_x="232.5" isee:scroll_y="1314.17" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6457,6 +6502,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>20.66423255</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="3" max="30"/>
 				<units>Years</units>
 			</aux>
@@ -6501,6 +6547,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>0.139977446</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="1"/>
 				<units>dmnl</units>
 			</aux>
@@ -6520,6 +6567,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>1.324460953</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.5" max="1.5"/>
 				<units>year</units>
 			</aux>
@@ -6559,6 +6607,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>0.961854331</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.125" max="1"/>
 				<units>year</units>
 			</aux>
@@ -6593,6 +6642,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>0.034599524</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.01" max="0.05"/>
 				<units>dmnl</units>
 			</aux>
@@ -6624,6 +6674,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>1.870733096</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="10"/>
 				<units>dmnl</units>
 			</aux>
@@ -6677,6 +6728,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>0.042311226</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.02" max="0.06"/>
 				<units>dmnl</units>
 			</aux>
@@ -6689,6 +6741,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>2.593611997</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="2" max="20"/>
 				<units>years</units>
 			</aux>
@@ -6715,6 +6768,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>3.002107323</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="2.5" max="5"/>
 				<units>dmnl</units>
 			</aux>
@@ -6727,6 +6781,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>0.021264445</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.01" max="0.05"/>
 				<units>1/year</units>
 			</aux>
@@ -6741,6 +6796,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>3858.593424</eqn>
+				<format precision="auto"/>
 				<range min="3000" max="5000"/>
 				<units>b$/year</units>
 			</aux>
@@ -6748,6 +6804,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>8061.316583</eqn>
+				<format precision="auto"/>
 				<range min="7500" max="8500"/>
 				<units>b$</units>
 			</aux>
@@ -6755,6 +6812,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>203.0694592</eqn>
+				<format precision="auto"/>
 				<range min="180" max="300"/>
 				<units>b$</units>
 			</aux>
@@ -6762,6 +6820,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>72479.76499</eqn>
+				<format precision="auto"/>
 				<range min="60000" max="100000"/>
 				<units>b$</units>
 			</aux>
@@ -6858,6 +6917,7 @@ furthermore. The structure that was previously decided on had the productivity g
 				<element subscript="1">
 					<eqn>0.074417795</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.06" max="0.12"/>
 				<units>dmnl</units>
 			</aux>
@@ -6900,6 +6960,7 @@ ELSE
 				<element subscript="1">
 					<eqn>0.579202382</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.1" max="1.1"/>
 				<units>1/deg C</units>
 			</aux>
@@ -6947,6 +7008,7 @@ ELSE
 				<element subscript="1">
 					<eqn>0.633779114</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.1" max="1"/>
 				<units>dmnl</units>
 			</aux>
@@ -7006,6 +7068,7 @@ ELSE
 				<element subscript="1">
 					<eqn>2</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="2" max="4"/>
 				<units>dmnl</units>
 			</aux>
@@ -7053,6 +7116,7 @@ ELSE
 				<element subscript="1">
 					<eqn>1.05</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.5" max="1.5"/>
 				<units>dmnl</units>
 			</aux>
@@ -7072,6 +7136,7 @@ ELSE
 				<element subscript="1">
 					<eqn>7.504574501</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="6" max="9"/>
 				<units>dmnl</units>
 			</aux>
@@ -7129,6 +7194,7 @@ ELSE
 				<element subscript="1">
 					<eqn>10.91784116</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="3" max="30"/>
 				<units>years</units>
 			</aux>
@@ -7176,6 +7242,7 @@ ELSE
 				<element subscript="1">
 					<eqn>1.1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.5" max="1.5"/>
 				<units>dmnl</units>
 			</aux>
@@ -7294,6 +7361,7 @@ ELSE
 				<element subscript="1">
 					<eqn>2.217074111</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="3"/>
 				<units>dmnl</units>
 			</aux>
@@ -7301,6 +7369,7 @@ ELSE
 				<doc>${Assumption,Internal Calibration Parameter}
 </doc>
 				<eqn>1.02</eqn>
+				<format precision="auto"/>
 				<range min="1.01" max="1.05"/>
 				<units>dmnl</units>
 			</aux>
@@ -7334,6 +7403,7 @@ ELSE
 				<element subscript="1">
 					<eqn>0.501962557</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.2" max="0.8"/>
 				<units>dmnl</units>
 			</aux>
@@ -7406,6 +7476,7 @@ ELSE
 				<element subscript="1">
 					<eqn>0.06706723</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="0.1"/>
 				<units>1/year</units>
 			</aux>
@@ -7426,6 +7497,7 @@ ELSE
 				<element subscript="1">
 					<eqn>80</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="60" max="100"/>
 				<units>years</units>
 			</aux>
@@ -7483,6 +7555,7 @@ ELSE
 				<element subscript="1">
 					<eqn>1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="1.5"/>
 				<units>year</units>
 			</aux>
@@ -7502,6 +7575,7 @@ ELSE
 				<element subscript="1">
 					<eqn>3</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="2" max="4"/>
 				<units>years</units>
 			</aux>
@@ -7572,6 +7646,7 @@ MAX(0,extra_risky_interest_above_interest_at_origination*time_to_measure_changes
 				<element subscript="1">
 					<eqn>11.89928999</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="11" max="13.3"/>
 				<units>dmnl</units>
 			</aux>
@@ -7584,6 +7659,7 @@ MAX(0,extra_risky_interest_above_interest_at_origination*time_to_measure_changes
 				<element subscript="1">
 					<eqn>9.049245183</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="9" max="10"/>
 				<units>dmnl</units>
 			</aux>
@@ -7596,6 +7672,7 @@ This is to keep the units consistent with the exponential form of the equation</
 				<element subscript="1">
 					<eqn>1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.8" max="1.2"/>
 				<units>year</units>
 			</aux>
@@ -7685,6 +7762,7 @@ MAX(0,-1*extra_risky_interest_above_interest_at_origination*time_to_measure_chan
 				<element subscript="1">
 					<eqn>-0.114848222</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-1" max="-0.11"/>
 				<units>dmnl</units>
 			</aux>
@@ -7734,6 +7812,7 @@ MAX(0,-1*extra_risky_interest_above_interest_at_origination*time_to_measure_chan
 				<doc>${External Parameter}
 </doc>
 				<eqn>0.035</eqn>
+				<format precision="auto"/>
 				<range min="0.01" max="0.15"/>
 				<units>1/year</units>
 			</aux>
@@ -7804,7 +7883,7 @@ MAX(0,-1*extra_risky_interest_above_interest_at_origination*time_to_measure_chan
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="5" isee:page_rows="5" isee:scroll_x="1234" isee:scroll_y="440" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="5" isee:page_rows="5" isee:scroll_x="356.429" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -8455,17 +8534,17 @@ MAX(0,-1*extra_risky_interest_above_interest_at_origination*time_to_measure_chan
 					<to>converted_normal_safe_loans_failure_rate</to>
 				</connector>
 				<aux x="1700.13" y="566.863" name="initial fraction of safe loans that are exploratory"/>
-				<stock label_side="left" x="696.667" y="192.583" name="Bank\nExploration\nOrientation"/>
+				<stock label_side="left" x="694.667" y="192.583" name="Bank\nExploration\nOrientation"/>
 				<aux label_side="right" x="758.566" y="66.0655" name="max\nbank exploration\norientation"/>
 				<connector uid="148" angle="221.524">
 					<from>max_bank_exploration_orientation</from>
 					<to>increase_in_bank_exploration_orientation</to>
 				</connector>
-				<connector uid="149" angle="51.4519">
+				<connector uid="149" angle="49.8543">
 					<from>Bank_Exploration_Orientation</from>
 					<to>increase_in_bank_exploration_orientation</to>
 				</connector>
-				<connector uid="150" angle="309.001">
+				<connector uid="150" angle="310.834">
 					<from>Bank_Exploration_Orientation</from>
 					<to>decline_in_bank_exploration_orientation</to>
 				</connector>
@@ -8533,7 +8612,7 @@ MAX(0,-1*extra_risky_interest_above_interest_at_origination*time_to_measure_chan
 					<from>exploration_effect_midpoint</from>
 					<to>converted_normal_exploration_fraction</to>
 				</connector>
-				<connector uid="166" angle="357.346">
+				<connector uid="166" angle="357.532">
 					<from>Bank_Exploration_Orientation</from>
 					<to>effect_of_bank_exploration_orientation_exploratory_investment_fraction</to>
 				</connector>
@@ -9118,7 +9197,7 @@ MAX(0,-1*extra_risky_interest_above_interest_at_origination*time_to_measure_chan
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>private_consumption_1 + Investment_1 + Government_Spending_1</eqn>
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<units>b$/year</units>
 			</aux>
 			<aux name="time to measure\nGDP growth\nrate">
@@ -9179,7 +9258,7 @@ Calibration Parameter: Renewable Electricity Capacity &amp; Renewable Electricit
 				<units>b$/year</units>
 			</aux>
 			<aux name="Real GDP in 2021c$" access="output" isee:autocreated="true">
-				<doc>${Calibrated Output}
+				<doc>${Calibrated Output,For SLR paper}
 </doc>
 				<dimensions>
 					<dim name="Run"/>
@@ -9308,6 +9387,7 @@ Calibration Parameter: Renewable Electricity Capacity &amp; Renewable Electricit
 				<element subscript="1">
 					<eqn>0.03603344</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="0.05"/>
 				<units>dmnl/year</units>
 			</aux>
@@ -9426,7 +9506,7 @@ ELSE
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="2" isee:page_rows="3" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="2" isee:page_rows="3" isee:scroll_y="60" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -9836,6 +9916,7 @@ ELSE
 				<element subscript="1">
 					<eqn>0.673075184</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.65" max="1"/>
 				<units>dmnl</units>
 			</aux>
@@ -9848,6 +9929,7 @@ ELSE
 				<element subscript="1">
 					<eqn>10000.6804</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="25000"/>
 				<units>B$</units>
 			</aux>
@@ -9883,6 +9965,7 @@ ELSE
 				<element subscript="1">
 					<eqn>2.080532871</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="3"/>
 				<units>Years</units>
 			</aux>
@@ -9909,6 +9992,7 @@ https://www.oecd-ilibrary.org/sites/e2ee1eb1-en/index.html?itemId=/content/compo
 				<element subscript="1">
 					<eqn>0.045227023</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.03" max="0.16"/>
 				<units>dmnl</units>
 			</aux>
@@ -9956,6 +10040,7 @@ https://www.oecd-ilibrary.org/sites/e2ee1eb1-en/index.html?itemId=/content/compo
 				<element subscript="1">
 					<eqn>2.567142838</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1" max="3"/>
 				<units>year</units>
 			</aux>
@@ -10001,6 +10086,7 @@ inflation_goal_policy</eqn>
 				<element subscript="1">
 					<eqn>1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.8" max="1.2"/>
 				<units>dmnl</units>
 			</aux>
@@ -10013,6 +10099,7 @@ inflation_goal_policy</eqn>
 				<element subscript="1">
 					<eqn>1.5</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.5" max="2"/>
 				<units>Years</units>
 			</aux>
@@ -10038,6 +10125,7 @@ inflation_goal_policy</eqn>
 				<element subscript="1">
 					<eqn>0.030754147</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="0.2"/>
 				<units>1/year</units>
 			</aux>
@@ -10068,6 +10156,7 @@ inflation_goal_policy</eqn>
 				<element subscript="1">
 					<eqn>0.33</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.2" max="0.4"/>
 				<units>dmnl</units>
 			</aux>
@@ -10080,6 +10169,7 @@ inflation_goal_policy</eqn>
 				<element subscript="1">
 					<eqn>1.33</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1.2" max="1.4"/>
 				<units>dmnl</units>
 			</aux>
@@ -10122,6 +10212,7 @@ inflation_goal_policy</eqn>
 				<doc>${Assumption,Internal Calibration Parameter}
 </doc>
 				<eqn>1</eqn>
+				<format precision="auto"/>
 				<range min="0.5" max="1.5"/>
 				<units>years</units>
 			</aux>
@@ -10539,6 +10630,7 @@ ELSE
 				<doc>${Unit}
 </doc>
 				<eqn>1</eqn>
+				<format precision="auto"/>
 				<range min="0" max="2"/>
 				<units>year</units>
 			</aux>
@@ -10596,6 +10688,7 @@ government_interest_payments</eqn>
 				<element subscript="1">
 					<eqn>1.307567453</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="1.2" max="1.5"/>
 				<units>dmnl</units>
 			</aux>
@@ -10609,6 +10702,7 @@ ELSE 0.9</eqn>
 				<doc>${Assumption,Internal Calibration Parameter}
 </doc>
 				<eqn>10</eqn>
+				<format precision="auto"/>
 				<range min="9" max="11"/>
 				<units>1/year</units>
 			</aux>
@@ -10620,6 +10714,7 @@ ELSE 0.9</eqn>
 				<doc>${Assumption,Internal Calibration Parameter}
 </doc>
 				<eqn>1</eqn>
+				<format precision="auto"/>
 				<range min="0.5" max="1.8"/>
 				<units>year</units>
 			</aux>
@@ -10627,6 +10722,7 @@ ELSE 0.9</eqn>
 				<doc>${Assumption,Internal Calibration Parameter}
 </doc>
 				<eqn>2</eqn>
+				<format precision="auto"/>
 				<range min="1.6" max="2.4"/>
 				<units>year</units>
 			</aux>
@@ -10694,6 +10790,7 @@ ELSE
 				<element subscript="1">
 					<eqn>7</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="5" max="10"/>
 				<units>years</units>
 			</aux>
@@ -10731,6 +10828,7 @@ ELSE
 				<element subscript="1">
 					<eqn>0.052495849</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="0.2"/>
 				<units>1/deg C</units>
 			</aux>
@@ -10877,6 +10975,7 @@ effect_of_STA_on_public_consumption</eqn>
 				<element subscript="1">
 					<eqn> 0.1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.05" max="0.15"/>
 				<units>year</units>
 			</aux>
@@ -10940,7 +11039,7 @@ effect_of_STA_on_public_consumption</eqn>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="3" isee:page_rows="4" isee:scroll_x="68.5714" isee:scroll_y="1005.71" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="4" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -11912,6 +12011,8 @@ effect_of_STA_on_public_consumption</eqn>
 	<model name="Inflation">
 		<variables>
 			<stock name="Inflation Index" access="output" isee:autocreated="true">
+				<doc>${For SLR paper}
+</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -12016,6 +12117,7 @@ effect_of_STA_on_public_consumption</eqn>
 				<element subscript="1">
 					<eqn>1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.5" max="1.5"/>
 				<units>year</units>
 			</aux>
@@ -12149,6 +12251,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>3.282435995</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="100"/>
 				<units>dmnl</units>
 			</aux>
@@ -12161,6 +12264,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>-2.344074984</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="-10" max="1"/>
 				<units>Million*Person*Years/b$</units>
 			</aux>
@@ -12173,6 +12277,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>19.91649575</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="20"/>
 				<units>dmnl</units>
 			</aux>
@@ -12270,6 +12375,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>4.28777091</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="2" max="10"/>
 				<units>years</units>
 			</aux>
@@ -12316,6 +12422,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>0.021832812</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.01" max="2"/>
 				<units>dmnl</units>
 			</aux>
@@ -12349,6 +12456,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>0.102822577</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.001" max="2"/>
 				<units>dmnl</units>
 			</aux>
@@ -12388,6 +12496,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>0.005994537</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.001" max="2"/>
 				<units>dmnl</units>
 			</aux>
@@ -12421,6 +12530,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>0.056234969</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.001" max="2"/>
 				<units>dmnl</units>
 			</aux>
@@ -12460,6 +12570,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>0.046270179</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.001" max="2"/>
 				<units>dmnl</units>
 			</aux>
@@ -12472,6 +12583,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>0.437344443</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.35" max="0.55"/>
 				<units>dmnl</units>
 			</aux>
@@ -12484,6 +12596,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>0.03005465</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="0.1"/>
 				<units>1/year</units>
 			</aux>
@@ -12625,7 +12738,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="420" isee:scroll_y="35" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="80" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -12986,13 +13099,13 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="1515" y="165" name="grazing land"/>
 				<aux x="1379.68" y="265" name="growth rate in grazing land"/>
-				<aux x="1308" y="348" name="grazing land inflation contribution"/>
+				<aux x="1312" y="349.667" name="grazing land inflation contribution"/>
 				<aux background="#E5FF31" x="1465" y="317" name="weight of grazing land inflation contribution"/>
-				<connector uid="81" angle="191.17">
+				<connector uid="81" angle="192.052">
 					<from>weight_of_grazing_land_inflation_contribution</from>
 					<to>grazing_land_inflation_contribution</to>
 				</connector>
-				<connector uid="82" angle="226.169">
+				<connector uid="82" angle="231.362">
 					<from>growth_rate_in_grazing_land</from>
 					<to>grazing_land_inflation_contribution</to>
 				</connector>
@@ -13005,7 +13118,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 					<from>grazing_land</from>
 					<to>growth_rate_in_grazing_land</to>
 				</connector>
-				<connector uid="85" angle="185.194">
+				<connector uid="85" angle="193.161">
 					<from>grazing_land_inflation_contribution</from>
 					<to>inflation_gap</to>
 				</connector>
@@ -13135,6 +13248,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>0.5</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.2" max="0.8"/>
 				<units>dmnl</units>
 			</aux>
@@ -13147,6 +13261,7 @@ agriculture_share_of_GDP_starting_point_determinant*EXP(agriculture_share_of_GDP
 				<element subscript="1">
 					<eqn>10.03652205</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="5" max="20"/>
 				<units>years</units>
 			</aux>
@@ -13230,6 +13345,7 @@ ELSE MAX(0, Firms_Innovation_Orientation//time_to_decrease_innovation_orientatio
 				<element subscript="1">
 					<eqn>1.006367324</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="20"/>
 				<units>dmnl</units>
 			</aux>
@@ -13274,6 +13390,7 @@ ELSE MAX(0, Firms_Innovation_Orientation//time_to_decrease_innovation_orientatio
 				<element subscript="1">
 					<eqn>9.996110443</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="20"/>
 				<units>dmnl</units>
 			</aux>

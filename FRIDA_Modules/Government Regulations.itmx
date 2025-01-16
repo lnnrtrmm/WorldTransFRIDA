@@ -5,7 +5,7 @@
 		<name>Government Regulations</name>
 		<uuid>cf8a5bb3-8c41-49fc-b752-b9a407cc4656</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.7.3" isee:build_number="3465" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.7.3" isee:build_number="3457" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -45,7 +45,7 @@
 		<isee:time_format name="Builtin" type="adaptive"/>
 	</isee:time_formats>
 	<isee:number_format_extenders/>
-	<default_format scale_by="1"/>
+	<default_format precision="full" scale_by="1"/>
 	<model_units>
 		<unit name="Gh">
 			<eqn>Giga*h</eqn>
@@ -334,8 +334,7 @@
 				<units>c$*Years/kWh</units>
 			</aux>
 			<aux name="start year" access="output">
-				<eqn>2025</eqn>
-				<format precision="full"/>
+				<eqn>1980</eqn>
 				<units>Year</units>
 			</aux>
 			<aux name="rate of decommissioning oil fossil\nfuel extraction capital" access="output">
@@ -708,6 +707,7 @@
 				<doc>${Policy}
 </doc>
 				<eqn>0.1935</eqn>
+				<format precision="auto"/>
 				<range min="0.05" max="0.35"/>
 				<units>dmnl</units>
 			</aux>
@@ -723,6 +723,7 @@
 				<doc>${Policy}
 </doc>
 				<eqn>0.332</eqn>
+				<format precision="auto"/>
 				<range min="0" max="1"/>
 				<units>dmnl</units>
 			</aux>
@@ -730,6 +731,7 @@
 				<doc>${Policy}
 </doc>
 				<eqn>5</eqn>
+				<format precision="auto"/>
 				<range min="2" max="50"/>
 				<units>years</units>
 			</aux>
@@ -826,6 +828,7 @@ This policy lever simulates stricter/looser building standards for concrete stru
 				<doc>${Policy}
 </doc>
 				<eqn>10</eqn>
+				<format precision="auto"/>
 				<range min="5" max="50"/>
 				<units>years</units>
 			</aux>
@@ -844,6 +847,7 @@ RAMP((government_debt_to_GDP_ratio_target-calibration_period_government_debt_to_
 				<doc>${Policy}
 </doc>
 				<eqn>2025</eqn>
+				<format precision="auto"/>
 				<range min="2025" max="2075"/>
 				<units>Year</units>
 			</aux>

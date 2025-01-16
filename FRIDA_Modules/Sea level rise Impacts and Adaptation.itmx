@@ -37,7 +37,7 @@
 		<isee:time_format name="Builtin" type="adaptive"/>
 	</isee:time_formats>
 	<isee:number_format_extenders/>
-	<default_format scale_by="1"/>
+	<default_format precision="full" scale_by="1"/>
 	<model_units>
 		<unit name="Gh">
 			<eqn>Giga*h</eqn>
@@ -246,7 +246,7 @@ ELSE
 				<units>1</units>
 			</aux>
 			<module name="Coastal Assets" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Concrete.All_storm_damage" from="Coastal_Assets.Asset_storm_damage_because_of_SLR"/>
 				<connect2 to="Concrete.All_storm_damage" from="Coastal_Assets.Asset_storm_damage_because_of_SLR"/>
 				<connect to="Sea_level_rise_costs_and_impacts.All_storm_damage" from="Coastal_Assets.Asset_storm_damage_because_of_SLR"/>
@@ -285,7 +285,7 @@ ELSE
 				<connect2 to="Coastal_Assets.Willingness_to_retreat_under_expected_flooding" from="Willingness_to_retreat_under_expected_flooding"/>
 			</module>
 			<module name="Coastal\npopulation" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Sea_level_rise_costs_and_impacts.Annual_fatalities_due_to_coastal_floods" from="Coastal_population.Annual_fatalities_due_to_coastal_floods"/>
 				<connect2 to="Sea_level_rise_costs_and_impacts.Annual_fatalities_due_to_coastal_floods" from="Coastal_population.Annual_fatalities_due_to_coastal_floods"/>
 				<connect to="Sea_level_rise_adaptation.Coastal_population" from="Coastal_population.Coastal_population"/>
@@ -310,7 +310,7 @@ ELSE
 				<connect2 to="Coastal_population.Retreat_switch" from="Willingness_to_retreat_under_expected_flooding"/>
 			</module>
 			<module name="Sea level rise\nadaptation" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Sea_level_rise_costs_and_impacts.Annual_costs_of_flood_protection_maintenance" from="Sea_level_rise_adaptation.Annual_costs_of_flood_protection_maintenance"/>
 				<connect2 to="Sea_level_rise_costs_and_impacts.Annual_costs_of_flood_protection_maintenance" from="Sea_level_rise_adaptation.Annual_costs_of_flood_protection_maintenance"/>
 				<connect to="Sea_level_rise_costs_and_impacts.Opportunity_costs_of_inundated_coastal_land" from="Sea_level_rise_adaptation.Annual_opportunity_costs_of_inundated_or_abandoned_coastal_land"/>
@@ -355,7 +355,7 @@ ELSE
 				<connect2 to="Sea_level_rise_adaptation.Willingness_to_invest_in_flood_protection_1" from="Willingness_to_invest_in_flood_protection"/>
 			</module>
 			<module name="Sea level rise\ncosts and impacts" isee:label="">
-				<format scale_by="auto"/>
+				<format precision="auto" scale_by="auto"/>
 				<connect to="Demographics.global_death_rate_from_coastal_flooding" from="Sea_level_rise_costs_and_impacts.global_death_rate_from_coastal_flooding"/>
 				<connect2 to="Demographics.global_death_rate_from_coastal_flooding" from="Sea_level_rise_costs_and_impacts.global_death_rate_from_coastal_flooding"/>
 				<connect to="Demographics.global_death_rate_from_coastal_flooding_1" from="Sea_level_rise_costs_and_impacts.global_death_rate_from_coastal_flooding"/>
@@ -449,6 +449,7 @@ ELSE
 				<doc>${External Parameter}
 </doc>
 				<eqn>0.086</eqn>
+				<format precision="auto"/>
 				<range min="0.08" max="0.095"/>
 				<units>metre/(deg C)</units>
 			</aux>
@@ -456,6 +457,7 @@ ELSE
 				<doc>${External Parameter}
 </doc>
 				<eqn>0.00000348</eqn>
+				<format precision="auto"/>
 				<range min="0.000003" max="0.000004"/>
 				<units>metre / (MtCO2 / yr )</units>
 			</aux>
@@ -631,7 +633,7 @@ SLR_thermosteric[Run] * SLR_thermosteric_weights[Coastal_Protection_level] + SLR
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="294" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:scroll_y="180" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -894,7 +896,6 @@ ELSE IF Coastal_Protection_level = Coastal_Protection_level.insufficient THEN
 Actual_coastal_asset_growth[Run,insufficient]
 ELSE
 NAN</eqn>
-				<format precision="full"/>
 				<units>bc$/year</units>
 			</flow>
 			<flow name="Proactive retreat\nof coastal assets" access="output" isee:autocreated="true">
@@ -937,6 +938,7 @@ https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD?locations=US</doc>
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>1</eqn>
+				<format precision="auto"/>
 				<range min="0.5" max="3"/>
 				<units>metre</units>
 			</aux>
@@ -1080,6 +1082,7 @@ Theoretical_coastal_asset_value_growth</eqn>
 			</aux>
 			<aux name="Proactive retreat time scale" access="output" isee:autocreated="true">
 				<eqn>10</eqn>
+				<format precision="auto"/>
 				<range min="5" max="25"/>
 				<units>year</units>
 			</aux>
@@ -1134,6 +1137,7 @@ This is 0 in CIAM, in the assumption that everything is rebuilt.</doc>
 				<element subscript="1">
 					<eqn>0.1</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0" max="0.25"/>
 				<units>1</units>
 			</aux>
@@ -1220,6 +1224,7 @@ This is 0 in CIAM, in the assumption that everything is rebuilt.</doc>
 				<element subscript="1">
 					<eqn>0.085</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.082" max="0.088"/>
 				<units>1</units>
 			</aux>
@@ -1262,6 +1267,7 @@ The value comes from taking population data for the segments in DIVA and multipl
 				<element subscript="1">
 					<eqn>0.13</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.12" max="0.14"/>
 				<units>1</units>
 			</aux>
@@ -1393,6 +1399,7 @@ The value comes from taking population data for the segments in DIVA and multipl
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>0.5</eqn>
+				<format precision="auto"/>
 				<range min="0.3" max="0.9"/>
 				<units>1</units>
 			</aux>
@@ -1400,6 +1407,7 @@ The value comes from taking population data for the segments in DIVA and multipl
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>0.95</eqn>
+				<format precision="auto"/>
 				<range min="0.8" max="0.99"/>
 				<units>1</units>
 			</aux>
@@ -2009,6 +2017,7 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 				<element subscript="1">
 					<eqn>0.01</eqn>
 				</element>
+				<format precision="auto"/>
 				<range min="0.001" max="0.03"/>
 				<units>1</units>
 			</aux>
@@ -2734,6 +2743,7 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 				<doc>${External Parameter}
 </doc>
 				<eqn>0.02</eqn>
+				<format precision="auto"/>
 				<range min="0.01" max="0.04"/>
 				<units>1/year</units>
 			</aux>
@@ -2789,6 +2799,7 @@ Average flood protection height in DIVA for all segments with fp &gt; 0</doc>
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>10</eqn>
+				<format precision="auto"/>
 				<range min="5" max="25"/>
 				<units>year</units>
 			</aux>
@@ -2822,6 +2833,7 @@ Average flood protection height in DIVA for all segments with fp &gt; 0</doc>
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>0.05</eqn>
+				<format precision="auto"/>
 				<range min="0.02" max="0.1"/>
 				<units>1/year</units>
 			</aux>
@@ -2846,6 +2858,7 @@ Average flood protection height in DIVA for all segments with fp &gt; 0</doc>
 				<doc>${External Parameter}
 </doc>
 				<eqn>0.00667</eqn>
+				<format precision="auto"/>
 				<range min="0.0045" max="0.0065"/>
 				<units>bc$/km^2</units>
 			</aux>
@@ -2877,6 +2890,7 @@ Average flood protection height in DIVA for all segments with fp &gt; 0</doc>
 				<doc>${External Parameter}
 </doc>
 				<eqn>0.036853</eqn>
+				<format precision="auto"/>
 				<range min="0.033" max="0.04"/>
 				<units>Mp / bc$</units>
 			</aux>
@@ -2895,6 +2909,7 @@ Hillen M, Jonkman S, Kanning W, Kok M, Geldenhuys M, Stive M (2010) Coastal defe
 and Geotechnical Engineering 1
 </doc>
 				<eqn>0.00746</eqn>
+				<format precision="auto"/>
 				<range min="0.005" max="0.007"/>
 				<units>bc$/metre/metre/km</units>
 			</aux>
@@ -2902,6 +2917,7 @@ and Geotechnical Engineering 1
 				<doc>${External Parameter}
 </doc>
 				<eqn>0.3786</eqn>
+				<format precision="auto"/>
 				<range min="0.35" max="0.4"/>
 				<units>dmnl</units>
 			</aux>
@@ -2996,6 +3012,7 @@ and Geotechnical Engineering 1
 				<doc>${External Parameter}
 as in CIAM</doc>
 				<eqn>0.04</eqn>
+				<format precision="auto"/>
 				<range min="0.03" max="0.05"/>
 				<units>1/year</units>
 			</aux>
@@ -3771,7 +3788,7 @@ Data from DIVA</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Total_fatalities_due_to_coastal_floods/Population</eqn>
+				<eqn>Fatalities_switch * Total_fatalities_due_to_coastal_floods/Population</eqn>
 				<units>1/year</units>
 			</aux>
 			<aux name="Total fatalities due to coastal floods" isee:derived_units="true">
@@ -3970,6 +3987,7 @@ Data from DIVA</doc>
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>0.1</eqn>
+				<format precision="auto"/>
 				<range min="0" max="0.2"/>
 				<units>1</units>
 			</aux>
@@ -4038,7 +4056,7 @@ Data from DIVA</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Total_SLR_protection_costs*&quot;inflation_adjustment_b$_per_bc$_1&quot;</eqn>
+				<eqn>(Total_SLR_protection_costs*&quot;inflation_adjustment_b$_per_bc$_1&quot;) * Protection_cost_switch</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="Total nominal opportunity costs of SLR">
@@ -4071,7 +4089,7 @@ Data from DIVA</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>1 - Proportion_of_working_population_affected_by_flooding*Relative_productivity_loss_of_people_being_flooded</eqn>
+				<eqn>1 - Proportion_of_working_population_affected_by_flooding*Relative_productivity_loss_of_people_being_flooded * Productivity_switch</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="Relative productivity loss of people being flooded">
@@ -4113,7 +4131,7 @@ Data from DIVA</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Total_loss_of_assets_from_SLR*&quot;inflation_adjustment_b$_per_bc$&quot;</eqn>
+				<eqn>Total_loss_of_assets_from_SLR*&quot;inflation_adjustment_b$_per_bc$&quot; * Asset_damage_switch</eqn>
 				<units>b$/year</units>
 			</aux>
 			<aux name="inflation adjustment b$ per bc$" access="input">
@@ -4127,8 +4145,28 @@ Data from DIVA</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>&quot;inflation_adjustment_b$_per_bc$_1&quot;*Total_people_retreat_costs</eqn>
+				<eqn>&quot;inflation_adjustment_b$_per_bc$_1&quot;*Total_people_retreat_costs*Relocation_cost_switch</eqn>
 				<units>b$/year</units>
+			</aux>
+			<aux name="Protection cost switch">
+				<eqn>0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Fatalities switch">
+				<eqn>0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Productivity switch">
+				<eqn>0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Asset damage switch">
+				<eqn>0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Relocation cost switch">
+				<eqn>1</eqn>
+				<units>1</units>
 			</aux>
 		</variables>
 		<views>
@@ -4218,10 +4256,10 @@ Data from DIVA</doc>
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<aux label_side="top" x="406.251" y="163.417" name="Total SLR protection costs"/>
+				<aux label_side="top" x="406.667" y="163.417" name="Total SLR protection costs"/>
 				<aux label_side="bottom" x="168.714" y="150.619" name="Total fp maintenance costs"/>
 				<aux x="327.417" y="181.417" name="Total investment in fp"/>
-				<connector uid="1" angle="12.8617">
+				<connector uid="1" angle="12.7965">
 					<from>Total_investment_in_fp</from>
 					<to>Total_SLR_protection_costs</to>
 				</connector>
@@ -4341,7 +4379,7 @@ Data from DIVA</doc>
 				<aux font_style="italic" font_weight="bold" x="1606" y="141.417" name="All storm damage"/>
 				<aux x="1455.5" y="940" name="Total asset storm costs"/>
 				<aux x="286.21" y="123.417" name="Total net SLR fp maintenance costs"/>
-				<connector uid="25" angle="341.571">
+				<connector uid="25" angle="341.63">
 					<from>Total_net_SLR_fp_maintenance_costs</from>
 					<to>Total_SLR_protection_costs</to>
 				</connector>
@@ -4356,7 +4394,7 @@ Data from DIVA</doc>
 					<from>&quot;inflation_adjustment_b$_per_bc$_1&quot;</from>
 					<to>Total_nominal_SLR_protection_cost</to>
 				</connector>
-				<connector uid="28" angle="338.004">
+				<connector uid="28" angle="337.889">
 					<from>Total_SLR_protection_costs</from>
 					<to>Total_nominal_SLR_protection_cost</to>
 				</connector>
@@ -4383,13 +4421,13 @@ Data from DIVA</doc>
 					<from>Time_over_which_people_are_flooded</from>
 					<to>Proportion_of_working_population_affected_by_flooding</to>
 				</connector>
-				<aux x="319" y="892.833" name="Productivity reduction\nfactor from coastal flooding"/>
-				<connector uid="35" angle="307.516">
+				<aux x="317" y="892.833" name="Productivity reduction\nfactor from coastal flooding"/>
+				<connector uid="35" angle="299.7">
 					<from>Proportion_of_working_population_affected_by_flooding</from>
 					<to>Productivity_reduction_factor_from_coastal_flooding</to>
 				</connector>
 				<aux x="415" y="814.25" name="Relative productivity loss of people being flooded"/>
-				<connector uid="36" angle="191.989">
+				<connector uid="36" angle="191.411">
 					<from>Relative_productivity_loss_of_people_being_flooded</from>
 					<to>Productivity_reduction_factor_from_coastal_flooding</to>
 				</connector>
@@ -4424,6 +4462,31 @@ Data from DIVA</doc>
 				<connector uid="43" angle="149.014">
 					<from>Total_people_retreat_costs</from>
 					<to>Total_nominal_people_retreat_costs</to>
+				</connector>
+				<aux label_side="bottom" x="555" y="527.286" name="Protection cost switch"/>
+				<connector uid="44" angle="102.912">
+					<from>Protection_cost_switch</from>
+					<to>Total_nominal_SLR_protection_cost</to>
+				</connector>
+				<aux x="555" y="567.619" name="Fatalities switch"/>
+				<aux x="555" y="625" name="Productivity switch"/>
+				<aux x="555" y="684" name="Asset damage switch"/>
+				<aux x="555" y="750.667" name="Relocation cost switch"/>
+				<connector uid="45" angle="21.9154">
+					<from>Relocation_cost_switch</from>
+					<to>Total_nominal_people_retreat_costs</to>
+				</connector>
+				<connector uid="46" angle="188.591">
+					<from>Fatalities_switch</from>
+					<to>global_death_rate_from_coastal_flooding</to>
+				</connector>
+				<connector uid="47" angle="231.34">
+					<from>Productivity_switch</from>
+					<to>Productivity_reduction_factor_from_coastal_flooding</to>
+				</connector>
+				<connector uid="48" angle="259.741">
+					<from>Asset_damage_switch</from>
+					<to>Total_nominal_loss_of_assets_from_SLR</to>
 				</connector>
 				<alias color="blue" font_style="italic" label_side="bottom" uid="13" x="1458.38" y="554.25" width="18" height="18">
 					<of>Mobile_assets_fraction</of>
