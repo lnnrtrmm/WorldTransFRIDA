@@ -247,10 +247,24 @@ ELSE
 			</aux>
 			<module name="Coastal Assets" isee:label="">
 				<format precision="auto" scale_by="auto"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.asset_exposure_uncertainty_factor_for_growth_rate_ip" from="Coastal_Assets.asset_exposure_uncertainty_factor_for_growth_rate_ip"/>
+				<connect2 to="asset_exposure_uncertainty_factor_for_growth_rate_ip" from="Coastal_Assets.asset_exposure_uncertainty_factor_for_growth_rate_ip"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.asset_exposure_uncertainty_factor_for_max_fraction_wp" from="Coastal_Assets.asset_exposure_uncertainty_factor_for_max_fraction_wp"/>
+				<connect2 to="asset_exposure_uncertainty_factor_for_max_fraction_wp" from="Coastal_Assets.asset_exposure_uncertainty_factor_for_max_fraction_wp"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.asset_exposure_uncertainty_factor_for_growth_rate_wp" from="Coastal_Assets.asset_exposure_uncertainty_factor_for_growth_rate_wp"/>
+				<connect2 to="asset_exposure_uncertainty_factor_for_growth_rate_wp" from="Coastal_Assets.asset_exposure_uncertainty_factor_for_growth_rate_wp"/>
 				<connect to="Concrete.All_storm_damage" from="Coastal_Assets.Asset_storm_damage_because_of_SLR"/>
 				<connect2 to="Concrete.All_storm_damage" from="Coastal_Assets.Asset_storm_damage_because_of_SLR"/>
 				<connect to="Sea_level_rise_costs_and_impacts.All_storm_damage" from="Coastal_Assets.Asset_storm_damage_because_of_SLR"/>
 				<connect2 to="Sea_level_rise_costs_and_impacts.All_storm_damage" from="Coastal_Assets.Asset_storm_damage_because_of_SLR"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.asset_susceptibility_uncertainty_factor_for_growth_rate_ip" from="Coastal_Assets.asset_susceptibility_uncertainty_factor_for_growth_rate_ip"/>
+				<connect2 to="asset_susceptibility_uncertainty_factor_for_growth_rate_ip" from="Coastal_Assets.asset_susceptibility_uncertainty_factor_for_growth_rate_ip"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.asset_susceptibility_uncertainty_factor_for_max_fraction_ip" from="Coastal_Assets.asset_susceptibility_uncertainty_factor_for_max_fraction_ip"/>
+				<connect2 to="asset_susceptibility_uncertainty_factor_for_max_fraction_ip" from="Coastal_Assets.asset_susceptibility_uncertainty_factor_for_max_fraction_ip"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.asset_susceptibility_uncertainty_factor_for_max_fraction_wp" from="Coastal_Assets.asset_susceptibility_uncertainty_factor_for_max_fraction_wp"/>
+				<connect2 to="asset_susceptibility_uncertainty_factor_for_max_fraction_wp" from="Coastal_Assets.asset_susceptibility_uncertainty_factor_for_max_fraction_wp"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.asset_susceptibility_uncertainty_factor_for_growth_rate_wp" from="Coastal_Assets.asset_susceptibility_uncertainty_factor_for_growth_rate_wp"/>
+				<connect2 to="asset_susceptibility_uncertainty_factor_for_growth_rate_wp" from="Coastal_Assets.asset_susceptibility_uncertainty_factor_for_growth_rate_wp"/>
 				<connect to="Sea_level_rise_adaptation.Coastal_assets" from="Coastal_Assets.Coastal_assets"/>
 				<connect2 to="Sea_level_rise_adaptation.Coastal_assets" from="Coastal_Assets.Coastal_assets"/>
 				<connect to="Sea_level_rise_Impacts_and_Adaptation.Coastal_zone_divestment_threshold" from="Coastal_Assets.Coastal_zone_divestment_threshold"/>
@@ -304,6 +318,20 @@ ELSE
 				<connect2 to="Fatality_rate_in_flood_events" from="Coastal_population.Fatality_rate_in_flood_events"/>
 				<connect to="Sea_level_rise_costs_and_impacts.Number_of_people_flooded_annually_in_storms" from="Coastal_population.Number_of_people_flooded_annually_in_storm_surges"/>
 				<connect2 to="Sea_level_rise_costs_and_impacts.Number_of_people_flooded_annually_in_storms" from="Coastal_population.Number_of_people_flooded_annually_in_storm_surges"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.people_exposure_uncertainty_factor_for_growth_rate_ip" from="Coastal_population.people_exposure_uncertainty_factor_for_growth_rate_ip"/>
+				<connect2 to="people_exposure_uncertainty_factor_for_growth_rate_ip" from="Coastal_population.people_exposure_uncertainty_factor_for_growth_rate_ip"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.people_exposure_uncertainty_factor_for_max_fraction_wp" from="Coastal_population.people_exposure_uncertainty_factor_for_max_fraction_wp"/>
+				<connect2 to="people_exposure_uncertainty_factor_for_max_fraction_wp" from="Coastal_population.people_exposure_uncertainty_factor_for_max_fraction_wp"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.people_exposure_uncertainty_factor_for_growth_rate_wp" from="Coastal_population.people_exposure_uncertainty_factor_for_growth_rate_wp"/>
+				<connect2 to="people_exposure_uncertainty_factor_for_growth_rate_wp" from="Coastal_population.people_exposure_uncertainty_factor_for_growth_rate_wp"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.people_susceptibility_uncertainty_factor_for_growth_rate_ip" from="Coastal_population.people_susceptibility_uncertainty_factor_for_growth_rate_ip"/>
+				<connect2 to="people_susceptibility_uncertainty_factor_for_growth_rate_ip" from="Coastal_population.people_susceptibility_uncertainty_factor_for_growth_rate_ip"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.people_susceptibility_uncertainty_factor_for_max_fraction_ip" from="Coastal_population.people_susceptibility_uncertainty_factor_for_max_fraction_ip"/>
+				<connect2 to="people_susceptibility_uncertainty_factor_for_max_fraction_ip" from="Coastal_population.people_susceptibility_uncertainty_factor_for_max_fraction_ip"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.people_susceptibility_uncertainty_factor_for_max_fraction_wp" from="Coastal_population.people_susceptibility_uncertainty_factor_for_max_fraction_wp"/>
+				<connect2 to="people_susceptibility_uncertainty_factor_for_max_fraction_wp" from="Coastal_population.people_susceptibility_uncertainty_factor_for_max_fraction_wp"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.people_susceptibility_uncertainty_factor_for_growth_rate_wp" from="Coastal_population.people_susceptibility_uncertainty_factor_for_growth_rate_wp"/>
+				<connect2 to="people_susceptibility_uncertainty_factor_for_growth_rate_wp" from="Coastal_population.people_susceptibility_uncertainty_factor_for_growth_rate_wp"/>
 				<connect to="Sea_level_rise_costs_and_impacts.Proactive_retreat_of_people_from_the_coast_1" from="Coastal_population.Proactive_retreat_of_people_from_the_coast"/>
 				<connect2 to="Sea_level_rise_costs_and_impacts.Proactive_retreat_of_people_from_the_coast_1" from="Coastal_population.Proactive_retreat_of_people_from_the_coast"/>
 				<connect to="Sea_level_rise_costs_and_impacts.SLR_driven_retreat_of_people_from_the_coast_1" from="Coastal_population.Reactive_retreat_of_people_from_the_coast"/>
@@ -337,6 +365,10 @@ ELSE
 				<connect2 to="Coastal_Assets.Expected_net_global_flood_height_in_50_years" from="Sea_level_rise_adaptation.Expected_net_global_flood_height_in_50_years"/>
 				<connect to="Coastal_Assets.Expected_net_global_flood_height_in_50_years_1" from="Sea_level_rise_adaptation.Expected_net_global_flood_height_in_50_years"/>
 				<connect2 to="Coastal_Assets.Expected_net_global_flood_height_in_50_years_1" from="Sea_level_rise_adaptation.Expected_net_global_flood_height_in_50_years"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.flood_protection_cost_index_baseline" from="Sea_level_rise_adaptation.flood_protection_cost_index_baseline"/>
+				<connect2 to="flood_protection_cost_index_baseline" from="Sea_level_rise_adaptation.flood_protection_cost_index_baseline"/>
+				<connect to="Sea_level_rise_Impacts_and_Adaptation.flood_protection_cost_index_sensitivity_to_GDPpc" from="Sea_level_rise_adaptation.flood_protection_cost_index_sensitivity_to_GDPpc"/>
+				<connect2 to="flood_protection_cost_index_sensitivity_to_GDPpc" from="Sea_level_rise_adaptation.flood_protection_cost_index_sensitivity_to_GDPpc"/>
 				<connect to="Sea_level_rise_Impacts_and_Adaptation.Fraction_of_dike_construction_cost_for_maintenance_annually" from="Sea_level_rise_adaptation.Fraction_of_dike_construction_cost_for_maintenance_annually"/>
 				<connect2 to="Fraction_of_dike_construction_cost_for_maintenance_annually" from="Sea_level_rise_adaptation.Fraction_of_dike_construction_cost_for_maintenance_annually"/>
 				<connect to="Coastal_Assets.GDP_per_capita_in_coastal_zones" from="Sea_level_rise_adaptation.GDP_per_capita_in_coastal_zones"/>
@@ -548,6 +580,70 @@ ELSE
 				<eqn>0.05</eqn>
 				<units>1</units>
 			</aux>
+			<aux name="asset exposure uncertainty\nfactor for growth rate ip" access="input">
+				<eqn>1.0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="asset exposure uncertainty factor\nfor growth rate wp" access="input">
+				<eqn>1.0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="asset exposure uncertainty\nfactor for max fraction wp" access="input">
+				<eqn>1</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="people exposure uncertainty\nfactor for growth rate ip" access="input">
+				<eqn>1.0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="people exposure uncertainty factor\nfor growth rate wp" access="input">
+				<eqn>1.0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="people exposure uncertainty\nfactor for max fraction wp" access="input">
+				<eqn>1</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility uncertainty\nfactor for growth rate ip" access="input">
+				<eqn>1.0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility uncertainty factor\nfor growth rate wp" access="input">
+				<eqn>1.0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility uncertainty\nfactor for max fraction ip" access="input">
+				<eqn>1</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility uncertainty\nfactor for max fraction wp" access="input">
+				<eqn>1</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="people susceptibility uncertainty\nfactor for growth rate ip" access="input">
+				<eqn>1.0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="people susceptibility uncertainty factor\nfor growth rate wp" access="input">
+				<eqn>1.0</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="people susceptibility uncertainty\nfactor for max fraction ip" access="input">
+				<eqn>1</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="people susceptibility uncertainty\nfactor for max fraction wp" access="input">
+				<eqn>1</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="flood protection\ncost index sensitivity to GDPpc" access="input">
+				<eqn>0.05</eqn>
+				<units>Mp / bc$</units>
+			</aux>
+			<aux name="flood protection\ncost index baseline" access="input">
+				<eqn>0.3</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -595,7 +691,7 @@ ELSE
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="2" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="3" isee:scroll_y="450" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -636,15 +732,12 @@ ELSE
 				</style>
 				<text_box font_weight="bold" text_decoration="underline" text_align="center" font_size="24pt" uid="1" x="590.163" y="401.419" width="426.714" height="32.9404">Sea-level rise impacts and adaptation</text_box>
 				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="936.743" y="571.417" name="Willingness to invest\nin flood protection"/>
-				<text_box uid="4" x="912.703" y="100.588" width="609.333" height="274.333">To-Dos:
-- Add ranges for uncertainty parameters (mostly storm damage sensitivities).
-
-Missing features:
+				<text_box uid="4" x="912.703" y="100.588" width="609.333" height="274.333">Missing features:
 - Urbanisation/coastal migration
 - There could be the option that dikes are not even maintained and then break down? 
 - Should maintenance costs increase as sea level rises closer to the fp height, i.e. if dikes are &quot;at their limits&quot;?
 - Adapt model to work with changing behavior over time!
-- Need to account for different socioeconomic developments in bipolar setting?
+- Need to account for different socioeconomic developments in bipolar setting...
 From SSP data, it seems that in SSP5-8.5 the well protected population grows until 2090, whereas insufficiently protected population decreases after ~2050. Here, both grow with the same growth rates. In SSP2-4.5 both populations peak around 2060, so a comparison to SSP2-4.5 is actually fine -&gt; If we want to include the dynamics of different SSPs, we need to have a way of moving people from insufficiently protected coasts to well protected coasts OR have a way of modifying the population growth rates.</text_box>
 				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="954.743" y="634.75" name="Willingness to retreat under expected flooding"/>
 				<module label_side="center" x="495.093" y="726.167" width="60.5" height="50" name="Coastal Assets"/>
@@ -737,87 +830,167 @@ From SSP data, it seems that in SSP5-8.5 the well protected population grows unt
 					<from>Coastal_sea_level_rise</from>
 					<to>Sea_level_rise_adaptation</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1162" y="993" name="Time to increase flood protection height"/>
-				<connector uid="56" color="#E6E6E6" font_color="#E6E6E6" angle="342.022" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="850.75" y="1084.25" name="Time to increase flood protection height"/>
+				<connector uid="56" color="#E6E6E6" font_color="#E6E6E6" angle="309.268" isee:autocreated="true">
 					<from>Sea_level_rise_adaptation</from>
 					<to>Time_to_increase_flood_protection_height</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1168" y="1078" name="Maximum fraction\nof coastal GDP spent for flood\nprotection annually"/>
-				<connector uid="57" color="#E6E6E6" font_color="#E6E6E6" angle="337.003" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="856.75" y="1169.25" name="Maximum fraction\nof coastal GDP spent for flood\nprotection annually"/>
+				<connector uid="57" color="#E6E6E6" font_color="#E6E6E6" angle="307.822" isee:autocreated="true">
 					<from>Sea_level_rise_adaptation</from>
 					<to>Maximum_fraction_of_coastal_GDP_spent_for_flood_protection_annually</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="961" y="997" name="Proactive retreat time scale"/>
-				<connector uid="58" color="#E6E6E6" font_color="#E6E6E6" angle="355.565" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="240.583" y="1103.25" name="Proactive retreat time scale"/>
+				<connector uid="58" color="#E6E6E6" font_color="#E6E6E6" angle="256.035" isee:autocreated="true">
 					<from>Coastal_Assets</from>
 					<to>Proactive_retreat_time_scale</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="965" y="1078" name="Fraction of storm damages that is not rebuild"/>
-				<connector uid="59" color="#E6E6E6" font_color="#E6E6E6" angle="348.374" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="244.583" y="1184.25" name="Fraction of storm damages that is not rebuild"/>
+				<connector uid="59" color="#E6E6E6" font_color="#E6E6E6" angle="262.046" isee:autocreated="true">
 					<from>Coastal_Assets</from>
 					<to>Fraction_of_storm_damages_that_is_not_rebuild</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="972" y="1155" name="Fraction of assets that has to stay at the coast"/>
-				<connector uid="60" color="#E6E6E6" font_color="#E6E6E6" angle="342.883" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="251.583" y="1261.25" name="Fraction of assets that has to stay at the coast"/>
+				<connector uid="60" color="#E6E6E6" font_color="#E6E6E6" angle="266.778" isee:autocreated="true">
 					<from>Coastal_Assets</from>
 					<to>Fraction_of_assets_that_has_to_stay_at_the_coast</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="974" y="1239" name="Coastal zone divestment threshold"/>
-				<connector uid="61" color="#E6E6E6" font_color="#E6E6E6" angle="337.605" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="253.583" y="1345.25" name="Coastal zone divestment threshold"/>
+				<connector uid="61" color="#E6E6E6" font_color="#E6E6E6" angle="270.419" isee:autocreated="true">
 					<from>Coastal_Assets</from>
 					<to>Coastal_zone_divestment_threshold</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" label_side="bottom" x="983" y="1321" name="Effective flood height at which only half\nthe investment would be made"/>
-				<connector uid="62" color="#E6E6E6" font_color="#E6E6E6" angle="333.769" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" label_side="bottom" x="262.583" y="1427.25" name="Effective flood height at which only half\nthe investment would be made"/>
+				<connector uid="62" color="#E6E6E6" font_color="#E6E6E6" angle="273.761" isee:autocreated="true">
 					<from>Coastal_Assets</from>
 					<to>Effective_flood_height_at_which_only_half_the_investment_would_be_made</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1356" y="993" name="Fatality rate\nin flood events"/>
-				<connector uid="63" color="#E6E6E6" font_color="#E6E6E6" angle="356.411" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1190.17" y="1100.67" name="Fatality rate\nin flood events"/>
+				<connector uid="63" color="#E6E6E6" font_color="#E6E6E6" angle="333.492" isee:autocreated="true">
 					<from>Coastal_population</from>
 					<to>Fatality_rate_in_flood_events</to>
 				</connector>
-				<text_box font_weight="bold" font_size="18pt" uid="64" x="1005" y="890" width="290" height="30">Uncertainty parameters</text_box>
-				<text_box font_size="14pt" uid="65" x="902" y="916" width="496" height="55">This only includes uncertainties in the implemented &quot;feedback&quot; variables. Not included currently are uncertainties in the fitted relationships for asset exposure and susceptibility etc, as well as in relationships directly taken from CIAM.</text_box>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="766.183" y="1155" name="Relative productivity loss of people being flooded"/>
-				<connector uid="66" color="#E1E1E1" font_color="#E1E1E1" angle="305.432" isee:autocreated="true">
+				<text_box font_weight="bold" font_size="18pt" uid="64" x="613.333" y="963.333" width="290" height="30">Uncertainty parameters</text_box>
+				<text_box font_size="14pt" uid="65" x="510.333" y="989.333" width="496" height="55">This only includes uncertainties in the implemented &quot;feedback&quot; variables. Not included currently are uncertainties in the fitted relationships for asset exposure and susceptibility etc, as well as in relationships directly taken from CIAM.</text_box>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="613.5" y="1404.47" name="Relative productivity loss of people being flooded"/>
+				<connector uid="66" color="#E1E1E1" font_color="#E1E1E1" angle="282.08" isee:autocreated="true">
 					<from>Sea_level_rise_costs_and_impacts</from>
 					<to>Relative_productivity_loss_of_people_being_flooded</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1174" y="1173" name="Fraction of dike construction\ncost for maintenance annually"/>
-				<connector uid="67" color="#ECECEC" font_color="#ECECEC" angle="332.427" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="862.75" y="1264.25" name="Fraction of dike construction\ncost for maintenance annually"/>
+				<connector uid="67" color="#ECECEC" font_color="#ECECEC" angle="306.564" isee:autocreated="true">
 					<from>Sea_level_rise_adaptation</from>
 					<to>Fraction_of_dike_construction_cost_for_maintenance_annually</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1174" y="1267" name="reference\nprotection cost"/>
-				<connector uid="68" color="#ECECEC" font_color="#ECECEC" angle="328.42" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="862.75" y="1358.25" name="reference\nprotection cost"/>
+				<connector uid="68" color="#ECECEC" font_color="#ECECEC" angle="305.19" isee:autocreated="true">
 					<from>Sea_level_rise_adaptation</from>
 					<to>reference_protection_cost</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="766.183" y="1257" name="Increase factor for costs of reactive retreat"/>
-				<connector uid="69" color="#ECECEC" font_color="#ECECEC" angle="302.277" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="616.183" y="1083.25" name="Increase factor for costs of reactive retreat"/>
+				<connector uid="69" color="#ECECEC" font_color="#ECECEC" angle="260.952" isee:autocreated="true">
 					<from>Sea_level_rise_costs_and_impacts</from>
 					<to>Increase_factor_for_costs_of_reactive_retreat</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="758" y="1357" name="Mobile assets\nfraction"/>
-				<connector uid="70" color="#ECECEC" font_color="#ECECEC" angle="299.533" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="608" y="1183.25" name="Mobile assets\nfraction"/>
+				<connector uid="70" color="#ECECEC" font_color="#ECECEC" angle="270.939" isee:autocreated="true">
 					<from>Sea_level_rise_costs_and_impacts</from>
 					<to>Mobile_assets_fraction</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="761" y="1468" name="Not depreciated fraction of assets at time of retreat"/>
-				<connector uid="71" color="#ECECEC" font_color="#ECECEC" angle="298.925" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="611" y="1294.25" name="Not depreciated fraction of assets at time of retreat"/>
+				<connector uid="71" color="#ECECEC" font_color="#ECECEC" angle="278.065" isee:autocreated="true">
 					<from>Sea_level_rise_costs_and_impacts</from>
 					<to>Not_depreciated_fraction_of_assets_at_time_of_retreat</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="546" y="1471" name="Asset relocation cost factor"/>
-				<connector uid="72" color="#ECECEC" font_color="#ECECEC" angle="276.999" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="603.5" y="1616.89" name="Asset relocation cost factor"/>
+				<connector uid="72" color="#ECECEC" font_color="#ECECEC" angle="285.157" isee:autocreated="true">
 					<from>Sea_level_rise_costs_and_impacts</from>
 					<to>Asset_relocation_cost_factor</to>
 				</connector>
-				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="556" y="1367" name="Asset demolition cost factor"/>
-				<connector uid="73" color="#ECECEC" font_color="#ECECEC" angle="274.26" isee:autocreated="true">
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="613.5" y="1512.89" name="Asset demolition cost factor"/>
+				<connector uid="73" color="#ECECEC" font_color="#ECECEC" angle="284.399" isee:autocreated="true">
 					<from>Sea_level_rise_costs_and_impacts</from>
 					<to>Asset_demolition_cost_factor</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="255.123" y="1563.93" name="asset exposure uncertainty\nfactor for growth rate ip"/>
+				<connector uid="74" color="#D9D9D9" font_color="#D9D9D9" angle="276.609" isee:autocreated="true">
+					<from>Coastal_Assets</from>
+					<to>asset_exposure_uncertainty_factor_for_growth_rate_ip</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="257.973" y="1628.93" name="asset exposure uncertainty factor\nfor growth rate wp"/>
+				<connector uid="75" color="#D9D9D9" font_color="#D9D9D9" angle="278.059" isee:autocreated="true">
+					<from>Coastal_Assets</from>
+					<to>asset_exposure_uncertainty_factor_for_growth_rate_wp</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="262.263" y="1700.36" name="asset exposure uncertainty\nfactor for max fraction wp"/>
+				<connector uid="76" color="#E5E5E5" font_color="#E5E5E5" angle="279.509" isee:autocreated="true">
+					<from>Coastal_Assets</from>
+					<to>asset_exposure_uncertainty_factor_for_max_fraction_wp</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1194.35" y="1264.26" name="people exposure uncertainty\nfactor for growth rate ip"/>
+				<connector uid="77" color="#D9D9D9" font_color="#D9D9D9" angle="323.803" isee:autocreated="true">
+					<from>Coastal_population</from>
+					<to>people_exposure_uncertainty_factor_for_growth_rate_ip</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1194.35" y="1352.97" name="people exposure uncertainty factor\nfor growth rate wp"/>
+				<connector uid="78" color="#D9D9D9" font_color="#D9D9D9" angle="320.115" isee:autocreated="true">
+					<from>Coastal_population</from>
+					<to>people_exposure_uncertainty_factor_for_growth_rate_wp</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1197.21" y="1440.12" name="people exposure uncertainty\nfactor for max fraction wp"/>
+				<connector uid="79" color="#D9D9D9" font_color="#D9D9D9" angle="317.47" isee:autocreated="true">
+					<from>Coastal_population</from>
+					<to>people_exposure_uncertainty_factor_for_max_fraction_wp</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="259.403" y="1806.07" name="asset susceptibility uncertainty\nfactor for growth rate ip"/>
+				<connector uid="80" color="#D9D9D9" font_color="#D9D9D9" angle="280.85" isee:autocreated="true">
+					<from>Coastal_Assets</from>
+					<to>asset_susceptibility_uncertainty_factor_for_growth_rate_ip</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="261.543" y="1892.5" name="asset susceptibility uncertainty factor\nfor growth rate wp"/>
+				<connector uid="81" color="#D9D9D9" font_color="#D9D9D9" angle="281.986" isee:autocreated="true">
+					<from>Coastal_Assets</from>
+					<to>asset_susceptibility_uncertainty_factor_for_growth_rate_wp</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="260.833" y="1973.93" name="asset susceptibility uncertainty\nfactor for max fraction ip"/>
+				<connector uid="82" color="#D9D9D9" font_color="#D9D9D9" angle="282.794" isee:autocreated="true">
+					<from>Coastal_Assets</from>
+					<to>asset_susceptibility_uncertainty_factor_for_max_fraction_ip</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="260.833" y="2066.07" name="asset susceptibility uncertainty\nfactor for max fraction wp"/>
+				<connector uid="83" color="#D9D9D9" font_color="#D9D9D9" angle="283.626" isee:autocreated="true">
+					<from>Coastal_Assets</from>
+					<to>asset_susceptibility_uncertainty_factor_for_max_fraction_wp</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1198.63" y="1529.4" name="people susceptibility uncertainty\nfactor for growth rate ip"/>
+				<connector uid="84" color="#D9D9D9" font_color="#D9D9D9" angle="315.203" isee:autocreated="true">
+					<from>Coastal_population</from>
+					<to>people_susceptibility_uncertainty_factor_for_growth_rate_ip</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1200.06" y="1623.69" name="people susceptibility uncertainty factor\nfor growth rate wp"/>
+				<connector uid="85" color="#D9D9D9" font_color="#D9D9D9" angle="313.256" isee:autocreated="true">
+					<from>Coastal_population</from>
+					<to>people_susceptibility_uncertainty_factor_for_growth_rate_wp</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1199.35" y="1704.4" name="people susceptibility uncertainty\nfactor for max fraction ip"/>
+				<connector uid="86" color="#D9D9D9" font_color="#D9D9D9" angle="311.762" isee:autocreated="true">
+					<from>Coastal_population</from>
+					<to>people_susceptibility_uncertainty_factor_for_max_fraction_ip</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="1195.78" y="1793.69" name="people susceptibility uncertainty\nfactor for max fraction wp"/>
+				<connector uid="87" color="#D9D9D9" font_color="#D9D9D9" angle="310.214" isee:autocreated="true">
+					<from>Coastal_population</from>
+					<to>people_susceptibility_uncertainty_factor_for_max_fraction_wp</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="850" y="1456.43" name="flood protection\ncost index sensitivity to GDPpc"/>
+				<connector uid="88" color="#E7E7E7" font_color="#E7E7E7" angle="303.244" isee:autocreated="true">
+					<from>Sea_level_rise_adaptation</from>
+					<to>flood_protection_cost_index_sensitivity_to_GDPpc</to>
+				</connector>
+				<aux color="#55AAFF" font_style="italic" font_weight="bold" font_color="#55AAFF" x="845" y="1550" name="flood protection\ncost index baseline"/>
+				<connector uid="89" color="#E7E7E7" font_color="#E7E7E7" angle="302.162" isee:autocreated="true">
+					<from>Sea_level_rise_adaptation</from>
+					<to>flood_protection_cost_index_baseline</to>
 				</connector>
 			</view>
 		</views>
@@ -954,10 +1127,10 @@ Theoretical_coastal_asset_value_growth</eqn>
 					<dim name="Coastal_Protection_level"/>
 				</dimensions>
 				<element subscript="insufficient">
-					<eqn>0.28948410066768</eqn>
+					<eqn>asset_susceptibility_default_values_for_growth_rate[insufficient]*asset_susceptibility_uncertainty_factor_for_growth_rate_ip</eqn>
 				</element>
 				<element subscript="well_protected">
-					<eqn>2.3720681804907</eqn>
+					<eqn>asset_susceptibility_default_values_for_growth_rate[well_protected]*asset_susceptibility_uncertainty_factor_for_growth_rate_wp</eqn>
 				</element>
 				<units>1/metre</units>
 			</aux>
@@ -1032,6 +1205,8 @@ Theoretical_coastal_asset_value_growth</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="Proactive retreat time scale" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
 				<eqn>10</eqn>
 				<format precision="auto"/>
 				<range min="5" max="25"/>
@@ -1135,10 +1310,10 @@ This is 0 in CIAM, in the assumption that everything is rebuilt.</doc>
 					<dim name="Coastal_Protection_level"/>
 				</dimensions>
 				<element subscript="insufficient">
-					<eqn>0.579529030185991</eqn>
+					<eqn>asset_susceptibility_default_values_for_max_fraction[insufficient]*asset_susceptibility_uncertainty_factor_for_max_fraction_ip</eqn>
 				</element>
 				<element subscript="well_protected">
-					<eqn>0.457901506252489</eqn>
+					<eqn>asset_susceptibility_default_values_for_max_fraction[well_protected]*asset_susceptibility_uncertainty_factor_for_max_fraction_wp</eqn>
 				</element>
 				<units>1</units>
 			</aux>
@@ -1243,10 +1418,10 @@ The value comes from taking population data for the segments in DIVA and multipl
 					<dim name="Coastal_Protection_level"/>
 				</dimensions>
 				<element subscript="insufficient">
-					<eqn>1038.06135835882</eqn>
+					<eqn>asset_exposure_default_values_for_max_fraction[insufficient]</eqn>
 				</element>
 				<element subscript="well_protected">
-					<eqn>0.213288405753078</eqn>
+					<eqn>asset_exposure_default_values_for_max_fraction[well_protected]*asset_exposure_uncertainty_factor_for_max_fraction_wp</eqn>
 				</element>
 				<units>1/year</units>
 			</aux>
@@ -1255,10 +1430,10 @@ The value comes from taking population data for the segments in DIVA and multipl
 					<dim name="Coastal_Protection_level"/>
 				</dimensions>
 				<element subscript="insufficient">
-					<eqn>0.588489688080825</eqn>
+					<eqn>asset_exposure_default_values_for_growth_rate[insufficient] * asset_exposure_uncertainty_factor_for_growth_rate_ip</eqn>
 				</element>
 				<element subscript="well_protected">
-					<eqn>2.00029302744726</eqn>
+					<eqn>asset_exposure_default_values_for_growth_rate[well_protected] * asset_exposure_uncertainty_factor_for_growth_rate_wp</eqn>
 				</element>
 				<units>1/metre</units>
 			</aux>
@@ -1365,6 +1540,103 @@ The value comes from taking population data for the segments in DIVA and multipl
 				<eqn>asset_inundation_max_fraction[Coastal_Protection_level] / (1.0 + EXP(-asset_inundation_logistic_growth_rate[Coastal_Protection_level]*(Net_global_flood_height - asset_inundation_halfpoint[Coastal_Protection_level]) ) )</eqn>
 				<units>1</units>
 			</aux>
+			<aux name="asset exposure uncertainty\nfactor for growth rate ip" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1.0</eqn>
+				<range min="0.99" max="1.01"/>
+				<units>1</units>
+			</aux>
+			<aux name="asset exposure uncertainty factor\nfor growth rate wp" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1.0</eqn>
+				<range min="0.7" max="1.3"/>
+				<units>1</units>
+			</aux>
+			<aux name="asset exposure default values for growth rate">
+				<dimensions>
+					<dim name="Coastal_Protection_level"/>
+				</dimensions>
+				<element subscript="insufficient">
+					<eqn>0.588489688080825</eqn>
+				</element>
+				<element subscript="well_protected">
+					<eqn>2.00029302744726</eqn>
+				</element>
+				<units>1/metre</units>
+			</aux>
+			<aux name="asset exposure uncertainty\nfactor for max fraction wp" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1</eqn>
+				<range min="0.8" max="1.2"/>
+				<units>1</units>
+			</aux>
+			<aux name="asset exposure default values for max fraction">
+				<dimensions>
+					<dim name="Coastal_Protection_level"/>
+				</dimensions>
+				<element subscript="insufficient">
+					<eqn>1038.06135835882</eqn>
+				</element>
+				<element subscript="well_protected">
+					<eqn>0.213288405753078</eqn>
+				</element>
+				<units>1/year</units>
+			</aux>
+			<aux name="asset susceptibility uncertainty\nfactor for growth rate ip" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1.0</eqn>
+				<range min="0.7" max="1.3"/>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility uncertainty factor\nfor growth rate wp" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1.0</eqn>
+				<range min="0.7" max="1.3"/>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility default\nvalues for growth rate">
+				<dimensions>
+					<dim name="Coastal_Protection_level"/>
+				</dimensions>
+				<element subscript="insufficient">
+					<eqn>0.28948410066768</eqn>
+				</element>
+				<element subscript="well_protected">
+					<eqn>2.3720681804907</eqn>
+				</element>
+				<units>1/metre</units>
+			</aux>
+			<aux name="asset susceptibility uncertainty\nfactor for max fraction wp" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1</eqn>
+				<range min="0.8" max="1.2"/>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility default\nvalues for max fraction">
+				<dimensions>
+					<dim name="Coastal_Protection_level"/>
+				</dimensions>
+				<element subscript="insufficient">
+					<eqn>0.579529030185991</eqn>
+				</element>
+				<element subscript="well_protected">
+					<eqn>0.457901506252489</eqn>
+				</element>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility uncertainty\nfactor for max fraction ip" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1</eqn>
+				<range min="0.8" max="1.2"/>
+				<units>1</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -1414,7 +1686,7 @@ The value comes from taking population data for the segments in DIVA and multipl
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="3" isee:page_rows="3" isee:scroll_y="75" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="1231.88" isee:scroll_y="60" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1701,7 +1973,7 @@ The value comes from taking population data for the segments in DIVA and multipl
 					<from>Government_Debt</from>
 					<to>Net_global_financial_assets_in_real_terms</to>
 				</connector>
-				<aux label_side="top" x="1413.33" y="298.631" name="Asset storm exposure\nmax fraction"/>
+				<aux label_side="top" x="1413.33" y="291.631" name="Asset storm exposure\nmax fraction"/>
 				<aux label_side="top" x="1413.33" y="183.084" name="Asset storm exposure\nlogistic growth rate"/>
 				<aux label_side="top" x="1413.33" y="238.631" name="Asset storm exposure halfpoint"/>
 				<aux x="1083" y="503.569" name="Assets that experience storm surge damage because of SLR"/>
@@ -1738,7 +2010,7 @@ The value comes from taking population data for the segments in DIVA and multipl
 					<from>Asset_storm_exposure_halfpoint</from>
 					<to>Fraction_of_original_asset_distribution_that_annualy_experiences_storm_surge_damage</to>
 				</connector>
-				<connector uid="80" angle="188.03">
+				<connector uid="80" angle="190.327">
 					<from>Asset_storm_exposure_max_fraction</from>
 					<to>Fraction_of_original_asset_distribution_that_annualy_experiences_storm_surge_damage</to>
 				</connector>
@@ -1827,6 +2099,61 @@ The value comes from taking population data for the segments in DIVA and multipl
 				<connector uid="104" angle="80.6011">
 					<from>Initial_inundated_and_retreated_asset_fraction</from>
 					<to>Reactive_retreat_of_coastal_assets</to>
+				</connector>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1519" y="146.5" name="asset exposure uncertainty\nfactor for growth rate ip"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1519" y="183.084" name="asset exposure uncertainty factor\nfor growth rate wp"/>
+				<connector uid="105" angle="198.435">
+					<from>asset_exposure_uncertainty_factor_for_growth_rate_ip</from>
+					<to>Asset_storm_exposure_logistic_growth_rate</to>
+				</connector>
+				<connector uid="106" angle="178.938">
+					<from>asset_exposure_uncertainty_factor_for_growth_rate_wp</from>
+					<to>Asset_storm_exposure_logistic_growth_rate</to>
+				</connector>
+				<aux label_side="right" x="1519" y="106" name="asset exposure default values for growth rate"/>
+				<connector uid="107" angle="216.11">
+					<from>asset_exposure_default_values_for_growth_rate</from>
+					<to>Asset_storm_exposure_logistic_growth_rate</to>
+				</connector>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1524.5" y="304.631" name="asset exposure uncertainty\nfactor for max fraction wp"/>
+				<connector uid="108" angle="147.999">
+					<from>asset_exposure_uncertainty_factor_for_max_fraction_wp</from>
+					<to>Asset_storm_exposure_max_fraction</to>
+				</connector>
+				<aux label_side="right" x="1519" y="266" name="asset exposure default values for max fraction"/>
+				<connector uid="109" angle="178.21">
+					<from>asset_exposure_default_values_for_max_fraction</from>
+					<to>Asset_storm_exposure_max_fraction</to>
+				</connector>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1666" y="476.5" name="asset susceptibility uncertainty\nfactor for growth rate ip"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1666" y="513.084" name="asset susceptibility uncertainty factor\nfor growth rate wp"/>
+				<aux label_side="right" x="1666" y="436" name="asset susceptibility default\nvalues for growth rate"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1670" y="660.256" name="asset susceptibility uncertainty\nfactor for max fraction wp"/>
+				<aux label_side="right" x="1666" y="596" name="asset susceptibility default\nvalues for max fraction"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1670" y="627.417" name="asset susceptibility uncertainty\nfactor for max fraction ip"/>
+				<connector uid="110" angle="205.201">
+					<from>asset_susceptibility_default_values_for_growth_rate</from>
+					<to>Asset_storm_susceptibility_logistic_growth_rate</to>
+				</connector>
+				<connector uid="111" angle="195.044">
+					<from>asset_susceptibility_uncertainty_factor_for_growth_rate_ip</from>
+					<to>Asset_storm_susceptibility_logistic_growth_rate</to>
+				</connector>
+				<connector uid="112" angle="161.5">
+					<from>asset_susceptibility_uncertainty_factor_for_growth_rate_wp</from>
+					<to>Asset_storm_susceptibility_logistic_growth_rate</to>
+				</connector>
+				<connector uid="113" angle="180.472">
+					<from>asset_susceptibility_default_values_for_max_fraction</from>
+					<to>Asset_storm_susceptibility_max_fraction</to>
+				</connector>
+				<connector uid="114" angle="163.884">
+					<from>asset_susceptibility_uncertainty_factor_for_max_fraction_wp</from>
+					<to>Asset_storm_susceptibility_max_fraction</to>
+				</connector>
+				<connector uid="115" angle="176.367">
+					<from>asset_susceptibility_uncertainty_factor_for_max_fraction_ip</from>
+					<to>Asset_storm_susceptibility_max_fraction</to>
 				</connector>
 				<alias font_style="italic" label_side="left" uid="70" x="219.071" y="647.226" width="18" height="18">
 					<of>Expected_susceptible_fraction_of_original_assets_in_50_years</of>
@@ -1949,7 +2276,7 @@ Reimann et al. (2023):
 				<units>Mp/year</units>
 			</aux>
 			<aux name="Fatality rate\nin flood events" access="output" isee:autocreated="true">
-				<doc>${External Parameter}
+				<doc>${Internal Calibration Parameter}
 As in CIAM (Diaz, 2016, SI), based on Jonkman and Vrijling (2008)
 
 Diaz, D. B. (2016). Estimating global damages from sea level rise with the Coastal Impact and Adaptation Model (CIAM). Climatic Change,
@@ -2007,10 +2334,10 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					<dim name="Coastal_Protection_level"/>
 				</dimensions>
 				<element subscript="insufficient">
-					<eqn>0.6036</eqn>
+					<eqn>asset_susceptibility_default_values_for_growth_rate[insufficient]*people_susceptibility_uncertainty_factor_for_growth_rate_ip</eqn>
 				</element>
 				<element subscript="well_protected">
-					<eqn>1.6725</eqn>
+					<eqn>asset_susceptibility_default_values_for_growth_rate[well_protected]*people_susceptibility_uncertainty_factor_for_growth_rate_wp</eqn>
 				</element>
 				<units>1/metre</units>
 			</aux>
@@ -2122,7 +2449,7 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					<dim name="Run"/>
 					<dim name="Coastal_Protection_level"/>
 				</dimensions>
-				<eqn>(Fraction_of_original_people_distribution_that_is_generally_susceptible_to_storm_damage-Total_removed_fraction_of_original_population_distribution)/(1.0 - Total_removed_fraction_of_original_population_distribution)</eqn>
+				<eqn>MAX(0,  (Fraction_of_original_people_distribution_that_is_generally_susceptible_to_storm_damage-Total_removed_fraction_of_original_population_distribution)/(1.0 - Total_removed_fraction_of_original_population_distribution))</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="Initial inundated and\nretreated people fraction">
@@ -2141,10 +2468,10 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					<dim name="Coastal_Protection_level"/>
 				</dimensions>
 				<element subscript="insufficient">
-					<eqn>0.2938</eqn>
+					<eqn>asset_susceptibility_default_values_for_max_fraction[insufficient]*people_susceptibility_uncertainty_factor_for_max_fraction_ip</eqn>
 				</element>
 				<element subscript="well_protected">
-					<eqn>0.5333</eqn>
+					<eqn>asset_susceptibility_default_values_for_max_fraction[well_protected]*people_susceptibility_uncertainty_factor_for_max_fraction_wp</eqn>
 				</element>
 				<units>1</units>
 			</aux>
@@ -2168,10 +2495,10 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					<dim name="Coastal_Protection_level"/>
 				</dimensions>
 				<element subscript="insufficient">
-					<eqn>876.555</eqn>
+					<eqn>people_exposure_default_values_for_max_fraction[insufficient]</eqn>
 				</element>
 				<element subscript="well_protected">
-					<eqn>0.2261</eqn>
+					<eqn>people_exposure_default_values_for_max_fraction[well_protected]*people_exposure_uncertainty_factor_for_max_fraction_wp</eqn>
 				</element>
 				<units>1/year</units>
 			</aux>
@@ -2180,10 +2507,10 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					<dim name="Coastal_Protection_level"/>
 				</dimensions>
 				<element subscript="insufficient">
-					<eqn>0.6235</eqn>
+					<eqn>people_exposure_default_values_for_growth_rate[insufficient]*people_exposure_uncertainty_factor_for_growth_rate_ip</eqn>
 				</element>
 				<element subscript="well_protected">
-					<eqn>1.6505</eqn>
+					<eqn>people_exposure_default_values_for_growth_rate[well_protected]*people_exposure_uncertainty_factor_for_growth_rate_wp</eqn>
 				</element>
 				<units>1/metre</units>
 			</aux>
@@ -2274,6 +2601,103 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 				<eqn>Population_inundation_max_fraction[Coastal_Protection_level] / (1.0 + EXP(-population_inundation_logistic_growth_rate[Coastal_Protection_level]*(Net_global_flood_height - population_inundation_halfpoint[Coastal_Protection_level]) ) )</eqn>
 				<units>1</units>
 			</aux>
+			<aux name="people exposure uncertainty\nfactor for growth rate ip" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1.0</eqn>
+				<range min="0.99" max="1.01"/>
+				<units>1</units>
+			</aux>
+			<aux name="people exposure uncertainty factor\nfor growth rate wp" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1.0</eqn>
+				<range min="0.7" max="1.3"/>
+				<units>1</units>
+			</aux>
+			<aux name="people exposure default\nvalues for growth rate">
+				<dimensions>
+					<dim name="Coastal_Protection_level"/>
+				</dimensions>
+				<element subscript="insufficient">
+					<eqn>0.6235</eqn>
+				</element>
+				<element subscript="well_protected">
+					<eqn>1.6505</eqn>
+				</element>
+				<units>1/metre</units>
+			</aux>
+			<aux name="people exposure uncertainty\nfactor for max fraction wp" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1</eqn>
+				<range min="0.8" max="1.2"/>
+				<units>1</units>
+			</aux>
+			<aux name="people exposure default\nvalues for max fraction">
+				<dimensions>
+					<dim name="Coastal_Protection_level"/>
+				</dimensions>
+				<element subscript="insufficient">
+					<eqn>876.555</eqn>
+				</element>
+				<element subscript="well_protected">
+					<eqn>0.2261</eqn>
+				</element>
+				<units>1/year</units>
+			</aux>
+			<aux name="people susceptibility uncertainty\nfactor for growth rate ip" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1.0</eqn>
+				<range min="0.7" max="1.3"/>
+				<units>1</units>
+			</aux>
+			<aux name="people susceptibility uncertainty factor\nfor growth rate wp" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1.0</eqn>
+				<range min="0.7" max="1.3"/>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility default\nvalues for growth rate">
+				<dimensions>
+					<dim name="Coastal_Protection_level"/>
+				</dimensions>
+				<element subscript="insufficient">
+					<eqn>0.6036</eqn>
+				</element>
+				<element subscript="well_protected">
+					<eqn>1.6725</eqn>
+				</element>
+				<units>1/metre</units>
+			</aux>
+			<aux name="people susceptibility uncertainty\nfactor for max fraction wp" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1</eqn>
+				<range min="0.8" max="1.2"/>
+				<units>1</units>
+			</aux>
+			<aux name="asset susceptibility default\nvalues for max fraction">
+				<dimensions>
+					<dim name="Coastal_Protection_level"/>
+				</dimensions>
+				<element subscript="insufficient">
+					<eqn>0.2938</eqn>
+				</element>
+				<element subscript="well_protected">
+					<eqn>0.5333</eqn>
+				</element>
+				<units>1</units>
+			</aux>
+			<aux name="people susceptibility uncertainty\nfactor for max fraction ip" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<eqn>1</eqn>
+				<range min="0.8" max="1.2"/>
+				<units>1</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -2323,7 +2747,7 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="187.5" isee:scroll_y="200" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="111.667" isee:scroll_y="387.5" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2586,12 +3010,12 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 					<from>Coastal_population</from>
 					<to>People_that_experience_storm_surges_because_of_SLR</to>
 				</connector>
-				<aux label_side="bottom" x="1160" y="835.976" name="population storm\nsusceptibility baseline value"/>
-				<connector uid="63" angle="91.5922">
+				<aux label_side="bottom" x="1155" y="831.417" name="population storm\nsusceptibility baseline value"/>
+				<connector uid="63" angle="91.0994">
 					<from>population_storm_susceptibility_baseline_value</from>
 					<to>Expected_susceptible_fraction_of_population_in_50_years</to>
 				</connector>
-				<connector uid="64" angle="199.141">
+				<connector uid="64" angle="199.709">
 					<from>population_storm_susceptibility_baseline_value</from>
 					<to>Fraction_of_original_people_distribution_that_is_generally_susceptible_to_storm_damage</to>
 				</connector>
@@ -2642,6 +3066,61 @@ Jonkman S, Vrijling J (2008) Loss of life due to floods. Journal of Flood Risk M
 				<connector uid="75" angle="282.182">
 					<from>Inundated_fraction_of_original_coastal_population_distribution</from>
 					<to>Reactive_retreat_of_people_from_the_coast</to>
+				</connector>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1213" y="1154.5" name="people exposure uncertainty\nfactor for growth rate ip"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1213" y="1191.08" name="people exposure uncertainty factor\nfor growth rate wp"/>
+				<aux label_side="right" x="1213" y="1114" name="people exposure default\nvalues for growth rate"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1218.5" y="1312.63" name="people exposure uncertainty\nfactor for max fraction wp"/>
+				<aux label_side="right" x="1213" y="1274" name="people exposure default\nvalues for max fraction"/>
+				<connector uid="76" angle="164.518">
+					<from>people_exposure_default_values_for_max_fraction</from>
+					<to>population_storm_exposure_max_fraction</to>
+				</connector>
+				<connector uid="77" angle="152.753">
+					<from>people_exposure_uncertainty_factor_for_max_fraction_wp</from>
+					<to>population_storm_exposure_max_fraction</to>
+				</connector>
+				<connector uid="78" angle="145.479">
+					<from>people_exposure_uncertainty_factor_for_growth_rate_wp</from>
+					<to>population_storm_exposure_logistic_growth_rate</to>
+				</connector>
+				<connector uid="79" angle="151.113">
+					<from>people_exposure_uncertainty_factor_for_growth_rate_ip</from>
+					<to>population_storm_exposure_logistic_growth_rate</to>
+				</connector>
+				<connector uid="80" angle="176.055">
+					<from>people_exposure_default_values_for_growth_rate</from>
+					<to>population_storm_exposure_logistic_growth_rate</to>
+				</connector>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1229.33" y="656.667" name="people susceptibility uncertainty\nfactor for growth rate ip"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1229.33" y="693.251" name="people susceptibility uncertainty factor\nfor growth rate wp"/>
+				<aux label_side="right" x="1229.33" y="616.167" name="asset susceptibility default\nvalues for growth rate"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1260" y="867.309" name="people susceptibility uncertainty\nfactor for max fraction wp"/>
+				<aux label_side="right" x="1259.33" y="787" name="asset susceptibility default\nvalues for max fraction"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="1260" y="826.75" name="people susceptibility uncertainty\nfactor for max fraction ip"/>
+				<connector uid="81" angle="170.727">
+					<from>asset_susceptibility_default_values_for_growth_rate</from>
+					<to>population_storm_susceptibility_logistic_growth_rate</to>
+				</connector>
+				<connector uid="82" angle="155.556">
+					<from>people_susceptibility_uncertainty_factor_for_growth_rate_ip</from>
+					<to>population_storm_susceptibility_logistic_growth_rate</to>
+				</connector>
+				<connector uid="83" angle="140.663">
+					<from>people_susceptibility_uncertainty_factor_for_growth_rate_wp</from>
+					<to>population_storm_susceptibility_logistic_growth_rate</to>
+				</connector>
+				<connector uid="84" angle="144.744">
+					<from>asset_susceptibility_default_values_for_max_fraction</from>
+					<to>population_storm_susceptibility_max_fraction</to>
+				</connector>
+				<connector uid="85" angle="140.871">
+					<from>people_susceptibility_uncertainty_factor_for_max_fraction_ip</from>
+					<to>population_storm_susceptibility_max_fraction</to>
+				</connector>
+				<connector uid="86" angle="121.13">
+					<from>people_susceptibility_uncertainty_factor_for_max_fraction_wp</from>
+					<to>population_storm_susceptibility_max_fraction</to>
 				</connector>
 				<alias font_style="italic" font_weight="bold" label_side="top" uid="30" x="483.25" y="435.125" width="18" height="18">
 					<of>Net_global_flood_height</of>
@@ -3027,7 +3506,7 @@ SLR_thermosteric[Run] * SLR_thermosteric_weights[Coastal_Protection_level] + SLR
 				<units>metre/year</units>
 			</flow>
 			<aux name="Fraction of dike construction\ncost for maintenance annually" access="output" isee:autocreated="true">
-				<doc>${External Parameter}
+				<doc>${Internal Calibration Parameter}
 </doc>
 				<eqn>0.02</eqn>
 				<format precision="auto"/>
@@ -3173,16 +3652,16 @@ Average flood protection height in DIVA for all segments with fp &gt; 0</doc>
 				<eqn>GDP_in_coastal_zones/Coastal_population</eqn>
 				<units>bc$/Mp</units>
 			</aux>
-			<aux name="flood protection\ncost index sensitivity to GDPpc">
-				<doc>${External Parameter}
-</doc>
-				<eqn>0.036853</eqn>
+			<aux name="flood protection\ncost index sensitivity to GDPpc" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+Added larger uncertainty bounds, because fit is very uncertain.</doc>
+				<eqn>0.05</eqn>
 				<format precision="auto"/>
-				<range min="0.033" max="0.04"/>
+				<range min="0.02" max="0.07"/>
 				<units>Mp / bc$</units>
 			</aux>
 			<aux name="reference\nprotection cost" access="output" isee:autocreated="true">
-				<doc>${External Parameter}
+				<doc>${Internal Calibration Parameter}
 From CIAM (Wong et al., 2022)
 
 CIAM value : 0.00602 (2010 USD)
@@ -3197,15 +3676,15 @@ and Geotechnical Engineering 1
 </doc>
 				<eqn>0.00746</eqn>
 				<format precision="auto"/>
-				<range min="0.004" max="0.0088"/>
+				<range min="0.004" max="0.009"/>
 				<units>bc$/metre/metre/km</units>
 			</aux>
-			<aux name="flood protection\ncost index baseline">
-				<doc>${External Parameter}
-</doc>
-				<eqn>0.3786</eqn>
+			<aux name="flood protection\ncost index baseline" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+Added larger uncertainty bounds, because fit is very uncertain.</doc>
+				<eqn>0.3</eqn>
 				<format precision="auto"/>
-				<range min="0.35" max="0.4"/>
+				<range min="0.1" max="0.5"/>
 				<units>dmnl</units>
 			</aux>
 			<aux name="Flood protection\nconstruction cost index">
@@ -3561,7 +4040,7 @@ Data from DIVA</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="627" isee:scroll_y="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="75" isee:scroll_y="850" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -3695,9 +4174,9 @@ Data from DIVA</doc>
 					<from>Coastal_population</from>
 					<to>GDP_per_capita_in_coastal_zones</to>
 				</connector>
-				<aux label_side="top" x="708.063" y="161.851" name="flood protection\ncost index sensitivity to GDPpc"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="708.063" y="161.851" name="flood protection\ncost index sensitivity to GDPpc"/>
 				<aux color="#55AAFF" font_color="#55AAFF" label_side="top" x="911.54" y="229.667" name="reference\nprotection cost"/>
-				<aux label_side="left" x="648.75" y="179.851" name="flood protection\ncost index baseline"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="left" x="648.75" y="179.851" name="flood protection\ncost index baseline"/>
 				<aux label_side="left" label_angle="225" x="763.084" y="283.667" name="Flood protection\nconstruction cost index"/>
 				<connector uid="19" angle="335.452">
 					<from>
@@ -4109,7 +4588,8 @@ Data from DIVA</doc>
 				<units>Mp/year</units>
 			</aux>
 			<aux name="Mobile assets\nfraction" access="output" isee:autocreated="true">
-				<doc>As in CIAM: 75% of capital are immobile</doc>
+				<doc>${Internal Calibration Parameter}
+As in CIAM: 75% of capital are immobile</doc>
 				<eqn>0.25</eqn>
 				<range min="0.15" max="0.4"/>
 				<units>dmnl</units>
@@ -4123,11 +4603,15 @@ Data from DIVA</doc>
 				<units>bc$/year</units>
 			</aux>
 			<aux name="Asset relocation cost factor" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
 				<eqn>0.1</eqn>
 				<range min="0.05" max="0.15"/>
 				<units>1</units>
 			</aux>
 			<aux name="Asset demolition cost factor" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
 				<eqn>0.05</eqn>
 				<range min="0" max="0.1"/>
 				<units>1</units>
@@ -4182,6 +4666,8 @@ Data from DIVA</doc>
 				<units>bc$/year</units>
 			</aux>
 			<aux name="Increase factor for costs of reactive retreat" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
 				<eqn>5</eqn>
 				<range min="3" max="6"/>
 				<units>1</units>
@@ -4444,7 +4930,7 @@ FUND value: 0.96 (two weeks per year, per person that is flooded)</doc>
 				<units>1</units>
 			</aux>
 			<aux name="Productivity switch">
-				<eqn>1</eqn>
+				<eqn>0</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="Asset damage switch">
@@ -4452,7 +4938,7 @@ FUND value: 0.96 (two weeks per year, per person that is flooded)</doc>
 				<units>1</units>
 			</aux>
 			<aux name="Relocation cost switch">
-				<eqn>0</eqn>
+				<eqn>1</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="General lost land" access="input">
@@ -4519,7 +5005,7 @@ FUND value: 0.96 (two weeks per year, per person that is flooded)</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="3" isee:page_rows="3" isee:scroll_y="180" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="3" isee:page_rows="3" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4760,28 +5246,28 @@ FUND value: 0.96 (two weeks per year, per person that is flooded)</doc>
 					<from>Total_people_retreat_costs</from>
 					<to>Total_nominal_people_retreat_costs</to>
 				</connector>
-				<aux label_side="bottom" x="555" y="527.286" name="Protection cost switch"/>
-				<connector uid="44" angle="102.912">
+				<aux label_side="bottom" x="555" y="497.286" name="Protection cost switch"/>
+				<connector uid="44" angle="104.134">
 					<from>Protection_cost_switch</from>
 					<to>Total_nominal_SLR_protection_cost</to>
 				</connector>
-				<aux x="555" y="567.619" name="Fatalities switch"/>
-				<aux x="555" y="625" name="Productivity switch"/>
-				<aux x="555" y="684" name="Asset damage switch"/>
+				<aux x="555" y="648.619" name="Fatalities switch"/>
+				<aux x="555" y="706" name="Productivity switch"/>
+				<aux x="552" y="596.619" name="Asset damage switch"/>
 				<aux x="555" y="750.667" name="Relocation cost switch"/>
 				<connector uid="45" angle="21.9154">
 					<from>Relocation_cost_switch</from>
 					<to>Total_nominal_people_retreat_costs</to>
 				</connector>
-				<connector uid="46" angle="188.591">
+				<connector uid="46" angle="174.452">
 					<from>Fatalities_switch</from>
 					<to>global_death_rate_from_coastal_flooding</to>
 				</connector>
-				<connector uid="47" angle="231.34">
+				<connector uid="47" angle="218.132">
 					<from>Productivity_switch</from>
 					<to>Productivity_reduction_factor_from_coastal_flooding</to>
 				</connector>
-				<connector uid="48" angle="259.751">
+				<connector uid="48" angle="226.518">
 					<from>Asset_damage_switch</from>
 					<to>Total_nominal_loss_of_assets_from_SLR</to>
 				</connector>
