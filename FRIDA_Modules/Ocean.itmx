@@ -5,7 +5,7 @@
 		<name>Ocean</name>
 		<uuid>70375eeb-c169-4f0b-92ed-62f384970511</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8" isee:build_number="3578" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -3511,7 +3511,7 @@
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>UNIT_fraction_to_ppm* (warm_surface_ocean_DIC_conentration_unitless/(1.0 + k1_warm/new_hion_warm + k1_warm*k2_warm/new_hion_warm^2)) / kh_warm</eqn>
+				<eqn>UNIT_fraction_to_ppm* (warm_surface_ocean_DIC_concentration_unitless/(1.0 + k1_warm/new_hion_warm + k1_warm*k2_warm/new_hion_warm^2)) / kh_warm</eqn>
 				<format precision="full"/>
 				<units>ppm</units>
 			</aux>
@@ -6255,7 +6255,7 @@
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>warm_surface_ocean_DIC_conentration_unitless/calkg_warm</eqn>
+				<eqn>warm_surface_ocean_DIC_concentration_unitless/calkg_warm</eqn>
 				<format precision="full"/>
 				<units>1</units>
 			</aux>
@@ -6290,7 +6290,7 @@
 				<format precision="full"/>
 				<units>kmol/metre^3</units>
 			</aux>
-			<aux name="warm surface ocean DIC conentration unitless">
+			<aux name="warm surface ocean DIC\nconcentration unitless">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -7767,6 +7767,58 @@
 				<eqn>31557600</eqn>
 				<units>1/year</units>
 			</aux>
+			<aux name="Warm surface ocean aragonite\nK solubility product">
+				<doc>See Mucci (1983): &quot;The solublity of Calcite and Aragonite in Seawater at Various Salinities, Temperatures and One Atmosphere Total Pressure&quot;
+Eq. 17 and Table 7.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>10.0^(-171.945 - 0.077993*Warm_TK + 2903.293/Warm_TK + 71.595*LOG10(Warm_TK) + (-0.068393 + 0.0017276*Warm_TK + 88.135/Warm_TK)*SQRT(Warm_surface_ocean_salinity_unitless) - 0.10018*Warm_surface_ocean_salinity_unitless + 0.0059415*Warm_surface_ocean_salinity_unitless^1.5)</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Cold surface ocean aragonite\nK solubility product">
+				<doc>See Mucci (1983): &quot;The solublity of Calcite and Aragonite in Seawater at Various Salinities, Temperatures and One Atmosphere Total Pressure&quot;
+Eq. 17 and Table 7.</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>10.0^(-171.945 - 0.077993*Cold_TK + 2903.293/Cold_TK + 71.595*LOG10(Cold_TK) + (-0.068393 + 0.0017276*Cold_TK + 88.135/Cold_TK)*SQRT(Cold_surface_ocean_salinity_unitless) - 0.10018*Cold_surface_ocean_salinity_unitless + 0.0059415*Cold_surface_ocean_salinity_unitless^1.5)</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Carbonate concentration\nwarm surface ocean unitless">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>warm_surface_ocean_DIC_concentration_unitless / (1.0 + old_hion_warm*(1.0 + old_hion_warm/k1_warm)/k2_warm)</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Carbonate concentration\ncold surface ocean unitless">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>cold_surface_ocean_DIC_concentration_unitless / (1.0 + old_hion_cold*(1.0 + old_hion_cold/k1_cold)/k2_cold)</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Warm surface ocean\naragonite saturation state">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Carbonate_concentration_warm_surface_ocean_unitless * Calcium_concentration_in_the_ocean_unitless / Warm_surface_ocean_aragonite_K_solubility_product</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Cold surface ocean\naragonite saturation state">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Carbonate_concentration_cold_surface_ocean_unitless * Calcium_concentration_in_the_ocean_unitless / Cold_surface_ocean_aragonite_K_solubility_product</eqn>
+				<units>1</units>
+			</aux>
+			<aux name="Calcium concentration\nin the ocean unitless">
+				<doc>${External Parameter}
+0.0103 mM is the typical Calcium concentration in the ocean, also used in ocean biogeochemistry models (HAMOCC)</doc>
+				<eqn>0.0103</eqn>
+				<units>1</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -7816,7 +7868,148 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="4" isee:page_rows="4" zoom="140" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="4" isee:page_rows="4" isee:scroll_x="1598" isee:scroll_y="18" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -8271,12 +8464,12 @@
 					<from>Cold_surface_ocean_salinity_unitless</from>
 					<to>k1_cold</to>
 				</connector>
-				<aux x="1199.28" y="572.5" name="k2 warm"/>
-				<connector uid="97" angle="285.619">
+				<aux x="1198.45" y="572.5" name="k2 warm"/>
+				<connector uid="97" angle="278.189">
 					<from>Warm_surface_ocean_salinity_unitless</from>
 					<to>k2_warm</to>
 				</connector>
-				<connector uid="98" angle="221.764">
+				<connector uid="98" angle="221.612">
 					<from>Warm_TK</from>
 					<to>k2_warm</to>
 				</connector>
@@ -8404,19 +8597,19 @@
 					<from>k1_warm</from>
 					<to>tmp_warm</to>
 				</connector>
-				<connector uid="133" angle="267.287">
+				<connector uid="133" angle="258.344">
 					<from>k2_warm</from>
 					<to>tmp_warm</to>
 				</connector>
 				<aux label_side="top" x="868.333" y="1223.41" name="concentration unit"/>
-				<aux x="876.905" y="1286.31" name="warm surface ocean DIC conentration unitless"/>
+				<aux x="876.905" y="1286.31" name="warm surface ocean DIC\nconcentration unitless"/>
 				<connector uid="134" angle="166.412">
 					<from>DIC_concentration_in_warm_surface_layer</from>
-					<to>warm_surface_ocean_DIC_conentration_unitless</to>
+					<to>warm_surface_ocean_DIC_concentration_unitless</to>
 				</connector>
 				<connector uid="135" angle="274.892">
 					<from>concentration_unit</from>
-					<to>warm_surface_ocean_DIC_conentration_unitless</to>
+					<to>warm_surface_ocean_DIC_concentration_unitless</to>
 				</connector>
 				<aux x="1832.62" y="1378.21" name="cold surface ocean DIC concentration unitless"/>
 				<connector uid="137" angle="6.00901">
@@ -8466,7 +8659,7 @@
 					<from>new_hion_warm</from>
 					<to>Warm_surface_ocean_pCO2</to>
 				</connector>
-				<connector uid="147" angle="284.216">
+				<connector uid="147" angle="284.344">
 					<from>k2_warm</from>
 					<to>Warm_surface_ocean_pCO2</to>
 				</connector>
@@ -8486,13 +8679,13 @@
 				</connector>
 				<aux label_side="bottom" x="1429.54" y="921.643" name="Cold surface\nocean pCO2"/>
 				<stock x="1810.57" y="1026.83" name="Cold surface ocean pH"/>
-				<aux x="1950.48" y="903.31" name="old hion cold"/>
-				<connector uid="152" angle="58.7117">
+				<aux x="1954.48" y="903.31" name="old hion cold"/>
+				<connector uid="152" angle="57.9119">
 					<from>Cold_surface_ocean_pH</from>
 					<to>old_hion_cold</to>
 				</connector>
 				<aux x="1844.48" y="813.125" name="bo4hg cold"/>
-				<connector uid="153" angle="139.609">
+				<connector uid="153" angle="140.653">
 					<from>old_hion_cold</from>
 					<to>bo4hg_cold</to>
 				</connector>
@@ -8501,7 +8694,7 @@
 					<from>bo4hg_cold</from>
 					<to>fg_cold</to>
 				</connector>
-				<connector uid="155" angle="151.548">
+				<connector uid="155" angle="152.114">
 					<from>old_hion_cold</from>
 					<to>fg_cold</to>
 				</connector>
@@ -8885,6 +9078,110 @@
 					</from>
 					<to>Air_sea_co2_flux</to>
 				</connector>
+				<aux label_side="bottom" x="2305.83" y="316.547" name="Warm surface ocean aragonite\nK solubility product"/>
+				<connector uid="262" angle="303.229">
+					<from>
+						<alias uid="261"/>
+					</from>
+					<to>Warm_surface_ocean_aragonite_K_solubility_product</to>
+				</connector>
+				<connector uid="263" angle="281.671">
+					<from>
+						<alias uid="258"/>
+					</from>
+					<to>Warm_surface_ocean_aragonite_K_solubility_product</to>
+				</connector>
+				<aux x="2455" y="316.547" name="Cold surface ocean aragonite\nK solubility product"/>
+				<connector uid="264" angle="266.323">
+					<from>
+						<alias uid="259"/>
+					</from>
+					<to>Cold_surface_ocean_aragonite_K_solubility_product</to>
+				</connector>
+				<connector uid="265" angle="239.823">
+					<from>
+						<alias uid="260"/>
+					</from>
+					<to>Cold_surface_ocean_aragonite_K_solubility_product</to>
+				</connector>
+				<text_box uid="266" x="2311.33" y="822.125" width="175.833" height="21.3333">For Planetary Boundaries</text_box>
+				<aux x="2241.75" y="520" name="Carbonate concentration\nwarm surface ocean unitless"/>
+				<connector uid="275" angle="314.653">
+					<from>
+						<alias uid="267"/>
+					</from>
+					<to>Carbonate_concentration_warm_surface_ocean_unitless</to>
+				</connector>
+				<connector uid="276" angle="340.953">
+					<from>
+						<alias uid="268"/>
+					</from>
+					<to>Carbonate_concentration_warm_surface_ocean_unitless</to>
+				</connector>
+				<connector uid="277" angle="23.5523">
+					<from>
+						<alias uid="271"/>
+					</from>
+					<to>Carbonate_concentration_warm_surface_ocean_unitless</to>
+				</connector>
+				<connector uid="278" angle="49.3432">
+					<from>
+						<alias uid="273"/>
+					</from>
+					<to>Carbonate_concentration_warm_surface_ocean_unitless</to>
+				</connector>
+				<aux x="2517.58" y="524.5" name="Carbonate concentration\ncold surface ocean unitless"/>
+				<connector uid="279" angle="230.128">
+					<from>
+						<alias uid="269"/>
+					</from>
+					<to>Carbonate_concentration_cold_surface_ocean_unitless</to>
+				</connector>
+				<connector uid="280" angle="211.645">
+					<from>
+						<alias uid="270"/>
+					</from>
+					<to>Carbonate_concentration_cold_surface_ocean_unitless</to>
+				</connector>
+				<connector uid="281" angle="153.159">
+					<from>
+						<alias uid="272"/>
+					</from>
+					<to>Carbonate_concentration_cold_surface_ocean_unitless</to>
+				</connector>
+				<connector uid="282" angle="150.18">
+					<from>
+						<alias uid="274"/>
+					</from>
+					<to>Carbonate_concentration_cold_surface_ocean_unitless</to>
+				</connector>
+				<aux x="2316.83" y="766.75" name="Warm surface ocean\naragonite saturation state"/>
+				<connector uid="283" angle="286.924">
+					<from>Carbonate_concentration_warm_surface_ocean_unitless</from>
+					<to>Warm_surface_ocean_aragonite_saturation_state</to>
+				</connector>
+				<connector uid="284" angle="286.03">
+					<from>Warm_surface_ocean_aragonite_K_solubility_product</from>
+					<to>Warm_surface_ocean_aragonite_saturation_state</to>
+				</connector>
+				<aux x="2455" y="766.75" name="Cold surface ocean\naragonite saturation state"/>
+				<connector uid="285" angle="255.515">
+					<from>Carbonate_concentration_cold_surface_ocean_unitless</from>
+					<to>Cold_surface_ocean_aragonite_saturation_state</to>
+				</connector>
+				<connector uid="286" angle="257.344">
+					<from>Cold_surface_ocean_aragonite_K_solubility_product</from>
+					<to>Cold_surface_ocean_aragonite_saturation_state</to>
+				</connector>
+				<aux label_side="top" x="2391.25" y="710.643" name="Calcium concentration\nin the ocean unitless"/>
+				<connector uid="287" angle="217.015">
+					<from>Calcium_concentration_in_the_ocean_unitless</from>
+					<to>Warm_surface_ocean_aragonite_saturation_state</to>
+				</connector>
+				<connector uid="288" angle="318.649">
+					<from>Calcium_concentration_in_the_ocean_unitless</from>
+					<to>Cold_surface_ocean_aragonite_saturation_state</to>
+				</connector>
 				<alias font_style="italic" uid="8" x="1391.67" y="1669.33" width="18" height="18">
 					<of>Ocean_overturning_strength</of>
 				</alias>
@@ -8926,7 +9223,7 @@
 				</alias>
 				<alias color="blue" background="white" font_style="italic" label_side="top" uid="140" x="1055" y="901.929" width="18" height="18">
 					<shape type="circle" radius="18"/>
-					<of>warm_surface_ocean_DIC_conentration_unitless</of>
+					<of>warm_surface_ocean_DIC_concentration_unitless</of>
 				</alias>
 				<alias font_style="italic" label_side="top" uid="171" x="1775.05" y="907.69" width="18" height="18">
 					<of>Cold_surface_ocean_alkalinity_unitless</of>
@@ -8963,6 +9260,42 @@
 				</alias>
 				<alias font_style="italic" uid="255" x="428.417" y="39.018" width="18" height="18">
 					<of>High_latitude_ocean_air_sea_carbon_uptake</of>
+				</alias>
+				<alias font_style="italic" uid="258" x="2259.33" y="126" width="18" height="18">
+					<of>Warm_TK</of>
+				</alias>
+				<alias font_style="italic" uid="259" x="2457.67" y="126" width="18" height="18">
+					<of>Cold_TK</of>
+				</alias>
+				<alias font_style="italic" uid="260" x="2522.25" y="176.417" width="18" height="18">
+					<of>Cold_surface_ocean_salinity_unitless</of>
+				</alias>
+				<alias font_style="italic" uid="261" x="2214.75" y="182.25" width="18" height="18">
+					<of>Warm_surface_ocean_salinity_unitless</of>
+				</alias>
+				<alias font_style="italic" uid="267" x="2166" y="404.75" width="18" height="18">
+					<of>k1_warm</of>
+				</alias>
+				<alias font_style="italic" uid="268" x="2136" y="462.25" width="18" height="18">
+					<of>k2_warm</of>
+				</alias>
+				<alias font_style="italic" uid="269" x="2564.75" y="407.25" width="18" height="18">
+					<of>k1_cold</of>
+				</alias>
+				<alias font_style="italic" uid="270" x="2603.5" y="462.25" width="18" height="18">
+					<of>k2_cold</of>
+				</alias>
+				<alias font_style="italic" uid="271" x="2126" y="533.5" width="18" height="18">
+					<of>old_hion_warm</of>
+				</alias>
+				<alias font_style="italic" label_side="bottom" uid="272" x="2629.75" y="533.5" width="18" height="18">
+					<of>old_hion_cold</of>
+				</alias>
+				<alias font_style="italic" uid="273" x="2139.75" y="619.75" width="18" height="18">
+					<of>warm_surface_ocean_DIC_concentration_unitless</of>
+				</alias>
+				<alias font_style="italic" uid="274" x="2633.5" y="607.25" width="18" height="18">
+					<of>cold_surface_ocean_DIC_concentration_unitless</of>
 				</alias>
 			</view>
 		</views>
