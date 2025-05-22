@@ -5,7 +5,7 @@
 		<name>Climate</name>
 		<uuid>6b3172a7-ef66-4feb-8f28-f439698b1c18</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.7.3" isee:build_number="3465" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8" isee:build_number="3570" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -22,7 +22,7 @@
 		</dim>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="100" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -233,22 +233,16 @@
 	</model_units>
 	<model name="Climate">
 		<variables>
-			<module name="Sea Level" isee:label="" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/Sea Level.itmx">
+			<module name="Sea Level" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Sea Level.itmx">
 				<format scale_by="auto"/>
 				<connect to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
 				<connect2 to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
-				<connect to="Coastal_sea_level_rise.SLR_from_Antarctic_Ice_Sheet" from="Sea_Level.Sea_level_anomaly_from_Antarctic_Ice_Sheet"/>
-				<connect2 to="Coastal_sea_level_rise.SLR_from_Antarctic_Ice_Sheet" from="Sea_Level.Sea_level_anomaly_from_Antarctic_Ice_Sheet"/>
-				<connect to="Coastal_sea_level_rise.SLR_from_Greenland_Ice_Sheet" from="Sea_Level.Sea_level_anomaly_from_Greenland_Ice_Sheet"/>
-				<connect2 to="Coastal_sea_level_rise.SLR_from_Greenland_Ice_Sheet" from="Sea_Level.Sea_level_anomaly_from_Greenland_Ice_Sheet"/>
-				<connect to="Coastal_sea_level_rise.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
-				<connect2 to="Coastal_sea_level_rise.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
+				<connect to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
+				<connect2 to="Freshwater.Land_water_storage_from_water_impoundment" from="Sea_Level.Land_water_storage_from_water_impoundment"/>
 				<connect to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
 				<connect2 to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
-				<connect to="Coastal_sea_level_rise.SLR_from_mountain_glaciers" from="Sea_Level.Sea_level_anomaly_from_mountain_glaciers"/>
-				<connect2 to="Coastal_sea_level_rise.SLR_from_mountain_glaciers" from="Sea_Level.Sea_level_anomaly_from_mountain_glaciers"/>
-				<connect to="Coastal_sea_level_rise.SLR_thermosteric" from="Sea_Level.Sea_level_anomaly_from_thermal_expansion"/>
-				<connect2 to="Coastal_sea_level_rise.SLR_thermosteric" from="Sea_Level.Sea_level_anomaly_from_thermal_expansion"/>
+				<connect to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
+				<connect2 to="Freshwater.SLR_from_LWS" from="Sea_Level.Sea_level_anomaly_from_LWS"/>
 				<connect to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
 				<connect2 to="Sea_Level.Change_in_Deep_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Deep_Ocean_Temperature"/>
 				<connect to="Sea_Level.Change_in_Surface_Temperature" from='Energy_Balance_Model."Change_in_Land_&amp;_Ocean_Surface_Temperature"'/>
@@ -261,8 +255,8 @@
 				<connect2 to="Sea_Level.Heat_Capacity_of_Surface" from='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"'/>
 				<connect to="Sea_Level.Heat_Capacity_of_Upper_Ocean" from="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean"/>
 				<connect2 to="Sea_Level.Heat_Capacity_of_Upper_Ocean" from="Energy_Balance_Model.Heat_Capacity_of_Thermocline_Ocean"/>
-				<connect to="Sea_Level.Installation_of_Hydropower_Capacity" from="hydropower_energy.Installation_of_Hydropower_Capacity"/>
-				<connect2 to="Sea_Level.Installation_of_Hydropower_Capacity" from="hydropower_energy.Installation_of_Hydropower_Capacity"/>
+				<connect to="Sea_Level.installation_of_hydropower_capacity_1" from="Inputs.installation_of_hydropower_capacity"/>
+				<connect2 to="Sea_Level.installation_of_hydropower_capacity_1" from="Inputs.installation_of_hydropower_capacity"/>
 				<connect to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Sea_Level.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
@@ -271,7 +265,7 @@
 				<connect2 to="Sea_Level.total_groundwater_anomaly" from="Freshwater.total_groundwater_anomaly"/>
 			</module>
 			<module name="Ocean" isee:label="Ocean
-Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/Ocean.itmx">
+Carbon" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Ocean.itmx">
 				<format scale_by="auto"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
@@ -304,86 +298,6 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect to="Ocean.UNIT_Sv_to_Cubic_metre" from="Climate_Units.UNIT_Sv_to_Cubic_metre"/>
 				<connect2 to="Ocean.UNIT_Sv_to_Cubic_metre" from="Climate_Units.UNIT_Sv_to_Cubic_metre"/>
 			</module>
-			<aux name="climate impact stoptime" access="output" isee:autocreated="true">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1979</eqn>
-				<format precision="1"/>
-				<range min="1979" max="2130"/>
-				<units>year</units>
-			</aux>
-			<aux name="switch finance damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch energy damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch landuse damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch demography damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch behavioral impact" access="output" isee:autocreated="true">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch internal to climate\nland carbon impact" access="output" isee:autocreated="true">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch sea level rise damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch labor damage" access="output" isee:autocreated="true">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch concrete impact" access="output" isee:autocreated="true">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
 			<module name="Climate Units" isee:label="">
 				<format scale_by="auto"/>
 				<connect to="CH4_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
@@ -402,14 +316,6 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="Minor_GHGs_Forcing.Molecular_Weight_of_Air" from="Climate_Units.Molecular_Weight_of_Air"/>
 				<connect to="N2O_Forcing.Molecular_Weight_of_Air_1" from="Climate_Units.Molecular_Weight_of_Air"/>
 				<connect2 to="N2O_Forcing.Molecular_Weight_of_Air_1" from="Climate_Units.Molecular_Weight_of_Air"/>
-				<connect to="bio_fuel_energy.MtSO2_to_tSO2" from="Climate_Units.MtSO2_to_tSO2"/>
-				<connect2 to="bio_fuel_energy.MtSO2_to_tSO2" from="Climate_Units.MtSO2_to_tSO2"/>
-				<connect to="fossil_energy_coal.MtSO2_to_tSO2" from="Climate_Units.MtSO2_to_tSO2"/>
-				<connect2 to="fossil_energy_coal.MtSO2_to_tSO2" from="Climate_Units.MtSO2_to_tSO2"/>
-				<connect to="fossil_energy_gas.MtSO2_to_tSO2" from="Climate_Units.MtSO2_to_tSO2"/>
-				<connect2 to="fossil_energy_gas.MtSO2_to_tSO2" from="Climate_Units.MtSO2_to_tSO2"/>
-				<connect to="fossil_energy_oil.MtSO2_to_tSO2" from="Climate_Units.MtSO2_to_tSO2"/>
-				<connect2 to="fossil_energy_oil.MtSO2_to_tSO2" from="Climate_Units.MtSO2_to_tSO2"/>
 				<connect to="Aerosol_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Aerosol_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="BC_on_Snow_Forcing.selected_climate_case_1" from="Climate_Units.selected_climate_case"/>
@@ -450,18 +356,10 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="Sea_Level.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
-				<connect to="Demographics.selected_cold_mortality_impact_case" from="Climate_Units.selected_cold_mortality_impact_case"/>
-				<connect2 to="Demographics.selected_cold_mortality_impact_case" from="Climate_Units.selected_cold_mortality_impact_case"/>
 				<connect to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
 				<connect2 to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
-				<connect to="efficiency_reduction_in_power_plants.selected_energy_supply_hydroelectric_damages_case" from="Climate_Units.selected_energy_supply_hydroelectric_damages_case"/>
-				<connect2 to="efficiency_reduction_in_power_plants.selected_energy_supply_hydroelectric_damages_case" from="Climate_Units.selected_energy_supply_hydroelectric_damages_case"/>
-				<connect to="efficiency_reduction_in_power_plants.selected_energy_supply_damages_case" from="Climate_Units.selected_energy_supply_thermoelectric_damages_case"/>
-				<connect2 to="efficiency_reduction_in_power_plants.selected_energy_supply_damages_case" from="Climate_Units.selected_energy_supply_thermoelectric_damages_case"/>
 				<connect to="Energy_Balance_Model.selected_extremes_exposure_damages_case" from="Climate_Units.selected_extremes_exposure_damages_case"/>
 				<connect2 to="Energy_Balance_Model.selected_extremes_exposure_damages_case" from="Climate_Units.selected_extremes_exposure_damages_case"/>
-				<connect to="Demographics.selected_hot_mortality_impact_case" from="Climate_Units.selected_hot_mortality_impact_case"/>
-				<connect2 to="Demographics.selected_hot_mortality_impact_case" from="Climate_Units.selected_hot_mortality_impact_case"/>
 				<connect to="Ocean.UNIT_deg_C_to_unitless" from="Climate_Units.UNIT_deg_C_to_unitless"/>
 				<connect2 to="Ocean.UNIT_deg_C_to_unitless" from="Climate_Units.UNIT_deg_C_to_unitless"/>
 				<connect to="CH4_Forcing.UNIT_fraction_to_ppm" from="Climate_Units.UNIT_fraction_to_ppm"/>
@@ -488,34 +386,10 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="Emissions.UNIT_ktN2O_to_MtN2O_1" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
 				<connect to="N2O_Forcing.UNIT_ktN2O_to_MtN2O" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
 				<connect2 to="N2O_Forcing.UNIT_ktN2O_to_MtN2O" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
-				<connect to="bio_fuel_energy.ktN2O_to_tCO2e" from="Climate_Units.UNIT_ktN2O_to_tCO2e"/>
-				<connect2 to="bio_fuel_energy.ktN2O_to_tCO2e" from="Climate_Units.UNIT_ktN2O_to_tCO2e"/>
-				<connect to="fossil_energy_coal.UNIT_ktN2O_to_tCO2e" from="Climate_Units.UNIT_ktN2O_to_tCO2e"/>
-				<connect2 to="fossil_energy_coal.UNIT_ktN2O_to_tCO2e" from="Climate_Units.UNIT_ktN2O_to_tCO2e"/>
-				<connect to="fossil_energy_gas.ktN2O_to_tCO2e" from="Climate_Units.UNIT_ktN2O_to_tCO2e"/>
-				<connect2 to="fossil_energy_gas.ktN2O_to_tCO2e" from="Climate_Units.UNIT_ktN2O_to_tCO2e"/>
-				<connect to="fossil_energy_oil.ktN2O_to_tCO2e" from="Climate_Units.UNIT_ktN2O_to_tCO2e"/>
-				<connect2 to="fossil_energy_oil.ktN2O_to_tCO2e" from="Climate_Units.UNIT_ktN2O_to_tCO2e"/>
-				<connect to="bio_fuel_energy.MtCH4_to_tCO2e" from="Climate_Units.UNIT_MtCH4_to_tCO2e"/>
-				<connect2 to="bio_fuel_energy.MtCH4_to_tCO2e" from="Climate_Units.UNIT_MtCH4_to_tCO2e"/>
-				<connect to="fossil_energy_coal.UNIT_MtCH4_to_tCO2e" from="Climate_Units.UNIT_MtCH4_to_tCO2e"/>
-				<connect2 to="fossil_energy_coal.UNIT_MtCH4_to_tCO2e" from="Climate_Units.UNIT_MtCH4_to_tCO2e"/>
-				<connect to="fossil_energy_gas.MtCH4_to_tCO2e" from="Climate_Units.UNIT_MtCH4_to_tCO2e"/>
-				<connect2 to="fossil_energy_gas.MtCH4_to_tCO2e" from="Climate_Units.UNIT_MtCH4_to_tCO2e"/>
-				<connect to="fossil_energy_oil.MtCH4_to_tCO2e" from="Climate_Units.UNIT_MtCH4_to_tCO2e"/>
-				<connect2 to="fossil_energy_oil.MtCH4_to_tCO2e" from="Climate_Units.UNIT_MtCH4_to_tCO2e"/>
 				<connect to="BC_on_Snow_Forcing.UNIT_MtCO2_to_GtCO2_1" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
 				<connect2 to="BC_on_Snow_Forcing.UNIT_MtCO2_to_GtCO2_1" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
 				<connect to="CO2_Forcing.UNIT_MtCO2_to_GtCO2" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
 				<connect2 to="CO2_Forcing.UNIT_MtCO2_to_GtCO2" from="Climate_Units.UNIT_MtCO2_to_GtCO2"/>
-				<connect to="bio_fuel_energy.MtCO2_to_tCO2e" from="Climate_Units.UNIT_MtCO2_to_tCO2e"/>
-				<connect2 to="bio_fuel_energy.MtCO2_to_tCO2e" from="Climate_Units.UNIT_MtCO2_to_tCO2e"/>
-				<connect to="fossil_energy_coal.UNIT_MtCO2_to_tCO2e" from="Climate_Units.UNIT_MtCO2_to_tCO2e"/>
-				<connect2 to="fossil_energy_coal.UNIT_MtCO2_to_tCO2e" from="Climate_Units.UNIT_MtCO2_to_tCO2e"/>
-				<connect to="fossil_energy_gas.MtCO2_to_tCO2e" from="Climate_Units.UNIT_MtCO2_to_tCO2e"/>
-				<connect2 to="fossil_energy_gas.MtCO2_to_tCO2e" from="Climate_Units.UNIT_MtCO2_to_tCO2e"/>
-				<connect to="fossil_energy_oil.MtCO2_to_tCO2e" from="Climate_Units.UNIT_MtCO2_to_tCO2e"/>
-				<connect2 to="fossil_energy_oil.MtCO2_to_tCO2e" from="Climate_Units.UNIT_MtCO2_to_tCO2e"/>
 				<connect to="CH4_Forcing.UNIT_ppm_to_ppb" from="Climate_Units.UNIT_ppm_to_ppb"/>
 				<connect2 to="CH4_Forcing.UNIT_ppm_to_ppb" from="Climate_Units.UNIT_ppm_to_ppb"/>
 				<connect to="N2O_Forcing.UNIT_ppm_to_ppb_1" from="Climate_Units.UNIT_ppm_to_ppb"/>
@@ -533,8 +407,6 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 			</module>
 			<module name="Energy\nBalance\nModel" isee:label="">
 				<format scale_by="auto"/>
-				<connect to="Concrete.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
-				<connect2 to="Concrete.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="Crop.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="Crop.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
@@ -545,8 +417,6 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="Sea_Level.Change_in_Surface_Temperature" from='Energy_Balance_Model."Change_in_Land_&amp;_Ocean_Surface_Temperature"'/>
 				<connect to="Sea_Level.Change_in_Upper_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Thermocline_Ocean_Temperature"/>
 				<connect2 to="Sea_Level.Change_in_Upper_Ocean_Temperature" from="Energy_Balance_Model.Change_in_Thermocline_Ocean_Temperature"/>
-				<connect to="Climate_Risk_Perception.Climate_indices_with_record_breaking_exposure_per_person_per_year" from="Energy_Balance_Model.Climate_indices_with_record_breaking_exposure_per_person_per_year"/>
-				<connect2 to="Climate_Risk_Perception.Climate_indices_with_record_breaking_exposure_per_person_per_year" from="Energy_Balance_Model.Climate_indices_with_record_breaking_exposure_per_person_per_year"/>
 				<connect to="Sea_Level.Heat_Capacity_of_Surface" from='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"'/>
 				<connect2 to="Sea_Level.Heat_Capacity_of_Surface" from='Energy_Balance_Model."Heat_Capacity_of_Land_&amp;_Ocean_Surface"'/>
 				<connect to="Sea_Level.Heat_Capacity_of_Deep_Ocean" from="Energy_Balance_Model.Heat_Capacity_of_Deep_Ocean"/>
@@ -559,28 +429,14 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="N2O_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
 				<connect to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
 				<connect2 to="Ozone_Forcing.Surface_Temperature" from="Energy_Balance_Model.Surface_Temperature"/>
-				<connect to="Climate_Risk_Perception.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Climate_Risk_Perception.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Coastal_sea_level_rise.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Coastal_sea_level_rise.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Damages.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Damages.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Demographics.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Demographics.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="efficiency_reduction_in_power_plants.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="efficiency_reduction_in_power_plants.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Employment.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Employment.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="energy_demand.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="energy_demand.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Finance.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Finance.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Emissions.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Emissions.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect to="Government.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
-				<connect2 to="Government.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Freshwater.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Ocean.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
@@ -594,7 +450,7 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 			</module>
-			<module name="Emissions" isee:label="" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/Emissions.itmx">
+			<module name="Emissions" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Emissions.itmx">
 				<format scale_by="auto"/>
 				<connect to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
 				<connect2 to="Ozone_Forcing.Baseline_CO_emissions" from="Emissions.Baseline_CO_Emissions"/>
@@ -620,40 +476,8 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="CCS.CO2_emissions_from_gas" from="Emissions.CO2_emissions_from_gas"/>
 				<connect to="CCS.CO2_emissions_from_oil" from="Emissions.CO2_emissions_from_oil"/>
 				<connect2 to="CCS.CO2_emissions_from_oil" from="Emissions.CO2_emissions_from_oil"/>
-				<connect to="bio_fuel_energy.coupling_factor_of_fossil_fuels_and_CH4_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_CH4_emissions"/>
-				<connect2 to="bio_fuel_energy.coupling_factor_of_fossil_fuels_and_CH4_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_CH4_emissions"/>
-				<connect to="fossil_energy_coal.coupling_factor_of_fossil_fuels_and_CH4_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_CH4_emissions"/>
-				<connect2 to="fossil_energy_coal.coupling_factor_of_fossil_fuels_and_CH4_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_CH4_emissions"/>
-				<connect to="fossil_energy_gas.coupling_factor_of_fossil_fuels_and_CH4_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_CH4_emissions"/>
-				<connect2 to="fossil_energy_gas.coupling_factor_of_fossil_fuels_and_CH4_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_CH4_emissions"/>
-				<connect to="fossil_energy_oil.coupling_factor_of_fossil_fuels_and_CH4_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_CH4_emissions"/>
-				<connect2 to="fossil_energy_oil.coupling_factor_of_fossil_fuels_and_CH4_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_CH4_emissions"/>
-				<connect to="bio_fuel_energy.coupling_factor_of_fossil_fuels_and_N2O_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_N2O_emissions"/>
-				<connect2 to="bio_fuel_energy.coupling_factor_of_fossil_fuels_and_N2O_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_N2O_emissions"/>
-				<connect to="fossil_energy_coal.coupling_factor_of_fossil_fuels_and_N2O_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_N2O_emissions"/>
-				<connect2 to="fossil_energy_coal.coupling_factor_of_fossil_fuels_and_N2O_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_N2O_emissions"/>
-				<connect to="fossil_energy_gas.coupling_factor_of_fossil_fuels_and_N2O_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_N2O_emissions"/>
-				<connect2 to="fossil_energy_gas.coupling_factor_of_fossil_fuels_and_N2O_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_N2O_emissions"/>
-				<connect to="fossil_energy_oil.coupling_factor_of_fossil_fuels_and_N2O_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_N2O_emissions"/>
-				<connect2 to="fossil_energy_oil.coupling_factor_of_fossil_fuels_and_N2O_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_N2O_emissions"/>
-				<connect to="bio_fuel_energy.coupling_factor_of_fossil_fuels_and_SO2_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_SO2_emissions"/>
-				<connect2 to="bio_fuel_energy.coupling_factor_of_fossil_fuels_and_SO2_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_SO2_emissions"/>
-				<connect to="fossil_energy_coal.coupling_factor_of_fossil_fuels_and_SO2_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_SO2_emissions"/>
-				<connect2 to="fossil_energy_coal.coupling_factor_of_fossil_fuels_and_SO2_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_SO2_emissions"/>
-				<connect to="fossil_energy_gas.coupling_factor_of_fossil_fuels_and_SO2_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_SO2_emissions"/>
-				<connect2 to="fossil_energy_gas.coupling_factor_of_fossil_fuels_and_SO2_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_SO2_emissions"/>
-				<connect to="fossil_energy_oil.coupling_factor_of_fossil_fuels_and_SO2_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_SO2_emissions"/>
-				<connect2 to="fossil_energy_oil.coupling_factor_of_fossil_fuels_and_SO2_emissions" from="Emissions.coupling_factor_of_fossil_fuels_and_SO2_emissions"/>
-				<connect to="bio_fuel_energy.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect2 to="bio_fuel_energy.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
 				<connect to="CCS.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
 				<connect2 to="CCS.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect to="fossil_energy_coal.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect2 to="fossil_energy_coal.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect to="fossil_energy_gas.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect2 to="fossil_energy_gas.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect to="fossil_energy_oil.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
-				<connect2 to="fossil_energy_oil.GtC_to_MtCO2" from="Emissions.GtC_to_MtCO2"/>
 				<connect to="Minor_GHGs_Forcing.HFC134a_emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect2 to="Minor_GHGs_Forcing.HFC134a_emissions" from="Emissions.HFC134a_eq_Emissions"/>
 				<connect to="CO2_Forcing.Net_land_carbon_flux" from="Emissions.land_carbon_sink"/>
@@ -662,8 +486,6 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="Terrestrial_Carbon_Balance.land_carbon_sink" from="Emissions.land_carbon_sink"/>
 				<connect to="N2O_Forcing.N2O_Baseline_emissions" from="Emissions.N2O_Baseline_Emissions"/>
 				<connect2 to="N2O_Forcing.N2O_Baseline_emissions" from="Emissions.N2O_Baseline_Emissions"/>
-				<connect to="Employment.Population_1" from="Emissions.Population"/>
-				<connect2 to="Employment.Population_1" from="Emissions.Population"/>
 				<connect to="Aerosol_Forcing.SO2_Baseline_Emissions" from="Emissions.SO2_Baseline_Emissions"/>
 				<connect2 to="Aerosol_Forcing.SO2_Baseline_Emissions" from="Emissions.SO2_Baseline_Emissions"/>
 				<connect to="BC_on_Snow_Forcing.SO2_Baseline_Emissions_1" from="Emissions.SO2_Baseline_Emissions"/>
@@ -672,8 +494,6 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="CH4_Forcing.Total_CH4_Emissions_1" from="Emissions.Total_CH4_Emissions"/>
 				<connect to='CO2_Forcing."Total_CO2_Emissions_without_land-use"' from="Emissions.Total_CO2_Emissions"/>
 				<connect2 to='CO2_Forcing."Total_CO2_Emissions_without_land-use"' from="Emissions.Total_CO2_Emissions"/>
-				<connect to="Coastal_sea_level_rise.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
-				<connect2 to="Coastal_sea_level_rise.Total_CO2_Emissions" from="Emissions.Total_CO2_Emissions"/>
 				<connect to="N2O_Forcing.Total_N2O_Emissions" from="Emissions.Total_N2O_Emissions"/>
 				<connect2 to="N2O_Forcing.Total_N2O_Emissions" from="Emissions.Total_N2O_Emissions"/>
 				<connect to="CH4_Forcing.Total_NOx_emissions" from="Emissions.Total_NOx_Emissions"/>
@@ -690,40 +510,32 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="Ozone_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
 				<connect to="Emissions.Annual_realized_CO2_emissions_from_land_use_transitions" from="Terrestrial_Carbon_Balance.Annual_realized_CO2_emissions_from_land_use_transitions"/>
 				<connect2 to="Emissions.Annual_realized_CO2_emissions_from_land_use_transitions" from="Terrestrial_Carbon_Balance.Annual_realized_CO2_emissions_from_land_use_transitions"/>
-				<connect to="Emissions.bio_fuel_primary_energy" from="bio_fuel_energy.bio_fuel_primary_energy"/>
-				<connect2 to="Emissions.bio_fuel_primary_energy" from="bio_fuel_energy.bio_fuel_primary_energy"/>
-				<connect to="Emissions.Carbon_Intensity_1" from="fossil_energy_oil.Carbon_Intensity"/>
-				<connect2 to="Emissions.Carbon_Intensity_1" from="fossil_energy_oil.Carbon_Intensity"/>
-				<connect to="Emissions.CDD" from="energy_demand.CDD"/>
-				<connect2 to="Emissions.CDD" from="energy_demand.CDD"/>
-				<connect to="Emissions.CDD_preindustrial" from="energy_demand.CDD_preindustrial"/>
-				<connect2 to="Emissions.CDD_preindustrial" from="energy_demand.CDD_preindustrial"/>
-				<connect to="Emissions.CO2_emissions" from="Concrete.CO2_emissions"/>
-				<connect2 to="Emissions.CO2_emissions" from="Concrete.CO2_emissions"/>
 				<connect to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
 				<connect2 to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
+				<connect to="Emissions.CO2_emissions_from_concrete" from="Inputs.CO2_emissions_from_concrete"/>
+				<connect2 to="Emissions.CO2_emissions_from_concrete" from="Inputs.CO2_emissions_from_concrete"/>
+				<connect to="Emissions.crops_for_energy" from="Food_Demand.crops_for_energy"/>
+				<connect2 to="Emissions.crops_for_energy" from="Food_Demand.crops_for_energy"/>
 				<connect to="Emissions.deforestation_carbon_loss" from="Terrestrial_Carbon_Balance.deforestation_carbon_loss"/>
 				<connect2 to="Emissions.deforestation_carbon_loss" from="Terrestrial_Carbon_Balance.deforestation_carbon_loss"/>
 				<connect to="Emissions.forest_regrowth_carbon_uptake" from="Terrestrial_Carbon_Balance.forest_regrowth_carbon_uptake"/>
 				<connect2 to="Emissions.forest_regrowth_carbon_uptake" from="Terrestrial_Carbon_Balance.forest_regrowth_carbon_uptake"/>
-				<connect to="Emissions.Fossil_Energy_Extraction_1" from="fossil_energy_coal.Fossil_Fuel_Extraction_Carbon"/>
-				<connect2 to="Emissions.Fossil_Energy_Extraction_1" from="fossil_energy_coal.Fossil_Fuel_Extraction_Carbon"/>
-				<connect to="Emissions.Fossil_Energy_Extraction_2" from="fossil_energy_oil.Fossil_Fuel_Extraction_Carbon"/>
-				<connect2 to="Emissions.Fossil_Energy_Extraction_2" from="fossil_energy_oil.Fossil_Fuel_Extraction_Carbon"/>
-				<connect to="Emissions.Fossil_Energy_Extraction_3" from="fossil_energy_gas.Fossil_Fuel_Extraction_Carbon"/>
-				<connect2 to="Emissions.Fossil_Energy_Extraction_3" from="fossil_energy_gas.Fossil_Fuel_Extraction_Carbon"/>
+				<connect to="Emissions.fossil_CO2_emissions_from_coal_GtC" from="Inputs.fossil_CO2_emissions_from_coal_GtC"/>
+				<connect2 to="Emissions.fossil_CO2_emissions_from_coal_GtC" from="Inputs.fossil_CO2_emissions_from_coal_GtC"/>
+				<connect to="Emissions.fossil_CO2_emissions_from_gas_GtC" from="Inputs.fossil_CO2_emissions_from_gas_GtC"/>
+				<connect2 to="Emissions.fossil_CO2_emissions_from_gas_GtC" from="Inputs.fossil_CO2_emissions_from_gas_GtC"/>
+				<connect to="Emissions.fossil_CO2_emissions_from_oil_GtC" from="Inputs.fossil_CO2_emissions_from_oil_GtC"/>
+				<connect2 to="Emissions.fossil_CO2_emissions_from_oil_GtC" from="Inputs.fossil_CO2_emissions_from_oil_GtC"/>
+				<connect to="Emissions.Global_population" from="Inputs.Global_population"/>
+				<connect2 to="Emissions.Global_population" from="Inputs.Global_population"/>
+				<connect to="Emissions.Globap_real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
+				<connect2 to="Emissions.Globap_real_GDP_per_person" from="Inputs.real_GDP_per_person"/>
 				<connect to="Emissions.Leakage" from="CCS.CO2_Emissions_from_Leakage"/>
 				<connect2 to="Emissions.Leakage" from="CCS.CO2_Emissions_from_Leakage"/>
 				<connect to="Emissions.livestock_production" from="Animal_Products.animal_products_production"/>
 				<connect2 to="Emissions.livestock_production" from="Animal_Products.animal_products_production"/>
 				<connect to="Emissions.man_made_fertilizer_use" from="Land_Nutrients.man_made_fertilizer_use"/>
 				<connect2 to="Emissions.man_made_fertilizer_use" from="Land_Nutrients.man_made_fertilizer_use"/>
-				<connect to="Emissions.Population" from="Demographics.Population"/>
-				<connect2 to="Emissions.Population" from="Demographics.Population"/>
-				<connect to="Emissions.real_GDP_per_person" from="Demographics.real_GDP_per_person"/>
-				<connect2 to="Emissions.real_GDP_per_person" from="Demographics.real_GDP_per_person"/>
-				<connect to="Emissions.relative_carbon_intensity_of_biofuels_to_petroleum_fuels" from="bio_fuel_energy.relative_carbon_intensity_of_biofuels_to_petroleum_fuels"/>
-				<connect2 to="Emissions.relative_carbon_intensity_of_biofuels_to_petroleum_fuels" from="bio_fuel_energy.relative_carbon_intensity_of_biofuels_to_petroleum_fuels"/>
 				<connect to="Emissions.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
 				<connect2 to="Emissions.share_of_biofuel_emissions_stored" from="Government_Regulations.share_of_biofuel_emissions_stored"/>
 				<connect to="Emissions.share_of_coal_emissions_stored" from="Government_Regulations.share_of_coal_emissions_stored"/>
@@ -734,6 +546,8 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="Emissions.share_of_oil_emissions_stored" from="Government_Regulations.share_of_oil_emissions_stored"/>
 				<connect to="Emissions.start_year" from="Government_Regulations.start_year"/>
 				<connect2 to="Emissions.start_year" from="Government_Regulations.start_year"/>
+				<connect to="Emissions.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
+				<connect2 to="Emissions.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Emissions.Terrestrial_carbon_balance" from="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance"/>
 				<connect2 to="Emissions.Terrestrial_carbon_balance" from="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance"/>
 				<connect to="Emissions.UNIT_ktN2O_to_MtN2O" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
@@ -742,10 +556,12 @@ Carbon" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/O
 				<connect2 to="Emissions.UNIT_ktN2O_to_MtN2O_1" from="Climate_Units.UNIT_ktN2O_to_MtN2O"/>
 			</module>
 			<module name="Forcing" isee:label="Radiative
-Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/Forcing.itmx">
+Forcing" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Forcing.itmx">
 				<format scale_by="auto"/>
-				<connect to="Planetary_Boundaries.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
-				<connect2 to="Planetary_Boundaries.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
+				<connect to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
+				<connect2 to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
+				<connect to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
+				<connect2 to="Biosphere_Indicators.Anthropogenic_Effective_Radiative_Forcing" from="Forcing.Anthropogenic_Effective_Radiative_Forcing"/>
 				<connect to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect2 to="Energy_Balance_Model.Total_Effective_Radiative_Forcing" from="Forcing.Total_Effective_Radiative_Forcing"/>
 				<connect to="Aerosol_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
@@ -790,6 +606,10 @@ Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/
 				<connect2 to="CH4_Forcing.UNIT_ppm_to_ppb" from="Climate_Units.UNIT_ppm_to_ppb"/>
 				<connect to="CH4_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
 				<connect2 to="CH4_Forcing.VOC_emissions" from="Emissions.VOC_Emissions"/>
+				<connect to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
+				<connect2 to="Biosphere_Indicators.Atmospheric_CO2_concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Crop.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Forest.Atmospheric_CO2_Concentration_1" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
@@ -798,8 +618,6 @@ Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect2 to="Ocean.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect to="Planetary_Boundaries.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
-				<connect2 to="Planetary_Boundaries.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect2 to="CO2_Forcing.Air_sea_co2_flux_1" from="Ocean.Air_sea_co2_flux"/>
 				<connect to="CO2_Forcing.Mass_of_the_Atmosphere" from="Climate_Units.Mass_of_the_Atmosphere"/>
@@ -883,14 +701,6 @@ Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/
 				<connect to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect2 to="Stratospheric_Water_Vapour_Forcing.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 			</module>
-			<aux name="switch government damage" access="output" isee:autocreated="true">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
 			<module name="Terrestrial\nCarbon\nBalance" isee:label="">
 				<format scale_by="auto"/>
 				<connect to="Emissions.Annual_realized_CO2_emissions_from_land_use_transitions" from="Terrestrial_Carbon_Balance.Annual_realized_CO2_emissions_from_land_use_transitions"/>
@@ -901,8 +711,10 @@ Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/
 				<connect2 to="Emissions.forest_regrowth_carbon_uptake" from="Terrestrial_Carbon_Balance.forest_regrowth_carbon_uptake"/>
 				<connect to="Emissions.Terrestrial_carbon_balance" from="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance"/>
 				<connect2 to="Emissions.Terrestrial_carbon_balance" from="Terrestrial_Carbon_Balance.Terrestrial_carbon_balance"/>
-				<connect to="Planetary_Boundaries.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
-				<connect2 to="Planetary_Boundaries.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
+				<connect to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
+				<connect2 to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
+				<connect to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
+				<connect2 to="Biosphere_Indicators.Terrestrial_net_primary_production" from="Terrestrial_Carbon_Balance.Terrestrial_net_primary_production"/>
 				<connect to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect2 to="Terrestrial_Carbon_Balance.animal_grazing" from="Grass.animal_grazing"/>
 				<connect to="Terrestrial_Carbon_Balance.clearing" from="Forest.clearing"/>
@@ -1086,54 +898,6 @@ Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/
 				<connect to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 				<connect2 to="Grassland_carbon_balance.soil_carbon_emissions_grassland_GtC" from="grassland_soil_carbon.soil_carbon_emissions_grassland_GtC"/>
 			</module>
-			<aux name="switch sea level\nrise finance damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch sea level rise\nproductivity reduction damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch sea level\nrise fatalities damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch sea level rise\nrelocation cost damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch sea level\nrise protection cost damage" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="switch sea level\nrise climate risk perception" access="output">
-				<doc>${No Sensi}
-</doc>
-				<eqn>1</eqn>
-				<format precision="1"/>
-				<range min="0" max="1"/>
-				<units>dmnl</units>
-			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -1183,7 +947,148 @@ Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="2" isee:page_rows="3" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:stacked_container color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="0" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<isee:dropdown_input color="black" background="white" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="2" isee:page_rows="3" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1224,16 +1129,6 @@ Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/
 				</style>
 				<module label_side="center" x="651.667" y="316.919" name="Sea Level"/>
 				<module label_side="center" x="473.833" y="196.916" name="Ocean"/>
-				<aux x="56.5" y="562.916" name="climate impact stoptime"/>
-				<aux x="304" y="622.725" name="switch finance damage"/>
-				<aux x="439" y="618.35" name="switch energy damage"/>
-				<aux x="165.25" y="622.725" name="switch landuse damage"/>
-				<aux x="304" y="691.475" name="switch demography damage"/>
-				<aux x="161.5" y="691.475" name="switch behavioral impact"/>
-				<aux x="967.334" y="667.517" name="switch internal to climate\nland carbon impact"/>
-				<aux x="161.5" y="855.808" name="switch sea level rise damage"/>
-				<aux x="304" y="570.225" name="switch labor damage"/>
-				<aux x="165.25" y="555.225" name="switch concrete impact"/>
 				<module x="473.833" y="66.0827" name="Climate Units"/>
 				<connector uid="7" color="#F0F3F3" font_color="#F0F3F3" isee:thickness="1" angle="305.335" isee:autocreated="true">
 					<from>Climate_Units</from>
@@ -1286,7 +1181,6 @@ Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/
 					<from>Ocean</from>
 					<to>Forcing</to>
 				</connector>
-				<aux x="304" y="764.975" name="switch government damage"/>
 				<module label_side="center" x="136" y="313.586" name="Terrestrial\nCarbon\nBalance"/>
 				<connector uid="54" isee:thickness="2" angle="24.4802" isee:autocreated="true">
 					<from>Terrestrial_Carbon_Balance</from>
@@ -1296,12 +1190,10 @@ Forcing" url="/Users/magr099/Documents/GitHub/WorldTransFRIDA_MBG/FRIDA_Modules/
 					<from>Emissions</from>
 					<to>Terrestrial_Carbon_Balance</to>
 				</connector>
-				<aux x="161.5" y="910.808" name="switch sea level\nrise finance damage"/>
-				<aux x="161.5" y="974.808" name="switch sea level rise\nproductivity reduction damage"/>
-				<aux x="161.5" y="1118.03" name="switch sea level\nrise fatalities damage"/>
-				<aux x="161.5" y="1050.64" name="switch sea level rise\nrelocation cost damage"/>
-				<aux x="161.5" y="1183.59" name="switch sea level\nrise protection cost damage"/>
-				<aux x="161.5" y="1251.45" name="switch sea level\nrise climate risk perception"/>
+				<connector uid="56" isee:thickness="2" angle="204.568" isee:autocreated="true">
+					<from>Energy_Balance_Model</from>
+					<to>Emissions</to>
+				</connector>
 			</view>
 		</views>
 	</model>
