@@ -243,7 +243,7 @@ For a python version of the code and all references see: https://github.com/lnnr
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>initial_sea_level_anomaly_from_GrIS_SMB[selected_climate_case]</eqn>
+				<eqn>-initial_sea_level_anomaly_from_GrIS_SMB[selected_climate_case]</eqn>
 				<inflow>yearly_SLR_from_GrIS_SMB</inflow>
 				<units>metre</units>
 			</stock>
@@ -269,7 +269,7 @@ Wong, T. E., Bakker, A. M. R., Ruckert, K., Applegate, P., Slangen, A. B. A., an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>AntIS_max_contribution_to_sea_level_anomaly * (1.0 - AntIS_Volume/AntIS_initial_volume[selected_climate_case_2]) + initial_sea_level_anomaly_from_AntIS[selected_climate_case_2]</eqn>
+				<eqn>AntIS_max_contribution_to_sea_level_anomaly * (1.0 - AntIS_Volume/Initial_AntIS_Volume[selected_climate_case_2]) + initial_sea_level_anomaly_from_AntIS[selected_climate_case_2]</eqn>
 				<units>metre</units>
 			</aux>
 			<stock name="Sea level anomaly from mountain glaciers" access="output" isee:autocreated="true">
@@ -285,7 +285,7 @@ Wigley and Raper (2005): &quot;Extended scenarios for glacier melt due to anthro
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>initial_sea_level_anomaly_from_MG[selected_climate_case]</eqn>
+				<eqn>-initial_sea_level_anomaly_from_mountain_glaciers[selected_climate_case]</eqn>
 				<inflow>yearly_SLR_from_mountain_glaciers</inflow>
 				<units>metre</units>
 			</stock>
@@ -343,7 +343,7 @@ Wigley and Raper (2005): &quot;Extended scenarios for glacier melt due to anthro
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>initial_thermosteric_sea_level_anomaly[selected_climate_case]</eqn>
+				<eqn>-initial_sea_level_anomaly_from_thermal_expansion[selected_climate_case]</eqn>
 				<inflow>yearly_thermosteric_sea_level_rise</inflow>
 				<units>metre</units>
 			</stock>
@@ -442,7 +442,7 @@ Nauels et al. (2017): &quot;Synthesizing long-term sea level rise projections â€
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>initial_sea_level_anomaly_from_GrIS_DIS[selected_climate_case]</eqn>
+				<eqn>-initial_sea_level_anomaly_from_GrIS_DIS[selected_climate_case]</eqn>
 				<inflow>yearly_SLR_from_GrIS_DIS</inflow>
 				<units>metre</units>
 			</stock>
@@ -775,7 +775,7 @@ ELSE
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>AntIS_initial_volume[selected_climate_case]</eqn>
+				<eqn>Initial_AntIS_Volume[selected_climate_case]</eqn>
 				<inflow>yearly_change_in_AntIS_Volume</inflow>
 				<units>metre^3</units>
 			</stock>
@@ -783,7 +783,7 @@ ELSE
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>AntIS_initial_radius[selected_climate_case]</eqn>
+				<eqn>Initial_AntIS_Radius[selected_climate_case]</eqn>
 				<inflow>yearly_change_in_AntIS_Radius</inflow>
 				<units>metre</units>
 			</stock>
@@ -807,13 +807,312 @@ ELSE
 				<eqn>1</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="AntIS initial volume">
+			<aux name="Initial AntIS Volume">
 				<doc>${External Parameter,No Sensi}
 </doc>
 				<dimensions>
 					<dim name="ClimateCase"/>
 				</dimensions>
-				<eqn>24791700000000000</eqn>
+				<element subscript="1">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>24800000000000000</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>24800000000000000</eqn>
+				</element>
 				<units>metre^3</units>
 			</aux>
 			<aux name="AntIS max\ncontribution to sea level anomaly">
@@ -847,7 +1146,306 @@ ELSE
 				<dimensions>
 					<dim name="ClimateCase"/>
 				</dimensions>
-				<eqn>-0.0028</eqn>
+				<element subscript="1">
+					<eqn>0.000503726</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.000563541</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.000513659</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.000611079</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.000856098</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.000419793</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.000754137</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.000821688</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.000489803</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.000548688</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.000695177</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.000399847</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.000824781</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.000451283</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.000380011</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.000815298</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.000435041</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.000728247</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.000737319</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.000816986</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.00099296</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.00046692</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.000501968</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.000948336</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.000348624</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.000649751</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.000514909</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.000534763</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.000384783</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.00127409</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.000456639</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.000213855</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.000784267</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.000649181</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.000640225</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.000336979</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.000557251</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.000608974</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.000508868</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.000862458</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.000447011</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.000469369</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.000276556</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.000509539</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.000874673</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.000701058</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.000551844</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.000553507</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.000920115</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.000701758</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.000247833</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.000572959</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.000717003</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.000212857</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.000395976</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.00025094</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.000548789</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.00032823</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.00025367</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.000676497</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.000317948</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.000391705</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.001167791</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.000620842</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.000565138</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.000651348</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.000327448</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.000416416</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.000237797</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.000635197</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.000165475</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.001095406</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.000472335</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.000912254</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.000825441</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.000143791</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.000484452</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.000436918</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.00069363</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.000581274</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.000353026</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.000209338</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.000564446</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.0000757</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.00034701</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.001049253</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.000178978</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.000913073</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.000187174</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.001339674</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.000650496</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.000413822</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.000241671</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.000186067</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.00067585</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.000599273</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.00060881</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.000275794</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.000636134</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.00030047</eqn>
+				</element>
 				<range min="-0.01" max="0"/>
 				<units>metre</units>
 			</aux>
@@ -861,23 +1459,621 @@ ELSE
 				<range min="-0.005" max="0.01"/>
 				<units>metre</units>
 			</aux>
-			<aux name="initial sea level anomaly from MG">
+			<aux name="initial sea level\nanomaly from mountain glaciers">
 				<doc>${External Parameter,No Sensi}
 </doc>
 				<dimensions>
 					<dim name="ClimateCase"/>
 				</dimensions>
-				<eqn>-0.0035</eqn>
+				<element subscript="1">
+					<eqn>0.006459329</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.006499529</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.006087589</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.007028701</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.009061942</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.005109687</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.00813932</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.009065512</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.005951145</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.006417748</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.007556832</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.005075747</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.008523114</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.005361298</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.004914733</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.008604567</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.005396234</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.007892272</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.007607726</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.008502821</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.009436081</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.005527683</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.006302696</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.009239266</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.004567687</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.00744773</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.006220796</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.006309852</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.005273318</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.01182724</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.00551961</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.003236295</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.008349995</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.007343915</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.007330046</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.004635243</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.006217309</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.00670807</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.006004249</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.009511329</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.005598957</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.005831622</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.003701204</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.005967046</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.009016041</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.00744222</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.006369028</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.006447496</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.00967637</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.007349478</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.00376159</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.006643137</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.007796787</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.00320678</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.005122533</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.003715396</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.006498398</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.004494648</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.003841877</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.007191165</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.004478632</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.005378746</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.011135609</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.007157866</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.006651387</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.007074045</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.004577446</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.005177389</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.003350527</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.007603273</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.00260202</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.010615293</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.00593172</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.009342199</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.008801285</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.002241892</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.006176821</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.005339991</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.007480491</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.006631434</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.00482383</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.003144573</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.006783861</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.001393848</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.004524454</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.009953482</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.002721822</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.009371771</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.002791021</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.012259596</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.007330398</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.005357327</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.003418079</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.002886117</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.007497752</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.007009421</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.00677161</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.003951182</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.007042352</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.004243344</eqn>
+				</element>
 				<range min="-0.005" max="-0.001"/>
 				<units>metre</units>
 			</aux>
-			<aux name="initial thermosteric sea level anomaly">
+			<aux name="initial sea level anomaly from thermal expansion">
 				<doc>${External Parameter,No Sensi}
 </doc>
 				<dimensions>
 					<dim name="ClimateCase"/>
 				</dimensions>
-				<eqn>-0.008</eqn>
+				<element subscript="1">
+					<eqn>0.020207225</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.024688479</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.031084994</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.020609187</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.022190534</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.025585667</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.030280555</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.024191118</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.028471172</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.024116167</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.023972638</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.020590006</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.030500389</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.024602314</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.016794937</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.023071531</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.029201543</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.027309765</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.039164716</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.039391453</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.040952704</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.028309901</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.009443158</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.044469926</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.027272253</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.023061466</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.023264505</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.023680874</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.016028922</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.035044555</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.024164445</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.014675966</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.017772152</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.017754193</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.022069095</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.015237895</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.019282617</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.034610855</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.029788597</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.023093495</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.023375616</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.026820306</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.019079961</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.026480596</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.038039465</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.032154564</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.015259017</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.028510032</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.035086497</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.034056534</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.008168234</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.038680097</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.026146675</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.01158794</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.015255339</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.012208839</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.026455467</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.024597179</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.011106743</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.028630766</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.013418185</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.007758444</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.03994915</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.017825765</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.027674753</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.023336381</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.015094991</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.034178515</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.016610196</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.023492746</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.01261154</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.035670445</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.025943204</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.037791435</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.032878237</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.013855459</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.022247977</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.024713987</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.037036934</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.029136748</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.013176306</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.013504781</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.027973219</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.006330759</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.024277827</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.029166989</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.008112492</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.031583802</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.016887805</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.038270408</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.037566937</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.016449858</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.017529581</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.00693618</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.027178062</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.016269078</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.022224043</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.013633149</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.02346213</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.01243568</eqn>
+				</element>
 				<range min="-0.015" max="-0.005"/>
 				<units>metre</units>
 			</aux>
@@ -899,7 +2095,7 @@ ELSE
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF Antarctic_air_temperature &gt; MICI_AntIS_critical_Tant THEN
-Include_MICI_behaviour * MICI_AntIS_disintegration * AntIS_initial_volume[selected_climate_case_2] / AntIS_max_contribution_to_sea_level_anomaly ELSE 0</eqn>
+Include_MICI_behaviour * MICI_AntIS_disintegration * Initial_AntIS_Volume[selected_climate_case_2] / AntIS_max_contribution_to_sea_level_anomaly ELSE 0</eqn>
 				<units>metre^3/year</units>
 			</aux>
 			<aux name="MICI AntIS\ndisintegration">
@@ -1272,18 +2468,616 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<dimensions>
 					<dim name="ClimateCase"/>
 				</dimensions>
-				<eqn>-0.0028</eqn>
+				<element subscript="1">
+					<eqn>0.028711855</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>0.028835946</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>0.028770256</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>0.028875019</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>0.029084935</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>0.028588421</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>0.02887352</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>0.028993992</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>0.028809427</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>0.028769598</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>0.028885277</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>0.02860909</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>0.028988069</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>0.028581312</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>0.028613728</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>0.028940859</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>0.028657146</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>0.02888925</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>0.028866266</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>0.028955705</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>0.02911254</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>0.02865286</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>0.028658422</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>0.029014876</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>0.028575671</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>0.028868223</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>0.028743276</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>0.028793591</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>0.02860312</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>0.029283094</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>0.028707236</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>0.028441354</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>0.028972426</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>0.028852802</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>0.028801336</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>0.028582988</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>0.028771704</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>0.028853413</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>0.02876892</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>0.029036146</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>0.02864447</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>0.02868889</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>0.028332361</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>0.028751559</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>0.028997121</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>0.028872489</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>0.028782684</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>0.028808949</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>0.029088474</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>0.02889793</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>0.028328655</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>0.028833369</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>0.028950032</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>0.028276449</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>0.028610552</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>0.028303894</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>0.028762943</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>0.028644463</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>0.028435089</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>0.028851025</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>0.028496324</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>0.028461378</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>0.029274562</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>0.028882604</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>0.028742248</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>0.028849452</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>0.028502044</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>0.028672053</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>0.02839226</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>0.028830214</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>0.028205086</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>0.029205524</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>0.028779863</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>0.029070345</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>0.029036617</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>0.028182557</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>0.028799775</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>0.028624852</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>0.028859403</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>0.028884265</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>0.028554291</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>0.028271302</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>0.028839377</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>0.027981934</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>0.028629666</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>0.02909761</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>0.028105709</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>0.029102713</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>0.028293552</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>0.029364087</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>0.02884807</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>0.028524161</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>0.028363005</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>0.028153298</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>0.028906189</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>0.028782796</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>0.028742066</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>0.028320353</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>0.028851275</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>0.02841603</eqn>
+				</element>
 				<range min="-0.01" max="0"/>
 				<units>metre</units>
 			</aux>
-			<aux name="AntIS initial radius">
+			<aux name="Initial AntIS Radius">
 				<doc>${External Parameter,No Sensi}
 </doc>
 				<dimensions>
 					<dim name="ClimateCase"/>
 				</dimensions>
-				<eqn>24791700000000000</eqn>
-				<units>metre^3</units>
+				<element subscript="1">
+					<eqn>1864280.135</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>1864280.484</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>1864303.603</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>1864263.46</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>1864226.975</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>1864351.012</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>1864282.906</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>1864239.483</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>1864277.01</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>1864286.677</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>1864265.041</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>1864326.157</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>1864260.858</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>1864353.331</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>1864325.981</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>1864253.375</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>1864318.611</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>1864267.424</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>1864325.762</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>1864281.499</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>1864286.936</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>1864306.023</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>1864304.696</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>1864277.971</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>1864332.344</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>1864265.938</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>1864297.848</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>1864285.804</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>1864300.296</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>1864210.394</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>1864316.57</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>1864368.162</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>1864250.973</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>1864267.871</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>1864275.755</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>1864312.908</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>1864313.85</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>1864296.644</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>1864290.659</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>1864226.295</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>1864299.591</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>1864292.428</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>1864394.412</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>1864296.817</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>1864271.36</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>1864277.103</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>1864295.521</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>1864285.415</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>1864227.06</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>1864313.11</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>1864371.688</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>1864278.523</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>1864252.514</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>1864410.61</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>1864321.504</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>1864403.53</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>1864287.502</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>1864315.092</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>1864341.84</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>1864299.003</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>1864319.214</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>1864339.843</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>1864212.203</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>1864258.544</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>1864291.879</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>1864277.757</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>1864336.296</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>1864311.509</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>1864408.092</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>1864267.203</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>1864446.173</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>1864210.947</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>1864273.519</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>1864236.318</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>1864243.132</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>1864478.124</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>1864266.58</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>1864324.978</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>1864299.684</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>1864282.013</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>1864317.863</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>1864414.692</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>1864278.275</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>1864524.827</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>1864327.863</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>1864265.386</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>1864459.255</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>1864227.713</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>1864432.489</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>1864201.072</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>1864284.584</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>1864328.435</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>1864398.85</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>1864440.364</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>1864279.876</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>1864287.322</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>1864290.455</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>1864385.398</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>1864276.837</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>1864354.594</eqn>
+				</element>
+				<units>metre</units>
 			</aux>
 			<aux name="selected climate case 1" access="input">
 				<dimensions>
@@ -1346,7 +3140,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="7" isee:page_rows="4" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="7" isee:page_rows="4" isee:scroll_x="507.5" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1983,7 +3777,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<to>AntIS_dSL</to>
 				</connector>
 				<aux x="2050.01" y="918.935" name="UNIT per year"/>
-				<aux label_side="bottom" x="526.286" y="181.41" name="AntIS initial volume"/>
+				<aux label_side="bottom" x="526.286" y="181.41" name="Initial AntIS Volume"/>
 				<connector uid="283" angle="163.142">
 					<from>
 						<alias uid="587"/>
@@ -2100,8 +3894,8 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
 				</connector>
-				<aux x="405.64" y="117.333" name="initial sea level anomaly from MG"/>
-				<aux x="329.092" y="117.333" name="initial thermosteric sea level anomaly"/>
+				<aux x="405.64" y="117.333" name="initial sea level\nanomaly from mountain glaciers"/>
+				<aux x="297.838" y="117.333" name="initial sea level anomaly from thermal expansion"/>
 				<aux label_side="left" label_angle="135" x="135.5" y="945.403" name="MG temperature\nnonlinearity"/>
 				<connector uid="368" angle="322.329">
 					<from>MG_temperature_nonlinearity</from>
@@ -2486,7 +4280,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				</connector>
 				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="585" x="328.139" y="63.444" width="224" height="39.23">Initialisation from FRIDA-Clim</text_box>
 				<aux label_side="bottom" x="408.974" y="190.214" name="initial sea level\nanomaly from GrIS DIS"/>
-				<aux label_side="bottom" x="526.286" y="231.778" name="AntIS initial radius"/>
+				<aux label_side="bottom" x="526.286" y="231.778" name="Initial AntIS Radius"/>
 				<aux font_style="italic" font_weight="bold" x="683.333" y="181.41" name="selected climate case 1"/>
 				<aux font_style="italic" font_weight="bold" x="863.333" y="861.667" name="selected climate case 2"/>
 				<connector uid="588" angle="175.702">
@@ -2615,7 +4409,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<of>initial_sea_level_anomaly_from_AntIS</of>
 				</alias>
 				<alias font_style="italic" uid="587" x="939.333" y="803.5" width="18" height="18">
-					<of>AntIS_initial_volume</of>
+					<of>Initial_AntIS_Volume</of>
 				</alias>
 			</view>
 		</views>
