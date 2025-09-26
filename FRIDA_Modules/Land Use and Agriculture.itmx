@@ -514,8 +514,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Terrestrial_Carbon_Balance.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect to="forest_soil_carbon.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect2 to="forest_soil_carbon.young_forest_share" from="Land_Use.young_forest_share"/>
-				<connect to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
-				<connect2 to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect to="Land_Use.crop_balance_with_reserves" from="Crop.crop_balance_with_reserves"/>
 				<connect2 to="Land_Use.crop_balance_with_reserves" from="Crop.crop_balance_with_reserves"/>
 				<connect to="Land_Use.crop_yield" from="Crop.crop_yield"/>
@@ -530,6 +528,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Land_Use.Livestock_Yield" from="Animal_Products.Grazing_Land_Animal_Products_Yield"/>
 				<connect to="Land_Use.Policy_Start_Year" from="Government_Regulations.start_year"/>
 				<connect2 to="Land_Use.Policy_Start_Year" from="Government_Regulations.start_year"/>
+				<connect to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Land_Use.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 			</module>
 			<stock name="Grassland" access="input">
 				<dimensions>
@@ -665,6 +665,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Crop.fertilizer_use" from="Land_Nutrients.fertilizer_use"/>
 				<connect to="Crop.fraction_of_cropland_irrigated" from="Freshwater.fraction_of_cropland_irrigated"/>
 				<connect2 to="Crop.fraction_of_cropland_irrigated" from="Freshwater.fraction_of_cropland_irrigated"/>
+				<connect to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Crop.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
 				<connect2 to="Crop.selected_crops_damages_case" from="Climate_Units.selected_crops_damages_case"/>
 				<connect to="Crop.soil_carbon_cropland_1" from="cropland_soil_carbon.soil_carbon_cropland"/>
@@ -730,6 +732,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="degraded_land_soil_carbon.forresting_degraded_land" from="Land_Use.foresting_degraded_land"/>
 				<connect to="degraded_land_soil_carbon.grass_net_primary_production" from="Grass.grass_net_primary_production"/>
 				<connect2 to="degraded_land_soil_carbon.grass_net_primary_production" from="Grass.grass_net_primary_production"/>
+				<connect to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Forest_carbon_balance.fast_soil_carbon_forest_to_cropland" from="forest_soil_carbon.fast_soil_carbon_forest_to_cropland"/>
 				<connect2 to="Forest_carbon_balance.fast_soil_carbon_forest_to_cropland" from="forest_soil_carbon.fast_soil_carbon_forest_to_cropland"/>
 				<connect to="Terrestrial_Carbon_Balance.fast_soil_carbon_emissions_young_forest" from="forest_soil_carbon.fast_soil_carbon_emissions_young_forest"/>
@@ -826,6 +830,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
+				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="soil_carbon_decay.switch_land_carbon_impact" from="Climate.switch_internal_to_climate_land_carbon_impact"/>
 				<connect2 to="soil_carbon_decay.switch_land_carbon_impact" from="Climate.switch_internal_to_climate_land_carbon_impact"/>
 				<connect to="soil_carbon_decay.today" from="Climate.climate_impact_stoptime"/>
@@ -914,6 +920,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest.forest_completing_recovery" from="Land_Use.forest_completing_recovery"/>
 				<connect to="Forest.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect2 to="Forest.Mature_Forest" from="Land_Use.Mature_Forest"/>
+				<connect to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Forest.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Forest.Surface_Temperature_Anomaly_1" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Forest.switch_land_carbon_impact" from="Climate.switch_internal_to_climate_land_carbon_impact"/>
@@ -926,8 +934,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest.today_1" from="Climate.climate_impact_stoptime"/>
 				<connect to="Forest.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="Forest.Young_Forest" from="Land_Use.Young_Forest"/>
-				<connect to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
-				<connect2 to="Forest.young_forest_share" from="Land_Use.young_forest_share"/>
 			</module>
 			<module name="Biosphere\nIndicators" isee:label="" url="Z:/home/lennart/Arbeit/2_WorldTrans/work/FRIDA/FRIDA_dev/FRIDA_Modules/Biosphere Indicators.itmx">
 				<doc>This module contains quantifications of planetary boundaries (PBs). The PB framework emphasises the many different components of the Earth system that are strongly influenced by human activities. To quantify each PB, one or more control variables are selected, for which a safe operating space, a zone of increasing risk and a high risk zone are defined, delimited by the boundary value (transition from safe operating space to zone of increasing risk) and the high risk value (transition from zone of increasing risk to high risk zone), as defined in the module. Each PB is quantified in a separate sector within the module. For more details, consult the documentation of variables within the module.
@@ -1828,7 +1834,8 @@ Not in sensi analysis because this is so far outside the range of where calibrat
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>MINSOFT(normal_harvest_index_for_food_crops*effect_of_crop_yield_on_harvest_index,max_harvest_index_for_food_crops, tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction)</eqn>
+				<eqn>MINSOFT(normal_harvest_index_for_food_crops[selected_climate_case[Run]]
+*effect_of_crop_yield_on_harvest_index,max_harvest_index_for_food_crops, tolerance_of_the_cap_on_harvest_index_and_residue_on_field_fraction)</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="crop residue production">
@@ -1946,11 +1953,108 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.44990066007591</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.4" max="0.45"/>
 				<units>dmnl</units>
 			</aux>
@@ -1958,30 +2062,224 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(crop_yield/initial_crop_yield)^sensitivity_of_effect_of_crop_yield_on_harvest_index</eqn>
+				<eqn>(crop_yield/initial_crop_yield)^sensitivity_of_effect_of_crop_yield_on_harvest_index[selected_climate_case]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="sensitivity of effect of crop\nyield on harvest index">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.0989407396381699</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.05" max="0.1"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="sensitivity of effect of crop\nresidue production on field fraction">
+			<aux name="sensitivity of effect of crop\nresidue production\non field fraction">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.559909570253009</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0" max="0.75"/>
 				<units>dmnl</units>
 			</aux>
@@ -1989,7 +2287,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(crop_residue_production/INIT(crop_residue_production))^sensitivity_of_effect_of_crop_residue_production_on_field_fraction</eqn>
+				<eqn>(crop_residue_production/INIT(crop_residue_production))^sensitivity_of_effect_of_crop_residue_production_on_field_fraction[selected_climate_case[Run]]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="normal crop residue on field fraction">
@@ -2406,11 +2704,108 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.946146343585683</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.6" max="0.95"/>
 				<units>1</units>
 			</aux>
@@ -2418,11 +2813,108 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.799444218938155</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.5" max="0.8"/>
 				<units>1</units>
 			</aux>
@@ -2430,14 +2922,22 @@ Karstens, K., Bodirsky, B. L., Dietrich, J. P., Dondini, M., Heinke, J., Kuhnert
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>harvest_index_for_feed_crops*Fraction_of_crop_production_for_feed 
+				<eqn>harvest_index_for_feed_crops[selected_climate_case[Run]]*Fraction_of_crop_production_for_feed 
 + 
-harvest_index_for_energy_crops * Fraction_of_crop_production_for_energy
+harvest_index_for_energy_crops[selected_climate_case]
+ * Fraction_of_crop_production_for_energy
 +
 harvest_index_for_food_crops * (1 - Fraction_of_crop_production_for_energy - Fraction_of_crop_production_for_feed)</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="selected crops\ndamages case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="selected climate case" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -2493,7 +2993,7 @@ harvest_index_for_food_crops * (1 - Fraction_of_crop_production_for_energy - Fra
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1123" page_height="793" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="858" isee:scroll_y="1340" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1120" page_height="784" isee:page_cols="5" isee:page_rows="6" isee:scroll_x="1320" isee:scroll_y="748" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -2628,7 +3128,7 @@ harvest_index_for_food_crops * (1 - Fraction_of_crop_production_for_energy - Fra
 					<from>sensitivity_of_effect_of_crop_yield_on_harvest_index</from>
 					<to>effect_of_crop_yield_on_harvest_index</to>
 				</connector>
-				<aux x="2480.93" y="1068.84" name="sensitivity of effect of crop\nresidue production on field fraction"/>
+				<aux x="2480.93" y="1068.84" name="sensitivity of effect of crop\nresidue production\non field fraction"/>
 				<aux label_side="right" label_angle="315" x="2282.25" y="1133.84" name="effect of crop residue\nproduction on field fraction"/>
 				<connector uid="67" angle="340.067">
 					<from>crop_residue_production</from>
@@ -2945,6 +3445,23 @@ harvest_index_for_food_crops * (1 - Fraction_of_crop_production_for_energy - Fra
 				<connector uid="207" angle="64.6192">
 					<from>selected_crops_damages_case</from>
 					<to>rel_change_in_crop_productivity_from_climate</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="1954" y="1181" name="selected climate case"/>
+				<connector uid="208" angle="31.7595">
+					<from>selected_climate_case</from>
+					<to>effect_of_crop_residue_production_on_field_fraction</to>
+				</connector>
+				<connector uid="209" angle="197.241">
+					<from>selected_climate_case</from>
+					<to>Total_average_harvest_index</to>
+				</connector>
+				<connector uid="210" angle="210.964">
+					<from>selected_climate_case</from>
+					<to>harvest_index_for_food_crops</to>
+				</connector>
+				<connector uid="211" angle="235.008">
+					<from>selected_climate_case</from>
+					<to>effect_of_crop_yield_on_harvest_index</to>
 				</connector>
 				<alias font_style="italic" uid="72" x="2249.19" y="1887.51" width="18" height="18">
 					<of>crop_production</of>
@@ -3950,18 +4467,115 @@ Calibration Parameter: fertilizer use &amp; crop production</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>MAXSOFT(tree_net_primary_production_in_1980 + change_in_tree_net_primary_production_from_CO2+change_in_tree_net_primary_production_from_STA+change_in_tree_net_primary_production_from_STA_squared, tree_net_primary_production_in_1980*minimum_fraction_of_1980_tree_primary_production,tolerance_for_net_primary_production )</eqn>
+				<eqn>MAXSOFT(tree_net_primary_production_in_1980[selected_climate_case] + change_in_tree_net_primary_production_from_CO2+change_in_tree_net_primary_production_from_STA+change_in_tree_net_primary_production_from_STA_squared, tree_net_primary_production_in_1980[selected_climate_case]*minimum_fraction_of_1980_tree_primary_production,tolerance_for_net_primary_production )</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="CO2 tree net primary\nproduction parameter">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.001</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.0005" max="0.001"/>
 				<units>1/ppm</units>
 			</aux>
@@ -3972,21 +4586,21 @@ Calibration Parameter: fertilizer use &amp; crop production</doc>
 				<eqn>IF (switch_land_carbon_impact =0) AND TIME &gt; today THEN
 PREVIOUS(SELF, 0)
 ELSE
-(Atmospheric_CO2_Concentration_1 - INIT(Atmospheric_CO2_Concentration_1))*CO2_tree_net_primary_production_parameter</eqn>
+(Atmospheric_CO2_Concentration_1 - INIT(Atmospheric_CO2_Concentration_1))*CO2_tree_net_primary_production_parameter[selected_climate_case]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="change in tree net\nprimary production from CO2">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>tree_net_primary_production_in_1980*effect_of_CO2_on_tree_net_primary_production</eqn>
+				<eqn>tree_net_primary_production_in_1980[selected_climate_case]*effect_of_CO2_on_tree_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="change in tree net\nprimary production from STA">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>tree_net_primary_production_in_1980*effect_of_STA_on_tree_net_primary_production</eqn>
+				<eqn>tree_net_primary_production_in_1980[selected_climate_case]*effect_of_STA_on_tree_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="effect of STA on\ntree net primary production">
@@ -3996,18 +4610,115 @@ ELSE
 				<eqn>IF (switch_land_carbon_impact =0) AND TIME &gt; today THEN
 PREVIOUS(SELF, 0)
 ELSE
-(Surface_Temperature_Anomaly_1-INIT(Surface_Temperature_Anomaly_1))*STA_tree_net_primary_production_parameter</eqn>
+(Surface_Temperature_Anomaly_1-INIT(Surface_Temperature_Anomaly_1))*STA_tree_net_primary_production_parameter[selected_climate_case]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="STA tree net primary\nproduction parameter">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.125348729</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.01" max="0.13"/>
 				<units>1/deg C</units>
 			</aux>
@@ -4015,7 +4726,7 @@ ELSE
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>tree_net_primary_production_in_1980*effect_of_STA_squared_on_tree_net_primary_production</eqn>
+				<eqn>tree_net_primary_production_in_1980[selected_climate_case]*effect_of_STA_squared_on_tree_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="effect of STA squared on\ntree net primary production">
@@ -4025,18 +4736,115 @@ ELSE
 				<eqn>IF (switch_land_carbon_impact =0) AND TIME &gt; today THEN
 PREVIOUS(SELF, 0)
 ELSE
-((Surface_Temperature_Anomaly_1-INIT(Surface_Temperature_Anomaly_1))^2)*STA_squared_tree_net_primary_production_parameter</eqn>
+((Surface_Temperature_Anomaly_1-INIT(Surface_Temperature_Anomaly_1))^2)*STA_squared_tree_net_primary_production_parameter[selected_climate_case]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="STA squared tree net\nprimary production parameter">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>-0.023015026</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="-0.05" max="-0.01"/>
 				<units>1/(deg C^2)</units>
 			</aux>
@@ -4060,11 +4868,108 @@ https://doi.org/10.1038/nature07276 (0.00545)
 
 https://doi.org/10.1073/pnas.0704243104 (0.0072)</doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.008320717</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.005" max="0.01"/>
 				<units>GtC/(Mha*year)</units>
 			</aux>
@@ -4131,7 +5036,7 @@ https://doi.org/10.1073/pnas.0704243104 (0.0072)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass_1980-Young_forest_aboveground_biomass</eqn>
+				<eqn>Initial_Mature_forest_aboveground_biomass[selected_climate_case[Run]]</eqn>
 				<format precision="full"/>
 				<inflow>maturing</inflow>
 				<inflow>Mature_forest_growth</inflow>
@@ -4172,30 +5077,114 @@ https://doi.org/10.1073/pnas.0704243104 (0.0072)</doc>
 				<eqn>cutting+clearing</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="forest aboveground biomass 1980">
+			<aux name="forest aboveground biomass 1750">
 				<doc>${Internal Calibration Parameter}
 https://doi.org/10.5194/essd-13-3927-2021, 2021.</doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>546.9907432</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="450" max="700"/>
 				<units>GtC</units>
-			</aux>
-			<aux name="Young mature forest biomass\nratio">
-				<doc>${Internal Calibration Parameter}
-https://doi.org/10.1038/s41467-018-05132-5
-https://doi.org/10.1016/j.foreco.2021.119507</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.558925781</eqn>
-				</element>
-				<range min="0.3" max="0.7"/>
-				<units>dmnl</units>
 			</aux>
 			<aux name="clearing forest\nfor grassland" access="input">
 				<dimensions>
@@ -4216,14 +5205,14 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass-forest_aboveground_biomass_1980</eqn>
+				<eqn>forest_aboveground_biomass-forest_aboveground_biomass_1750[selected_climate_case]</eqn>
 				<units>GtC</units>
 			</aux>
 			<stock name="Young forest\naboveground biomass">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_aboveground_biomass_1980*Young_mature_forest_biomass_ratio*young_forest_share</eqn>
+				<eqn>Initial_Young_forest_aboveground_biomass[selected_climate_case[Run]]</eqn>
 				<format precision="full"/>
 				<inflow>young_forest_growth</inflow>
 				<outflow>maturing</outflow>
@@ -4245,13 +5234,6 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
-			<aux name="young forest share" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
-				<units>dmnl</units>
-			</aux>
 			<aux name="switch land carbon\nimpact" access="input">
 				<eqn>1</eqn>
 				<units>dmnl</units>
@@ -4330,11 +5312,108 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.253488316</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.2" max="0.35"/>
 				<units>1/deg C</units>
 			</aux>
@@ -4342,11 +5421,108 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>-0.048709811</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="-0.08" max="-0.02"/>
 				<units>1/(deg C^2)</units>
 			</aux>
@@ -4358,7 +5534,7 @@ https://doi.org/10.1016/j.foreco.2021.119507</doc>
 				<eqn>IF (switch_land_carbon_impact_1 =0) AND TIME &gt; today_1 THEN
 PREVIOUS(SELF, 0)
 ELSE
-((Surface_Temperature_Anomaly_1-INIT(Surface_Temperature_Anomaly_1))^2)*STA_squared_maximum_aboveground_biomass_per_area_parameter</eqn>
+((Surface_Temperature_Anomaly_1-INIT(Surface_Temperature_Anomaly_1))^2)*STA_squared_maximum_aboveground_biomass_per_area_parameter[selected_climate_case]</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="STA effect on\naboveground biomass per area">
@@ -4369,7 +5545,7 @@ ELSE
 				<eqn>IF (switch_land_carbon_impact_1 =0) AND TIME &gt; today_1 THEN
 PREVIOUS(SELF, 0)
 ELSE
-(Surface_Temperature_Anomaly_1-INIT(Surface_Temperature_Anomaly_1))*STA_maximum_aboveground_biomass_per_area_parameter</eqn>
+(Surface_Temperature_Anomaly_1-INIT(Surface_Temperature_Anomaly_1))*STA_maximum_aboveground_biomass_per_area_parameter[selected_climate_case]</eqn>
 				<units>1</units>
 			</aux>
 			<aux name="today 1" access="input">
@@ -4409,6 +5585,625 @@ Limits for extreme conditions in no feedback cases</doc>
 			<aux name="Mature forest aboveground\nbiomass adaptation time">
 				<eqn>25</eqn>
 				<units>year</units>
+			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="Initial Young forest\naboveground biomass">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>64.3995693252</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>1</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="Initial Mature forest\naboveground biomass">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>656.387663649</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>1</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>1</eqn>
+				</element>
+				<units>GtC</units>
 			</aux>
 		</variables>
 		<views>
@@ -4459,7 +6254,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="895" isee:scroll_y="300" zoom="160" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="3" isee:scroll_x="576" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -4657,8 +6452,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>clearing</from>
 					<to>timber</to>
 				</connector>
-				<aux color="blue" x="1045.76" y="606.535" name="forest aboveground biomass 1980"/>
-				<aux color="blue" x="904.571" y="97.5714" name="Young mature forest biomass\nratio"/>
+				<aux color="blue" x="1045.76" y="606.535" name="forest aboveground biomass 1750"/>
 				<aux font_style="italic" font_weight="bold" x="1653.54" y="407.833" name="clearing forest\nfor grassland"/>
 				<connector uid="32" angle="155.787">
 					<from>clearing_forest_for_grassland</from>
@@ -4675,7 +6469,7 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>forest_aboveground_biomass_balance</to>
 				</connector>
 				<connector uid="35" angle="181.06">
-					<from>forest_aboveground_biomass_1980</from>
+					<from>forest_aboveground_biomass_1750</from>
 					<to>forest_aboveground_biomass_balance</to>
 				</connector>
 				<stock label_side="top" x="1013.64" y="411.333" name="Young forest\naboveground biomass"/>
@@ -4698,7 +6492,6 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>cutting</from>
 					<to>timber</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="904.571" y="44.2857" name="young forest share"/>
 				<aux font_style="italic" font_weight="bold" x="867.82" y="1279.5" name="switch land carbon\nimpact"/>
 				<aux font_style="italic" font_weight="bold" x="862.25" y="1229.5" name="today"/>
 				<connector uid="39" angle="208.755">
@@ -4859,13 +6652,13 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>today_1</from>
 					<to>STA_squared_effect_on_aboveground_biomass_per_area</to>
 				</connector>
-				<connector uid="75" angle="47.2047">
+				<connector uid="75" angle="73.8647">
 					<from>
 						<alias uid="76"/>
 					</from>
 					<to>effect_of_CO2_on_tree_net_primary_production</to>
 				</connector>
-				<connector uid="77" angle="25.0169">
+				<connector uid="77" angle="23.554">
 					<from>
 						<alias uid="78"/>
 					</from>
@@ -4900,6 +6693,49 @@ Limits for extreme conditions in no feedback cases</doc>
 					<from>Mature_forest_aboveground_biomass_adaptation_time</from>
 					<to>Maximum_mature_forest_aboveground_biomass_per_area</to>
 				</connector>
+				<aux font_style="italic" font_weight="bold" x="1181.88" y="1340" name="selected climate case"/>
+				<connector uid="85" angle="164.476">
+					<from>selected_climate_case</from>
+					<to>effect_of_STA_squared_on_tree_net_primary_production</to>
+				</connector>
+				<connector uid="86" angle="193.536">
+					<from>selected_climate_case</from>
+					<to>effect_of_STA_on_tree_net_primary_production</to>
+				</connector>
+				<connector uid="87" angle="78.1113">
+					<from>selected_climate_case</from>
+					<to>effect_of_CO2_on_tree_net_primary_production</to>
+				</connector>
+				<connector uid="88" angle="139.399">
+					<from>selected_climate_case</from>
+					<to>change_in_tree_net_primary_production_from_STA</to>
+				</connector>
+				<connector uid="89" angle="110.072">
+					<from>selected_climate_case</from>
+					<to>change_in_tree_net_primary_production_from_CO2</to>
+				</connector>
+				<connector uid="90" angle="91.6707">
+					<from>selected_climate_case</from>
+					<to>forest_aboveground_biomass_balance</to>
+				</connector>
+				<connector uid="91" angle="69.6535">
+					<from>selected_climate_case</from>
+					<to>STA_squared_effect_on_aboveground_biomass_per_area</to>
+				</connector>
+				<connector uid="92" angle="46.8476">
+					<from>selected_climate_case</from>
+					<to>STA_effect_on_aboveground_biomass_per_area</to>
+				</connector>
+				<connector uid="93" angle="107.716">
+					<from>selected_climate_case</from>
+					<to>tree_net_primary_production</to>
+				</connector>
+				<connector uid="94" angle="153.146">
+					<from>selected_climate_case</from>
+					<to>change_in_tree_net_primary_production_from_STA_squared</to>
+				</connector>
+				<aux x="1010.64" y="146" name="Initial Young forest\naboveground biomass"/>
+				<aux x="1135.64" y="146" name="Initial Mature forest\naboveground biomass"/>
 				<alias font_style="italic" uid="15" x="646.75" y="1135.33" width="18" height="18">
 					<of>tree_net_primary_production_in_1980</of>
 				</alias>
@@ -4915,10 +6751,10 @@ Limits for extreme conditions in no feedback cases</doc>
 				<alias font_style="italic" font_weight="bold" label_side="top" uid="57" x="1673.43" y="570.345" width="18" height="18">
 					<of>Surface_Temperature_Anomaly_1</of>
 				</alias>
-				<alias font_style="italic" font_weight="bold" uid="76" x="1200" y="1293.74" width="18" height="18">
+				<alias font_style="italic" font_weight="bold" uid="76" x="1259.38" y="1254.37" width="18" height="18">
 					<of>today</of>
 				</alias>
-				<alias font_style="italic" font_weight="bold" uid="78" x="1115" y="1249" width="18" height="18">
+				<alias font_style="italic" font_weight="bold" uid="78" x="1174.38" y="1209.63" width="18" height="18">
 					<of>switch_land_carbon_impact</of>
 				</alias>
 			</view>
@@ -7014,7 +8850,7 @@ An external reference point - this can be converted to the initial value for fer
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="116" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="2" isee:page_rows="2" isee:scroll_x="116" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7158,30 +8994,12 @@ An external reference point - this can be converted to the initial value for fer
 	</model>
 	<model name="Land_Use">
 		<variables>
-			<aux name="Crop Land 1980">
-				<doc>${External Parameter}
-</doc>
-				<eqn>1420.025354 {FAOSTAT,  Land Use/Land Cover}</eqn>
-				<units>Mha</units>
-			</aux>
 			<aux name="Habitable Land Area" access="output">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>Cropland + Mature_Forest + Grassland + Young_Forest</eqn>
 				<isee:summing/>
-				<units>Mha</units>
-			</aux>
-			<aux name="Grassland 1980">
-				<doc>${External Parameter}
-</doc>
-				<eqn>3200 {FAOSTAT,  Land Use/Land Cover}</eqn>
-				<units>MHa</units>
-			</aux>
-			<aux name="Forest Land 1980">
-				<doc>${External Parameter}
-</doc>
-				<eqn>4274.164902 {FAOSTAT,  Land Use/Land Cover}</eqn>
 				<units>Mha</units>
 			</aux>
 			<stock name="Cropland" access="output" isee:autocreated="true">
@@ -7191,7 +9009,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Crop_Land_1980</eqn>
+				<eqn>Initial_Cropland[selected_climate_case]</eqn>
 				<inflow>clearing_forests_for_crops</inflow>
 				<inflow>clearing_grassland</inflow>
 				<outflow>reforesting_cropland</outflow>
@@ -7206,7 +9024,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Forest_Land_1980*(1-percent_of_forest_recovering_in_1980)</eqn>
+				<eqn>Initial_Mature_Forest[selected_climate_case[Run]]</eqn>
 				<inflow>forest_completing_recovery</inflow>
 				<outflow>clearing_forests_for_crops</outflow>
 				<outflow>clearing_forest_for_grassland</outflow>
@@ -7225,7 +9043,7 @@ Food and Agriculture Organization of the United Nations (2023)</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Grassland_1980</eqn>
+				<eqn>Initial_Grassland[selected_climate_case]</eqn>
 				<inflow>fallowing_cropland</inflow>
 				<inflow>clearing_forest_for_grassland</inflow>
 				<outflow>clearing_grassland</outflow>
@@ -7381,7 +9199,7 @@ Calibration Parameter: forest land &amp; CO2 emissions from land cover change &a
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Forest_Land_1980*percent_of_forest_recovering_in_1980</eqn>
+				<eqn>Initial_Young_Forest[selected_climate_case[Run]]</eqn>
 				<inflow>foresting_grassland</inflow>
 				<inflow>reforesting_cropland</inflow>
 				<inflow>reforesting_grassland</inflow>
@@ -7396,7 +9214,7 @@ Calibration Parameter: forest land &amp; CO2 emissions from land cover change &a
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Young_Forest/forest_recovery_time</eqn>
+				<eqn>Young_Forest/forest_recovery_time[selected_climate_case]</eqn>
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
@@ -7404,11 +9222,108 @@ Calibration Parameter: forest land &amp; CO2 emissions from land cover change &a
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>64.15611703</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="50" max="70"/>
 				<units>years</units>
 			</aux>
@@ -7437,18 +9352,6 @@ Calibration Parameter: forest land &amp; CO2 emissions from land cover change &a
 				<non_negative/>
 				<units>Mha/year</units>
 			</flow>
-			<aux name="percent of forest\nrecovering in 1980">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.0863642445555122</eqn>
-				</element>
-				<range min="0.01" max="0.5"/>
-				<units>dmnl</units>
-			</aux>
 			<aux name="indicated cropland">
 				<dimensions>
 					<dim name="Run"/>
@@ -7803,6 +9706,1237 @@ Used for policy implementation only.</doc>
 				<eqn>2.49242261286435</eqn>
 				<units>PCal/(Mha*year)</units>
 			</aux>
+			<aux name="Initial Mature Forest">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>4620.527325</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>4620.527325</eqn>
+				</element>
+				<units>Mha</units>
+			</aux>
+			<aux name="Initial Young Forest">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>607.106045174</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>Mha</units>
+			</aux>
+			<aux name="Initial Cropland">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>607.106045174</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>Mha</units>
+			</aux>
+			<aux name="Initial Grassland">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>607.106045174</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>Mha</units>
+			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -7852,7 +10986,7 @@ Used for policy implementation only.</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="810" isee:scroll_y="342" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="555" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -7891,10 +11025,7 @@ Used for policy implementation only.</doc>
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<aux x="1420.5" y="293.5" name="Crop Land 1980"/>
 				<aux x="1383" y="659" name="Habitable Land Area"/>
-				<aux x="1412.5" y="234" name="Grassland 1980"/>
-				<aux x="1307.5" y="234" name="Forest Land 1980"/>
 				<stock label_side="center" x="688" y="90.583" width="150" height="90" name="Mature Forest"/>
 				<stock label_side="center" x="691.25" y="355" width="150" height="90" name="Cropland"/>
 				<stock label_side="center" x="691.25" y="693.08" width="150" height="90" name="Grassland"/>
@@ -8058,7 +11189,6 @@ Used for policy implementation only.</doc>
 					</from>
 					<to>reforesting_grassland</to>
 				</connector>
-				<aux x="1323.75" y="299.5" name="percent of forest\nrecovering in 1980"/>
 				<aux x="422.5" y="261.792" name="indicated cropland"/>
 				<connector uid="26" angle="178.008">
 					<from>Cropland</from>
@@ -8285,29 +11415,29 @@ Used for policy implementation only.</doc>
 					<from>forestation_policy_1</from>
 					<to>land_to_forest</to>
 				</connector>
-				<aux x="524" y="40.25" name="gross forest land use loss"/>
-				<connector uid="71" color="#EEEEEE" font_color="#EEEEEE" angle="26.2916">
+				<aux x="530.25" y="85.25" name="gross forest land use loss"/>
+				<connector uid="71" color="#EEEEEE" font_color="#EEEEEE" angle="23.2725">
 					<from>clearing_forest_for_grassland</from>
 					<to>gross_forest_land_use_loss</to>
 				</connector>
-				<connector uid="72" color="#EEEEEE" font_color="#EEEEEE" angle="154.507">
+				<connector uid="72" color="#EEEEEE" font_color="#EEEEEE" angle="160.152">
 					<from>clearing_forests_for_crops</from>
 					<to>gross_forest_land_use_loss</to>
 				</connector>
-				<aux x="344.25" y="35" name="gross grassland land use loss"/>
-				<connector uid="73" color="#EEEEEE" font_color="#EEEEEE" angle="149.849">
+				<aux x="350.5" y="80" name="gross grassland land use loss"/>
+				<connector uid="73" color="#EEEEEE" font_color="#EEEEEE" angle="151.675">
 					<from>clearing_grassland</from>
 					<to>gross_grassland_land_use_loss</to>
 				</connector>
-				<connector uid="74" color="#EEEEEE" font_color="#EEEEEE" angle="142.643">
+				<connector uid="74" color="#EEEEEE" font_color="#EEEEEE" angle="144.271">
 					<from>degraded_land_from_grassland</from>
 					<to>gross_grassland_land_use_loss</to>
 				</connector>
-				<connector uid="75" color="#EEEEEE" font_color="#EEEEEE" angle="171.1">
+				<connector uid="75" color="#EEEEEE" font_color="#EEEEEE" angle="173.025">
 					<from>foresting_grassland</from>
 					<to>gross_grassland_land_use_loss</to>
 				</connector>
-				<connector uid="76" color="#EEEEEE" font_color="#EEEEEE" angle="163.78">
+				<connector uid="76" color="#EEEEEE" font_color="#EEEEEE" angle="164.809">
 					<from>reforesting_grassland</from>
 					<to>gross_grassland_land_use_loss</to>
 				</connector>
@@ -8403,6 +11533,15 @@ Used for policy implementation only.</doc>
 					<to>effect_of_cropland_size_on_time_in_use</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="292" y="166" name="initial crop yield"/>
+				<aux x="1342.25" y="330" name="Initial Mature Forest"/>
+				<aux x="1463.92" y="332.833" name="Initial Young Forest"/>
+				<aux x="1341.83" y="384.833" name="Initial Cropland"/>
+				<aux x="1463.92" y="387.375" name="Initial Grassland"/>
+				<aux font_style="italic" font_weight="bold" label_side="right" x="1101" y="107" name="selected climate case"/>
+				<connector uid="94" angle="195.381">
+					<from>selected_climate_case</from>
+					<to>forest_completing_recovery</to>
+				</connector>
 				<alias font_style="italic" uid="16" x="73.5" y="396.375" width="18" height="18">
 					<of>fraction_of_grassland_for_grazing</of>
 				</alias>
@@ -8458,6 +11597,8 @@ Used for policy implementation only.</doc>
 				<connect2 to="forest_soil_carbon.young_forest_litter_input_share_slow_soil_carbon" from="soil_carbon_decay.young_forest_litter_input_share_slow_soil_carbon"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
+				<connect to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="soil_carbon_decay.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="soil_carbon_decay.switch_land_carbon_impact" from="Climate.switch_internal_to_climate_land_carbon_impact"/>
 				<connect2 to="soil_carbon_decay.switch_land_carbon_impact" from="Climate.switch_internal_to_climate_land_carbon_impact"/>
 				<connect to="soil_carbon_decay.today" from="Climate.climate_impact_stoptime"/>
@@ -8791,6 +11932,8 @@ Used for policy implementation only.</doc>
 				<connect2 to="degraded_land_soil_carbon.grass_net_primary_production" from="Grass.grass_net_primary_production"/>
 				<connect to="degraded_land_soil_carbon.litter_input_share_slow_soil_carbon" from="soil_carbon_decay.cropland_litter_input_share_slow_soil_carbon"/>
 				<connect2 to="degraded_land_soil_carbon.litter_input_share_slow_soil_carbon" from="soil_carbon_decay.cropland_litter_input_share_slow_soil_carbon"/>
+				<connect to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="degraded_land_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="degraded_land_soil_carbon.slow_soil_carbon_cropland_to_degraded_land" from="cropland_soil_carbon.slow_soil_carbon_cropland_to_degraded_land"/>
 				<connect2 to="degraded_land_soil_carbon.slow_soil_carbon_cropland_to_degraded_land" from="cropland_soil_carbon.slow_soil_carbon_cropland_to_degraded_land"/>
 				<connect to="degraded_land_soil_carbon.slow_soil_carbon_grassland_to_degraded_land" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_degraded_land"/>
@@ -9106,7 +12249,7 @@ Used for policy implementation only.</doc>
 			</stock>
 			<aux name="litter input share slow soil\ncarbon" access="input">
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
 				<eqn>0.015</eqn>
 				<units>dmnl</units>
@@ -10319,7 +13462,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>degraded_land_litter_to_soil_carbon*(1-litter_input_share_slow_soil_carbon)+degraded_land_landuse_fast_soil_carbon_input</eqn>
+				<eqn>degraded_land_litter_to_soil_carbon*(1-litter_input_share_slow_soil_carbon[selected_climate_case])+degraded_land_landuse_fast_soil_carbon_input</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -10335,7 +13478,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_fast_soil_carbon_degraded_land[Climate_Units.selected_climate_case[Run]]</eqn>
+				<eqn>Initial_fast_soil_carbon_degraded_land[selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_fast_soil_carbon_degraded_land</inflow>
 				<outflow>fast_soil_carbon_loss_degraded_land</outflow>
 				<units>GtC</units>
@@ -10358,7 +13501,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>degraded_land_litter_to_soil_carbon*litter_input_share_slow_soil_carbon+degraded_land_landuse_slow_soil_carbon_input</eqn>
+				<eqn>degraded_land_litter_to_soil_carbon*litter_input_share_slow_soil_carbon[selected_climate_case]+degraded_land_landuse_slow_soil_carbon_input</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -10374,7 +13517,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Initial_slow_soil_carbon_degraded_land[Climate_Units.selected_climate_case[Run]]</eqn>
+				<eqn>Initial_slow_soil_carbon_degraded_land[selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_slow_soil_carbon_degraded_land</inflow>
 				<outflow>slow_soil_carbon_loss_degraded_land</outflow>
 				<units>GtC</units>
@@ -10476,18 +13619,115 @@ forresting_degraded_land//Degraded_Land</eqn>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>Degraded_Land*grass_net_primary_production*degraded_land_productivity_reduction_factor</eqn>
+				<eqn>Degraded_Land*grass_net_primary_production*degraded_land_productivity_reduction_factor[selected_climate_case]</eqn>
 				<units>GtC/Year</units>
 			</aux>
 			<aux name="degraded land productivity reduction factor">
 				<doc>${External Parameter}
 Jannes - degraded land productivity reduction is just a factor to use grassland productivity together with reduction factor to at least have some productivity on the land, having no productivity is unrealistic</doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.05</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.01" max="0.1"/>
 				<units>dmnl</units>
 			</aux>
@@ -10507,7 +13747,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 			</aux>
 			<aux name="litter input share slow soil\ncarbon" access="input">
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
 				<eqn>0.015</eqn>
 				<units>dmnl</units>
@@ -11145,6 +14385,13 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				</element>
 				<units>GtC</units>
 			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -11194,7 +14441,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="215" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="480.833" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -11452,6 +14699,19 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				</connector>
 				<aux x="736.997" y="261.541" name="Initial fast soil\ncarbon degraded land"/>
 				<aux x="740.997" y="356.208" name="Initial slow soil\ncarbon degraded land"/>
+				<aux font_style="italic" font_weight="bold" x="1213.33" y="481.667" name="selected climate case"/>
+				<connector uid="45" angle="79.4608">
+					<from>selected_climate_case</from>
+					<to>degraded_land_litter</to>
+				</connector>
+				<connector uid="46" angle="113.385">
+					<from>selected_climate_case</from>
+					<to>litter_input_fast_soil_carbon_degraded_land</to>
+				</connector>
+				<connector uid="47" angle="240.573">
+					<from>selected_climate_case</from>
+					<to>litter_input_slow_soil_carbon_degraded_land</to>
+				</connector>
 				<alias font_style="italic" font_weight="bold" uid="27" x="1728.5" y="465.75" width="45" height="35">
 					<of>Degraded_Land</of>
 				</alias>
@@ -11793,7 +15053,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 			</aux>
 			<aux name="litter input share slow soil\ncarbon 1" access="input">
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
 				<eqn>0.015</eqn>
 				<units>dmnl</units>
@@ -11882,7 +15142,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 			</aux>
 			<aux name="young forest litter input share slow soil\ncarbon" access="input">
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
 				<eqn>0.131105836332322</eqn>
 				<units>dmnl</units>
@@ -13245,7 +16505,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="1268.33" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="4" isee:page_rows="3" isee:scroll_y="300" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -13958,7 +17218,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 			</aux>
 			<aux name="litter input share slow soil\ncarbon" access="input">
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
 				<eqn>0.015</eqn>
 				<units>dmnl</units>
@@ -14834,7 +18094,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="452" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -15219,11 +18479,108 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.600513407</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.6" max="0.8"/>
 				<units>dmnl/year</units>
 			</aux>
@@ -15231,11 +18588,108 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.025</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.025" max="0.035"/>
 				<units>dmnl/year</units>
 			</aux>
@@ -15243,18 +18697,115 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(1-EXP(-(natural_decay_rate_fast_soil_carbon*climate_response_term_lpjml)))</eqn>
+				<eqn>(1-EXP(-(natural_decay_rate_fast_soil_carbon[selected_climate_case]*climate_response_term_lpjml)))</eqn>
 				<units>1/year</units>
 			</aux>
 			<aux name="natural decay rate slow soil carbon">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.000808824</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.0008" max="0.0012"/>
 				<units>dmnl/year</units>
 			</aux>
@@ -15262,25 +18813,122 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>(1-EXP(-(natural_decay_rate_slow_soil_carbon*climate_response_term_lpjml)))</eqn>
+				<eqn>(1-EXP(-(natural_decay_rate_slow_soil_carbon[selected_climate_case]*climate_response_term_lpjml)))</eqn>
 				<units>1/year</units>
 			</aux>
 			<aux name="decay rate litter carbon" access="output">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>1-EXP(-(natural_decay_rate_litter_carbon*climate_response_term_lpjml))</eqn>
+				<eqn>1-EXP(-(natural_decay_rate_litter_carbon[selected_climate_case]*climate_response_term_lpjml))</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="grassland litter input share\nslow soil carbon" access="output">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.018249348</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.01" max="0.02"/>
 				<units>dmnl</units>
 			</aux>
@@ -15292,18 +18940,115 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<eqn>IF (switch_land_carbon_impact =0) AND TIME &gt; today THEN
 PREVIOUS(SELF, 1)
 ELSE
-EXP(e0*(1.0/(temp_response+10)-1.0/(Absolute_Surface_Temperature*UNIT_per_deg_C+temp_response)))</eqn>
+EXP(e0[selected_climate_case]*(1.0/(temp_response[selected_climate_case]+10)-1.0/(Absolute_Surface_Temperature*UNIT_per_deg_C+temp_response[selected_climate_case])))</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="e0">
 				<doc>${Internal Calibration Parameter}
 Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., ... &amp; Waha, K. (2018). LPJmL4–a dynamic global vegetation model with managed land–Part 1: Model description. Geoscientific Model Development, 11(4), 1343-1375. https://doi.org/10.5194/gmd-11-429-2018</doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>290.0287445</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="290" max="320"/>
 				<units>dmnl</units>
 			</aux>
@@ -15311,11 +19056,108 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<doc>${Internal Calibration Parameter}
 Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., ... &amp; Waha, K. (2018). LPJmL4–a dynamic global vegetation model with managed land–Part 1: Model description. Geoscientific Model Development, 11(4), 1343-1375. https://doi.org/10.5194/gmd-11-429-2018</doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>60</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="40" max="60"/>
 				<units>dmnl</units>
 			</aux>
@@ -15344,11 +19186,108 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.016233165</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.01" max="0.02"/>
 				<units>dmnl</units>
 			</aux>
@@ -15356,11 +19295,108 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.011729817</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.01" max="0.025"/>
 				<units>dmnl</units>
 			</aux>
@@ -15368,12 +19404,116 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
+				<range min="0.015" max="0.025"/>
+				<units>dmnl</units>
+			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.02136525</eqn>
-				</element>
-				<range min="0.015" max="0.025"/>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
 		</variables>
@@ -15529,6 +19669,23 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<aux x="1171.5" y="61.1734" name="cropland litter input share\nslow soil carbon"/>
 				<aux x="1371.62" y="61.1734" name="young forest litter input share\nslow soil carbon"/>
 				<aux x="1582" y="61.1734" name="mature forest litter input share\nslow soil carbon"/>
+				<aux font_style="italic" font_weight="bold" x="474" y="294" name="selected climate case"/>
+				<connector uid="13" angle="90">
+					<from>selected_climate_case</from>
+					<to>decay_rate_litter_carbon</to>
+				</connector>
+				<connector uid="14" angle="141.582">
+					<from>selected_climate_case</from>
+					<to>decay_rate_slow_soil_carbon</to>
+				</connector>
+				<connector uid="15" angle="219.644">
+					<from>selected_climate_case</from>
+					<to>decay_rate_fast_soil_carbon</to>
+				</connector>
+				<connector uid="16" angle="276.34">
+					<from>selected_climate_case</from>
+					<to>climate_response_term_lpjml</to>
+				</connector>
 			</view>
 		</views>
 	</model>
