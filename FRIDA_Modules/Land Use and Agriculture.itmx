@@ -13,6 +13,7 @@
 		<dt reciprocal="true">8</dt>
 	</sim_specs>
 	<dimensions>
+		<dim name="ClimateCase" size="100"/>
 		<dim name="CropImpactsCase" size="11"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
@@ -679,8 +680,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_fast_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_fast_soil_carbon_input"/>
 				<connect to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
 				<connect to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
 				<connect2 to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
 				<connect to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_grassland" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_grassland"/>
@@ -717,6 +716,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="cropland_soil_carbon.forresting_cropland" from="Land_Use.forresting_cropland"/>
 				<connect to="cropland_soil_carbon.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
 				<connect2 to="cropland_soil_carbon.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
+				<connect to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
 				<connect2 to="Emissions.CO2_emissions_from_degraded_land_1" from="degraded_land_soil_carbon.CO2_emissions_from_degraded_land"/>
 				<connect to="Terrestrial_Carbon_Balance.degraded_land_litter" from="degraded_land_soil_carbon.degraded_land_litter"/>
@@ -739,10 +740,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Forest_carbon_balance.forest_landuse_fast_soil_carbon_input" from="forest_soil_carbon.forest_landuse_fast_soil_carbon_input"/>
 				<connect to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
-				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
 				<connect2 to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
 				<connect to="Forest_carbon_balance.litter_emissions_young_forest_GtC" from="forest_soil_carbon.litter_emissions_young_forest_GtC"/>
@@ -779,6 +776,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="forest_soil_carbon.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect2 to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
+				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect to="forest_soil_carbon.young_forest_litter" from="Forest.young_forest_litter"/>
@@ -795,8 +794,6 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Grassland_carbon_balance.grassland_landuse_fast_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_fast_soil_carbon_input"/>
 				<connect to="Grassland_carbon_balance.grassland_landuse_slow_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Grassland_carbon_balance.grassland_landuse_slow_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
 				<connect to="Grassland_carbon_balance.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
 				<connect2 to="Grassland_carbon_balance.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
 				<connect to="Grassland_carbon_balance.slow_soil_carbon_grassland_to_cropland" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_cropland"/>
@@ -825,6 +822,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="grassland_soil_carbon.grassland_litter" from="Grass.grassland_litter"/>
 				<connect to="grassland_soil_carbon.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
 				<connect2 to="grassland_soil_carbon.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
+				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="soil_carbon_decay.switch_land_carbon_impact" from="Climate.switch_internal_to_climate_land_carbon_impact"/>
@@ -858,6 +857,8 @@ This isn&apos;t in the uncertainty analysis b/c it needs to be integrated with t
 				<connect2 to="Grass.Atmospheric_CO2_Concentration" from="CO2_Forcing.Atmospheric_CO2_Concentration"/>
 				<connect to="Grass.Grassland_1" from="Land_Use.Grassland"/>
 				<connect2 to="Grass.Grassland_1" from="Land_Use.Grassland"/>
+				<connect to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="Grass.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect2 to="Grass.Surface_Temperature_Anomaly" from="Energy_Balance_Model.Surface_Temperature_Anomaly"/>
 				<connect to="Grass.switch_land_carbon_impact" from="Climate.switch_internal_to_climate_land_carbon_impact"/>
@@ -5878,18 +5879,115 @@ the less future investment due to crowding out of more profitable forms of inves
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>MAXSOFT(grass_net_primary_production_in_1980 + change_in_grass_net_primary_production_from_CO2+change_in_grass_net_primary_production_from_STA+change_in_grass_net_primary_production_from_STA_squared, grass_net_primary_production_in_1980*minimum_fraction_of_1980_grass_primary_production, tolerance_for_net_primary_production)</eqn>
+				<eqn>MAXSOFT(grass_net_primary_production_in_1750[selected_climate_case] + change_in_grass_net_primary_production_from_CO2+change_in_grass_net_primary_production_from_STA+change_in_grass_net_primary_production_from_STA_squared, grass_net_primary_production_in_1750[selected_climate_case]*minimum_fraction_of_1750_grass_primary_production, tolerance_for_net_primary_production)</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="CO2 grass net primary production parameter">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.000963654</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.0005" max="0.001"/>
 				<units>1/ppm</units>
 			</aux>
@@ -5900,21 +5998,21 @@ the less future investment due to crowding out of more profitable forms of inves
 				<eqn>IF (switch_land_carbon_impact =0) AND TIME &gt; today THEN
 PREVIOUS(SELF, 0)
 ELSE
-(Atmospheric_CO2_Concentration - INIT(Atmospheric_CO2_Concentration))*CO2_grass_net_primary_production_parameter</eqn>
+(Atmospheric_CO2_Concentration - INIT(Atmospheric_CO2_Concentration))*CO2_grass_net_primary_production_parameter[selected_climate_case]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="change in grass net primary production from CO2">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grass_net_primary_production_in_1980*effect_of_CO2_on_grass_net_primary_production</eqn>
+				<eqn>grass_net_primary_production_in_1750[selected_climate_case]*effect_of_CO2_on_grass_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="change in grass net\nprimary production from STA">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grass_net_primary_production_in_1980*effect_of_STA_on_grass_net_primary_production</eqn>
+				<eqn>grass_net_primary_production_in_1750[selected_climate_case]*effect_of_STA_on_grass_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="effect of STA on\ngrass net primary production">
@@ -5924,18 +6022,115 @@ ELSE
 				<eqn>IF (switch_land_carbon_impact =0) AND TIME &gt; today THEN
 PREVIOUS(SELF, 0)
 ELSE
-(Surface_Temperature_Anomaly-INIT(Surface_Temperature_Anomaly))*STA_grass_net_primary_production_parameter</eqn>
+(Surface_Temperature_Anomaly-INIT(Surface_Temperature_Anomaly))*STA_grass_net_primary_production_parameter[selected_climate_case]</eqn>
 				<units>dmnl</units>
 			</aux>
 			<aux name="STA grass net primary production parameter">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.126281692</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.01" max="0.13"/>
 				<units>1/deg C</units>
 			</aux>
@@ -5943,7 +6138,7 @@ ELSE
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grass_net_primary_production_in_1980*effect_of_STA_squared_on_grass_net_primary_production</eqn>
+				<eqn>grass_net_primary_production_in_1750[selected_climate_case]*effect_of_STA_squared_on_grass_net_primary_production</eqn>
 				<units>GtC/(Mha*year)</units>
 			</aux>
 			<aux name="effect of STA squared on\ngrass net primary production">
@@ -5953,18 +6148,115 @@ ELSE
 				<eqn>IF (switch_land_carbon_impact =0) AND TIME &gt; today THEN
 PREVIOUS(SELF, 0)
 ELSE
-((Surface_Temperature_Anomaly-INIT(Surface_Temperature_Anomaly))^2)*STA_squared_grass_net_primary_production_parameter</eqn>
+((Surface_Temperature_Anomaly-INIT(Surface_Temperature_Anomaly))^2)*STA_squared_grass_net_primary_production_parameter[selected_climate_case]</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="STA squared grass net primary production parameter">
+			<aux name="STA squared grass net\nprimary production parameter">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>-0.034654395</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="-0.05" max="-0.01"/>
 				<units>1/(deg C^2)</units>
 			</aux>
@@ -5989,15 +6281,112 @@ ELSE
 				<eqn>animal_products_calorie_requirements_met_via_grazing*effective_GtC_per_PCal_animal_grazing</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="grass net primary production\nin 1980">
+			<aux name="grass net primary production\nin 1750">
 				<doc>${Internal Calibration Parameter}
 https://doi.org/10.1007/s11769-019-1063-x 0.0046283</doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>0.005</eqn>
-				</element>
+				<element subscript="1"/>
+				<element subscript="2"/>
+				<element subscript="3"/>
+				<element subscript="4"/>
+				<element subscript="5"/>
+				<element subscript="6"/>
+				<element subscript="7"/>
+				<element subscript="8"/>
+				<element subscript="9"/>
+				<element subscript="10"/>
+				<element subscript="11"/>
+				<element subscript="12"/>
+				<element subscript="13"/>
+				<element subscript="14"/>
+				<element subscript="15"/>
+				<element subscript="16"/>
+				<element subscript="17"/>
+				<element subscript="18"/>
+				<element subscript="19"/>
+				<element subscript="20"/>
+				<element subscript="21"/>
+				<element subscript="22"/>
+				<element subscript="23"/>
+				<element subscript="24"/>
+				<element subscript="25"/>
+				<element subscript="26"/>
+				<element subscript="27"/>
+				<element subscript="28"/>
+				<element subscript="29"/>
+				<element subscript="30"/>
+				<element subscript="31"/>
+				<element subscript="32"/>
+				<element subscript="33"/>
+				<element subscript="34"/>
+				<element subscript="35"/>
+				<element subscript="36"/>
+				<element subscript="37"/>
+				<element subscript="38"/>
+				<element subscript="39"/>
+				<element subscript="40"/>
+				<element subscript="41"/>
+				<element subscript="42"/>
+				<element subscript="43"/>
+				<element subscript="44"/>
+				<element subscript="45"/>
+				<element subscript="46"/>
+				<element subscript="47"/>
+				<element subscript="48"/>
+				<element subscript="49"/>
+				<element subscript="50"/>
+				<element subscript="51"/>
+				<element subscript="52"/>
+				<element subscript="53"/>
+				<element subscript="54"/>
+				<element subscript="55"/>
+				<element subscript="56"/>
+				<element subscript="57"/>
+				<element subscript="58"/>
+				<element subscript="59"/>
+				<element subscript="60"/>
+				<element subscript="61"/>
+				<element subscript="62"/>
+				<element subscript="63"/>
+				<element subscript="64"/>
+				<element subscript="65"/>
+				<element subscript="66"/>
+				<element subscript="67"/>
+				<element subscript="68"/>
+				<element subscript="69"/>
+				<element subscript="70"/>
+				<element subscript="71"/>
+				<element subscript="72"/>
+				<element subscript="73"/>
+				<element subscript="74"/>
+				<element subscript="75"/>
+				<element subscript="76"/>
+				<element subscript="77"/>
+				<element subscript="78"/>
+				<element subscript="79"/>
+				<element subscript="80"/>
+				<element subscript="81"/>
+				<element subscript="82"/>
+				<element subscript="83"/>
+				<element subscript="84"/>
+				<element subscript="85"/>
+				<element subscript="86"/>
+				<element subscript="87"/>
+				<element subscript="88"/>
+				<element subscript="89"/>
+				<element subscript="90"/>
+				<element subscript="91"/>
+				<element subscript="92"/>
+				<element subscript="93"/>
+				<element subscript="94"/>
+				<element subscript="95"/>
+				<element subscript="96"/>
+				<element subscript="97"/>
+				<element subscript="98"/>
+				<element subscript="99"/>
+				<element subscript="100"/>
 				<range min="0.0025" max="0.005"/>
 				<units>GtC/(Mha*year)</units>
 			</aux>
@@ -6070,7 +6459,7 @@ https://doi.org/10.1007/s11769-019-1063-x 0.0046283</doc>
 				<eqn>2025</eqn>
 				<units>year</units>
 			</aux>
-			<aux name="minimum fraction of 1980\ngrass primary production">
+			<aux name="minimum fraction of 1750\ngrass primary production">
 				<doc>${Assumption}
 Limits for extreme conditions in no feedback cases</doc>
 				<eqn>.2</eqn>
@@ -6081,6 +6470,13 @@ Limits for extreme conditions in no feedback cases</doc>
 Limits for extreme conditions in no feedback cases</doc>
 				<eqn>.001</eqn>
 				<units>GtC/(Mha*year)</units>
+			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
 			</aux>
 		</variables>
 		<views>
@@ -6131,7 +6527,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="588" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -6199,7 +6595,7 @@ Limits for extreme conditions in no feedback cases</doc>
 				</connector>
 				<aux x="606.14" y="540.43" name="change in grass net primary production\nfrom STA squared"/>
 				<aux x="606.14" y="758.57" name="effect of STA squared on\ngrass net primary production"/>
-				<aux x="699.25" y="857.86" name="STA squared grass net primary production parameter"/>
+				<aux x="699.25" y="857.86" name="STA squared grass net\nprimary production parameter"/>
 				<connector uid="6" angle="82.673">
 					<from>STA_squared_grass_net_primary_production_parameter</from>
 					<to>effect_of_STA_squared_on_grass_net_primary_production</to>
@@ -6231,9 +6627,9 @@ Limits for extreme conditions in no feedback cases</doc>
 					<to>grassland_net_primary_production</to>
 				</connector>
 				<aux x="841.25" y="141.5" name="animal grazing"/>
-				<aux x="376.333" y="352" name="grass net primary production\nin 1980"/>
+				<aux x="376.333" y="352" name="grass net primary production\nin 1750"/>
 				<connector uid="13" angle="31.7595">
-					<from>grass_net_primary_production_in_1980</from>
+					<from>grass_net_primary_production_in_1750</from>
 					<to>grass_net_primary_production</to>
 				</connector>
 				<aux x="624.14" y="192.821" name="grassland net\nprimary production"/>
@@ -6332,24 +6728,53 @@ Limits for extreme conditions in no feedback cases</doc>
 					</from>
 					<to>effect_of_CO2_on_grass_net_primary_production</to>
 				</connector>
-				<aux x="352.17" y="290.714" name="minimum fraction of 1980\ngrass primary production"/>
+				<aux x="352.17" y="290.714" name="minimum fraction of 1750\ngrass primary production"/>
 				<aux x="313.083" y="209" name="tolerance for net primary production"/>
 				<connector uid="38" angle="4.91068">
 					<from>tolerance_for_net_primary_production</from>
 					<to>grass_net_primary_production</to>
 				</connector>
 				<connector uid="39" angle="19.1633">
-					<from>minimum_fraction_of_1980_grass_primary_production</from>
+					<from>minimum_fraction_of_1750_grass_primary_production</from>
 					<to>grass_net_primary_production</to>
 				</connector>
+				<aux font_style="italic" font_weight="bold" x="758" y="603" name="selected climate case"/>
+				<connector uid="40" angle="100.305">
+					<from>selected_climate_case</from>
+					<to>grass_net_primary_production</to>
+				</connector>
+				<connector uid="41" angle="342.121">
+					<from>selected_climate_case</from>
+					<to>effect_of_CO2_on_grass_net_primary_production</to>
+				</connector>
+				<connector uid="42" angle="277.907">
+					<from>selected_climate_case</from>
+					<to>effect_of_STA_squared_on_grass_net_primary_production</to>
+				</connector>
+				<connector uid="43" angle="222.51">
+					<from>selected_climate_case</from>
+					<to>effect_of_STA_on_grass_net_primary_production</to>
+				</connector>
+				<connector uid="44" angle="129.987">
+					<from>selected_climate_case</from>
+					<to>change_in_grass_net_primary_production_from_STA</to>
+				</connector>
+				<connector uid="45" angle="132.357">
+					<from>selected_climate_case</from>
+					<to>change_in_grass_net_primary_production_from_STA_squared</to>
+				</connector>
+				<connector uid="46" angle="73.0092">
+					<from>selected_climate_case</from>
+					<to>change_in_grass_net_primary_production_from_CO2</to>
+				</connector>
 				<alias font_style="italic" uid="15" x="212" y="563.167" width="18" height="18">
-					<of>grass_net_primary_production_in_1980</of>
+					<of>grass_net_primary_production_in_1750</of>
 				</alias>
 				<alias font_style="italic" uid="17" x="663" y="618.167" width="18" height="18">
-					<of>grass_net_primary_production_in_1980</of>
+					<of>grass_net_primary_production_in_1750</of>
 				</alias>
 				<alias font_style="italic" uid="19" x="951" y="513.43" width="18" height="18">
-					<of>grass_net_primary_production_in_1980</of>
+					<of>grass_net_primary_production_in_1750</of>
 				</alias>
 				<alias font_style="italic" font_weight="bold" uid="37" x="836" y="754" width="18" height="18">
 					<of>switch_land_carbon_impact</of>
@@ -8001,10 +8426,6 @@ Used for policy implementation only.</doc>
 				<connect2 to="cropland_soil_carbon.litter_input_share_slow_soil_carbon" from="soil_carbon_decay.cropland_litter_input_share_slow_soil_carbon"/>
 				<connect to="degraded_land_soil_carbon.litter_input_share_slow_soil_carbon" from="soil_carbon_decay.cropland_litter_input_share_slow_soil_carbon"/>
 				<connect2 to="degraded_land_soil_carbon.litter_input_share_slow_soil_carbon" from="soil_carbon_decay.cropland_litter_input_share_slow_soil_carbon"/>
-				<connect to="cropland_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.cropland_slow_soil_carbon_historic_share"/>
-				<connect2 to="cropland_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.cropland_slow_soil_carbon_historic_share"/>
-				<connect to="degraded_land_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.cropland_slow_soil_carbon_historic_share"/>
-				<connect2 to="degraded_land_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.cropland_slow_soil_carbon_historic_share"/>
 				<connect to="cropland_soil_carbon.decay_rate_fast_soil_carbon" from="soil_carbon_decay.decay_rate_fast_soil_carbon"/>
 				<connect2 to="cropland_soil_carbon.decay_rate_fast_soil_carbon" from="soil_carbon_decay.decay_rate_fast_soil_carbon"/>
 				<connect to="degraded_land_soil_carbon.decay_rate_fast_soil_carbon" from="soil_carbon_decay.decay_rate_fast_soil_carbon"/>
@@ -8031,16 +8452,10 @@ Used for policy implementation only.</doc>
 				<connect2 to="grassland_soil_carbon.decay_rate_slow_soil_carbon" from="soil_carbon_decay.decay_rate_slow_soil_carbon"/>
 				<connect to="grassland_soil_carbon.litter_input_share_slow_soil_carbon" from="soil_carbon_decay.grassland_litter_input_share_slow_soil_carbon"/>
 				<connect2 to="grassland_soil_carbon.litter_input_share_slow_soil_carbon" from="soil_carbon_decay.grassland_litter_input_share_slow_soil_carbon"/>
-				<connect to="grassland_soil_carbon.slow_soil_carbon_historic_share_1" from="soil_carbon_decay.grassland_slow_soil_carbon_historic_share"/>
-				<connect2 to="grassland_soil_carbon.slow_soil_carbon_historic_share_1" from="soil_carbon_decay.grassland_slow_soil_carbon_historic_share"/>
 				<connect to="forest_soil_carbon.litter_input_share_slow_soil_carbon_1" from="soil_carbon_decay.mature_forest_litter_input_share_slow_soil_carbon"/>
 				<connect2 to="forest_soil_carbon.litter_input_share_slow_soil_carbon_1" from="soil_carbon_decay.mature_forest_litter_input_share_slow_soil_carbon"/>
-				<connect to="forest_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.mature_forest_slow_soil_carbon_historic_share"/>
-				<connect2 to="forest_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.mature_forest_slow_soil_carbon_historic_share"/>
 				<connect to="forest_soil_carbon.young_forest_litter_input_share_slow_soil_carbon" from="soil_carbon_decay.young_forest_litter_input_share_slow_soil_carbon"/>
 				<connect2 to="forest_soil_carbon.young_forest_litter_input_share_slow_soil_carbon" from="soil_carbon_decay.young_forest_litter_input_share_slow_soil_carbon"/>
-				<connect to="forest_soil_carbon.young_forest_slow_soil_carbon_historic_share" from="soil_carbon_decay.young_forest_slow_soil_carbon_historic_share"/>
-				<connect2 to="forest_soil_carbon.young_forest_slow_soil_carbon_historic_share" from="soil_carbon_decay.young_forest_slow_soil_carbon_historic_share"/>
 				<connect to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect2 to="soil_carbon_decay.Absolute_Surface_Temperature" from="Energy_Balance_Model.Absolute_Surface_Temperature"/>
 				<connect to="soil_carbon_decay.switch_land_carbon_impact" from="Climate.switch_internal_to_climate_land_carbon_impact"/>
@@ -8056,8 +8471,6 @@ Used for policy implementation only.</doc>
 				<connect2 to="Cropland_Carbon_Balance.cropland_landuse_slow_soil_carbon_input" from="cropland_soil_carbon.cropland_landuse_slow_soil_carbon_input"/>
 				<connect to="soil_carbon_emissions.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
 				<connect2 to="soil_carbon_emissions.cropland_litter_to_soil_carbon" from="cropland_soil_carbon.cropland_litter_to_soil_carbon"/>
-				<connect to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.cropland_soil_carbon_1980" from="cropland_soil_carbon.cropland_soil_carbon_1980"/>
 				<connect to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
 				<connect2 to="Cropland_Carbon_Balance.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
 				<connect to="forest_soil_carbon.fast_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.fast_soil_carbon_cropland_to_forest"/>
@@ -8122,12 +8535,12 @@ Used for policy implementation only.</doc>
 				<connect2 to="cropland_soil_carbon.litter_input_share_slow_soil_carbon" from="soil_carbon_decay.cropland_litter_input_share_slow_soil_carbon"/>
 				<connect to="cropland_soil_carbon.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
 				<connect2 to="cropland_soil_carbon.reforesting_cropland" from="Land_Use.reforesting_cropland"/>
+				<connect to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="cropland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="cropland_soil_carbon.slow_soil_carbon_forest_to_cropland" from="forest_soil_carbon.slow_soil_carbon_forest_to_cropland"/>
 				<connect2 to="cropland_soil_carbon.slow_soil_carbon_forest_to_cropland" from="forest_soil_carbon.slow_soil_carbon_forest_to_cropland"/>
 				<connect to="cropland_soil_carbon.slow_soil_carbon_grassland_to_cropland_1" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_cropland"/>
 				<connect2 to="cropland_soil_carbon.slow_soil_carbon_grassland_to_cropland_1" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_cropland"/>
-				<connect to="cropland_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.cropland_slow_soil_carbon_historic_share"/>
-				<connect2 to="cropland_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.cropland_slow_soil_carbon_historic_share"/>
 			</module>
 			<module name="grassland soil carbon" isee:label="">
 				<format scale_by="auto"/>
@@ -8149,8 +8562,6 @@ Used for policy implementation only.</doc>
 				<connect2 to="Grassland_carbon_balance.grassland_landuse_slow_soil_carbon_input" from="grassland_soil_carbon.grassland_landuse_slow_soil_carbon_input"/>
 				<connect to="soil_carbon_emissions.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
 				<connect2 to="soil_carbon_emissions.grassland_litter_to_soil_carbon_grassland" from="grassland_soil_carbon.grassland_litter_to_soil_carbon_grassland"/>
-				<connect to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.grassland_soil_carbon_1980" from="grassland_soil_carbon.grassland_soil_carbon_1980"/>
 				<connect to="Grassland_carbon_balance.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
 				<connect2 to="Grassland_carbon_balance.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
 				<connect to="soil_carbon_emissions.litter_emissions_grassland_GtC" from="grassland_soil_carbon.litter_emissions_grassland_GtC"/>
@@ -8201,12 +8612,12 @@ Used for policy implementation only.</doc>
 				<connect2 to="grassland_soil_carbon.litter_input_share_slow_soil_carbon" from="soil_carbon_decay.grassland_litter_input_share_slow_soil_carbon"/>
 				<connect to="grassland_soil_carbon.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
 				<connect2 to="grassland_soil_carbon.reforesting_grassland" from="Land_Use.reforesting_grassland"/>
+				<connect to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="grassland_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="grassland_soil_carbon.slow_soil_carbon_cropland_to_grassland" from="cropland_soil_carbon.slow_soil_carbon_cropland_to_grassland"/>
 				<connect2 to="grassland_soil_carbon.slow_soil_carbon_cropland_to_grassland" from="cropland_soil_carbon.slow_soil_carbon_cropland_to_grassland"/>
 				<connect to="grassland_soil_carbon.slow_soil_carbon_forest_to_grassland" from="forest_soil_carbon.slow_soil_carbon_forest_to_grassland"/>
 				<connect2 to="grassland_soil_carbon.slow_soil_carbon_forest_to_grassland" from="forest_soil_carbon.slow_soil_carbon_forest_to_grassland"/>
-				<connect to="grassland_soil_carbon.slow_soil_carbon_historic_share_1" from="soil_carbon_decay.grassland_slow_soil_carbon_historic_share"/>
-				<connect2 to="grassland_soil_carbon.slow_soil_carbon_historic_share_1" from="soil_carbon_decay.grassland_slow_soil_carbon_historic_share"/>
 			</module>
 			<module name="soil carbon emissions" isee:label="">
 				<format scale_by="auto"/>
@@ -8261,10 +8672,6 @@ Used for policy implementation only.</doc>
 				<connect2 to="Forest_carbon_balance.forest_landuse_fast_soil_carbon_input" from="forest_soil_carbon.forest_landuse_fast_soil_carbon_input"/>
 				<connect to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
 				<connect2 to="Forest_carbon_balance.forest_landuse_slow_soil_carbon_input" from="forest_soil_carbon.forest_landuse_slow_soil_carbon_input"/>
-				<connect to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
-				<connect2 to="Terrestrial_Carbon_Balance.Forest_soil_carbon_1981" from="forest_soil_carbon.Forest_soil_carbon_1980"/>
-				<connect to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
-				<connect2 to="Terrestrial_Carbon_Balance.forest_soil_carbon_1980" from="forest_soil_carbon.forest_soil_carbon_initialisation"/>
 				<connect to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
 				<connect2 to="Forest_carbon_balance.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
 				<connect to="soil_carbon_emissions.litter_emissions_mature_forest_GtC" from="forest_soil_carbon.litter_emissions_mature_forest_GtC"/>
@@ -8331,14 +8738,14 @@ Used for policy implementation only.</doc>
 				<connect2 to="forest_soil_carbon.Mature_Forest" from="Land_Use.Mature_Forest"/>
 				<connect to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
 				<connect2 to="forest_soil_carbon.mature_forest_litter" from="Forest.mature_forest_litter"/>
+				<connect to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
+				<connect2 to="forest_soil_carbon.selected_climate_case" from="Climate_Units.selected_climate_case"/>
 				<connect to="forest_soil_carbon.slow_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.slow_soil_carbon_cropland_to_forest"/>
 				<connect2 to="forest_soil_carbon.slow_soil_carbon_cropland_to_forest" from="cropland_soil_carbon.slow_soil_carbon_cropland_to_forest"/>
 				<connect to="forest_soil_carbon.slow_soil_carbon_degraded_land_to_forest" from="degraded_land_soil_carbon.slow_soil_carbon_degraded_land_to_forest"/>
 				<connect2 to="forest_soil_carbon.slow_soil_carbon_degraded_land_to_forest" from="degraded_land_soil_carbon.slow_soil_carbon_degraded_land_to_forest"/>
 				<connect to="forest_soil_carbon.slow_soil_carbon_grassland_to_forest" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_forest"/>
 				<connect2 to="forest_soil_carbon.slow_soil_carbon_grassland_to_forest" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_forest"/>
-				<connect to="forest_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.mature_forest_slow_soil_carbon_historic_share"/>
-				<connect2 to="forest_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.mature_forest_slow_soil_carbon_historic_share"/>
 				<connect to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect2 to="forest_soil_carbon.Young_Forest" from="Land_Use.Young_Forest"/>
 				<connect to="forest_soil_carbon.young_forest_litter" from="Forest.young_forest_litter"/>
@@ -8347,8 +8754,6 @@ Used for policy implementation only.</doc>
 				<connect2 to="forest_soil_carbon.young_forest_litter_input_share_slow_soil_carbon" from="soil_carbon_decay.young_forest_litter_input_share_slow_soil_carbon"/>
 				<connect to="forest_soil_carbon.young_forest_share" from="Land_Use.young_forest_share"/>
 				<connect2 to="forest_soil_carbon.young_forest_share" from="Land_Use.young_forest_share"/>
-				<connect to="forest_soil_carbon.young_forest_slow_soil_carbon_historic_share" from="soil_carbon_decay.young_forest_slow_soil_carbon_historic_share"/>
-				<connect2 to="forest_soil_carbon.young_forest_slow_soil_carbon_historic_share" from="soil_carbon_decay.young_forest_slow_soil_carbon_historic_share"/>
 			</module>
 			<module name="degraded land soil carbon" isee:label="">
 				<format scale_by="auto"/>
@@ -8390,8 +8795,6 @@ Used for policy implementation only.</doc>
 				<connect2 to="degraded_land_soil_carbon.slow_soil_carbon_cropland_to_degraded_land" from="cropland_soil_carbon.slow_soil_carbon_cropland_to_degraded_land"/>
 				<connect to="degraded_land_soil_carbon.slow_soil_carbon_grassland_to_degraded_land" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_degraded_land"/>
 				<connect2 to="degraded_land_soil_carbon.slow_soil_carbon_grassland_to_degraded_land" from="grassland_soil_carbon.slow_soil_carbon_grassland_to_degraded_land"/>
-				<connect to="degraded_land_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.cropland_slow_soil_carbon_historic_share"/>
-				<connect2 to="degraded_land_soil_carbon.slow_soil_carbon_historic_share" from="soil_carbon_decay.cropland_slow_soil_carbon_historic_share"/>
 			</module>
 		</variables>
 		<views>
@@ -8564,7 +8967,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>cropland_litter_to_soil_carbon*litter_input_share_slow_soil_carbon</eqn>
+				<eqn>cropland_litter_to_soil_carbon*litter_input_share_slow_soil_carbon[selected_climate_case[Run]]</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -8588,7 +8991,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>cropland_litter_to_soil_carbon*(1-litter_input_share_slow_soil_carbon)</eqn>
+				<eqn>cropland_litter_to_soil_carbon*(1-litter_input_share_slow_soil_carbon[selected_climate_case[Run]])</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -8596,7 +8999,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>cropland_soil_carbon_1980*(1-slow_soil_carbon_historic_share)</eqn>
+				<eqn>Initial_fast_soil_carbon_cropland[selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_fast_soil_carbon_cropland</inflow>
 				<inflow>Fast_soil_cropland_carbon_input_from_land_use_transitions</inflow>
 				<outflow>fast_soil_carbon_loss_cropland</outflow>
@@ -8607,7 +9010,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>cropland_soil_carbon_1980*slow_soil_carbon_historic_share</eqn>
+				<eqn>Initial_slow_soil_carbon_cropland[selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_slow_soil_carbon_cropland</inflow>
 				<inflow>Slow_soil_cropland_carbon_input_from_land_use_transitions</inflow>
 				<outflow>slow_soil_carbon_loss_cropland</outflow>
@@ -8674,18 +9077,16 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>soil_carbon_cropland - cropland_soil_carbon_1980</eqn>
+				<eqn>soil_carbon_cropland - initial_cropland_soil_carbon</eqn>
 				<units>GtC</units>
 			</aux>
-			<aux name="cropland soil carbon 1980" access="output" isee:autocreated="true">
+			<aux name="initial cropland soil carbon" access="output" isee:autocreated="true">
 				<doc>${Internal Calibration Parameter}
 </doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<element subscript="1">
-					<eqn>106.352147</eqn>
-				</element>
+				<eqn>Initial_fast_soil_carbon_cropland[selected_climate_case[Run]] + Initial_slow_soil_carbon_cropland[selected_climate_case[Run]]</eqn>
 				<range min="80" max="150"/>
 				<units>GtC</units>
 			</aux>
@@ -8703,13 +9104,6 @@ Used for policy implementation only.</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mha</units>
 			</stock>
-			<aux name="slow soil carbon historic share" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0.35</eqn>
-				<units>dmnl</units>
-			</aux>
 			<aux name="litter input share slow soil\ncarbon" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -8871,6 +9265,625 @@ Used for policy implementation only.</doc>
 				<eqn>slow_soil_carbon_cropland*decay_rate_slow_soil_carbon</eqn>
 				<units>GtC/Year</units>
 			</flow>
+			<aux name="Initial fast soil\ncarbon cropland">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>12.5863373473</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="Initial slow soil\ncarbon cropland">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>12.8430029319</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -8920,7 +9933,7 @@ Used for policy implementation only.</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="3" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -8994,7 +10007,7 @@ Used for policy implementation only.</doc>
 				<aux x="86.4407" y="565" name="soil carbon emissions\ncropland GtC"/>
 				<aux x="653" y="601.09" name="cropland litter to soil carbon"/>
 				<aux x="1348.08" y="332.083" name="soil carbon balance cropland"/>
-				<aux x="1461.25" y="288.583" name="cropland soil carbon 1980"/>
+				<aux x="1461.25" y="288.583" name="initial cropland soil carbon"/>
 				<connector uid="1" angle="178.686">
 					<from>cropland_landuse_slow_soil_carbon_input</from>
 					<to>Slow_soil_cropland_carbon_input_from_land_use_transitions</to>
@@ -9028,7 +10041,7 @@ Used for policy implementation only.</doc>
 					<to>soil_carbon_cropland</to>
 				</connector>
 				<connector uid="10" angle="201.026">
-					<from>cropland_soil_carbon_1980</from>
+					<from>initial_cropland_soil_carbon</from>
 					<to>soil_carbon_balance_cropland</to>
 				</connector>
 				<connector uid="11" angle="298.227">
@@ -9072,7 +10085,6 @@ Used for policy implementation only.</doc>
 					<from>Cropland</from>
 					<to>fraction_cropland_to_grassland</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="1411.08" y="128.083" name="slow soil carbon historic share"/>
 				<aux font_style="italic" font_weight="bold" x="447" y="583.09" name="litter input share slow soil\ncarbon"/>
 				<connector uid="22" angle="303.703">
 					<from>litter_input_share_slow_soil_carbon</from>
@@ -9252,6 +10264,29 @@ Used for policy implementation only.</doc>
 					</from>
 					<to>soil_carbon_emissions_cropland_GtC</to>
 				</connector>
+				<aux x="1584.33" y="271.208" name="Initial fast soil\ncarbon cropland"/>
+				<aux x="1578.33" y="377.875" name="Initial slow soil\ncarbon cropland"/>
+				<aux font_style="italic" font_weight="bold" x="1327" y="228" name="selected climate case"/>
+				<connector uid="58" angle="135.371">
+					<from>Initial_slow_soil_carbon_cropland</from>
+					<to>initial_cropland_soil_carbon</to>
+				</connector>
+				<connector uid="59" angle="183.173">
+					<from>Initial_fast_soil_carbon_cropland</from>
+					<to>initial_cropland_soil_carbon</to>
+				</connector>
+				<connector uid="60" angle="350.838">
+					<from>selected_climate_case</from>
+					<to>initial_cropland_soil_carbon</to>
+				</connector>
+				<connector uid="61" angle="222.614">
+					<from>selected_climate_case</from>
+					<to>litter_input_fast_soil_carbon_cropland</to>
+				</connector>
+				<connector uid="62" angle="257.005">
+					<from>selected_climate_case</from>
+					<to>litter_input_slow_soil_carbon_cropland</to>
+				</connector>
 				<alias font_style="italic" uid="13" x="1479.58" y="465.833" width="45" height="35">
 					<of>slow_soil_carbon_cropland</of>
 				</alias>
@@ -9300,7 +10335,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>0</eqn>
+				<eqn>Initial_fast_soil_carbon_degraded_land[Climate_Units.selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_fast_soil_carbon_degraded_land</inflow>
 				<outflow>fast_soil_carbon_loss_degraded_land</outflow>
 				<units>GtC</units>
@@ -9339,7 +10374,7 @@ Used for policy implementation only.</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>0</eqn>
+				<eqn>Initial_slow_soil_carbon_degraded_land[Climate_Units.selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_slow_soil_carbon_degraded_land</inflow>
 				<outflow>slow_soil_carbon_loss_degraded_land</outflow>
 				<units>GtC</units>
@@ -9456,13 +10491,6 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<range min="0.01" max="0.1"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="slow soil carbon historic share" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0.35</eqn>
-				<units>dmnl</units>
-			</aux>
 			<aux name="fast soil carbon cropland to degraded land" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -9504,6 +10532,618 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				</dimensions>
 				<eqn>fast_soil_carbon_degraded_land*decay_rate_fast_soil_carbon + slow_soil_carbon_degraded_land*decay_rate_slow_soil_carbon - degraded_land_litter_to_soil_carbon</eqn>
 				<units>GtC/year</units>
+			</aux>
+			<aux name="Initial fast soil\ncarbon degraded land">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.00610431463673</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="Initial slow soil\ncarbon degraded land">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>0.00360943829542</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
 			</aux>
 		</variables>
 		<views>
@@ -9554,7 +11194,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="3" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" isee:scroll_x="215" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -9593,19 +11233,19 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<flow label_side="bottom" x="1106.34" y="400.75" name="litter input fast soil carbon degraded land">
+				<flow label_side="bottom" x="1104.88" y="400.75" name="litter input fast soil carbon degraded land">
 					<pts>
 						<pt x="1182" y="400.75"/>
-						<pt x="1030.67" y="400.75"/>
+						<pt x="1027.75" y="400.75"/>
 					</pts>
 				</flow>
-				<flow x="928.295" y="400.75" name="fast soil carbon\nloss degraded land">
+				<flow x="926.835" y="400.75" name="fast soil carbon\nloss degraded land">
 					<pts>
-						<pt x="985.67" y="400.75"/>
+						<pt x="982.75" y="400.75"/>
 						<pt x="846.92" y="400.75"/>
 					</pts>
 				</flow>
-				<stock label_side="top" x="1008.17" y="400.75" name="fast soil carbon degraded land"/>
+				<stock label_side="top" x="1005.25" y="400.75" name="fast soil carbon degraded land"/>
 				<connector uid="1" angle="133.665">
 					<from>fast_soil_carbon_degraded_land</from>
 					<to>fast_soil_carbon_loss_degraded_land</to>
@@ -9618,7 +11258,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<to>soil_carbon_degraded_land</to>
 				</connector>
 				<aux x="550.253" y="501.25" name="soil carbon emissions\ndegraded land GtC"/>
-				<connector uid="4" color="#EEEEEE" font_color="#EEEEEE" angle="211.354">
+				<connector uid="4" color="#EEEEEE" font_color="#EEEEEE" angle="211.409">
 					<from>fast_soil_carbon_loss_degraded_land</from>
 					<to>soil_carbon_emissions_degraded_land_GtC</to>
 				</connector>
@@ -9650,7 +11290,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<to>slow_soil_carbon_loss_degraded_land</to>
 				</connector>
 				<aux x="1313.5" y="505.25" name="degraded land litter to soil\ncarbon"/>
-				<connector uid="9" angle="140.34">
+				<connector uid="9" angle="140.502">
 					<from>degraded_land_litter_to_soil_carbon</from>
 					<to>litter_input_fast_soil_carbon_degraded_land</to>
 				</connector>
@@ -9660,11 +11300,11 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 				</connector>
 				<aux x="872.25" y="209.5" name="fraction degraded land to forest"/>
 				<aux x="937.045" y="287" name="fast soil carbon\ndegraded land to forest"/>
-				<connector uid="11" angle="86.2423">
+				<connector uid="11" angle="85.1727">
 					<from>fast_soil_carbon_degraded_land</from>
 					<to>fast_soil_carbon_degraded_land_to_forest</to>
 				</connector>
-				<connector uid="12" angle="227.583">
+				<connector uid="12" angle="226.853">
 					<from>fast_soil_carbon_degraded_land_to_forest</from>
 					<to>fast_soil_carbon_loss_degraded_land</to>
 				</connector>
@@ -9688,7 +11328,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<to>slow_soil_carbon_degraded_land_to_forest</to>
 				</connector>
 				<aux x="1170.75" y="263.083" name="degraded land landuse\nfast soil carbon input"/>
-				<connector uid="18" angle="244.925">
+				<connector uid="18" angle="244.428">
 					<from>degraded_land_landuse_fast_soil_carbon_input</from>
 					<to>litter_input_fast_soil_carbon_degraded_land</to>
 				</connector>
@@ -9723,7 +11363,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<to>slow_soil_carbon_loss_degraded_land</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="787" y="449" name="decay rate fast soil carbon"/>
-				<connector uid="25" angle="32.4316">
+				<connector uid="25" angle="32.6143">
 					<from>decay_rate_fast_soil_carbon</from>
 					<to>fast_soil_carbon_loss_degraded_land</to>
 				</connector>
@@ -9752,7 +11392,6 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<from>degraded_land_litter</from>
 					<to>litter_emissions_degraded_land_GtC</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="2009" y="566" name="slow soil carbon historic share"/>
 				<aux font_style="italic" font_weight="bold" x="1204.75" y="164" name="fast soil carbon cropland to degraded land"/>
 				<connector uid="32" angle="285.381">
 					<from>fast_soil_carbon_cropland_to_degraded_land</from>
@@ -9764,7 +11403,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<to>degraded_land_landuse_slow_soil_carbon_input</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" x="1129.3" y="523.25" name="litter input share slow soil\ncarbon"/>
-				<connector uid="34" angle="85.6531">
+				<connector uid="34" angle="86.3136">
 					<from>litter_input_share_slow_soil_carbon</from>
 					<to>litter_input_fast_soil_carbon_degraded_land</to>
 				</connector>
@@ -9803,7 +11442,7 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<from>slow_soil_carbon_degraded_land</from>
 					<to>CO2_emissions_from_degraded_land</to>
 				</connector>
-				<connector uid="43" angle="217.642">
+				<connector uid="43" angle="218.224">
 					<from>fast_soil_carbon_degraded_land</from>
 					<to>CO2_emissions_from_degraded_land</to>
 				</connector>
@@ -9811,6 +11450,8 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 					<from>degraded_land_litter_to_soil_carbon</from>
 					<to>CO2_emissions_from_degraded_land</to>
 				</connector>
+				<aux x="736.997" y="261.541" name="Initial fast soil\ncarbon degraded land"/>
+				<aux x="740.997" y="356.208" name="Initial slow soil\ncarbon degraded land"/>
 				<alias font_style="italic" font_weight="bold" uid="27" x="1728.5" y="465.75" width="45" height="35">
 					<of>Degraded_Land</of>
 				</alias>
@@ -9828,23 +11469,11 @@ Jannes - degraded land productivity reduction is just a factor to use grassland 
 	</model>
 	<model name="forest_soil_carbon">
 		<variables>
-			<aux name="forest soil carbon initialisation" access="output" isee:autocreated="true">
-				<doc>${Internal Calibration Parameter}
-https://doi.org/10.1126/science.1201609</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>799.9965225</eqn>
-				</element>
-				<range min="400" max="950"/>
-				<units>GtC</units>
-			</aux>
 			<flow name="litter input fast\nsoil carbon mature forest">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>litter_to_soil_carbon_mature_forest*(1-litter_input_share_slow_soil_carbon_1)</eqn>
+				<eqn>litter_to_soil_carbon_mature_forest*(1-litter_input_share_slow_soil_carbon_1[selected_climate_case[Run]])</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -9860,7 +11489,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_soil_carbon_initialisation*(1-slow_soil_carbon_historic_share)*(1-young_forest_soil_carbon_historic_share)</eqn>
+				<eqn>Initial_fast_soil_carbon_mature_forest[selected_climate_case[Run]]</eqn>
 				<inflow>maturing_fast_soil_carbon</inflow>
 				<inflow>litter_input_fast_soil_carbon_mature_forest</inflow>
 				<outflow>fast_soil_carbon_out_of_mature_forest_from_land_use_transitions</outflow>
@@ -9885,7 +11514,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>litter_to_soil_carbon_mature_forest*litter_input_share_slow_soil_carbon_1</eqn>
+				<eqn>litter_to_soil_carbon_mature_forest*litter_input_share_slow_soil_carbon_1[selected_climate_case[Run]]</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -9901,7 +11530,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_soil_carbon_initialisation*slow_soil_carbon_historic_share*(1-young_forest_soil_carbon_historic_share)</eqn>
+				<eqn>Initial_slow_soil_carbon_mature_forest[selected_climate_case[Run]]</eqn>
 				<inflow>maturing_slow_soil_carbon</inflow>
 				<inflow>litter_input_slow_soil_carbon_mature_forest</inflow>
 				<outflow>slow_soil_carbon_out_of_mature_forest_from_land_use_transitions</outflow>
@@ -9912,7 +11541,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>soil_carbon_forest - Forest_soil_carbon_1980</eqn>
+				<eqn>soil_carbon_forest - initial_forest_soil_carbon</eqn>
 				<units>GtC</units>
 			</aux>
 			<aux name="litter to soil carbon mature forest" access="output" isee:autocreated="true">
@@ -9964,13 +11593,6 @@ https://doi.org/10.1126/science.1201609</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>GtC/Year</units>
 			</aux>
-			<aux name="slow soil carbon historic share" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0.35</eqn>
-				<units>dmnl</units>
-			</aux>
 			<aux name="decay rate slow\nsoil carbon 1" access="input">
 				<dimensions>
 					<dim name="Run"/>
@@ -9989,7 +11611,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_soil_carbon_initialisation*(1-young_forest_slow_soil_carbon_historic_share)*young_forest_soil_carbon_historic_share*Young_forest_soil_carbon_reduction_factor</eqn>
+				<eqn>Initial_fast_soil_carbon_young_forest[selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_fast_soil_carbon_young_forest</inflow>
 				<inflow>Fast_soil_carbon_to_young_forests_from_land_use_transitions</inflow>
 				<outflow>maturing_fast_soil_carbon</outflow>
@@ -10001,7 +11623,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>litter_to_soil_carbon_young_forest*(1-young_forest_litter_input_share_slow_soil_carbon)</eqn>
+				<eqn>litter_to_soil_carbon_young_forest*(1-young_forest_litter_input_share_slow_soil_carbon[selected_climate_case[Run]])</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -10060,7 +11682,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>forest_soil_carbon_initialisation*young_forest_slow_soil_carbon_historic_share*young_forest_soil_carbon_historic_share*Young_forest_soil_carbon_reduction_factor</eqn>
+				<eqn>Initial_slow_soil_carbon_young_forest[selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_slow_soil_carbon_young_forest</inflow>
 				<inflow>Slow_soil_carbon_to_young_forests_from_land_use_transitions</inflow>
 				<outflow>maturing_slow_soil_carbon</outflow>
@@ -10080,7 +11702,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>litter_to_soil_carbon_young_forest*young_forest_litter_input_share_slow_soil_carbon</eqn>
+				<eqn>litter_to_soil_carbon_young_forest*young_forest_litter_input_share_slow_soil_carbon[selected_climate_case[Run]]</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -10265,14 +11887,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<eqn>0.131105836332322</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="young forest slow soil\ncarbon historic share" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0.411719920422693</eqn>
-				<units>dmnl</units>
-			</aux>
-			<aux name="Forest soil carbon 1980" access="output" isee:autocreated="true">
+			<aux name="initial forest soil carbon" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -10350,6 +11965,1237 @@ https://doi.org/10.1126/science.1201609</doc>
 				<non_negative/>
 				<units>Mha</units>
 			</stock>
+			<aux name="Initial fast soil carbon young forest">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>28.1203555764</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="Initial fast soil carbon mature forest">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>297.665799463</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="Initial slow soil carbon young forest">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>21.9471788579</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="Initial slow soil carbon mature forest">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>174.286463075</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -10399,7 +13245,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="590" isee:scroll_y="540" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="4" isee:page_rows="3" isee:scroll_x="1268.33" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -10438,7 +13284,6 @@ https://doi.org/10.1126/science.1201609</doc>
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<aux x="2442.17" y="34.9167" name="forest soil carbon initialisation"/>
 				<flow label_side="bottom" x="1006.67" y="586.834" name="litter input fast\nsoil carbon mature forest">
 					<pts>
 						<pt x="1006.67" y="660.417"/>
@@ -10525,7 +13370,6 @@ https://doi.org/10.1126/science.1201609</doc>
 					<from>mature_forest_litter</from>
 					<to>litter_to_soil_carbon_mature_forest</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="2190.58" y="34.9167" name="slow soil carbon historic share"/>
 				<aux font_style="italic" font_weight="bold" x="1084.09" y="1390.21" name="decay rate slow\nsoil carbon 1"/>
 				<connector uid="14" angle="138.483">
 					<from>decay_rate_slow_soil_carbon_1</from>
@@ -10839,18 +13683,17 @@ https://doi.org/10.1126/science.1201609</doc>
 					<from>young_forest_litter_input_share_slow_soil_carbon</from>
 					<to>litter_input_slow_soil_carbon_young_forest</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="2187.5" y="114.167" name="young forest slow soil\ncarbon historic share"/>
-				<aux x="2459.5" y="532.833" name="Forest soil carbon 1980"/>
+				<aux x="2459.5" y="532.833" name="initial forest soil carbon"/>
 				<connector uid="80" angle="209.853">
 					<from>soil_carbon_young_forest</from>
-					<to>Forest_soil_carbon_1980</to>
+					<to>initial_forest_soil_carbon</to>
 				</connector>
 				<connector uid="81" angle="324.717">
 					<from>soil_carbon_mature_forest</from>
-					<to>Forest_soil_carbon_1980</to>
+					<to>initial_forest_soil_carbon</to>
 				</connector>
 				<connector uid="82" angle="92.2507">
-					<from>Forest_soil_carbon_1980</from>
+					<from>initial_forest_soil_carbon</from>
 					<to>soil_carbon_balance_forest</to>
 				</connector>
 				<aux font_style="italic" font_weight="bold" label_side="top" x="1093.25" y="1205" name="forest completing\nrecovery"/>
@@ -10949,6 +13792,27 @@ https://doi.org/10.1126/science.1201609</doc>
 					<from>Young_Forest_fast_soil_carbon_per_area</from>
 					<to>maturing_fast_soil_carbon</to>
 				</connector>
+				<aux x="1224" y="170.541" name="Initial fast soil carbon young forest"/>
+				<aux x="1044.5" y="170.541" name="Initial fast soil carbon mature forest"/>
+				<aux x="1173.34" y="1009.04" name="Initial slow soil carbon young forest"/>
+				<aux x="993.837" y="1009.04" name="Initial slow soil carbon mature forest"/>
+				<aux font_style="italic" font_weight="bold" x="1110" y="695" name="selected climate case"/>
+				<connector uid="103" angle="98.9726">
+					<from>selected_climate_case</from>
+					<to>litter_input_fast_soil_carbon_mature_forest</to>
+				</connector>
+				<connector uid="104" angle="69.7751">
+					<from>selected_climate_case</from>
+					<to>litter_input_fast_soil_carbon_young_forest</to>
+				</connector>
+				<connector uid="105" angle="291.801">
+					<from>selected_climate_case</from>
+					<to>litter_input_slow_soil_carbon_young_forest</to>
+				</connector>
+				<connector uid="106" angle="275.711">
+					<from>selected_climate_case</from>
+					<to>litter_input_slow_soil_carbon_mature_forest</to>
+				</connector>
 				<alias font_style="italic" uid="66" x="1359.17" y="221.917" width="18" height="18">
 					<of>fast_soil_carbon_forest_to_young_forest</of>
 				</alias>
@@ -11004,9 +13868,9 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grassland_litter_to_soil_carbon_grassland*(1-litter_input_share_slow_soil_carbon)</eqn>
+				<eqn>grassland_litter_to_soil_carbon_grassland*(1-litter_input_share_slow_soil_carbon[selected_climate_case[Run]])</eqn>
 				<non_negative/>
-				<units>GtC/Year</units>
+				<units>GtC/year</units>
 			</flow>
 			<flow name="Fast soil out of grassland from land use transitions">
 				<dimensions>
@@ -11014,19 +13878,8 @@ https://doi.org/10.1126/science.1201609</doc>
 				</dimensions>
 				<eqn>fast_soil_carbon_grassland_to_cropland+fast_soil_carbon_grassland_to_forest+fast_soil_carbon_grassland_to_degraded_land</eqn>
 				<non_negative/>
-				<units>GtC/Year</units>
+				<units>GtC/year</units>
 			</flow>
-			<stock name="fast soil carbon grassland">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>grassland_soil_carbon_1980*(1-slow_soil_carbon_historic_share_1)</eqn>
-				<inflow>litter_input_fast_soil_carbon_grassland</inflow>
-				<inflow>fast_soil_grassland_carbon_input_from_land_use_transitions</inflow>
-				<outflow>Fast_soil_out_of_grassland_from_land_use_transitions</outflow>
-				<outflow>Fast_soil_carbon_emissions_grassland</outflow>
-				<units>GtC</units>
-			</stock>
 			<aux name="soil carbon emissions\ngrassland GtC" access="output">
 				<dimensions>
 					<dim name="Run"/>
@@ -11038,7 +13891,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grassland_litter_to_soil_carbon_grassland*litter_input_share_slow_soil_carbon</eqn>
+				<eqn>grassland_litter_to_soil_carbon_grassland*litter_input_share_slow_soil_carbon[selected_climate_case[Run]]</eqn>
 				<non_negative/>
 				<units>GtC/Year</units>
 			</flow>
@@ -11054,7 +13907,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>grassland_soil_carbon_1980*slow_soil_carbon_historic_share_1</eqn>
+				<eqn>Initial_slow_soil_carbon_grassland[selected_climate_case[Run]]</eqn>
 				<inflow>litter_input_slow_soil_carbon_grassland</inflow>
 				<inflow>slow_soil_grassland_carbon_input_from_land_use_transitions</inflow>
 				<outflow>slow_soil_carbon_loss_grassland</outflow>
@@ -11166,13 +14019,6 @@ https://doi.org/10.1126/science.1201609</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<aux name="slow soil carbon historic share 1" access="input">
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<eqn>0.35</eqn>
-				<units>dmnl</units>
-			</aux>
 			<aux name="litter emissions grassland GtC" access="output" isee:autocreated="true">
 				<dimensions>
 					<dim name="Run"/>
@@ -11269,20 +14115,20 @@ https://doi.org/10.1126/science.1201609</doc>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>grassland_landuse_fast_soil_carbon_input</eqn>
-				<units>GtC/Year</units>
+				<units>GtC/year</units>
 			</flow>
 			<flow name="Fast soil carbon emissions grassland">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>fast_soil_carbon_grassland*decay_rate_fast_soil_carbon</eqn>
-				<units>GtC/Year</units>
+				<units>GtC/year</units>
 			</flow>
 			<aux name="soil carbon balance grassland" access="output">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>soil_carbon_grassland - grassland_soil_carbon_1980</eqn>
+				<eqn>soil_carbon_grassland - initial_grassland_soil_carbon</eqn>
 				<units>GtC</units>
 			</aux>
 			<aux name="soil carbon grassland" access="output" isee:autocreated="true">
@@ -11292,18 +14138,6 @@ https://doi.org/10.1126/science.1201609</doc>
 				<eqn>fast_soil_carbon_grassland+slow_soil_carbon_grassland</eqn>
 				<units>GtC</units>
 			</aux>
-			<aux name="grassland soil carbon 1980" access="output" isee:autocreated="true">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>330</eqn>
-				</element>
-				<range min="330" max="500"/>
-				<units>GtC</units>
-			</aux>
 			<flow name="Slow soil carbon emissions grassland">
 				<dimensions>
 					<dim name="Run"/>
@@ -11311,6 +14145,646 @@ https://doi.org/10.1126/science.1201609</doc>
 				<eqn>slow_soil_carbon_grassland*decay_rate_slow_soil_carbon</eqn>
 				<units>GtC/Year</units>
 			</flow>
+			<aux name="initial grassland soil carbon" access="output" isee:autocreated="true">
+				<doc>${Internal Calibration Parameter}
+</doc>
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Initial_fast_soil_carbon_grassland[selected_climate_case[Run]] + Initial_slow_soil_carbon_grassland[selected_climate_case[Run]]</eqn>
+				<range min="330" max="500"/>
+				<units>GtC</units>
+			</aux>
+			<aux name="Initial fast soil carbon grassland">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>178.38373802</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="Initial slow soil carbon grassland">
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<element subscript="1">
+					<eqn>111.584448188</eqn>
+				</element>
+				<element subscript="2">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="3">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="4">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="5">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="6">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="7">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="8">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="9">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="10">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="11">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="12">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="13">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="14">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="15">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="16">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="17">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="18">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="19">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="20">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="21">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="22">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="23">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="24">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="25">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="26">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="27">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="28">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="29">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="30">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="31">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="32">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="33">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="34">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="35">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="36">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="37">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="38">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="39">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="40">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="41">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="42">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="43">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="44">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="45">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="46">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="47">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="48">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="49">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="50">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="51">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="52">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="53">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="54">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="55">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="56">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="57">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="58">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="59">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="60">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="61">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="62">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="63">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="64">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="65">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="66">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="67">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="68">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="69">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="70">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="71">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="72">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="73">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="74">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="75">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="76">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="77">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="78">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="79">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="80">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="81">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="82">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="83">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="84">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="85">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="86">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="87">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="88">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="89">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="90">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="91">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="92">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="93">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="94">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="95">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="96">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="97">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="98">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="99">
+					<eqn>10</eqn>
+				</element>
+				<element subscript="100">
+					<eqn>10</eqn>
+				</element>
+				<units>GtC</units>
+			</aux>
+			<aux name="selected climate case" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
+			<stock name="fast soil carbon grassland">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>Initial_fast_soil_carbon_grassland[selected_climate_case[Run]]</eqn>
+				<inflow>litter_input_fast_soil_carbon_grassland</inflow>
+				<inflow>fast_soil_grassland_carbon_input_from_land_use_transitions</inflow>
+				<outflow>Fast_soil_out_of_grassland_from_land_use_transitions</outflow>
+				<outflow>Fast_soil_carbon_emissions_grassland</outflow>
+				<units>GtC</units>
+			</stock>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -11360,7 +14834,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="3" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" zoom="60" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -11411,7 +14885,6 @@ https://doi.org/10.1126/science.1201609</doc>
 						<pt x="846.92" y="400.75"/>
 					</pts>
 				</flow>
-				<stock label_side="top" x="1008.17" y="403.75" name="fast soil carbon grassland"/>
 				<aux x="426.241" y="652.054" name="soil carbon emissions\ngrassland GtC"/>
 				<flow x="1007" y="745.795" name="litter input slow soil carbon grassland">
 					<pts>
@@ -11426,12 +14899,12 @@ https://doi.org/10.1126/science.1201609</doc>
 					</pts>
 				</flow>
 				<stock x="1007" y="855.09" name="slow soil carbon grassland"/>
-				<connector uid="1" angle="296.612">
+				<connector uid="1" angle="295.035">
 					<from>slow_soil_carbon_grassland</from>
 					<to>Slow_soil_carbon_emissions_grassland</to>
 				</connector>
 				<aux x="1118.34" y="622.5" name="grassland litter to soil carbon grassland"/>
-				<connector uid="2" angle="134.734">
+				<connector uid="2" angle="134.735">
 					<from>grassland_litter_to_soil_carbon_grassland</from>
 					<to>litter_input_fast_soil_carbon_grassland</to>
 				</connector>
@@ -11441,11 +14914,7 @@ https://doi.org/10.1126/science.1201609</doc>
 				</connector>
 				<aux x="673.083" y="314.625" name="fraction grassland to cropland"/>
 				<aux x="745.045" y="353" name="fast soil carbon\ngrassland to cropland"/>
-				<connector uid="4" angle="156.541">
-					<from>fast_soil_carbon_grassland</from>
-					<to>fast_soil_carbon_grassland_to_cropland</to>
-				</connector>
-				<connector uid="5" angle="351.86">
+				<connector uid="5" angle="345.395">
 					<from>fast_soil_carbon_grassland_to_cropland</from>
 					<to>Fast_soil_out_of_grassland_from_land_use_transitions</to>
 				</connector>
@@ -11523,7 +14992,6 @@ https://doi.org/10.1126/science.1201609</doc>
 					<from>clearing_grassland</from>
 					<to>fraction_grassland_to_cropland</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="1879.57" y="314.625" name="slow soil carbon historic share 1"/>
 				<aux x="1341.5" y="635.5" name="litter emissions grassland GtC"/>
 				<connector uid="22" angle="332.201">
 					<from>grassland_litter</from>
@@ -11559,10 +15027,6 @@ https://doi.org/10.1126/science.1201609</doc>
 					<to>fraction_grassland_to_forest</to>
 				</connector>
 				<aux x="878.628" y="263" name="fast soil carbon grassland to forest"/>
-				<connector uid="29" angle="132.625">
-					<from>fast_soil_carbon_grassland</from>
-					<to>fast_soil_carbon_grassland_to_forest</to>
-				</connector>
 				<connector uid="30" angle="273.85">
 					<from>fast_soil_carbon_grassland_to_forest</from>
 					<to>Fast_soil_out_of_grassland_from_land_use_transitions</to>
@@ -11599,10 +15063,6 @@ https://doi.org/10.1126/science.1201609</doc>
 				<aux x="807.67" y="307.583" name="fast soil carbon\ngrassland to degraded land"/>
 				<connector uid="38" angle="320.531">
 					<from>fraction_grassland_to_degraded_land</from>
-					<to>fast_soil_carbon_grassland_to_degraded_land</to>
-				</connector>
-				<connector uid="39" angle="139.686">
-					<from>fast_soil_carbon_grassland</from>
 					<to>fast_soil_carbon_grassland_to_degraded_land</to>
 				</connector>
 				<connector uid="40" angle="332.962">
@@ -11646,10 +15106,6 @@ https://doi.org/10.1126/science.1201609</doc>
 						<pt x="1007" y="234"/>
 					</pts>
 				</flow>
-				<connector uid="46" angle="62.3961">
-					<from>fast_soil_carbon_grassland</from>
-					<to>Fast_soil_carbon_emissions_grassland</to>
-				</connector>
 				<aux x="1861.57" y="455.583" name="soil carbon balance grassland"/>
 				<aux label_side="right" x="1861.57" y="537.792" name="soil carbon grassland"/>
 				<connector uid="47" angle="98.6972">
@@ -11661,17 +15117,6 @@ https://doi.org/10.1126/science.1201609</doc>
 						<alias uid="49"/>
 					</from>
 					<to>soil_carbon_grassland</to>
-				</connector>
-				<connector uid="50" angle="119.527">
-					<from>
-						<alias uid="51"/>
-					</from>
-					<to>soil_carbon_grassland</to>
-				</connector>
-				<aux x="2023.33" y="455.583" name="grassland soil carbon 1980"/>
-				<connector uid="52" angle="180">
-					<from>grassland_soil_carbon_1980</from>
-					<to>soil_carbon_balance_grassland</to>
 				</connector>
 				<flow x="1011" y="963.795" name="Slow soil carbon emissions grassland">
 					<pts>
@@ -11691,9 +15136,57 @@ https://doi.org/10.1126/science.1201609</doc>
 					</from>
 					<to>soil_carbon_emissions_grassland_GtC</to>
 				</connector>
-				<alias font_style="italic" uid="51" x="1909.17" y="609.167" width="45" height="35">
-					<of>fast_soil_carbon_grassland</of>
-				</alias>
+				<aux x="2024.33" y="455.583" name="initial grassland soil carbon"/>
+				<connector uid="52" angle="180">
+					<from>initial_grassland_soil_carbon</from>
+					<to>soil_carbon_balance_grassland</to>
+				</connector>
+				<aux x="2201.67" y="348.041" name="Initial fast soil carbon grassland"/>
+				<aux x="2201.67" y="445.541" name="Initial slow soil carbon grassland"/>
+				<connector uid="57" angle="231.163">
+					<from>Initial_fast_soil_carbon_grassland</from>
+					<to>initial_grassland_soil_carbon</to>
+				</connector>
+				<connector uid="58" angle="183.241">
+					<from>Initial_slow_soil_carbon_grassland</from>
+					<to>initial_grassland_soil_carbon</to>
+				</connector>
+				<aux font_style="italic" font_weight="bold" x="1978" y="370" name="selected climate case"/>
+				<connector uid="59" angle="298.429">
+					<from>selected_climate_case</from>
+					<to>initial_grassland_soil_carbon</to>
+				</connector>
+				<connector uid="60" angle="198.435">
+					<from>selected_climate_case</from>
+					<to>litter_input_fast_soil_carbon_grassland</to>
+				</connector>
+				<connector uid="61" angle="221.634">
+					<from>selected_climate_case</from>
+					<to>litter_input_slow_soil_carbon_grassland</to>
+				</connector>
+				<stock label_side="top" x="1008.17" y="403.75" name="fast soil carbon grassland"/>
+				<connector uid="50" angle="119.527">
+					<from>
+						<alias uid="51"/>
+					</from>
+					<to>soil_carbon_grassland</to>
+				</connector>
+				<connector uid="46" angle="62.3961">
+					<from>fast_soil_carbon_grassland</from>
+					<to>Fast_soil_carbon_emissions_grassland</to>
+				</connector>
+				<connector uid="39" angle="139.686">
+					<from>fast_soil_carbon_grassland</from>
+					<to>fast_soil_carbon_grassland_to_degraded_land</to>
+				</connector>
+				<connector uid="29" angle="132.625">
+					<from>fast_soil_carbon_grassland</from>
+					<to>fast_soil_carbon_grassland_to_forest</to>
+				</connector>
+				<connector uid="4" angle="156.541">
+					<from>fast_soil_carbon_grassland</from>
+					<to>fast_soil_carbon_grassland_to_cropland</to>
+				</connector>
 				<alias font_style="italic" uid="49" x="1785.83" y="605" width="45" height="35">
 					<of>slow_soil_carbon_grassland</of>
 				</alias>
@@ -11713,6 +15206,9 @@ https://doi.org/10.1126/science.1201609</doc>
 				<alias color="blue" background="white" font_style="italic" uid="54" x="500.333" y="577.5" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>Fast_soil_carbon_emissions_grassland</of>
+				</alias>
+				<alias font_style="italic" uid="51" x="1909.17" y="609.167" width="45" height="35">
+					<of>fast_soil_carbon_grassland</of>
 				</alias>
 			</view>
 		</views>
@@ -11788,18 +15284,6 @@ https://doi.org/10.1126/science.1201609</doc>
 				<range min="0.01" max="0.02"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="grassland slow soil carbon historic share" access="output">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.4</eqn>
-				</element>
-				<range min="0.3" max="0.4"/>
-				<units>dmnl</units>
-			</aux>
 			<aux name="climate response term lpjml">
 				<doc>Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., ... &amp; Waha, K. (2018). LPJmL4–a dynamic global vegetation model with managed land–Part 1: Model description. Geoscientific Model Development, 11(4), 1343-1375. https://doi.org/10.5194/gmd-11-429-2018</doc>
 				<dimensions>
@@ -11868,18 +15352,6 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<range min="0.01" max="0.02"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="cropland slow soil\ncarbon historic share" access="output">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.374742551</eqn>
-				</element>
-				<range min="0.3" max="0.4"/>
-				<units>dmnl</units>
-			</aux>
 			<aux name="young forest litter input share\nslow soil carbon" access="output">
 				<doc>${Internal Calibration Parameter}
 </doc>
@@ -11892,18 +15364,6 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<range min="0.01" max="0.025"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="young forest slow soil\ncarbon historic share" access="output">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.3</eqn>
-				</element>
-				<range min="0.3" max="0.4"/>
-				<units>dmnl</units>
-			</aux>
 			<aux name="mature forest litter input share\nslow soil carbon" access="output">
 				<doc>${Internal Calibration Parameter}
 </doc>
@@ -11914,18 +15374,6 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 					<eqn>0.02136525</eqn>
 				</element>
 				<range min="0.015" max="0.025"/>
-				<units>dmnl</units>
-			</aux>
-			<aux name="mature forest slow soil\ncarbon historic share" access="output">
-				<doc>${Internal Calibration Parameter}
-</doc>
-				<dimensions>
-					<dim name="Run"/>
-				</dimensions>
-				<element subscript="1">
-					<eqn>0.399614252</eqn>
-				</element>
-				<range min="0.3" max="0.4"/>
 				<units>dmnl</units>
 			</aux>
 		</variables>
@@ -11977,7 +15425,7 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="3" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="3" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -12035,7 +15483,6 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 				</connector>
 				<aux x="565.08" y="34.84" name="decay rate litter carbon"/>
 				<aux x="983.167" y="64.5067" name="grassland litter input share\nslow soil carbon"/>
-				<aux x="995.124" y="135.333" name="grassland slow soil carbon historic share"/>
 				<aux x="456" y="380.5" name="climate response term lpjml"/>
 				<aux x="547.08" y="623" name="e0"/>
 				<connector uid="4" angle="147.804">
@@ -12080,11 +15527,8 @@ Schaphoff, S., von Bloh, W., Rammig, A., Thonicke, K., Biemans, H., Forkel, M., 
 					<to>climate_response_term_lpjml</to>
 				</connector>
 				<aux x="1171.5" y="61.1734" name="cropland litter input share\nslow soil carbon"/>
-				<aux x="1165.12" y="135.333" name="cropland slow soil\ncarbon historic share"/>
 				<aux x="1371.62" y="61.1734" name="young forest litter input share\nslow soil carbon"/>
-				<aux x="1371.62" y="134.5" name="young forest slow soil\ncarbon historic share"/>
 				<aux x="1582" y="61.1734" name="mature forest litter input share\nslow soil carbon"/>
-				<aux x="1578.96" y="138.5" name="mature forest slow soil\ncarbon historic share"/>
 			</view>
 		</views>
 	</model>
@@ -12266,7 +15710,7 @@ litter_to_soil_carbon_mature_forest + litter_to_soil_carbon_young_forest + grass
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="768" page_height="576" isee:page_cols="2" isee:page_rows="2" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="2" isee:page_rows="2" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>

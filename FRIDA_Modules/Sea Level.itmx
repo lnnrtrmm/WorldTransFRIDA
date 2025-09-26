@@ -243,7 +243,7 @@ For a python version of the code and all references see: https://github.com/lnnr
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>0</eqn>
+				<eqn>initial_sea_level_anomaly_from_GrIS_SMB[selected_climate_case]</eqn>
 				<inflow>yearly_SLR_from_GrIS_SMB</inflow>
 				<units>metre</units>
 			</stock>
@@ -269,7 +269,7 @@ Wong, T. E., Bakker, A. M. R., Ruckert, K., Applegate, P., Slangen, A. B. A., an
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>AntIS_max_contribution_to_sea_level_anomaly * (1.0 - AntIS_Volume/AntIS_initial_volume) + initial_sea_level_anomaly_from_AntIS</eqn>
+				<eqn>AntIS_max_contribution_to_sea_level_anomaly * (1.0 - AntIS_Volume/AntIS_initial_volume[selected_climate_case_2]) + initial_sea_level_anomaly_from_AntIS[selected_climate_case_2]</eqn>
 				<units>metre</units>
 			</aux>
 			<stock name="Sea level anomaly from mountain glaciers" access="output" isee:autocreated="true">
@@ -285,7 +285,7 @@ Wigley and Raper (2005): &quot;Extended scenarios for glacier melt due to anthro
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>initial_sea_level_anomaly_from_MG</eqn>
+				<eqn>initial_sea_level_anomaly_from_MG[selected_climate_case]</eqn>
 				<inflow>yearly_SLR_from_mountain_glaciers</inflow>
 				<units>metre</units>
 			</stock>
@@ -343,7 +343,7 @@ Wigley and Raper (2005): &quot;Extended scenarios for glacier melt due to anthro
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>initial_thermosteric_sea_level_anomaly</eqn>
+				<eqn>initial_thermosteric_sea_level_anomaly[selected_climate_case]</eqn>
 				<inflow>yearly_thermosteric_sea_level_rise</inflow>
 				<units>metre</units>
 			</stock>
@@ -408,7 +408,7 @@ Nauels et al. (2017): &quot;Synthesizing long-term sea level rise projections â€
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>initial_sea_level_anomaly_from_GrIS+Sea_level_anomaly_from_GrIS_SMB+Sea_level_anomaly_from_GrIS_DIS</eqn>
+				<eqn>Sea_level_anomaly_from_GrIS_SMB+Sea_level_anomaly_from_GrIS_DIS</eqn>
 				<units>metre</units>
 			</aux>
 			<aux name="nu GrIS SMB">
@@ -442,7 +442,7 @@ Nauels et al. (2017): &quot;Synthesizing long-term sea level rise projections â€
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>0</eqn>
+				<eqn>initial_sea_level_anomaly_from_GrIS_DIS[selected_climate_case]</eqn>
 				<inflow>yearly_SLR_from_GrIS_DIS</inflow>
 				<units>metre</units>
 			</stock>
@@ -775,7 +775,7 @@ ELSE
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>AntIS_initial_volume</eqn>
+				<eqn>AntIS_initial_volume[selected_climate_case]</eqn>
 				<inflow>yearly_change_in_AntIS_Volume</inflow>
 				<units>metre^3</units>
 			</stock>
@@ -783,7 +783,7 @@ ELSE
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
-				<eqn>reference_AntIS_radius</eqn>
+				<eqn>AntIS_initial_radius[selected_climate_case]</eqn>
 				<inflow>yearly_change_in_AntIS_Radius</inflow>
 				<units>metre</units>
 			</stock>
@@ -810,6 +810,9 @@ ELSE
 			<aux name="AntIS initial volume">
 				<doc>${External Parameter,No Sensi}
 </doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
 				<eqn>24791700000000000</eqn>
 				<units>metre^3</units>
 			</aux>
@@ -838,11 +841,11 @@ ELSE
 				<eqn>1</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="initial sea level anomaly from GrIS">
+			<aux name="initial sea level\nanomaly from GrIS SMB">
 				<doc>${External Parameter,No Sensi}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
 				<eqn>-0.0028</eqn>
 				<range min="-0.01" max="0"/>
@@ -852,7 +855,7 @@ ELSE
 				<doc>${External Parameter,No Sensi}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
 				<eqn>-0.00182</eqn>
 				<range min="-0.005" max="0.01"/>
@@ -862,7 +865,7 @@ ELSE
 				<doc>${External Parameter,No Sensi}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
 				<eqn>-0.0035</eqn>
 				<range min="-0.005" max="-0.001"/>
@@ -872,7 +875,7 @@ ELSE
 				<doc>${External Parameter,No Sensi}
 </doc>
 				<dimensions>
-					<dim name="Run"/>
+					<dim name="ClimateCase"/>
 				</dimensions>
 				<eqn>-0.008</eqn>
 				<range min="-0.015" max="-0.005"/>
@@ -896,7 +899,7 @@ ELSE
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF Antarctic_air_temperature &gt; MICI_AntIS_critical_Tant THEN
-Include_MICI_behaviour * MICI_AntIS_disintegration * AntIS_initial_volume / AntIS_max_contribution_to_sea_level_anomaly ELSE 0</eqn>
+Include_MICI_behaviour * MICI_AntIS_disintegration * AntIS_initial_volume[ClimateCase] / AntIS_max_contribution_to_sea_level_anomaly ELSE 0</eqn>
 				<units>metre^3/year</units>
 			</aux>
 			<aux name="MICI AntIS\ndisintegration">
@@ -1263,6 +1266,39 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>deg C</units>
 			</aux>
+			<aux name="initial sea level\nanomaly from GrIS DIS">
+				<doc>${External Parameter,No Sensi}
+</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<eqn>-0.0028</eqn>
+				<range min="-0.01" max="0"/>
+				<units>metre</units>
+			</aux>
+			<aux name="AntIS initial radius">
+				<doc>${External Parameter,No Sensi}
+</doc>
+				<dimensions>
+					<dim name="ClimateCase"/>
+				</dimensions>
+				<eqn>24791700000000000</eqn>
+				<units>metre^3</units>
+			</aux>
+			<aux name="selected climate case 1" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
+			<aux name="selected climate case 2" access="input">
+				<dimensions>
+					<dim name="Run"/>
+				</dimensions>
+				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
+				<units>dmnl</units>
+			</aux>
 		</variables>
 		<views>
 			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
@@ -1355,7 +1391,52 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="7" isee:page_rows="4" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="7" isee:page_rows="4" zoom="80" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1991,10 +2072,12 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>AntIS_dSL</to>
 				</connector>
-				<aux x="2041.01" y="909.935" width="18" height="18" name="UNIT per year"/>
-				<aux label_side="left" label_angle="135" x="947.547" y="816.25" name="AntIS initial volume"/>
-				<connector uid="283" angle="182.828">
-					<from>AntIS_initial_volume</from>
+				<aux x="2050.01" y="918.935" name="UNIT per year"/>
+				<aux label_side="bottom" x="526.286" y="181.41" name="AntIS initial volume"/>
+				<connector uid="283" angle="163.142">
+					<from>
+						<alias uid="587"/>
+					</from>
 					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
 				</connector>
 				<connector uid="284" angle="143.841">
@@ -2006,7 +2089,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_max_contribution_to_sea_level_anomaly</from>
 					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
 				</connector>
-				<aux x="2041.01" y="857.17" width="18" height="18" name="UNIT per m"/>
+				<aux x="2050.01" y="866.17" name="UNIT per m"/>
 				<connector uid="294" angle="90">
 					<from>
 						<alias uid="295"/>
@@ -2099,22 +2182,16 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 						</plot>
 					</graph>
 				</stacked_container>
-				<aux label_side="bottom" x="360.429" y="185.904" name="initial sea level anomaly from GrIS"/>
-				<connector uid="366" angle="283.968">
-					<from>
-						<alias uid="583"/>
-					</from>
-					<to>Sea_level_anomaly_from_Greenland_Ice_Sheet</to>
-				</connector>
-				<aux x="447.119" y="187.778" name="initial sea level anomaly from AntIS"/>
+				<aux label_side="bottom" x="314.807" y="190.214" name="initial sea level\nanomaly from GrIS SMB"/>
+				<aux x="526.286" y="127.333" name="initial sea level anomaly from AntIS"/>
 				<connector uid="367" angle="42.0986">
 					<from>
 						<alias uid="584"/>
 					</from>
 					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
 				</connector>
-				<aux x="486.14" y="124.714" name="initial sea level anomaly from MG"/>
-				<aux x="319.925" y="124.714" name="initial thermosteric sea level anomaly"/>
+				<aux x="405.64" y="117.333" name="initial sea level anomaly from MG"/>
+				<aux x="329.092" y="117.333" name="initial thermosteric sea level anomaly"/>
 				<aux label_side="left" label_angle="135" x="135.5" y="945.403" name="MG temperature\nnonlinearity"/>
 				<connector uid="368" angle="322.329">
 					<from>MG_temperature_nonlinearity</from>
@@ -2133,8 +2210,10 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>MICI_AntIS_disintegration</from>
 					<to>AntIS_disintegration_volume_through_MICI</to>
 				</connector>
-				<connector uid="379" angle="10.8833">
-					<from>AntIS_initial_volume</from>
+				<connector uid="379" angle="0">
+					<from>
+						<alias uid="587"/>
+					</from>
 					<to>AntIS_disintegration_volume_through_MICI</to>
 				</connector>
 				<connector uid="380" angle="270">
@@ -2205,13 +2284,13 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>Change_in_Deep_Ocean_Temperature</from>
 					<to>net_downward_radiative_flux</to>
 				</connector>
-				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="493" x="43.7433" y="29.3011" width="271.189" height="19.3123">Scale factors for parametric uncertainty
+				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="493" x="37.91" y="15.1344" width="271.189" height="19.3123">Scale factors for parametric uncertainty
 </text_box>
-				<text_box uid="494" x="20.1686" y="50.111" width="307.97" height="20.8333">-&gt; Vary between 0 and 1 to match IPCC uncertainty range</text_box>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="68.8334" y="99.111" name="scale factor thermosteric SLR"/>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="68.8334" y="133.778" name="scale factor mountain glaciers"/>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="68.8334" y="169.778" name="scale factor Greenland ice sheet"/>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="68.8334" y="203.904" name="scale factor Antarctic ice sheet"/>
+				<text_box uid="494" x="14.3353" y="35.9443" width="307.97" height="20.8333">-&gt; Vary between 0 and 1 to match IPCC uncertainty range</text_box>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="63.0001" y="84.9443" name="scale factor thermosteric SLR"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="63.0001" y="119.611" name="scale factor mountain glaciers"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="63.0001" y="155.611" name="scale factor Greenland ice sheet"/>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="63.0001" y="189.737" name="scale factor Antarctic ice sheet"/>
 				<connector uid="495" angle="310.993">
 					<from>
 						<alias uid="496"/>
@@ -2275,7 +2354,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>Sea_level_anomaly_from_GrIS_DIS</from>
 					<to>Sea_level_anomaly_from_Greenland_Ice_Sheet</to>
 				</connector>
-				<flow x="1019.59" y="445.778" width="18" height="18" name="yearly SLR from GrIS DIS">
+				<flow x="1028.59" y="454.778" name="yearly SLR from GrIS DIS">
 					<pts>
 						<pt x="1169.17" y="454.778"/>
 						<pt x="900.007" y="454.778"/>
@@ -2453,11 +2532,9 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</pts>
 				</flow>
 				<aux x="266.223" y="1586.45" name="Initial water storage from water impoundment"/>
-				<aux x="405.429" y="124.714" name="initial sea level anomaly from LWS"/>
-				<connector uid="553" angle="7.02127">
-					<from>
-						<alias uid="586"/>
-					</from>
+				<aux x="108.98" y="1332.96" name="initial sea level anomaly from LWS"/>
+				<connector uid="553" angle="5.49869">
+					<from>initial_sea_level_anomaly_from_LWS</from>
 					<to>Sea_level_anomaly_from_LWS</to>
 				</connector>
 				<aux x="284.223" y="1465.63" name="Sea level anomaly from water impoundment"/>
@@ -2497,7 +2574,15 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>Surface_Temperature_Anomaly</from>
 					<to>T_anomaly_for_SLR</to>
 				</connector>
-				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="585" x="332.14" y="70.9443" width="199.833" height="39.23">Initialisation to match an anomaly of 0 in 1993</text_box>
+				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="585" x="328.139" y="63.444" width="224" height="39.23">Initialisation from FRIDA-Clim</text_box>
+				<aux label_side="bottom" x="408.974" y="190.214" name="initial sea level\nanomaly from GrIS DIS"/>
+				<aux label_side="bottom" x="526.286" y="231.778" name="AntIS initial radius"/>
+				<aux font_style="italic" font_weight="bold" x="683.333" y="181.41" name="selected climate case 1"/>
+				<aux font_style="italic" font_weight="bold" x="640.833" y="819.167" name="selected climate case 2"/>
+				<connector uid="588" angle="7.94347">
+					<from>selected_climate_case_2</from>
+					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
+				</connector>
 				<alias font_style="italic" label_side="top" uid="151" x="233.953" y="984.278" width="18" height="18">
 					<of>T_anomaly_for_SLR</of>
 				</alias>
@@ -2612,14 +2697,11 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<alias font_style="italic" uid="547" x="953.709" y="1257.88" width="16.75" height="16.75">
 					<of>Total_global_sea_level_anomaly</of>
 				</alias>
-				<alias font_style="italic" uid="583" x="740" y="282.333" width="18" height="18">
-					<of>initial_sea_level_anomaly_from_GrIS</of>
-				</alias>
 				<alias font_style="italic" uid="584" x="704.667" y="861.667" width="18" height="18">
 					<of>initial_sea_level_anomaly_from_AntIS</of>
 				</alias>
-				<alias font_style="italic" uid="586" x="130.146" y="1316.67" width="18" height="18">
-					<of>initial_sea_level_anomaly_from_LWS</of>
+				<alias font_style="italic" uid="587" x="939.333" y="803.5" width="18" height="18">
+					<of>AntIS_initial_volume</of>
 				</alias>
 			</view>
 		</views>
