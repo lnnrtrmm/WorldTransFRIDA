@@ -5,7 +5,7 @@
 		<name>Sea Level</name>
 		<uuid>656dacef-005e-41a3-aedc-d19f6fd6e9f6</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="3.8" isee:build_number="3578" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="3.8.1" isee:build_number="3632" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<sim_specs isee:sim_duration="0" isee:run_prefix="Run" isee:simulation_delay="0" isee:restore_on_start="false" isee:save_interval="1" method="RK4" time_units="Year" isee:instantaneous_flows="false" isee:ignore_module_errors="false" isee:strict_units="false" isee:loop_scores="false" isee:loop_exhaustive_allowed="1000">
 		<start>1980</start>
@@ -16,7 +16,7 @@
 		<dim name="ClimateCase" size="100"/>
 		<dim name="Run" size="1"/>
 	</dimensions>
-	<isee:prefs saved_runs="100" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rerun_on_structure_change="false" rifp="true">
+	<isee:prefs saved_runs="5" keep="false" show_module_prefix="true" live_update_on_drag="true" show_restore_buttons="false" layer="model" isee:design="Deluxe Prev-Next Blue Green Pastel" isee:design_custom="false" interface_secure_mode="true" interface_scale_ui="true" interface_max_page_width="10000" interface_max_page_height="10000" interface_min_page_width="0" interface_min_page_height="0" rifp="true">
 		<isee:ignored_words>
 			<isee:ignored_word>WolrdTrans</isee:ignored_word>
 			<isee:ignored_word>WorldTrans</isee:ignored_word>
@@ -1310,7 +1310,52 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="7" isee:page_rows="4" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
+				<text_box color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:loop_indicator color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<numeric_display color="white" background="white" font_size="12pt" border_width="thin" border_style="solid" isee:transparent="false" isee:show_divider="true" isee:show_bounding_box="true" label_side="left"/>
+				<graph color="black" background="white" font_size="12pt" axis_color="#666666" grid_color="#C8C8C8" isee:graph_area_color="white" legend_position="bottom" isee:transparent="false" isee:hide_border="false" axis_title_font_style="normal" axis_title_font_weight="normal" axis_title_text_decoration="none" axis_title_text_align="center" axis_title_vertical_text_align="center" axis_title_font_color="black" axis_title_font_family="Arial" axis_title_font_size="12pt" axis_title_text_padding="2" axis_title_text_border_color="black" axis_title_text_border_width="thin" axis_title_text_border_style="none" axis_label_font_style="normal" axis_label_font_weight="normal" axis_label_text_decoration="none" axis_label_text_align="center" axis_label_vertical_text_align="center" axis_label_font_color="black" axis_label_font_family="Arial" axis_label_font_size="9pt" axis_label_text_padding="2" axis_label_text_border_color="black" axis_label_text_border_width="thin" axis_label_text_border_style="none">
+					<isee:series_styles>
+						<isee:series_style color="blue" thickness="1"/>
+						<isee:series_style color="red" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="fuchsia" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="#008F44" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF7F00" thickness="1"/>
+						<isee:series_style color="#7F00FF" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#0CA0FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="lime" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#FF007F" thickness="1"/>
+						<isee:series_style color="aqua" thickness="1" pen_style="dot_dashed"/>
+						<isee:series_style color="#F586FF" thickness="1" pen_style="dotted"/>
+						<isee:series_style color="black" thickness="1" pen_style="dashed"/>
+						<isee:series_style color="#C8C8C8" thickness="1"/>
+					</isee:series_styles>
+				</graph>
+				<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="instantaneous" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+				<button color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595"/>
+				<isee:annotation color="black" background="#E0E0E0" font_size="12pt" border_width="thin" border_style="solid" transparent="false" corner_radius="0" isee:flat="false" icon_side="top" isee:highlight_on_hover="false" isee:highlight_color="#959595" popup_corner_radius="0" popup_background_color="#FFFECF"/>
+				<slider color="#66CC66" background="#E0E0E0" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" vertical="false" isee:fancy_appearance="false" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:dual_slider color="#66CC66" background="silver" font_size="12pt" num_ticks="3" label_side="top" wrap_title="true" isee:show_hover_tip="when_deciding" input_expands="true" input_width="100"/>
+				<isee:sim_speed_slider color="black" background="white"/>
+				<isee:time_slider color="#E95F74" background="silver"/>
+				<isee:pie_input color="black" background="white" font_size="12pt" legend_position="bottom" isee:transparent="false"/>
+				<knob color="#66CC66" background="#E0E0E0" font_size="12pt" label_side="bottom" wrap_title="true"/>
+				<numeric_input color="black" background="#E0E0E0" font_size="12pt" label_side="left" wrap_title="true" input_expands="false" input_width="100"/>
+				<switch color="black" background="#E0E0E0" font_size="12pt" label_side="top" wrap_title="true" isee:appearance="switch" isee:on_color="green"/>
+				<options color="black" background="white" appearance="radio-buttons" arrangement="vertical"/>
+				<graphical_input color="black" background="#E0E0E0" font_size="12pt" isee:show_hover_tip="true"/>
+				<group_input color="black" background="#E0E0E0" font_size="12pt"/>
+				<lamp color="black" background="white" font_size="9pt"/>
+				<gauge color="black" background="white" font_size="9pt" needle_color="#F09F72" bar_color="#EEEEEE" bar_progress_color="black" appearance="radial" num_major_ticks="11" num_minor_ticks="11" show_numeric_value="true"/>
+				<isee:spatial_map color="black" background="white" font_size="12pt"/>
+				<isee:animation_object color="black" background="white" font_size="12pt"/>
+				<isee:navigation_widget color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" padding="6 8" border_color="#999999" border_width="thin" border_style="solid" item_spacing="6" appearance="tabs" corner_radius="4" selected_item_color="black" selected_item_background="white" item_background="#DDDDDD" transparent_bg="false"/>
+				<isee:shape color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid" opacity="1" transparent_background="true" corner_radius="1"/>
+				<isee:selector color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt"/>
+				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
+				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
+			</style>
+			<view isee:show_pages="false" background="white" page_width="1091" page_height="761" isee:page_cols="7" isee:page_rows="4" zoom="120" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="9pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1349,27 +1394,27 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</graph>
 					<table color="black" background="#E0E0E0" text_align="right" font_size="12pt" orientation="vertical" wrap_text="false" isee:auto_fit="true" isee:use_alternate_row_colors="false" isee:unlimited_table_length="false" blank_column_width="80" column_width="160" interval="1" report_balances="beginning" report_flows="summed" header_font_style="normal" header_font_weight="normal" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="12pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 				</style>
-				<aux label_side="center" x="512.494" y="542.167" width="65.9167" height="65.9167" name="Total global\nsea level\nanomaly"/>
-				<stock label_side="top" x="870.84" y="208.071" name="Sea level anomaly from GrIS SMB"/>
-				<flow x="1023.73" y="208.071" name="yearly SLR from\nGrIS SMB">
+				<aux label_side="center" x="519.161" y="668.834" width="65.9167" height="65.9167" name="Total global\nsea level\nanomaly"/>
+				<stock label_side="top" x="885.84" y="301.404" name="Sea level anomaly from GrIS SMB"/>
+				<flow x="1038.73" y="301.404" name="yearly SLR from\nGrIS SMB">
 					<pts>
-						<pt x="1166.12" y="208.071"/>
-						<pt x="893.34" y="208.071"/>
+						<pt x="1181.12" y="301.404"/>
+						<pt x="908.34" y="301.404"/>
 					</pts>
 				</flow>
-				<aux label_side="top" x="722.283" y="686.065" width="27.2857" height="27.2857" name="Sea level anomaly from\nAntarctic Ice Sheet"/>
+				<aux label_side="top" x="728.95" y="812.732" width="27.2857" height="27.2857" name="Sea level anomaly from\nAntarctic Ice Sheet"/>
 				<connector uid="127" angle="146.812">
 					<from>Sea_level_anomaly_from_Antarctic_Ice_Sheet</from>
 					<to>Total_global_sea_level_anomaly</to>
 				</connector>
-				<stock label_side="bottom" x="288.425" y="913.474" name="Sea level anomaly from mountain glaciers"/>
-				<flow x="179.338" y="919" name="yearly SLR from mountain glaciers">
+				<stock label_side="bottom" x="295.092" y="1040.14" name="Sea level anomaly from mountain glaciers"/>
+				<flow x="186.004" y="1045.67" name="yearly SLR from mountain glaciers">
 					<pts>
-						<pt x="80.75" y="919"/>
-						<pt x="265.925" y="919"/>
+						<pt x="87.4167" y="1045.67"/>
+						<pt x="272.592" y="1045.67"/>
 					</pts>
 				</flow>
-				<aux label_side="bottom" x="596.786" y="479.944" name="T anomaly for SLR"/>
+				<aux label_side="bottom" x="603.453" y="606.611" name="T anomaly for SLR"/>
 				<connector uid="128" angle="153.199">
 					<from>Sea_level_anomaly_from_mountain_glaciers</from>
 					<to>yearly_SLR_from_mountain_glaciers</to>
@@ -1378,9 +1423,9 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>Sea_level_anomaly_from_mountain_glaciers</from>
 					<to>Total_global_sea_level_anomaly</to>
 				</connector>
-				<aux color="blue" label_side="left" x="114.479" y="1012.25" name="MG Tdep rate min"/>
-				<aux label_side="right" label_angle="45" x="179.338" y="836.736" name="MG max sea level anomaly"/>
-				<aux color="blue" label_side="left" label_angle="135" x="120.313" y="868.321" name="MG volume\nnonlinearity"/>
+				<aux color="blue" label_side="left" x="121.146" y="1138.92" name="MG Tdep rate min"/>
+				<aux label_side="right" label_angle="45" x="186.005" y="963.403" name="MG max sea level anomaly"/>
+				<aux color="blue" label_side="left" label_angle="135" x="126.98" y="994.988" name="MG volume\nnonlinearity"/>
 				<connector uid="131" angle="286.661">
 					<from>MG_max_sea_level_anomaly</from>
 					<to>yearly_SLR_from_mountain_glaciers</to>
@@ -1389,15 +1434,15 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>MG_volume_nonlinearity</from>
 					<to>yearly_SLR_from_mountain_glaciers</to>
 				</connector>
-				<flow x="194.987" y="583.334" name="yearly thermosteric\nsea level rise">
+				<flow x="201.653" y="710.001" name="yearly thermosteric\nsea level rise">
 					<pts>
-						<pt x="60.8333" y="583.334"/>
-						<pt x="317.14" y="583.334"/>
+						<pt x="67.5" y="710.001"/>
+						<pt x="323.807" y="710.001"/>
 					</pts>
 				</flow>
-				<stock label_side="top" x="339.64" y="583.084" name="Sea level anomaly from thermal expansion"/>
-				<aux color="blue" label_side="bottom" x="90.0277" y="656.375" name="energy input to SLR\nconversion factor min"/>
-				<aux label_side="left" label_angle="135" x="213.398" y="383.141" name="net downward\nradiative flux"/>
+				<stock label_side="top" x="346.307" y="709.751" name="Sea level anomaly from thermal expansion"/>
+				<aux color="blue" label_side="bottom" x="96.6944" y="783.042" name="energy input to SLR\nconversion factor min"/>
+				<aux label_side="left" label_angle="135" x="220.065" y="509.808" name="net downward\nradiative flux"/>
 				<connector uid="133" angle="34.834">
 					<from>energy_input_to_SLR_conversion_factor_min</from>
 					<to>energy_input_to_SLR_conversion_factor</to>
@@ -1406,13 +1451,13 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>Sea_level_anomaly_from_thermal_expansion</from>
 					<to>Total_global_sea_level_anomaly</to>
 				</connector>
-				<aux label_side="left" x="121.146" y="444.361" name="UNIT seconds per year"/>
-				<aux label_side="bottom" x="231.398" y="491.584" name="yearly ocean\nenergy input"/>
+				<aux label_side="left" x="127.813" y="571.028" name="UNIT seconds per year"/>
+				<aux label_side="bottom" x="238.065" y="618.251" name="yearly ocean\nenergy input"/>
 				<connector uid="143" angle="248.354">
 					<from>yearly_ocean_energy_input</from>
 					<to>yearly_thermosteric_sea_level_rise</to>
 				</connector>
-				<aux label_side="left" x="121.146" y="469.917" name="earth surface area"/>
+				<aux label_side="left" x="127.813" y="596.584" name="earth surface area"/>
 				<connector uid="144" angle="336.814">
 					<from>UNIT_seconds_per_year</from>
 					<to>yearly_ocean_energy_input</to>
@@ -1425,12 +1470,12 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>net_downward_radiative_flux</from>
 					<to>yearly_ocean_energy_input</to>
 				</connector>
-				<aux label_side="left" x="121.146" y="392.488" name="UNIT Watt to Joule"/>
+				<aux label_side="left" x="127.813" y="519.155" name="UNIT Watt to Joule"/>
 				<connector uid="147" angle="318.05">
 					<from>UNIT_Watt_to_Joule</from>
 					<to>yearly_ocean_energy_input</to>
 				</connector>
-				<aux label_side="left" x="121.146" y="417.516" name="UNIT Joule to YJ"/>
+				<aux label_side="left" x="127.813" y="544.183" name="UNIT Joule to YJ"/>
 				<connector uid="148" angle="326.107">
 					<from>UNIT_Joule_to_YJ</from>
 					<to>yearly_ocean_energy_input</to>
@@ -1441,8 +1486,8 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>yearly_SLR_from_mountain_glaciers</to>
 				</connector>
-				<aux label_side="left" label_angle="135" x="767.667" y="266.514" name="Sea level anomaly from\nGreenland Ice Sheet"/>
-				<connector uid="152" angle="209.529">
+				<aux label_side="left" label_angle="135" x="774.334" y="393.181" name="Sea level anomaly from\nGreenland Ice Sheet"/>
+				<connector uid="152" angle="219.456">
 					<from>Sea_level_anomaly_from_GrIS_SMB</from>
 					<to>Sea_level_anomaly_from_Greenland_Ice_Sheet</to>
 				</connector>
@@ -1450,9 +1495,9 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>Sea_level_anomaly_from_Greenland_Ice_Sheet</from>
 					<to>Total_global_sea_level_anomaly</to>
 				</connector>
-				<aux color="blue" label_side="left" x="1000.44" y="116.278" name="nu GrIS SMB"/>
-				<aux color="blue" label_side="right" x="1068.06" y="142.714" name="phi GrIS SMB"/>
-				<aux label_side="left" x="967.11" y="151.778" name="maximum GrIS sea level contribution"/>
+				<aux color="blue" label_side="left" x="1015.44" y="209.611" name="nu GrIS SMB"/>
+				<aux color="blue" label_side="right" x="1083.06" y="236.047" name="phi GrIS SMB"/>
+				<aux label_side="left" x="982.11" y="245.111" name="maximum GrIS sea level contribution"/>
 				<connector uid="154" angle="28.3428">
 					<from>Sea_level_anomaly_from_GrIS_SMB</from>
 					<to>yearly_SLR_from_GrIS_SMB</to>
@@ -1469,32 +1514,32 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>phi_GrIS_SMB</from>
 					<to>yearly_SLR_from_GrIS_SMB</to>
 				</connector>
-				<connector uid="158" angle="135.197">
+				<connector uid="158" angle="116.962">
 					<from>
 						<alias uid="159"/>
 					</from>
 					<to>yearly_SLR_from_GrIS_SMB</to>
 				</connector>
-				<aux label_side="right" x="1073.78" y="177.127" name="UNIT Kelvin"/>
+				<aux label_side="right" x="1088.78" y="270.46" name="UNIT Kelvin"/>
 				<connector uid="162" angle="155.235">
 					<from>UNIT_Kelvin</from>
 					<to>yearly_SLR_from_GrIS_SMB</to>
 				</connector>
-				<stock label_side="top" x="870.84" y="328.111" name="Sea level anomaly from GrIS DIS"/>
-				<aux color="blue" label_side="top" x="1238" y="310.111" name="GrIS outlet max"/>
-				<aux color="blue" label_side="right" x="1002.01" y="407.446" name="rho GrIS SID"/>
-				<aux color="blue" label_side="right" x="967.11" y="273.472" name="epsilon GrIS SID"/>
-				<aux label_side="bottom" x="1960" y="740.16" name="density water"/>
-				<aux x="1960" y="792.268" name="density ice"/>
-				<aux x="1960" y="843.018" name="density rock"/>
-				<aux label_side="right" label_angle="45" x="1604.95" y="887.66" name="T freezing seawater"/>
-				<aux label_side="left" x="1389.02" y="832.095" name="reference AntIS radius"/>
-				<aux label_side="left" x="1389.02" y="857.285" name="modern AntOcean\nsubsurface T"/>
-				<aux x="1877.05" y="790.476" name="AntIS epsilon1"/>
-				<aux x="1877.05" y="843.018" name="AntIS epsilon2"/>
-				<aux color="blue" label_side="right" x="1664.37" y="1205.25" name="T to TAnt c1"/>
-				<aux color="blue" label_side="right" x="1664.37" y="1167.44" name="T to TAnt c2"/>
-				<aux label_side="top" x="1601.85" y="1131.68" name="Antarctic air temperature"/>
+				<stock label_side="top" x="877.507" y="454.778" name="Sea level anomaly from GrIS DIS"/>
+				<aux color="blue" label_side="top" x="1244.67" y="436.778" name="GrIS outlet max"/>
+				<aux color="blue" label_side="right" x="1008.68" y="534.113" name="rho GrIS SID"/>
+				<aux color="blue" label_side="right" x="973.777" y="400.139" name="epsilon GrIS SID"/>
+				<aux label_side="bottom" x="1966.67" y="866.827" name="density water"/>
+				<aux x="1966.67" y="918.935" name="density ice"/>
+				<aux x="1966.67" y="969.685" name="density rock"/>
+				<aux label_side="right" label_angle="45" x="1611.62" y="1014.33" name="T freezing seawater"/>
+				<aux label_side="left" x="1395.69" y="958.762" name="reference AntIS radius"/>
+				<aux label_side="left" x="1395.69" y="983.952" name="modern AntOcean\nsubsurface T"/>
+				<aux x="1883.72" y="917.143" name="AntIS epsilon1"/>
+				<aux x="1883.72" y="969.685" name="AntIS epsilon2"/>
+				<aux color="blue" label_side="right" x="1671.04" y="1331.92" name="T to TAnt c1"/>
+				<aux color="blue" label_side="right" x="1671.04" y="1294.11" name="T to TAnt c2"/>
+				<aux label_side="top" x="1608.52" y="1258.35" name="Antarctic air temperature"/>
 				<connector uid="171" angle="130.359">
 					<from>T_to_TAnt_c1</from>
 					<to>Antarctic_air_temperature</to>
@@ -1509,13 +1554,13 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>Antarctic_air_temperature</to>
 				</connector>
-				<aux label_side="left" label_angle="225" x="1723.43" y="945.625" name="Antarctic subsurface\nocean temperature"/>
+				<aux label_side="left" label_angle="225" x="1730.1" y="1072.29" name="Antarctic subsurface\nocean temperature"/>
 				<connector uid="175" angle="333.93">
 					<from>T_freezing_seawater</from>
 					<to>Antarctic_subsurface_ocean_temperature</to>
 				</connector>
-				<aux color="blue" label_side="left" label_angle="135" x="1778.35" y="933.601" name="AntOcean T\nconversion param a"/>
-				<aux color="blue" label_side="left" x="1714.48" y="1000.63" name="AntOcean T conversion param b"/>
+				<aux color="blue" label_side="left" label_angle="135" x="1785.02" y="1060.27" name="AntOcean T\nconversion param a"/>
+				<aux color="blue" label_side="left" x="1721.15" y="1127.3" name="AntOcean T conversion param b"/>
 				<connector uid="176" angle="192.349">
 					<from>AntOcean_T_conversion_param_a</from>
 					<to>Antarctic_subsurface_ocean_temperature</to>
@@ -1550,18 +1595,18 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>density_ice</from>
 					<to>AntIS_epsilon2</to>
 				</connector>
-				<aux color="blue" label_side="top" x="1401.23" y="1401.56" name="AntIS param h0"/>
-				<aux color="blue" label_side="right" x="1744.23" y="742.416" name="AntIS param mu"/>
-				<aux color="blue" x="1121.35" y="1393.87" name="AntIS param nu"/>
-				<aux color="blue" x="1336.4" y="1413.68" width="13.8333" height="13.8333" name="AntIS param P0"/>
-				<aux color="blue" label_side="right" x="1477.23" y="796.166" name="AntIS param gamma"/>
-				<aux color="blue" label_side="right" x="1477.23" y="828.762" name="AntIS param alpha"/>
-				<aux color="blue" label_side="bottom" x="1256.65" y="1404.68" name="AntIS param kappa"/>
-				<aux color="blue" label_side="right" x="1476.42" y="857.285" name="AntIS param f0"/>
-				<aux color="blue" label_side="right" x="1401.23" y="1347.75" name="AntIS param c"/>
-				<aux color="blue" label_side="right" x="1744.23" y="805.279" name="AntIS param b0"/>
-				<aux color="blue" label_side="right" x="1744.23" y="772.75" name="AntIS param slope"/>
-				<aux label_side="right" label_angle="45" x="1291.65" y="1295.25" name="AntIS hr"/>
+				<aux color="blue" label_side="top" x="1407.9" y="1528.23" name="AntIS param h0"/>
+				<aux color="blue" label_side="right" x="1750.9" y="869.083" name="AntIS param mu"/>
+				<aux color="blue" x="1128.02" y="1520.54" name="AntIS param nu"/>
+				<aux color="blue" x="1343.07" y="1540.35" width="13.8333" height="13.8333" name="AntIS param P0"/>
+				<aux color="blue" label_side="right" x="1483.9" y="922.833" name="AntIS param gamma"/>
+				<aux color="blue" label_side="right" x="1483.9" y="955.429" name="AntIS param alpha"/>
+				<aux color="blue" label_side="bottom" x="1263.32" y="1531.35" name="AntIS param kappa"/>
+				<aux color="blue" label_side="right" x="1483.09" y="983.952" name="AntIS param f0"/>
+				<aux color="blue" label_side="right" x="1407.9" y="1474.42" name="AntIS param c"/>
+				<aux color="blue" label_side="right" x="1750.9" y="931.946" name="AntIS param b0"/>
+				<aux color="blue" label_side="right" x="1750.9" y="899.417" name="AntIS param slope"/>
+				<aux label_side="right" label_angle="45" x="1298.32" y="1421.92" name="AntIS hr"/>
 				<connector uid="185" angle="240.679">
 					<from>Antarctic_air_temperature</from>
 					<to>AntIS_hr</to>
@@ -1574,14 +1619,14 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_param_h0</from>
 					<to>AntIS_hr</to>
 				</connector>
-				<aux label_side="bottom" x="1020.52" y="1268.6" name="AntIS rc"/>
+				<aux label_side="bottom" x="1027.19" y="1395.27" name="AntIS rc"/>
 				<connector uid="188" angle="296.776">
 					<from>
 						<alias uid="547"/>
 					</from>
 					<to>AntIS_rc</to>
 				</connector>
-				<aux label_side="left" x="1247.82" y="1323.13" name="AntIS P"/>
+				<aux label_side="left" x="1254.49" y="1449.8" name="AntIS P"/>
 				<connector uid="189" angle="243.733">
 					<from>Antarctic_air_temperature</from>
 					<to>AntIS_P</to>
@@ -1594,7 +1639,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_param_kappa</from>
 					<to>AntIS_P</to>
 				</connector>
-				<aux label_side="right" label_angle="315" x="1190" y="1365.75" name="AntIS beta"/>
+				<aux label_side="right" label_angle="315" x="1196.67" y="1492.42" name="AntIS beta"/>
 				<connector uid="192" angle="216.396">
 					<from>AntIS_P</from>
 					<to>AntIS_beta</to>
@@ -1603,12 +1648,12 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_param_nu</from>
 					<to>AntIS_beta</to>
 				</connector>
-				<aux label_side="left" label_angle="135" x="797.797" y="1273.96" name="AntIS rR"/>
+				<aux label_side="left" label_angle="135" x="804.464" y="1400.63" name="AntIS rR"/>
 				<connector uid="194" angle="194.89">
 					<from>AntIS_hr</from>
 					<to>AntIS_rR</to>
 				</connector>
-				<aux label_side="left" label_angle="135" x="949.387" y="1012.25" name="AntIS Btot"/>
+				<aux label_side="left" label_angle="135" x="956.054" y="1138.92" name="AntIS Btot"/>
 				<connector uid="195" angle="133.83">
 					<from>AntIS_P</from>
 					<to>AntIS_Btot</to>
@@ -1625,11 +1670,11 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_rR</from>
 					<to>AntIS_Btot</to>
 				</connector>
-				<aux label_side="right" label_angle="45" x="1279.7" y="1030.25" name="AntIS fac"/>
-				<aux label_side="right" x="1114.61" y="1012.25" name="AntIS F"/>
-				<aux label_side="left" label_angle="135" x="741.774" y="1012.25" name="AntIS ISO"/>
-				<aux label_side="right" x="1419.23" y="1130.92" name="AntIS fac1"/>
-				<aux label_side="left" label_angle="135" x="1279.7" y="1130.92" name="AntIS fac2"/>
+				<aux label_side="right" label_angle="45" x="1286.37" y="1156.92" name="AntIS fac"/>
+				<aux label_side="right" x="1121.28" y="1138.92" name="AntIS F"/>
+				<aux label_side="left" label_angle="135" x="748.441" y="1138.92" name="AntIS ISO"/>
+				<aux label_side="right" x="1425.9" y="1257.59" name="AntIS fac1"/>
+				<aux label_side="left" label_angle="135" x="1286.37" y="1257.59" name="AntIS fac2"/>
 				<connector uid="199" angle="180">
 					<from>AntIS_fac1</from>
 					<to>AntIS_fac2</to>
@@ -1654,8 +1699,8 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_rc</from>
 					<to>AntIS_F</to>
 				</connector>
-				<aux label_side="left" x="923.377" y="1268.6" name="AntIS Hw"/>
-				<aux label_side="left" x="1425.42" y="893.285" name="AntIS speed"/>
+				<aux label_side="left" x="930.044" y="1395.27" name="AntIS Hw"/>
+				<aux label_side="left" x="1432.09" y="1019.95" name="AntIS speed"/>
 				<connector uid="205" angle="211.275">
 					<from>AntIS_param_gamma</from>
 					<to>AntIS_speed</to>
@@ -1688,7 +1733,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_Hw</from>
 					<to>AntIS_speed</to>
 				</connector>
-				<aux x="1877.05" y="739.503" name="AntIS delta"/>
+				<aux x="1883.72" y="866.17" name="AntIS delta"/>
 				<connector uid="213" angle="179.546">
 					<from>density_water</from>
 					<to>AntIS_delta</to>
@@ -1705,7 +1750,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_speed</from>
 					<to>AntIS_F</to>
 				</connector>
-				<aux label_side="right" x="680.524" y="1273.96" name="AntIS cISO"/>
+				<aux label_side="right" x="687.191" y="1400.63" name="AntIS cISO"/>
 				<connector uid="217" angle="144.772">
 					<from>AntIS_rc</from>
 					<to>AntIS_cISO</to>
@@ -1714,19 +1759,19 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_cISO</from>
 					<to>AntIS_ISO</to>
 				</connector>
-				<aux label_side="right" label_angle="45" x="789.964" y="1143.04" name="AntIS dSL"/>
-				<stock x="949.387" y="841.821" name="AntIS Volume"/>
-				<stock x="1036.56" y="841.821" name="AntIS Radius"/>
-				<flow label_side="top" x="1132.62" y="842.583" name="yearly change in\nAntIS Radius">
+				<aux label_side="right" label_angle="45" x="796.631" y="1269.71" name="AntIS dSL"/>
+				<stock x="956.054" y="968.488" name="AntIS Volume"/>
+				<stock x="1043.23" y="968.488" name="AntIS Radius"/>
+				<flow label_side="top" x="1139.28" y="969.25" name="yearly change in\nAntIS Radius">
 					<pts>
-						<pt x="1218.17" y="842.583"/>
-						<pt x="1059.06" y="842.583"/>
+						<pt x="1224.84" y="969.25"/>
+						<pt x="1065.73" y="969.25"/>
 					</pts>
 				</flow>
-				<flow label_side="top" x="860.956" y="842.297" name="yearly change in\nAntIS Volume">
+				<flow label_side="top" x="867.622" y="968.964" name="yearly change in\nAntIS Volume">
 					<pts>
-						<pt x="783.024" y="842.297"/>
-						<pt x="926.887" y="842.297"/>
+						<pt x="789.691" y="968.964"/>
+						<pt x="933.554" y="968.964"/>
 					</pts>
 				</flow>
 				<connector uid="219" angle="110.226">
@@ -1833,7 +1878,7 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>AntIS_Btot</to>
 				</connector>
-				<text_box uid="247" x="1753.23" y="711.271" width="367.5" height="17.875">Widely used calibration parameters and constants for AntIS SLR</text_box>
+				<text_box uid="247" x="1759.9" y="837.938" width="367.5" height="17.875">Widely used calibration parameters and constants for AntIS SLR</text_box>
 				<connector uid="248" angle="41.7128">
 					<from>
 						<alias uid="249"/>
@@ -1946,8 +1991,8 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>AntIS_dSL</to>
 				</connector>
-				<aux x="2043.34" y="792.268" name="UNIT per year"/>
-				<aux label_side="left" label_angle="135" x="940.88" y="689.583" name="AntIS initial volume"/>
+				<aux x="2041.01" y="909.935" width="18" height="18" name="UNIT per year"/>
+				<aux label_side="left" label_angle="135" x="947.547" y="816.25" name="AntIS initial volume"/>
 				<connector uid="283" angle="182.828">
 					<from>AntIS_initial_volume</from>
 					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
@@ -1956,12 +2001,12 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>AntIS_Volume</from>
 					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
 				</connector>
-				<aux label_side="top" x="811.553" y="665.875" name="AntIS max\ncontribution to sea level anomaly"/>
+				<aux label_side="top" x="818.22" y="792.542" name="AntIS max\ncontribution to sea level anomaly"/>
 				<connector uid="291" angle="204.101">
 					<from>AntIS_max_contribution_to_sea_level_anomaly</from>
 					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
 				</connector>
-				<aux x="2043.34" y="739.503" name="UNIT per m"/>
+				<aux x="2041.01" y="857.17" width="18" height="18" name="UNIT per m"/>
 				<connector uid="294" angle="90">
 					<from>
 						<alias uid="295"/>
@@ -1998,16 +2043,16 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>AntIS_fac1</to>
 				</connector>
-				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="313" x="107.803" y="237.514" width="174.368" height="20">Thermosteric sea-level rise</text_box>
-				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="314" x="52.8693" y="759.54" width="279.271" height="20">Sea-level rise from mountain glaciers</text_box>
-				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="316" x="843.319" y="580.98" width="285.969" height="20">Sea-level rise from Antarctic ice sheet</text_box>
-				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="317" x="842.641" y="14" width="311.937" height="20">Sea-level rise from Greenland ice sheet</text_box>
-				<aux label_side="right" label_angle="315" x="647.5" y="440.792" name="UNIT Celsius\nto Kelvin"/>
+				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="313" x="114.47" y="364.181" width="174.368" height="20">Thermosteric sea-level rise</text_box>
+				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="314" x="59.536" y="886.207" width="279.271" height="20">Sea-level rise from mountain glaciers</text_box>
+				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="316" x="849.986" y="707.647" width="285.969" height="20">Sea-level rise from Antarctic ice sheet</text_box>
+				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="317" x="857.641" y="107.333" width="311.937" height="20">Sea-level rise from Greenland ice sheet</text_box>
+				<aux label_side="right" label_angle="315" x="654.167" y="567.459" name="UNIT Celsius\nto Kelvin"/>
 				<connector uid="318" angle="212.6">
 					<from>UNIT_Celsius_to_Kelvin</from>
 					<to>T_anomaly_for_SLR</to>
 				</connector>
-				<aux x="64.1667" y="314.167" name="selected climate case"/>
+				<aux x="70.8334" y="440.834" name="selected climate case"/>
 				<connector uid="345" angle="344.055">
 					<from>selected_climate_case</from>
 					<to>net_downward_radiative_flux</to>
@@ -2019,28 +2064,28 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="361" x="1709.42" y="87.5893" width="391.25" height="213.661">
+				<stacked_container uid="361" x="1716.09" y="214.256" width="391.25" height="213.661">
 					<graph width="391.25" height="213.661" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Sea_level_anomaly_from_thermal_expansion[1]"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="362" x="1713.83" y="328.33" width="382.43" height="216.161">
+				<stacked_container uid="362" x="1720.5" y="454.997" width="382.43" height="216.161">
 					<graph width="382.43" height="216.161" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Sea_level_anomaly_from_mountain_glaciers[1]"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="363" x="2130.67" y="88.17" width="394.524" height="212.5">
+				<stacked_container uid="363" x="2137.34" y="214.837" width="394.524" height="212.5">
 					<graph width="394.524" height="212.5" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Sea_level_anomaly_from_Greenland_Ice_Sheet[1]"/>
 						</plot>
 					</graph>
 				</stacked_container>
-				<stacked_container uid="364" x="2136.98" y="327.75" width="394.464" height="217.321">
+				<stacked_container uid="364" x="2143.65" y="454.417" width="394.464" height="217.321">
 					<graph width="394.464" height="217.321" comparative="true" type="time_series" show_grid="false" isee:tick_type="none" include_units_in_legend="false" plot_numbers="false" isee:label_pie_slices="false" isee:show_pie_borders="true" num_x_grid_lines="0" num_y_grid_lines="0" num_x_labels="5" num_y_labels="3" isee:fill_intensity="0.1" isee:allow_zero_axis="true" left_axis_multi_scale="false" left_axis_auto_scale="true" left_include_units="true" right_axis_multi_scale="false" right_axis_auto_scale="true" right_include_units="true">
 						<plot color="blue" isee:keep_zero_visible="true" pen_width="1" index="0" show_y_axis="true">
 							<entity name="Sea_level_anomaly_from_Antarctic_Ice_Sheet[1]"/>
@@ -2054,28 +2099,32 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 						</plot>
 					</graph>
 				</stacked_container>
-				<aux label_side="left" label_angle="135" x="767.667" y="213.583" name="initial sea level anomaly from GrIS"/>
-				<connector uid="366" angle="309.101">
-					<from>initial_sea_level_anomaly_from_GrIS</from>
+				<aux label_side="bottom" x="360.429" y="185.904" name="initial sea level anomaly from GrIS"/>
+				<connector uid="366" angle="283.968">
+					<from>
+						<alias uid="583"/>
+					</from>
 					<to>Sea_level_anomaly_from_Greenland_Ice_Sheet</to>
 				</connector>
-				<aux x="730" y="759.583" name="initial sea level anomaly from AntIS"/>
-				<connector uid="367" angle="91.6563">
-					<from>initial_sea_level_anomaly_from_AntIS</from>
+				<aux x="447.119" y="187.778" name="initial sea level anomaly from AntIS"/>
+				<connector uid="367" angle="42.0986">
+					<from>
+						<alias uid="584"/>
+					</from>
 					<to>Sea_level_anomaly_from_Antarctic_Ice_Sheet</to>
 				</connector>
-				<aux x="341.14" y="957.875" name="initial sea level anomaly from MG"/>
-				<aux x="288.795" y="606.417" name="initial thermosteric sea level anomaly"/>
-				<aux label_side="left" label_angle="135" x="128.833" y="818.736" name="MG temperature\nnonlinearity"/>
+				<aux x="486.14" y="124.714" name="initial sea level anomaly from MG"/>
+				<aux x="319.925" y="124.714" name="initial thermosteric sea level anomaly"/>
+				<aux label_side="left" label_angle="135" x="135.5" y="945.403" name="MG temperature\nnonlinearity"/>
 				<connector uid="368" angle="322.329">
 					<from>MG_temperature_nonlinearity</from>
 					<to>yearly_SLR_from_mountain_glaciers</to>
 				</connector>
-				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="376" x="367.41" y="29.3011" width="226.885" height="27.1429">Marine Ice Cliff Instability?</text_box>
-				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="385.666" y="96.881" name="Include MICI behaviour"/>
-				<aux label_side="right" label_angle="315" x="1205" y="713.494" name="AntIS disintegration volume\nthrough MICI"/>
-				<aux color="blue" label_side="top" x="1303.63" y="689.583" name="MICI AntIS\ndisintegration"/>
-				<aux color="blue" label_side="top" x="1246.48" y="655.375" name="MICI AntIS critical Tant"/>
+				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="376" x="623.101" y="36.3011" width="226.885" height="27.1429">Marine Ice Cliff Instability?</text_box>
+				<aux color="#55AAFF" font_color="#55AAFF" label_side="right" x="654.167" y="72.444" name="Include MICI behaviour"/>
+				<aux label_side="right" label_angle="315" x="1211.67" y="840.161" name="AntIS disintegration volume\nthrough MICI"/>
+				<aux color="blue" label_side="top" x="1310.3" y="816.25" name="MICI AntIS\ndisintegration"/>
+				<aux color="blue" label_side="top" x="1253.15" y="782.042" name="MICI AntIS critical Tant"/>
 				<connector uid="377" angle="234.481">
 					<from>MICI_AntIS_critical_Tant</from>
 					<to>AntIS_disintegration_volume_through_MICI</to>
@@ -2116,23 +2165,23 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>yearly_SLR_from_mountain_glaciers</to>
 				</connector>
-				<aux label_side="bottom" x="976.88" y="460.778" name="rho GrIS SID min"/>
+				<aux label_side="bottom" x="983.547" y="587.445" name="rho GrIS SID min"/>
 				<connector uid="400" angle="64.773">
 					<from>rho_GrIS_SID_min</from>
 					<to>rho_GrIS_SID</to>
 				</connector>
-				<aux label_side="left" x="935.673" y="78.881" name="nu GrIS SMB min"/>
+				<aux label_side="left" x="950.673" y="172.214" name="nu GrIS SMB min"/>
 				<connector uid="401" angle="329.999">
 					<from>nu_GrIS_SMB_min</from>
 					<to>nu_GrIS_SMB</to>
 				</connector>
-				<aux x="371.762" y="357.392" name="Change in Surface Temperature"/>
-				<aux x="371.762" y="453.155" name="Change in Deep Ocean Temperature"/>
-				<aux x="371.762" y="405.932" name="Change in Upper Ocean Temperature"/>
-				<aux label_side="bottom" x="371.762" y="296.96" name="Heat Capacity of Deep Ocean"/>
-				<aux x="371.762" y="201.849" name="Heat Capacity of Surface"/>
-				<aux x="371.762" y="249.697" name="Heat Capacity of Upper Ocean"/>
-				<connector uid="402" angle="218.067">
+				<aux x="378.429" y="484.059" name="Change in Surface Temperature"/>
+				<aux x="378.429" y="579.822" name="Change in Deep Ocean Temperature"/>
+				<aux x="378.429" y="532.599" name="Change in Upper Ocean Temperature"/>
+				<aux label_side="bottom" x="378.429" y="423.627" name="Heat Capacity of Deep Ocean"/>
+				<aux x="378.429" y="319.404" name="Heat Capacity of Surface"/>
+				<aux x="378.429" y="376.364" name="Heat Capacity of Upper Ocean"/>
+				<connector uid="402" angle="219.454">
 					<from>Heat_Capacity_of_Surface</from>
 					<to>net_downward_radiative_flux</to>
 				</connector>
@@ -2169,13 +2218,13 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>energy_input_to_SLR_conversion_factor</to>
 				</connector>
-				<aux color="blue" label_side="bottom" x="255.671" y="664.25" name="energy input to SLR\nconversion factor max"/>
+				<aux color="blue" label_side="bottom" x="262.338" y="790.917" name="energy input to SLR\nconversion factor max"/>
 				<connector uid="497" angle="126.869">
 					<from>energy_input_to_SLR_conversion_factor_max</from>
 					<to>energy_input_to_SLR_conversion_factor</to>
 				</connector>
-				<aux color="blue" label_side="bottom" x="182.813" y="1030.25" name="MG Tdep rate max"/>
-				<aux x="202.398" y="985" name="MG Tdep rate"/>
+				<aux color="blue" label_side="bottom" x="189.48" y="1156.92" name="MG Tdep rate max"/>
+				<aux x="209.065" y="1111.67" name="MG Tdep rate"/>
 				<connector uid="498" angle="5.50942">
 					<from>MG_Tdep_rate_min</from>
 					<to>MG_Tdep_rate</to>
@@ -2194,12 +2243,12 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>MG_Tdep_rate</to>
 				</connector>
-				<aux x="171.479" y="640.542" name="energy input to SLR\nconversion factor"/>
+				<aux x="178.146" y="767.209" name="energy input to SLR\nconversion factor"/>
 				<connector uid="503" angle="67.6615">
 					<from>energy_input_to_SLR_conversion_factor</from>
 					<to>yearly_thermosteric_sea_level_rise</to>
 				</connector>
-				<aux label_side="bottom" x="940.88" y="428.944" name="rho GrIS SID max"/>
+				<aux label_side="bottom" x="947.547" y="555.611" name="rho GrIS SID max"/>
 				<connector uid="504" angle="16.5343">
 					<from>rho_GrIS_SID_max</from>
 					<to>rho_GrIS_SID</to>
@@ -2210,26 +2259,26 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>rho_GrIS_SID</to>
 				</connector>
-				<aux label_side="left" x="921.213" y="106.077" name="nu GrIS SMB max"/>
+				<aux label_side="left" x="936.213" y="199.41" name="nu GrIS SMB max"/>
 				<connector uid="508" angle="5.89973">
 					<from>nu_GrIS_SMB_max</from>
 					<to>nu_GrIS_SMB</to>
 				</connector>
-				<connector uid="509" angle="257.228">
+				<connector uid="509" angle="256.648">
 					<from>
 						<alias uid="510"/>
 					</from>
 					<to>nu_GrIS_SMB</to>
 				</connector>
-				<aux x="1138.29" y="389.446" name="MICI disintegration discharge"/>
+				<aux x="1144.96" y="516.113" name="MICI disintegration discharge"/>
 				<connector uid="512" angle="149.162">
 					<from>Sea_level_anomaly_from_GrIS_DIS</from>
 					<to>Sea_level_anomaly_from_Greenland_Ice_Sheet</to>
 				</connector>
-				<flow x="1021.92" y="328.111" name="yearly SLR from GrIS DIS">
+				<flow x="1019.59" y="445.778" width="18" height="18" name="yearly SLR from GrIS DIS">
 					<pts>
-						<pt x="1162.5" y="328.111"/>
-						<pt x="893.34" y="328.111"/>
+						<pt x="1169.17" y="454.778"/>
+						<pt x="900.007" y="454.778"/>
 					</pts>
 				</flow>
 				<connector uid="513" angle="75.9119">
@@ -2258,9 +2307,9 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>Sea_level_anomaly_from_GrIS_DIS</from>
 					<to>yearly_SLR_from_GrIS_DIS</to>
 				</connector>
-				<aux x="1220" y="501.667" name="MICI GrIS Tcrit min"/>
-				<aux label_side="bottom" x="1305.14" y="501.667" name="MICI GrIS Tcrit max"/>
-				<aux x="1250.86" y="457.154" name="MICI GrIS Tcrit"/>
+				<aux x="1226.67" y="628.334" name="MICI GrIS Tcrit min"/>
+				<aux label_side="bottom" x="1311.81" y="628.334" name="MICI GrIS Tcrit max"/>
+				<aux x="1257.53" y="583.821" name="MICI GrIS Tcrit"/>
 				<connector uid="519" angle="30.6512">
 					<from>
 						<alias uid="506"/>
@@ -2279,9 +2328,9 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>MICI_GrIS_Tcrit</from>
 					<to>MICI_disintegration_discharge</to>
 				</connector>
-				<aux x="1339.17" y="414.167" name="MICI GrIS\ndischarge rate min"/>
-				<aux x="1418.4" y="414.167" name="MICI GrIS\ndischarge rate max"/>
-				<aux x="1370.03" y="369.654" name="MICI GrIS discharge rate"/>
+				<aux x="1345.84" y="540.834" name="MICI GrIS\ndischarge rate min"/>
+				<aux x="1425.07" y="540.834" name="MICI GrIS\ndischarge rate max"/>
+				<aux x="1376.7" y="496.321" name="MICI GrIS discharge rate"/>
 				<connector uid="523" angle="58.8409">
 					<from>MICI_GrIS_discharge_rate_min</from>
 					<to>MICI_GrIS_discharge_rate</to>
@@ -2314,10 +2363,10 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>MICI_disintegration_discharge</to>
 				</connector>
-				<aux color="blue" label_side="right" x="1381.86" y="616.125" name="MICI AntIS critical Tant min"/>
-				<aux color="blue" label_side="right" x="1389.02" y="641.25" name="MICI AntIS critical Tant max"/>
-				<aux color="blue" label_side="right" x="1399.36" y="674.25" name="MICI AntIS disintegration min"/>
-				<aux color="blue" label_side="right" x="1406.52" y="699.375" name="MICI AntIS disintegration max"/>
+				<aux color="blue" label_side="right" x="1388.53" y="742.792" name="MICI AntIS critical Tant min"/>
+				<aux color="blue" label_side="right" x="1395.69" y="767.917" name="MICI AntIS critical Tant max"/>
+				<aux color="blue" label_side="right" x="1406.03" y="800.917" name="MICI AntIS disintegration min"/>
+				<aux color="blue" label_side="right" x="1413.19" y="826.042" name="MICI AntIS disintegration max"/>
 				<connector uid="531" angle="225.507">
 					<from>
 						<alias uid="530"/>
@@ -2352,8 +2401,8 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>yearly_SLR_from_GrIS_DIS</to>
 				</connector>
-				<aux color="blue" label_side="top" x="1811.85" y="911.285" name="AntOcean T\nconversion param a min"/>
-				<aux color="blue" label_side="bottom" x="1811.85" y="957.375" name="AntOcean T\nconversion param a max"/>
+				<aux color="blue" label_side="top" x="1818.52" y="1037.95" name="AntOcean T\nconversion param a min"/>
+				<aux color="blue" label_side="bottom" x="1818.52" y="1084.04" name="AntOcean T\nconversion param a max"/>
 				<connector uid="540" angle="220.799">
 					<from>AntOcean_T_conversion_param_a_min</from>
 					<to>AntOcean_T_conversion_param_a</to>
@@ -2368,8 +2417,8 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>AntOcean_T_conversion_param_a</to>
 				</connector>
-				<aux color="blue" label_side="bottom" x="1437.23" y="1444.06" name="AntIS param h0 max"/>
-				<aux color="blue" label_side="top" x="1482.56" y="1393.87" name="AntIS param h0 min"/>
+				<aux color="blue" label_side="bottom" x="1443.9" y="1570.73" name="AntIS param h0 max"/>
+				<aux color="blue" label_side="top" x="1489.23" y="1520.54" name="AntIS param h0 min"/>
 				<connector uid="543" angle="188.066">
 					<from>AntIS_param_h0_min</from>
 					<to>AntIS_param_h0</to>
@@ -2384,32 +2433,34 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					</from>
 					<to>AntIS_param_h0</to>
 				</connector>
-				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="550" x="62.536" y="1109.92" width="250.39" height="20">Sea-level rise from land water storage</text_box>
-				<aux label_side="right" x="205.398" y="1224.29" name="Sea level anomaly from LWS"/>
-				<aux x="138.338" y="1315.67" name="Sea level anomaly from\ngroundwater withdrawal"/>
-				<stock label_side="top" x="309.056" y="1432.34" name="Land water storage from\nwater impoundment"/>
+				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="550" x="69.2027" y="1236.59" width="250.39" height="20">Sea-level rise from land water storage</text_box>
+				<aux label_side="right" x="212.065" y="1350.96" name="Sea level anomaly from LWS"/>
+				<aux x="145.005" y="1442.34" name="Sea level anomaly from\ngroundwater withdrawal"/>
+				<stock label_side="top" x="315.723" y="1559.01" name="Land water storage from\nwater impoundment"/>
 				<connector uid="551" angle="87.0186">
 					<from>Sea_level_anomaly_from_groundwater_withdrawal</from>
 					<to>Sea_level_anomaly_from_LWS</to>
 				</connector>
-				<aux x="213.5" y="1297.67" name="Cubic metre to SLR"/>
+				<aux x="220.167" y="1424.34" name="Cubic metre to SLR"/>
 				<connector uid="552" angle="155.614">
 					<from>Cubic_metre_to_SLR</from>
 					<to>Sea_level_anomaly_from_groundwater_withdrawal</to>
 				</connector>
-				<flow x="379.306" y="1433.34" name="Water catchment in\nglobal dams">
+				<flow x="385.973" y="1560.01" name="Water catchment in\nglobal dams">
 					<pts>
-						<pt x="439.056" y="1433.34"/>
-						<pt x="331.556" y="1433.34"/>
+						<pt x="445.723" y="1560.01"/>
+						<pt x="338.223" y="1560.01"/>
 					</pts>
 				</flow>
-				<aux x="259.556" y="1459.78" name="Initial water storage from water impoundment"/>
-				<aux x="106.361" y="1211.83" name="initial sea level anomaly from LWS"/>
-				<connector uid="553" angle="2.80865">
-					<from>initial_sea_level_anomaly_from_LWS</from>
+				<aux x="266.223" y="1586.45" name="Initial water storage from water impoundment"/>
+				<aux x="405.429" y="124.714" name="initial sea level anomaly from LWS"/>
+				<connector uid="553" angle="7.02127">
+					<from>
+						<alias uid="586"/>
+					</from>
 					<to>Sea_level_anomaly_from_LWS</to>
 				</connector>
-				<aux x="277.556" y="1338.96" name="Sea level anomaly from water impoundment"/>
+				<aux x="284.223" y="1465.63" name="Sea level anomaly from water impoundment"/>
 				<connector uid="555" angle="114.823">
 					<from>Sea_level_anomaly_from_water_impoundment</from>
 					<to>Sea_level_anomaly_from_LWS</to>
@@ -2422,17 +2473,17 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>Cubic_metre_to_SLR</from>
 					<to>Sea_level_anomaly_from_water_impoundment</to>
 				</connector>
-				<aux x="340.556" y="1513.5" name="Water catchment per\nGW of hydropower"/>
+				<aux x="347.223" y="1640.17" name="Water catchment per\nGW of hydropower"/>
 				<connector uid="558" angle="51.0708">
 					<from>Water_catchment_per_GW_of_hydropower</from>
 					<to>Water_catchment_in_global_dams</to>
 				</connector>
-				<stock font_style="italic" font_weight="bold" x="66.6667" y="1415" name="total groundwater anomaly"/>
+				<stock font_style="italic" font_weight="bold" x="73.3334" y="1541.67" name="total groundwater anomaly"/>
 				<connector uid="559" angle="65.7256">
 					<from>total_groundwater_anomaly</from>
 					<to>Sea_level_anomaly_from_groundwater_withdrawal</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="475" y="1490" name="Installation of\nHydropower Capacity"/>
+				<aux font_style="italic" font_weight="bold" x="481.667" y="1616.67" name="Installation of\nHydropower Capacity"/>
 				<connector uid="560" angle="147.095">
 					<from>Installation_of_Hydropower_Capacity</from>
 					<to>Water_catchment_in_global_dams</to>
@@ -2441,124 +2492,134 @@ https://doi.org/10.1016/j.rser.2024.114439</doc>
 					<from>Sea_level_anomaly_from_LWS</from>
 					<to>Total_global_sea_level_anomaly</to>
 				</connector>
-				<aux font_style="italic" font_weight="bold" x="566.667" y="426.667" name="Surface Temperature Anomaly"/>
+				<aux font_style="italic" font_weight="bold" x="573.334" y="553.334" name="Surface Temperature Anomaly"/>
 				<connector uid="582" angle="298.74">
 					<from>Surface_Temperature_Anomaly</from>
 					<to>T_anomaly_for_SLR</to>
 				</connector>
-				<alias font_style="italic" label_side="top" uid="151" x="227.286" y="857.611" width="18" height="18">
+				<text_box font_weight="bold" text_decoration="underline" font_size="14pt" uid="585" x="332.14" y="70.9443" width="199.833" height="39.23">Initialisation to match an anomaly of 0 in 1993</text_box>
+				<alias font_style="italic" label_side="top" uid="151" x="233.953" y="984.278" width="18" height="18">
 					<of>T_anomaly_for_SLR</of>
 				</alias>
-				<alias font_style="italic" label_side="right" label_angle="315" uid="159" x="1095.98" y="243.139" width="18" height="18">
+				<alias font_style="italic" label_side="right" label_angle="315" uid="159" x="1102.65" y="369.806" width="18" height="18">
 					<of>T_anomaly_for_SLR</of>
 				</alias>
-				<alias font_style="italic" label_side="right" uid="174" x="1775.56" y="1061.41" width="18" height="18">
+				<alias font_style="italic" label_side="right" uid="174" x="1782.23" y="1188.08" width="18" height="18">
 					<of>T_anomaly_for_SLR</of>
 				</alias>
-				<alias font_style="italic" uid="233" x="813.727" y="1508.06" width="18" height="18">
+				<alias font_style="italic" uid="233" x="820.394" y="1634.73" width="18" height="18">
 					<of>AntIS_param_mu</of>
 				</alias>
-				<alias font_style="italic" label_side="right" uid="235" x="1455.56" y="1161.41" width="18" height="18">
+				<alias font_style="italic" label_side="right" uid="235" x="1462.23" y="1288.08" width="18" height="18">
 					<of>AntIS_param_mu</of>
 				</alias>
-				<alias font_style="italic" uid="231" x="1019.17" y="1003.25" width="18" height="18">
+				<alias font_style="italic" uid="231" x="1025.84" y="1129.92" width="18" height="18">
 					<of>AntIS_param_mu</of>
 				</alias>
-				<alias font_style="italic" label_side="top" uid="239" x="1329.14" y="1097.16" width="18" height="18">
+				<alias font_style="italic" label_side="top" uid="239" x="1335.81" y="1223.83" width="18" height="18">
 					<of>AntIS_param_slope</of>
 				</alias>
-				<alias font_style="italic" label_side="left" uid="237" x="1380.02" y="762.095" width="18" height="18">
+				<alias font_style="italic" label_side="left" uid="237" x="1386.69" y="888.762" width="18" height="18">
 					<of>AntIS_param_slope</of>
 				</alias>
-				<alias font_style="italic" label_side="left" uid="246" x="890.887" y="1015.29" width="18" height="18">
+				<alias font_style="italic" label_side="left" uid="246" x="897.554" y="1141.96" width="18" height="18">
 					<of>AntIS_param_slope</of>
 				</alias>
-				<alias font_style="italic" uid="241" x="640.542" y="1508.06" width="18" height="18">
+				<alias font_style="italic" uid="241" x="647.209" y="1634.73" width="18" height="18">
 					<of>AntIS_param_slope</of>
 				</alias>
-				<alias font_style="italic" uid="249" x="732.774" y="1508.06" width="18" height="18">
+				<alias font_style="italic" uid="249" x="739.441" y="1634.73" width="18" height="18">
 					<of>AntIS_param_b0</of>
 				</alias>
-				<alias font_style="italic" label_side="left" uid="254" x="1380.02" y="791.333" width="18" height="18">
+				<alias font_style="italic" label_side="left" uid="254" x="1386.69" y="918" width="18" height="18">
 					<of>AntIS_param_b0</of>
 				</alias>
-				<alias font_style="italic" label_side="bottom" uid="266" x="1256.82" y="1158.07" width="18" height="18">
+				<alias font_style="italic" label_side="bottom" uid="266" x="1263.49" y="1284.74" width="18" height="18">
 					<of>AntIS_param_b0</of>
 				</alias>
-				<alias font_style="italic" label_side="left" uid="256" x="896.377" y="1043.41" width="18" height="18">
+				<alias font_style="italic" label_side="left" uid="256" x="903.044" y="1170.08" width="18" height="18">
 					<of>AntIS_param_b0</of>
 				</alias>
-				<alias color="blue" background="white" font_style="italic" label_side="bottom" uid="262" x="1334" y="1164.81" width="36.6667" height="31.4394">
+				<alias color="blue" background="white" font_style="italic" label_side="bottom" uid="262" x="1340.67" y="1291.48" width="36.6667" height="31.4394">
 					<shape type="rectangle" width="45" height="35"/>
 					<of>AntIS_Radius</of>
 				</alias>
-				<alias color="blue" background="white" font_style="italic" label_side="bottom" uid="259" x="887.797" y="1490.71" width="45" height="35">
+				<alias color="blue" background="white" font_style="italic" label_side="bottom" uid="259" x="894.464" y="1617.38" width="45" height="35">
 					<shape type="rectangle" width="45" height="35"/>
 					<of>AntIS_Radius</of>
 				</alias>
-				<alias font_style="italic" uid="268" x="1419.82" y="1178.48" width="18" height="18">
+				<alias font_style="italic" uid="268" x="1426.49" y="1305.15" width="18" height="18">
 					<of>AntIS_epsilon1</of>
 				</alias>
-				<alias font_style="italic" uid="270" x="1134.5" y="1033.29" width="18" height="18">
+				<alias font_style="italic" uid="270" x="1141.17" y="1159.96" width="18" height="18">
 					<of>AntIS_delta</of>
 				</alias>
-				<alias font_style="italic" uid="272" x="1207" y="1143.41" width="18" height="18">
+				<alias font_style="italic" uid="272" x="1213.67" y="1270.08" width="18" height="18">
 					<of>AntIS_epsilon2</of>
 				</alias>
-				<alias font_style="italic" uid="274" x="607.834" y="1300.08" width="18" height="18">
+				<alias font_style="italic" uid="274" x="614.501" y="1426.75" width="18" height="18">
 					<of>AntIS_epsilon2</of>
 				</alias>
-				<alias color="blue" background="white" font_style="italic" uid="295" x="1181" y="1407.38" width="18" height="18">
+				<alias color="blue" background="white" font_style="italic" uid="295" x="1187.67" y="1534.05" width="18" height="18">
 					<shape type="circle" radius="18"/>
 					<of>UNIT_per_m</of>
 				</alias>
-				<alias font_style="italic" label_side="right" uid="297" x="1470.34" y="759.25" width="18" height="18">
+				<alias font_style="italic" label_side="right" uid="297" x="1477.01" y="885.917" width="18" height="18">
 					<of>UNIT_per_m</of>
 				</alias>
-				<alias font_style="italic" uid="299" x="943.667" y="1057.58" width="18" height="18">
+				<alias font_style="italic" uid="299" x="950.334" y="1184.25" width="18" height="18">
 					<of>UNIT_per_m</of>
 				</alias>
-				<alias font_style="italic" uid="301" x="744.964" y="1168.29" width="18" height="18">
+				<alias font_style="italic" uid="301" x="751.631" y="1294.96" width="18" height="18">
 					<of>UNIT_per_year</of>
 				</alias>
-				<alias font_style="italic" uid="303" x="1145.34" y="1428.41" width="18" height="18">
+				<alias font_style="italic" uid="303" x="1152.01" y="1555.08" width="18" height="18">
 					<of>UNIT_per_year</of>
 				</alias>
-				<alias font_style="italic" uid="305" x="1485.42" y="1085.08" width="18" height="18">
+				<alias font_style="italic" uid="305" x="1492.09" y="1211.75" width="18" height="18">
 					<of>UNIT_per_m</of>
 				</alias>
-				<alias font_style="italic" label_side="left" label_angle="225" uid="398" x="96.646" y="948.875" width="18" height="18">
+				<alias font_style="italic" label_side="left" label_angle="225" uid="398" x="103.313" y="1075.54" width="18" height="18">
 					<of>UNIT_Kelvin</of>
 				</alias>
-				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="top" uid="492" x="1154.58" y="632.25" width="18" height="18">
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="top" uid="492" x="1161.25" y="758.917" width="18" height="18">
 					<of>Include_MICI_behaviour</of>
 				</alias>
-				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="top" uid="496" x="85.3127" y="542.75" width="18" height="18">
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="top" uid="496" x="91.9794" y="669.417" width="18" height="18">
 					<of>scale_factor_thermosteric_SLR</of>
 				</alias>
-				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="right" label_angle="315" uid="502" x="245.286" y="994" width="18" height="18">
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="right" label_angle="315" uid="502" x="251.953" y="1120.67" width="18" height="18">
 					<of>scale_factor_mountain_glaciers</of>
 				</alias>
-				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" uid="506" x="1095.98" y="469.778" width="18" height="18">
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" uid="506" x="1102.65" y="596.445" width="18" height="18">
 					<of>scale_factor_Greenland_ice_sheet</of>
 				</alias>
-				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="top" uid="510" x="1001.33" y="65.6107" width="18" height="18">
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="top" uid="510" x="1016.33" y="158.944" width="18" height="18">
 					<of>scale_factor_Greenland_ice_sheet</of>
 				</alias>
-				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="top" uid="530" x="1276.63" y="589.125" width="18" height="18">
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="top" uid="530" x="1283.3" y="715.792" width="18" height="18">
 					<of>scale_factor_Antarctic_ice_sheet</of>
 				</alias>
-				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="left" label_angle="225" uid="538" x="924.512" y="371.779" width="18" height="18">
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="left" label_angle="225" uid="538" x="931.179" y="498.446" width="18" height="18">
 					<of>Include_MICI_behaviour</of>
 				</alias>
-				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="right" uid="539" x="1853.5" y="924.601" width="18" height="18">
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" label_side="right" uid="539" x="1860.17" y="1051.27" width="18" height="18">
 					<of>scale_factor_Antarctic_ice_sheet</of>
 				</alias>
-				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" uid="546" x="1517.88" y="1425.38" width="18" height="18">
+				<alias color="#55AAFF" font_style="italic" font_color="#55AAFF" uid="546" x="1524.55" y="1552.05" width="18" height="18">
 					<of>scale_factor_Antarctic_ice_sheet</of>
 				</alias>
-				<alias font_style="italic" uid="547" x="947.042" y="1131.21" width="16.75" height="16.75">
+				<alias font_style="italic" uid="547" x="953.709" y="1257.88" width="16.75" height="16.75">
 					<of>Total_global_sea_level_anomaly</of>
+				</alias>
+				<alias font_style="italic" uid="583" x="740" y="282.333" width="18" height="18">
+					<of>initial_sea_level_anomaly_from_GrIS</of>
+				</alias>
+				<alias font_style="italic" uid="584" x="704.667" y="861.667" width="18" height="18">
+					<of>initial_sea_level_anomaly_from_AntIS</of>
+				</alias>
+				<alias font_style="italic" uid="586" x="130.146" y="1316.67" width="18" height="18">
+					<of>initial_sea_level_anomaly_from_LWS</of>
 				</alias>
 			</view>
 		</views>
